@@ -1,5 +1,5 @@
 {
   "version": 1,
   "include": ["/*"],
-  "exclude": ["/assets/*", "/manus-storage/*", "*.css", "*.js", "*.png", "*.jpg", "*.jpeg", "*.gif", "*.svg", "*.mp4", "*.webm", "*.ico", "*.woff", "*.woff2", "*.ttf", "*.eot"]
+  "exclude": ["/assets/*", "/manus-storage/*"]
 }

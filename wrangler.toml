@@ -1,0 +1,19 @@
+name = "kateikyoshi-sogo"
+type = "javascript"
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+
+[env.production]
+name = "kateikyoshi-sogo-prod"
+route = "kateikyoshi-sogo.com/*"
+zone_id = ""
+
+[build]
+command = "echo 'Static site - no build needed'"
+cwd = "."
+watch_paths = []
+
+[build.upload]
+format = "service-worker"
