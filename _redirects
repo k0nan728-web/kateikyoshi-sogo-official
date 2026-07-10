@@ -1,0 +1,2 @@
+# Redirect www to non-www
+https://www.kateikyoshi-sogo.com/* https://kateikyoshi-sogo.com/:splat 301
