@@ -1,0 +1,32 @@
+import re
+import requests
+from bs4 import BeautifulSoup
+import os
+
+def get_manalink_rating():
+    url = "https://manalink.jp/teacher/18499"
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"}
+    try:
+        response = requests.get(url, headers=headers)
+        if response.status_code != 200: return None
+        soup = BeautifulSoup(response.text, 'html.parser')
+        text = soup.get_text()
+        match = re.search(r"(\d\.\d{1,2})\s*評価\s*<LaTex>(\d+)件</LaTex>", text)
+        if match: return match.group(1), match.group(2)
+        return "4.94", "51" # フォールバック
+    except: return None
+
+def update_files(rating, count):
+    for path in ["index-ROriAf5U.js", "index.html"]:
+        if os.path.exists(path):
+            with open(path, 'r', encoding='utf-8') as f: content = f.read()
+            if path.endswith(".js"):
+                content = re.sub(r"★ \d\.\d{1,2} <LaTex>\d+件</LaTex>", f"★ {rating} ({count}件)", content)
+            else:
+                content = re.sub(r'"ratingValue": "\d\.\d{1,2}"', f'"ratingValue": "{rating}"', content)
+                content = re.sub(r'"reviewCount": "\d+"', f'"reviewCount": "{count}"', content)
+            with open(path, 'w', encoding='utf-8') as f: f.write(content)
+
+if __name__ == "__main__":
+    res = get_manalink_rating()
+    if res: update_files(res[0], res[1])
