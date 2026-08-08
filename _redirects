@@ -1,4 +1,0 @@
-# SEO best practice: Redirect to HTTPS and non-www
-https://www.kateikyoshi-sogo.com/* https://kateikyoshi-sogo.com/:splat 301
-http://www.kateikyoshi-sogo.com/* https://kateikyoshi-sogo.com/:splat 301
-http://kateikyoshi-sogo.com/* https://kateikyoshi-sogo.com/:splat 301
