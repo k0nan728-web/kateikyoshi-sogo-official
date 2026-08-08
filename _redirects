@@ -1,2 +1,4 @@
-# Redirect www to non-www
+# Redirect www to non-www (SEO best practice)
 https://www.kateikyoshi-sogo.com/* https://kateikyoshi-sogo.com/:splat 301
+http://www.kateikyoshi-sogo.com/* https://kateikyoshi-sogo.com/:splat 301
+http://kateikyoshi-sogo.com/* https://kateikyoshi-sogo.com/:splat 301
