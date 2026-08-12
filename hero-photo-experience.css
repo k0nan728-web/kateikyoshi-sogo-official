@@ -1,0 +1,263 @@
+/* Photo-led hero experience: dedicated to the top-page online lesson visual. */
+
+:root {
+  --ks-hero-navy: #0b1f3a;
+  --ks-hero-blue: #164f96;
+  --ks-hero-amber: #e6a619;
+}
+
+.ks-photo-hero {
+  isolation: isolate;
+}
+
+.ks-photo-hero .ks-hero-visual,
+.ks-photo-hero .ks-hero-copy {
+  position: relative;
+}
+
+@keyframes ks-hero-image-reveal {
+  from {
+    opacity: 0;
+    transform: scale(1.035);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ks-hero-slide-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes ks-hero-slide-right {
+  from {
+    opacity: 0;
+    transform: translate3d(-26px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (max-width: 900px) {
+  .ks-photo-hero {
+    background: #f7f9fc !important;
+  }
+
+  .ks-photo-hero > div:first-child {
+    max-width: none !important;
+    padding: 0 0 2.25rem !important;
+  }
+
+  .ks-photo-hero > div:first-child > .grid {
+    display: block !important;
+  }
+
+  .ks-photo-hero .ks-hero-visual {
+    position: relative !important;
+    inset: auto !important;
+    z-index: 1;
+    display: block !important;
+    width: 100%;
+    height: clamp(21rem, 52svh, 31rem);
+    overflow: hidden;
+  }
+
+  .ks-photo-hero .ks-hero-visual > div,
+  .ks-photo-hero .ks-hero-visual img {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .ks-photo-hero .ks-hero-visual::after {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    content: "";
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(5, 20, 39, 0.04) 36%,
+      rgba(5, 20, 39, 0.2) 67%,
+      rgba(5, 20, 39, 0.62) 100%
+    );
+  }
+
+  .ks-photo-hero .ks-hero-visual img {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    object-fit: cover !important;
+    object-position: 51% 36%;
+  }
+
+  .ks-photo-hero .ks-hero-copy {
+    z-index: 2;
+    width: calc(100% - 1.5rem);
+    margin: -2.5rem auto 0 !important;
+    padding: 1.75rem 1.25rem 1.25rem !important;
+    border: 1px solid rgba(218, 226, 239, 0.95);
+    border-radius: 1.45rem 1.45rem 1rem 1rem;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 1.4rem 3.3rem rgba(10, 29, 57, 0.17);
+    backdrop-filter: blur(10px);
+  }
+
+  .ks-photo-hero .ks-hero-copy > div:first-child {
+    margin-bottom: 1.15rem !important;
+  }
+
+  .ks-photo-hero .ks-hero-copy h1 {
+    max-width: 14ch;
+    margin: 0 !important;
+    color: var(--ks-hero-navy) !important;
+    font-size: clamp(2rem, 8.3vw, 2.7rem) !important;
+    line-height: 1.22 !important;
+    letter-spacing: 0.015em !important;
+  }
+
+  .ks-photo-hero .ks-hero-copy h1::after {
+    display: block;
+    width: 3rem;
+    height: 0.24rem;
+    margin-top: 1rem;
+    content: "";
+    border-radius: 999px;
+    background: linear-gradient(90deg, #f4b31c, #df8b00);
+  }
+
+  .ks-photo-hero .ks-hero-copy p {
+    color: #40516a !important;
+    font-size: 0.955rem !important;
+    line-height: 1.9 !important;
+  }
+
+  .ks-photo-hero .ks-hero-copy p:first-of-type {
+    margin-top: 1rem !important;
+    color: #173f73 !important;
+    font-weight: 700 !important;
+  }
+
+  .ks-photo-hero .ks-hero-copy [class*="grid"] {
+    gap: 0.68rem !important;
+    margin-top: 1.3rem !important;
+  }
+
+  .ks-photo-hero .ks-hero-copy [class*="grid"] > div {
+    min-height: 5.7rem;
+    padding: 0.9rem 0.82rem !important;
+    border: 1px solid #dfe7f1 !important;
+    border-left: 0.24rem solid #e89a10 !important;
+    border-radius: 0.8rem !important;
+    background: #fff !important;
+    box-shadow: 0 0.45rem 1rem rgba(16, 49, 88, 0.07) !important;
+  }
+
+  .ks-photo-hero .ks-hero-copy [class*="grid"] strong,
+  .ks-photo-hero .ks-hero-copy [class*="grid"] .font-bold {
+    color: #1255c5 !important;
+  }
+
+  .ks-photo-hero .ks-hero-copy > div:last-child {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 0.7rem !important;
+    margin-top: 1.25rem !important;
+  }
+
+  .ks-photo-hero .ks-hero-copy > div:last-child a {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.35rem;
+    border-radius: 0.78rem !important;
+    font-size: 0.98rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.02em;
+  }
+
+  .ks-photo-hero.ks-hero-mounted .ks-hero-visual {
+    animation: ks-hero-image-reveal 0.75s cubic-bezier(0.2, 0.75, 0.3, 1) both;
+  }
+
+  .ks-photo-hero.ks-hero-mounted .ks-hero-copy > div:first-child {
+    animation: ks-hero-slide-up 0.6s 0.18s cubic-bezier(0.2, 0.75, 0.3, 1) both;
+  }
+
+  .ks-photo-hero.ks-hero-mounted .ks-hero-copy [class*="grid"] {
+    animation: ks-hero-slide-up 0.6s 0.34s cubic-bezier(0.2, 0.75, 0.3, 1) both;
+  }
+
+  .ks-photo-hero.ks-hero-mounted .ks-hero-copy > div:last-child {
+    animation: ks-hero-slide-up 0.6s 0.46s cubic-bezier(0.2, 0.75, 0.3, 1) both;
+  }
+}
+
+@media (min-width: 901px) {
+  .ks-photo-hero > div:first-child {
+    max-width: 80rem !important;
+    padding-top: clamp(4.5rem, 8vw, 7.5rem) !important;
+    padding-bottom: clamp(4.5rem, 8vw, 7.5rem) !important;
+  }
+
+  .ks-photo-hero .ks-hero-visual {
+    align-self: start;
+  }
+
+  .ks-photo-hero .ks-hero-visual img {
+    aspect-ratio: 5 / 6;
+    object-fit: cover;
+    object-position: 52% center;
+    border: 0.75rem solid #fff;
+    box-shadow: 0 1.6rem 4rem rgba(11, 31, 58, 0.16);
+  }
+
+  .ks-photo-hero .ks-hero-copy h1 {
+    max-width: 13ch;
+    font-size: clamp(2.8rem, 4vw, 4.35rem) !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.01em;
+  }
+
+  .ks-photo-hero .ks-hero-copy h1::after {
+    display: block;
+    width: 3.5rem;
+    height: 0.28rem;
+    margin-top: 1.3rem;
+    content: "";
+    border-radius: 999px;
+    background: linear-gradient(90deg, #f4b31c, #df8b00);
+  }
+
+  .ks-photo-hero.ks-hero-mounted .ks-hero-visual {
+    animation: ks-hero-image-reveal 0.8s cubic-bezier(0.2, 0.75, 0.3, 1) both;
+  }
+
+  .ks-photo-hero.ks-hero-mounted .ks-hero-copy > div:first-child {
+    animation: ks-hero-slide-right 0.65s 0.16s cubic-bezier(0.2, 0.75, 0.3, 1)
+      both;
+  }
+
+  .ks-photo-hero.ks-hero-mounted .ks-hero-copy [class*="grid"],
+  .ks-photo-hero.ks-hero-mounted .ks-hero-copy > div:last-child {
+    animation: ks-hero-slide-up 0.65s 0.34s cubic-bezier(0.2, 0.75, 0.3, 1) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ks-photo-hero *,
+  .ks-photo-hero *::before,
+  .ks-photo-hero *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
