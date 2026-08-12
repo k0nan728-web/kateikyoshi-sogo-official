@@ -1278,3 +1278,188 @@ nav .ks-header-growth-link:hover {
     display: none !important;
   }
 }
+
+/* Mobile polish for trust, direct-partnership and course-discovery sections. */
+@media (max-width: 767px) {
+  .ks-reasons .ks-growth-heading,
+  .ks-blog .ks-growth-heading,
+  .ks-stoaca-copy {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .ks-reasons .ks-growth-heading h2::after,
+  .ks-blog .ks-growth-heading h2::after,
+  .ks-stoaca-copy h2::after {
+    display: block;
+    width: 44px;
+    height: 3px;
+    margin: 0.9rem auto 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--ks-amber), #f8c650);
+    content: "";
+  }
+
+  .ks-reasons .ks-growth-heading > p:last-child,
+  .ks-blog .ks-growth-heading > p:last-child,
+  .ks-stoaca-copy > p {
+    max-width: 34rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .ks-reasons-grid {
+    gap: 0.9rem;
+  }
+
+  .ks-reason-card {
+    min-height: 0;
+    padding: 1.6rem 1.25rem 1.45rem;
+    border-color: rgba(16, 74, 145, 0.16);
+    border-top: 3px solid var(--ks-amber);
+    box-shadow: 0 12px 26px rgba(11, 31, 58, 0.08);
+    text-align: center;
+  }
+
+  .ks-reason-number {
+    width: 2.35rem;
+    height: 2.35rem;
+    margin: 0 auto 0.9rem;
+    padding-top: 0.54rem;
+    color: #fff;
+    border-radius: 50%;
+    background: var(--ks-blue);
+    font-size: 0.78rem;
+  }
+
+  .ks-reason-number::after {
+    display: none;
+  }
+
+  .ks-reason-card h3 {
+    color: var(--ks-navy);
+    font-size: 1.12rem;
+    line-height: 1.55;
+  }
+
+  .ks-reason-card p {
+    color: #52647a;
+    font-size: 0.9rem;
+    line-height: 1.85;
+    text-align: left;
+  }
+
+  .ks-direct-contract {
+    padding-top: 4.75rem;
+    padding-bottom: 4.75rem;
+    text-align: center;
+  }
+
+  .ks-direct-contract-lead > p,
+  .ks-direct-contract-lead .ks-direct-contract-note {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .ks-direct-contract-note {
+    max-width: 34rem;
+    text-align: left;
+  }
+
+  .ks-value-list {
+    gap: 0.85rem;
+    text-align: left;
+  }
+
+  .ks-value-item {
+    grid-template-columns: 44px 1fr;
+    gap: 0.85rem;
+    padding: 1.15rem 1rem;
+    border-color: rgba(248, 198, 80, 0.28);
+    background: rgba(255, 255, 255, 0.09);
+  }
+
+  .ks-value-icon {
+    width: 44px;
+    height: 44px;
+    color: var(--ks-navy);
+    border-color: transparent;
+    background: #f8c650;
+  }
+
+  .ks-value-item h3 {
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .ks-value-item p {
+    margin-top: 0.5rem;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.86rem;
+    line-height: 1.75;
+  }
+
+  .ks-stoaca {
+    overflow: hidden;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .ks-stoaca-visual {
+    margin: 0 auto;
+  }
+
+  .ks-stoaca-copy .ks-eyebrow {
+    color: var(--ks-amber-deep);
+  }
+
+  .ks-stoaca-copy h2 {
+    font-size: clamp(1.9rem, 8vw, 2.4rem);
+    line-height: 1.4;
+  }
+
+  .ks-check-list {
+    padding: 1rem !important;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.72);
+    text-align: left;
+  }
+
+  .ks-stoaca-actions {
+    align-items: stretch;
+  }
+
+  .ks-stoaca-actions .ks-growth-cta {
+    box-shadow: 0 12px 24px rgba(198, 110, 10, 0.24);
+  }
+
+  .ks-blog .ks-growth-heading h2 {
+    color: var(--ks-navy);
+  }
+
+  .ks-article-card {
+    padding: 1.45rem 1.2rem;
+    border-top: 3px solid var(--ks-blue);
+  }
+
+  .ks-article-card h3 {
+    color: var(--ks-navy);
+    font-size: 1.05rem;
+  }
+
+  .ks-social-hub {
+    padding: 1.6rem 1.25rem;
+    text-align: center;
+  }
+
+  .ks-social-hub > p {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .ks-social-card {
+    text-align: left;
+  }
+}

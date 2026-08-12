@@ -241,6 +241,14 @@
     insertAfter(results, createStoaca());
     insertAfter(howWeTeach, createBlog());
     addHeaderLinks();
+
+    // The sections are injected after the application mounts. Re-apply a URL
+    // hash once so shared links and mobile navigation land on the new section.
+    const targetId = window.location.hash.slice(1);
+    const target = targetId && document.getElementById(targetId);
+    if (target) {
+      window.setTimeout(() => target.scrollIntoView({ block: "start" }), 80);
+    }
   };
 
   const start = () => {
