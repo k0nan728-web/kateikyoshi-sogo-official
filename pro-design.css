@@ -1,0 +1,577 @@
+/*
+ * Professional responsive design layer
+ * Maintains existing content and form links while establishing an editorial,
+ * accessible visual system across desktop, tablet, and mobile.
+ */
+
+:root {
+  --ks-navy: #0b1f3a;
+  --ks-navy-deep: #061529;
+  --ks-blue: #164e9d;
+  --ks-blue-bright: #1d64c8;
+  --ks-ink: #182230;
+  --ks-muted: #516174;
+  --ks-mist: #f5f8fc;
+  --ks-line: #dce5f0;
+  --ks-amber: #f59e0b;
+  --ks-amber-deep: #d97706;
+  --ks-white: #ffffff;
+  --ks-radius: 18px;
+  --ks-shadow-sm: 0 8px 22px rgba(11, 31, 58, 0.07);
+  --ks-shadow-md: 0 18px 48px rgba(11, 31, 58, 0.12);
+  --ks-ease: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 104px;
+  background: var(--ks-white);
+}
+
+body {
+  min-width: 320px;
+  padding-top: 0 !important;
+  color: var(--ks-ink);
+  background: var(--ks-white);
+  font-family:
+    "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  font-size: 16px;
+  line-height: 1.85;
+  letter-spacing: 0.015em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  color: #fff;
+  background: var(--ks-blue);
+}
+
+#root {
+  overflow: clip;
+}
+
+main {
+  padding-top: 96px;
+  padding-bottom: 104px;
+}
+
+.container,
+.max-w-7xl {
+  width: min(100%, 1200px) !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  padding-right: 32px !important;
+  padding-left: 32px !important;
+}
+
+/* Header: reduce visual noise and elevate the most important action. */
+nav.fixed.top-0 {
+  background: rgba(6, 21, 41, 0.96) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(6, 21, 41, 0.16);
+  backdrop-filter: blur(14px);
+}
+
+nav.fixed.top-0 > .container > div {
+  min-height: 56px !important;
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+}
+
+nav.fixed.top-0 a:focus-visible,
+nav.fixed.top-0 button:focus-visible,
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #fbbf24 !important;
+  outline-offset: 3px;
+}
+
+nav.fixed.top-0 .btn-cta {
+  border-radius: 999px !important;
+  box-shadow: 0 8px 18px rgba(245, 158, 11, 0.22);
+  font-weight: 800 !important;
+  letter-spacing: 0.03em;
+}
+
+nav.fixed.top-0 > div:nth-child(2) {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+nav.fixed.top-0 > div:nth-child(2) a {
+  min-height: 40px;
+  padding: 9px 11px !important;
+  font-size: 12px !important;
+}
+
+/* Readable hierarchy across a long-form educational site. */
+main > section {
+  scroll-margin-top: 104px;
+}
+
+main > section:not(:first-child) {
+  padding-top: clamp(4.5rem, 8vw, 7rem) !important;
+  padding-bottom: clamp(4.5rem, 8vw, 7rem) !important;
+}
+
+main > section:nth-of-type(odd):not(:first-child) {
+  background: var(--ks-mist);
+}
+
+main h1,
+main h2,
+main h3,
+main h4 {
+  color: var(--ks-navy);
+  text-wrap: balance;
+}
+
+main h1 {
+  max-width: 15ch;
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(2.1rem, 4.1vw, 4.15rem) !important;
+  font-weight: 900;
+  line-height: 1.38 !important;
+  letter-spacing: 0.015em;
+}
+
+main h2 {
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(1.85rem, 3.2vw, 3rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0.02em;
+}
+
+main h3 {
+  font-size: clamp(1.18rem, 1.7vw, 1.5rem) !important;
+  line-height: 1.55 !important;
+}
+
+main p,
+main li,
+main td,
+main th {
+  line-height: 1.85;
+}
+
+main p {
+  color: var(--ks-muted);
+}
+
+main p + p {
+  margin-top: 0.9rem;
+}
+
+/* Hero: clear evidence-led narrative and unambiguous next steps. */
+main > section:first-child {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      circle at 88% 7%,
+      rgba(35, 105, 207, 0.11),
+      transparent 28rem
+    ),
+    linear-gradient(180deg, #fff 0%, #f6f9fd 100%) !important;
+}
+
+main > section:first-child::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: min(48vw, 720px);
+  height: 100%;
+  content: "";
+  background: linear-gradient(135deg, rgba(20, 78, 157, 0.04), transparent 62%);
+}
+
+main > section:first-child > div {
+  padding-top: clamp(3.25rem, 7vw, 7rem) !important;
+  padding-bottom: clamp(4.5rem, 8vw, 8rem) !important;
+}
+
+main > section:first-child img {
+  aspect-ratio: 4 / 5;
+  border: 7px solid #fff;
+  border-radius: 24px !important;
+  box-shadow: var(--ks-shadow-md) !important;
+  object-fit: cover;
+}
+
+main > section:first-child h1::after {
+  display: block;
+  width: 68px;
+  height: 4px;
+  margin-top: 0.65em;
+  content: "";
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ks-amber), #fbbf24);
+}
+
+main > section:first-child .grid.grid-cols-1.sm\:grid-cols-2 > div {
+  overflow: hidden;
+  border: 1px solid #d9e6f6 !important;
+  border-radius: 16px !important;
+  background: rgba(255, 255, 255, 0.78) !important;
+  box-shadow: var(--ks-shadow-sm);
+}
+
+main > section:first-child .grid.grid-cols-1.sm\:grid-cols-2 > div:hover {
+  transform: translateY(-2px);
+}
+
+main > section:first-child a[href="#contact"] {
+  min-height: 56px;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 22px rgba(245, 158, 11, 0.2);
+}
+
+main > section:first-child a[href="#contact"]:last-child {
+  color: var(--ks-blue) !important;
+  border-color: var(--ks-blue) !important;
+  background: rgba(255, 255, 255, 0.82) !important;
+  box-shadow: none;
+}
+
+/* Editorial section rhythm and card consistency. */
+#for-you,
+#why,
+#results,
+#testimonials,
+#faq,
+#process {
+  position: relative;
+}
+
+#for-you .rounded-xl,
+#why .rounded-xl,
+#courses .rounded-xl,
+#futouko .rounded-xl,
+#results .rounded-xl,
+#how-we-teach .rounded-xl,
+#testimonials .rounded-xl,
+#pricing .rounded-xl,
+#counseling .rounded-xl,
+#faq .rounded-xl {
+  border: 1px solid var(--ks-line);
+  border-radius: var(--ks-radius) !important;
+  box-shadow: var(--ks-shadow-sm);
+}
+
+#for-you [class*="bg-white"],
+#why [class*="bg-white"],
+#courses [class*="bg-white"],
+#futouko [class*="bg-white"],
+#results [class*="bg-white"],
+#how-we-teach [class*="bg-white"],
+#testimonials [class*="bg-white"],
+#pricing [class*="bg-white"],
+#counseling [class*="bg-white"] {
+  background: rgba(255, 255, 255, 0.93) !important;
+}
+
+#courses button,
+#results button,
+#testimonials button,
+#faq button {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+#courses button:focus-visible,
+#results button:focus-visible,
+#testimonials button:focus-visible,
+#faq button:focus-visible {
+  outline: 3px solid var(--ks-amber) !important;
+  outline-offset: 3px;
+}
+
+main a:not(nav a) {
+  text-underline-offset: 0.18em;
+}
+
+main a[class*="bg-orange"],
+main a.btn-cta,
+#floating-cta a {
+  border-radius: 12px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.025em;
+  transition:
+    transform 180ms var(--ks-ease),
+    box-shadow 180ms var(--ks-ease),
+    background 180ms var(--ks-ease) !important;
+}
+
+main a[class*="bg-orange"]:hover,
+main a.btn-cta:hover,
+#floating-cta a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(217, 119, 6, 0.24) !important;
+}
+
+main a[class*="bg-orange"]:active,
+main a.btn-cta:active,
+#floating-cta a:active {
+  transform: scale(0.98);
+}
+
+/* Tables: retain exact content while improving scanability. */
+.course-comparison-table {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--ks-line) !important;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--ks-shadow-sm);
+}
+
+.course-comparison-table th {
+  color: #fff !important;
+  background: var(--ks-navy) !important;
+}
+
+.course-comparison-table td,
+.course-comparison-table th {
+  padding: 0.95rem 1rem !important;
+  vertical-align: middle;
+  border-color: var(--ks-line) !important;
+}
+
+.course-comparison-table tbody tr:nth-child(even) {
+  background: #f7faff;
+}
+
+/* Floating CTA: only appears after the visitor has begun reading, never on top of the initial evidence. */
+#floating-cta {
+  z-index: 45 !important;
+  right: 24px !important;
+  bottom: 24px !important;
+  max-width: calc(100vw - 48px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(14px);
+  transition:
+    opacity 180ms var(--ks-ease),
+    transform 180ms var(--ks-ease);
+}
+
+#floating-cta.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+#floating-cta a {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0.85rem 1.25rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: linear-gradient(
+    135deg,
+    var(--ks-amber) 0%,
+    var(--ks-amber-deep) 100%
+  ) !important;
+  box-shadow: 0 14px 30px rgba(154, 81, 9, 0.28) !important;
+}
+
+/* Footer shell injected into the static template. */
+body > footer {
+  margin-top: 0 !important;
+  padding: 2rem 1.25rem !important;
+  color: rgba(255, 255, 255, 0.74) !important;
+  background: var(--ks-navy-deep) !important;
+  font-size: 0.9rem;
+}
+
+body > footer p {
+  margin: 0 !important;
+}
+
+body > footer a {
+  color: #fcd34d !important;
+  font-weight: 700;
+}
+
+@media (max-width: 1023px) {
+  .container,
+  .max-w-7xl {
+    padding-right: 24px !important;
+    padding-left: 24px !important;
+  }
+
+  main > section:first-child > div {
+    gap: 2.75rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  html {
+    scroll-padding-top: 68px;
+  }
+
+  body {
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  main {
+    padding-top: 60px;
+    padding-bottom: 96px;
+  }
+
+  .container,
+  .max-w-7xl {
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+  }
+
+  nav.fixed.top-0 > .container > div {
+    min-height: 60px !important;
+  }
+
+  nav.fixed.top-0 > .container > div > a > div:first-child span {
+    font-size: 7px !important;
+  }
+
+  nav.fixed.top-0 > .container > div > a > div:nth-child(2) span:first-child {
+    font-size: 14px !important;
+  }
+
+  main > section {
+    scroll-margin-top: 68px;
+  }
+
+  main > section:not(:first-child) {
+    padding-top: 4.25rem !important;
+    padding-bottom: 4.25rem !important;
+  }
+
+  main > section:first-child > div {
+    padding-top: 2.5rem !important;
+    padding-bottom: 4.75rem !important;
+  }
+
+  main > section:first-child h1 {
+    max-width: 12ch;
+    font-size: clamp(1.9rem, 8.5vw, 2.45rem) !important;
+    line-height: 1.43 !important;
+  }
+
+  main > section:first-child .grid.grid-cols-1.sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.75rem !important;
+  }
+
+  main > section:first-child .grid.grid-cols-1.sm\:grid-cols-2 > div {
+    padding: 1rem !important;
+  }
+
+  main
+    > section:first-child
+    .grid.grid-cols-1.sm\:grid-cols-2
+    > div
+    > div
+    > div:first-child {
+    font-size: 1.55rem !important;
+  }
+
+  main
+    > section:first-child
+    .grid.grid-cols-1.sm\:grid-cols-2
+    > div
+    > div
+    > div:last-child {
+    margin-top: 0.25rem !important;
+    font-size: 0.76rem !important;
+  }
+
+  main > section:first-child img {
+    aspect-ratio: 16 / 10;
+    border-width: 5px;
+    border-radius: 18px !important;
+  }
+
+  main > section:first-child > div > div > div:first-child {
+    order: 2 !important;
+  }
+
+  main > section:first-child > div > div > div:last-child {
+    order: 1 !important;
+  }
+
+  main > section:first-child a[href="#contact"] {
+    min-height: 54px;
+  }
+
+  main h2 {
+    font-size: clamp(1.7rem, 7.4vw, 2.2rem) !important;
+  }
+
+  main h3 {
+    font-size: 1.18rem !important;
+  }
+
+  #floating-cta {
+    right: 14px !important;
+    bottom: calc(12px + env(safe-area-inset-bottom)) !important;
+    left: 14px !important;
+    max-width: none;
+  }
+
+  #floating-cta a {
+    width: 100%;
+    min-height: 54px;
+    font-size: 0.93rem !important;
+  }
+
+  .course-comparison-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .course-comparison-table td:first-child,
+  .course-comparison-table th:first-child {
+    width: 144px !important;
+    min-width: 144px !important;
+    max-width: 144px !important;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+.ks-skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 10px;
+  left: 10px;
+  padding: 0.7rem 1rem;
+  color: #fff;
+  border-radius: 10px;
+  background: var(--ks-blue);
+  box-shadow: var(--ks-shadow-md);
+  transform: translateY(-160%);
+  transition: transform 180ms var(--ks-ease);
+}
+
+.ks-skip-link:focus {
+  transform: translateY(0);
+}
+
+#main-content:focus {
+  outline: none;
+}
