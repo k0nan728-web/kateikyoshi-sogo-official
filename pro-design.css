@@ -575,3 +575,31 @@ body > footer a {
 #main-content:focus {
   outline: none;
 }
+
+/* Course-detail conversion path: preserve clear, uninterrupted tap targets. */
+.ks-course-detail {
+  padding-bottom: max(2rem, env(safe-area-inset-bottom));
+}
+
+.ks-course-detail #floating-cta {
+  display: none !important;
+}
+
+.ks-course-detail a[data-ks-form-link="true"] {
+  min-height: 54px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(245, 158, 11, 0.18);
+}
+
+@media (max-width: 767px) {
+  .ks-course-detail .container {
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+  }
+
+  .ks-course-detail a[data-ks-form-link="true"] {
+    width: 100%;
+    min-height: 56px;
+    font-size: 1rem;
+  }
+}
