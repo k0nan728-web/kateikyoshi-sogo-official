@@ -2,7 +2,8 @@
 (() => {
   const STOACA_PROFILE_URL = "https://www.street-academy.com/steachers/685282";
   const STOACA_EIKEN_URL = "https://www.street-academy.com/myclass/155464";
-  const BLOG_HOME_URL = "https://eiken-seminar.hatenablog.jp/";
+  const BLOG_HOME_URL = "/blog/";
+  const LEGACY_BLOG_URL = "https://eiken-seminar.hatenablog.jp/";
 
   // Set an account URL here when each official channel is ready to publish.
   // Empty values intentionally render as "準備中" to avoid misleading visitors.
@@ -16,27 +17,27 @@
   const articleCards = [
     {
       category: "英検対策",
-      title: "夏に差がつく。英検対策の始めどきは「今」",
+      title: "英検の勉強は、何から始める？ 逆算する4つのステップ",
       excerpt:
-        "学校の授業が少ない時期を、長文読解・リスニング・面接準備にどう使うか。個別カリキュラムの考え方を解説します。",
-      url: "https://eiken-seminar.hatenablog.jp/entry/2025/07/06/230943",
-      date: "2025.07.06",
+        "目標級・現在地・試験日・4技能の優先順位を整理し、英検学習を遠回りにしないための考え方を解説します。",
+      url: "/blog/?article=eiken-study-roadmap",
+      date: "2026.08.12",
     },
     {
       category: "学習法",
-      title: "英検の勉強は、何から始める？",
+      title: "文系受験、何から立て直す？ 科目の優先順位を決める考え方",
       excerpt:
-        "目標級、現在地、試験日から逆算して、最初に整えるべき学習の順番を紹介します。",
-      url: "https://eiken-seminar.hatenablog.jp/entry/2025/07/16/100000",
-      date: "学習アドバイス",
+        "英語・国語・社会を同時に伸ばすために、志望校の配点と現在地から学習の順番を整理します。",
+      url: "/blog/?article=humanities-exam-priority",
+      date: "2026.08.05",
     },
     {
-      category: "受験・進路",
-      title: "小学生が英検2級以上を目指すときに大切なこと",
+      category: "不登校・通信制",
+      title: "学校に通いづらい時期、学習をどう再開する？",
       excerpt:
-        "無理なく伸ばすための到達目標、土台づくり、家庭での関わり方を考えます。",
-      url: "https://eiken-seminar.hatenablog.jp/entry/2025/06/23/202636",
-      date: "受験・英検",
+        "量よりも安心して続けられる形を大切にする、学習再開と保護者の関わり方を紹介します。",
+      url: "/blog/?article=restart-study-at-home",
+      date: "2026.07.28",
     },
   ];
 
@@ -50,6 +51,9 @@
 
   const openExternal = (url) =>
     `href="${url}" target="_blank" rel="noopener noreferrer"`;
+
+  const contentLink = (url) =>
+    url.startsWith("/") ? `href="${url}"` : openExternal(url);
 
   const createReasons = () =>
     section(
@@ -251,7 +255,7 @@
           <p class="ks-article-meta"><span>${article.category}</span>${article.date}</p>
           <h3>${article.title}</h3>
           <p>${article.excerpt}</p>
-          <a ${openExternal(article.url)} class="ks-text-link">記事を読む <span>→</span></a>
+          <a ${contentLink(article.url)} class="ks-text-link">記事を読む <span>→</span></a>
         </article>
       `,
     )
@@ -275,7 +279,8 @@
               <h3>新着の教育情報を<br>見逃さないために</h3>
               <p>ブログの更新を起点に、LINE・X・Instagram・YouTubeでも学習のヒントや講座情報をお届けする予定です。</p>
               <div class="ks-social-grid">${socialCards}</div>
-              <a ${openExternal(BLOG_HOME_URL)} class="ks-growth-cta ks-growth-cta--outline">英検合格ゼミナールのブログへ <span>↗</span></a>
+              <a href="${BLOG_HOME_URL}" class="ks-growth-cta ks-growth-cta--outline">教育コラム一覧を見る <span>→</span></a>
+              <a ${openExternal(LEGACY_BLOG_URL)} class="ks-text-link">英検合格ゼミナールの旧ブログを見る <span>↗</span></a>
             </aside>
           </div>
           <div class="ks-content-topics" aria-label="今後発信するテーマ">
@@ -294,7 +299,7 @@
     const entries = [
       { href: "#reasons", label: "選ばれる理由" },
       { href: "#stoaca", label: "講座・SNS" },
-      { href: "#blog", label: "教育コラム" },
+      { href: "/blog/", label: "教育コラム" },
     ];
     const faqLinks = document.querySelectorAll('nav a[href="#faq"]');
     faqLinks.forEach((faqLink) => {
