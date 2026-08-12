@@ -340,3 +340,48 @@
     background: linear-gradient(90deg, #f4b31c, #df8b00);
   }
 }
+
+/* Compact mobile keyword line and a centered supporting statement. */
+@media (max-width: 900px) {
+  .ks-photo-hero .ks-hero-copy h1 {
+    white-space: nowrap;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: clamp(1.05rem, 4.75vw, 1.24rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.45 !important;
+    letter-spacing: 0 !important;
+  }
+
+  .ks-photo-hero .ks-hero-copy .ks-hero-secondary {
+    max-width: 20ch;
+    margin: 1.2rem auto 0 !important;
+    text-align: center;
+    font-size: clamp(1.14rem, 5vw, 1.28rem) !important;
+    line-height: 1.7 !important;
+  }
+
+  .ks-photo-hero .ks-hero-copy .ks-hero-secondary::after {
+    margin: 0.95rem auto 0;
+  }
+}
+
+/* Keep the four service keywords on one line and center the supporting statement on larger screens too. */
+@media (min-width: 901px) {
+  .ks-photo-hero .ks-hero-copy h1 {
+    white-space: nowrap;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: clamp(1.35rem, 2vw, 1.85rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.45 !important;
+    letter-spacing: 0 !important;
+  }
+
+  .ks-photo-hero .ks-hero-copy .ks-hero-secondary {
+    margin: 1.35rem auto 0 !important;
+    text-align: center;
+  }
+
+  .ks-photo-hero .ks-hero-copy .ks-hero-secondary::after {
+    margin: 1.15rem auto 0;
+  }
+}
