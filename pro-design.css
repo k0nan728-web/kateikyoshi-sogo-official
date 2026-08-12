@@ -1892,3 +1892,79 @@ nav .ks-header-growth-link:hover {
   word-break: normal;
   overflow-wrap: anywhere;
 }
+
+/* Grade-specific street-academy course links. */
+.ks-street-academy-courses {
+  margin-top: 1.5rem;
+  padding: 1.15rem;
+  border: 1px solid #d7e3f0;
+  border-radius: 12px;
+  background: #f7fbff;
+}
+
+.ks-street-academy-courses > p {
+  margin: 0 0 0.8rem;
+  color: var(--ks-blue);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.ks-street-academy-courses > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.ks-street-academy-course-link {
+  display: flex;
+  min-height: 45px;
+  gap: 0.45rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.8rem;
+  color: var(--ks-navy);
+  border: 1px solid #bed1e7;
+  border-radius: 7px;
+  background: #fff;
+  font-size: 0.83rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    border-color 160ms var(--ks-ease),
+    background 160ms var(--ks-ease),
+    color 160ms var(--ks-ease),
+    transform 160ms var(--ks-ease);
+}
+
+.ks-street-academy-course-link:hover,
+.ks-street-academy-course-link:focus-visible {
+  color: #fff;
+  border-color: var(--ks-blue);
+  background: var(--ks-blue);
+  transform: translateY(-2px);
+}
+
+.ks-street-academy-course-link:active {
+  transform: scale(0.97);
+}
+
+.ks-street-academy-course-link span {
+  color: var(--ks-gold);
+  font-size: 1rem;
+}
+
+.ks-street-academy-course-link:hover span,
+.ks-street-academy-course-link:focus-visible span {
+  color: #fff;
+}
+
+@media (max-width: 520px) {
+  .ks-street-academy-courses {
+    padding: 1rem;
+  }
+
+  .ks-street-academy-courses > div {
+    grid-template-columns: 1fr;
+  }
+}

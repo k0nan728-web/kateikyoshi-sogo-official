@@ -1,7 +1,25 @@
 /* Content-growth sections for the static production build. */
 (() => {
-  const STOACA_PROFILE_URL = "https://www.street-academy.com/steachers/685282";
-  const STOACA_EIKEN_URL = "https://www.street-academy.com/myclass/155464";
+  const STREET_ACADEMY_PROFILE_URL =
+    "https://www.street-academy.com/steachers/685282";
+  const STREET_ACADEMY_EIKEN_COURSES = [
+    {
+      grade: "英検準2級",
+      url: "https://www.street-academy.com/myclass/165687",
+    },
+    {
+      grade: "英検準2級プラス",
+      url: "https://www.street-academy.com/myclass/220176",
+    },
+    {
+      grade: "英検2級",
+      url: "https://www.street-academy.com/myclass/155464",
+    },
+    {
+      grade: "英検準1級",
+      url: "https://www.street-academy.com/myclass/197538",
+    },
+  ];
   const BLOG_HOME_URL = "/blog/";
   const LEGACY_BLOG_URL = "https://eiken-seminar.hatenablog.jp/";
 
@@ -220,20 +238,23 @@
         <div class="ks-growth-container">
           <div class="ks-stoaca-grid">
             <figure class="ks-stoaca-visual">
-              <img src="/stoaca-eiken-course-thumbnail.png" alt="オンライン個別指導 英検対策 5級から準1級まで4技能完全対応のストアカ講座" loading="lazy">
+              <img src="/stoaca-eiken-course-thumbnail.png" alt="オンライン個別指導 英検対策 5級から準1級まで4技能完全対応のstreet-academy講座" loading="lazy">
             </figure>
             <div class="ks-stoaca-copy">
-              <p class="ks-eyebrow">STOACA ONLINE LESSON</p>
-              <h2>ストアカでも<br>英検対策講座を開講中</h2>
+              <p class="ks-eyebrow">STREET-ACADEMY ONLINE LESSON</p>
+              <h2>street-academyでも<br>英検対策講座を開講中</h2>
               <p>過去問を使った完全マンツーマン指導で、今の弱点に合わせた英検対策を行います。英検5級から準1級まで、読む・聞く・書く・話すの4技能に対応します。</p>
               <ul class="ks-check-list">
                 <li>オンライン・完全1対1の個別レッスン</li>
                 <li>過去問を使った弱点分析と具体的な学習プラン</li>
                 <li>不登校・通信制高校・発達特性のあるお子様にも配慮</li>
               </ul>
+              <div class="ks-street-academy-courses" aria-label="street-academy 英検対策講座一覧">
+                <p>受講したい級を選ぶ</p>
+                <div>${STREET_ACADEMY_EIKEN_COURSES.map((course) => `<a ${openExternal(course.url)} class="ks-street-academy-course-link">${course.grade}<span>↗</span></a>`).join("")}</div>
+              </div>
               <div class="ks-stoaca-actions">
-                <a ${openExternal(STOACA_EIKEN_URL)} class="ks-growth-cta">英検2級講座を見る <span>↗</span></a>
-                <a ${openExternal(STOACA_PROFILE_URL)} class="ks-text-link">ストアカの講師プロフィール・全講座を見る <span>→</span></a>
+                <a ${openExternal(STREET_ACADEMY_PROFILE_URL)} class="ks-text-link">street-academyの講師プロフィール・全講座を見る <span>→</span></a>
               </div>
             </div>
           </div>
