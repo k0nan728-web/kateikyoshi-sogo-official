@@ -97,28 +97,113 @@
       "ks-growth-section ks-direct-contract",
       `
         <div class="ks-growth-container">
-          <div class="ks-direct-contract-layout">
-            <div class="ks-direct-contract-lead">
-              <p class="ks-eyebrow">DIRECT PARTNERSHIP</p>
-              <h2>プロ家庭教師と<br>個人契約するメリット</h2>
-              <p>ご相談から授業、振り返りまで。お子様の変化を一番近くで見ている講師本人が、責任を持って直接お応えします。</p>
-              <p class="ks-direct-contract-note">最初は保護者様だけのご相談でも構いません。無理なご契約を前提とせず、相性と方針をご確認いただくことを大切にしています。</p>
-            </div>
-            <div class="ks-value-list" role="list">
-              <article class="ks-value-item" role="listitem">
-                <span class="ks-value-icon">01</span>
-                <div><h3>相談から指導まで、情報が途切れない</h3><p>状況を何度も説明し直す必要がありません。学習の経緯を把握する担当講師が、必要な調整をすぐに行います。</p></div>
-              </article>
-              <article class="ks-value-item" role="listitem">
-                <span class="ks-value-icon">02</span>
-                <div><h3>一人ひとりに合わせて、柔軟に組み立てる</h3><p>学習量、教材、授業形式、カメラの有無、受験時期まで。お子様の状態に合わせた進め方を一緒に選びます。</p></div>
-              </article>
-              <article class="ks-value-item" role="listitem">
-                <span class="ks-value-icon">03</span>
-                <div><h3>費用を、指導そのものに集中できる</h3><p>入会金・仲介手数料・管理費はいただきません。必要な支援を、指導の時間と質に集中させます。</p></div>
-              </article>
+          <div class="ks-direct-contract-lead ks-direct-contract-lead--center">
+            <p class="ks-eyebrow">DIRECT PARTNERSHIP</p>
+            <h2>プロ家庭教師と<br>個人契約するメリット</h2>
+            <p>ご相談から授業、振り返りまで。お子様の変化を一番近くで見ている講師本人が、責任を持って直接お応えします。</p>
+            <p class="ks-direct-contract-note">最初は保護者様だけのご相談でも構いません。無理なご契約を前提とせず、相性と方針をご確認いただくことを大切にしています。</p>
+          </div>
+          <div class="ks-value-list ks-value-list--three" role="list">
+            <article class="ks-value-item" role="listitem">
+              <span class="ks-value-icon">01</span>
+              <div><h3>相談から指導まで、情報が途切れない</h3><p>状況を何度も説明し直す必要がありません。学習の経緯を把握する担当講師が、必要な調整をすぐに行います。</p></div>
+            </article>
+            <article class="ks-value-item" role="listitem">
+              <span class="ks-value-icon">02</span>
+              <div><h3>一人ひとりに合わせて、柔軟に組み立てる</h3><p>学習量、教材、授業形式、カメラの有無、受験時期まで。お子様の状態に合わせた進め方を一緒に選びます。</p></div>
+            </article>
+            <article class="ks-value-item" role="listitem">
+              <span class="ks-value-icon">03</span>
+              <div><h3>費用を、指導そのものに集中できる</h3><p>入会金・仲介手数料・管理費はいただきません。必要な支援を、指導の時間と質に集中させます。</p></div>
+            </article>
+          </div>
+        </div>
+      `,
+    );
+
+  const createTutorComparison = () =>
+    section(
+      "tutor-comparison",
+      "ks-growth-section ks-tutor-comparison",
+      `
+        <div class="ks-growth-container">
+          <div class="ks-growth-heading ks-growth-heading--center">
+            <p class="ks-eyebrow">HOW TO CHOOSE A TUTOR</p>
+            <h2>家庭教師選びで、<br>本当に比べるべきこと</h2>
+            <p>どの選択肢にも良さがあります。だからこそ、英検・文系受験で大切な「専門性」「長期の戦略」「担当の継続性」「保護者との連携」を軸に、納得できる選び方を考えます。</p>
+          </div>
+
+          <div class="ks-comparison-intro">
+            <div class="ks-comparison-intro-badge">英検・文系受験<br>を重視するご家庭へ</div>
+            <p><strong>検定対策と受験対策を別々にせず、今の学習状況から志望校まで一人の担当と組み立てたい。</strong>そのようなご家庭には、鈴木雄太の直接指導が特に適しています。</p>
+          </div>
+
+          <div class="ks-comparison-scroll" role="region" aria-label="家庭教師の選択肢比較表" tabindex="0">
+            <table class="ks-comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">比べるポイント</th>
+                  <th scope="col">学生アルバイト講師</th>
+                  <th scope="col">一般の社会人講師</th>
+                  <th scope="col">家庭教師センター経由の<br>プロ家庭教師</th>
+                  <th scope="col" class="is-recommended">鈴木雄太の<br>直接指導</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">向いているご家庭</th>
+                  <td>年齢の近い先輩として、日々の学習習慣や質問対応を重視したい</td>
+                  <td>特定教科の補習や、生活に合わせた継続指導を相談したい</td>
+                  <td>窓口で条件を伝え、複数候補から講師を紹介してほしい</td>
+                  <td class="is-recommended"><strong>英検・文系受験を軸に、学習・進路・ご家庭の不安を一体で相談したい</strong></td>
+                </tr>
+                <tr>
+                  <th scope="row">英検・文系受験の専門性</th>
+                  <td>講師の経験・得意分野によって異なる</td>
+                  <td>経験・専門領域に幅がある</td>
+                  <td>紹介される講師の専門領域を事前確認</td>
+                  <td class="is-recommended"><strong>英検5級〜準1級、英語・国語・社会の受験対策を横断して相談可能</strong></td>
+                </tr>
+                <tr>
+                  <th scope="row">長期の受験戦略</th>
+                  <td>個別の講師により異なる</td>
+                  <td>個別の講師により異なる</td>
+                  <td>担当講師とセンターの連携方法を確認</td>
+                  <td class="is-recommended"><strong>検定・志望校・現在地から逆算して、優先順位を設計</strong></td>
+                </tr>
+                <tr>
+                  <th scope="row">担当の継続性・保護者連携</th>
+                  <td>学業や予定により変動する場合がある</td>
+                  <td>講師ごとの運用による</td>
+                  <td>センターの窓口を介することがある</td>
+                  <td class="is-recommended"><strong>相談・授業・振り返りを講師本人が直接担当</strong></td>
+                </tr>
+                <tr>
+                  <th scope="row">費用構造</th>
+                  <td>比較的抑えやすい一方、条件は個別に確認</td>
+                  <td>経験・地域・形式により異なる</td>
+                  <td>紹介・管理などの費用体系はセンターごとに異なる</td>
+                  <td class="is-recommended"><strong>入会金・仲介手数料・管理費なし。費用を指導に集中</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="ks-comparison-disclaimer">※ 一般的な比較です。講師・家庭教師センターごとに経験、契約条件、費用体系は異なります。ご家庭の目的に合わせてご確認ください。</p>
+
+          <div class="ks-decision-flow" aria-label="鈴木雄太の直接指導が適しているかを判断する図">
+            <p class="ks-decision-flow-label">CHECK POINT</p>
+            <h3>このようなご家庭には、<br>鈴木の直接指導が適しています</h3>
+            <div class="ks-decision-steps">
+              <article><span>01</span><p><strong>英検の級・4技能</strong>と受験を、別々にせず一人へ相談したい</p></article>
+              <span class="ks-decision-arrow">→</span>
+              <article><span>02</span><p><strong>英語・国語・社会</strong>を含む文系受験の優先順位を整理したい</p></article>
+              <span class="ks-decision-arrow">→</span>
+              <article><span>03</span><p>不登校・通信制など、<strong>状況の変化も踏まえて</strong>長く伴走してほしい</p></article>
+              <span class="ks-decision-arrow">→</span>
+              <article class="is-destination"><span>✓</span><p><strong>無料相談で、今の状況と最適な進め方を確認</strong></p></article>
             </div>
           </div>
+          <div class="ks-growth-cta-row"><a href="#contact" class="ks-growth-cta">英検・文系受験の進め方を相談する <span>→</span></a></div>
         </div>
       `,
     );
@@ -238,6 +323,8 @@
     insertAfter(teacherVideo, createReasons());
     const reasons = document.getElementById("reasons");
     insertAfter(reasons, createDirectContractValue());
+    const directContract = document.getElementById("direct-contract");
+    insertAfter(directContract, createTutorComparison());
     insertAfter(results, createStoaca());
     insertAfter(howWeTeach, createBlog());
     addHeaderLinks();
