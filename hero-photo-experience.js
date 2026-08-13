@@ -71,6 +71,29 @@
     element.style.setProperty("font-size", `${best.toFixed(2)}px`, "important");
   };
 
+  const fitHeaderTypography = () => {
+    const copy = document.querySelector(".ks-header-brand-copy");
+    const name = copy?.querySelector(".ks-header-name");
+    const tagline = copy?.querySelector(".ks-header-tagline");
+    const headerRow = copy?.closest("a")?.parentElement;
+
+    if (!copy || !name || !tagline || !headerRow) return;
+
+    headerRow.classList.add("ks-mobile-header-row");
+
+    if (window.innerWidth > 767) {
+      [name, tagline].forEach((element) => {
+        ["display", "width", "max-width", "white-space", "word-break", "font-size"].forEach(
+          (property) => element.style.removeProperty(property),
+        );
+      });
+      return;
+    }
+
+    fitSingleLine(name, name.clientWidth, 11, 28);
+    fitSingleLine(tagline, headerRow.clientWidth, 7, 18);
+  };
+
   const fitHeroTypography = (copy) => {
     const heading = copy.querySelector("h1");
     if (heading) {
@@ -126,7 +149,10 @@
       window.requestAnimationFrame(() => hero.classList.add("ks-hero-mounted"));
     }
 
-    const resizeTypography = () => fitHeroTypography(copy);
+    const resizeTypography = () => {
+      fitHeroTypography(copy);
+      fitHeaderTypography();
+    };
     window.requestAnimationFrame(resizeTypography);
     window.setTimeout(resizeTypography, 250);
     document.fonts?.ready?.then(resizeTypography);
