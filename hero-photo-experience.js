@@ -90,8 +90,16 @@
       return;
     }
 
-    fitSingleLine(name, name.clientWidth, 11, 28);
-    fitSingleLine(tagline, headerRow.clientWidth, 7, 18);
+    fitSingleLine(name, name.clientWidth, 12, 32);
+    fitSingleLine(tagline, headerRow.clientWidth, 7, 14);
+
+    const nameSize = Number.parseFloat(name.style.fontSize) || 12;
+    const taglineSize = Number.parseFloat(tagline.style.fontSize) || 7;
+    const hierarchyCap = Math.max(8, nameSize * 0.72);
+
+    if (taglineSize > hierarchyCap) {
+      tagline.style.setProperty("font-size", `${hierarchyCap.toFixed(2)}px`, "important");
+    }
   };
 
   const fitHeroTypography = (copy) => {
