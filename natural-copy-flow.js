@@ -246,9 +246,9 @@
     document.fonts?.ready?.then(refineTypography);
     window.addEventListener("resize", scheduleRefine, { passive: true });
 
-    const root = document.querySelector("main");
-    if (root) {
-      new MutationObserver(scheduleRefine).observe(root, {
+    const mutationTarget = document.querySelector("#root") || document.body;
+    if (mutationTarget) {
+      new MutationObserver(scheduleRefine).observe(mutationTarget, {
         childList: true,
         subtree: true,
       });
