@@ -2748,3 +2748,150 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
     border-radius: 1rem !important;
   }
 }
+
+
+/* Comparison table: keep every cell self-contained at all viewport widths. */
+#tutor-comparison .ks-comparison-scroll {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-inline: contain;
+  border: 1px solid #cbd8e8;
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 0.55rem 1.35rem rgba(15, 50, 93, 0.1);
+}
+
+#tutor-comparison .ks-comparison-table {
+  width: 100% !important;
+  min-width: 1120px !important;
+  table-layout: fixed !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+#tutor-comparison .ks-comparison-table th,
+#tutor-comparison .ks-comparison-table td {
+  min-width: 0 !important;
+  padding: 1rem 0.8rem !important;
+  overflow: hidden !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+  line-break: strict;
+  line-height: 1.62 !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  white-space: normal !important;
+}
+
+#tutor-comparison .ks-comparison-table th:first-child,
+#tutor-comparison .ks-comparison-table td:first-child {
+  width: 17% !important;
+  color: #0b2b54 !important;
+  font-weight: 800 !important;
+  background: #f2f6fc !important;
+}
+
+#tutor-comparison .ks-comparison-table th:not(:first-child),
+#tutor-comparison .ks-comparison-table td:not(:first-child) {
+  width: 20.75% !important;
+}
+
+#tutor-comparison .ks-comparison-table th *,
+#tutor-comparison .ks-comparison-table td * {
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+#tutor-comparison .ks-comparison-scroll::after {
+  display: block;
+  padding: 0.7rem 1rem;
+  color: #304966;
+  background: #f3f7fc;
+  content: "横にスライドして比較できます";
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+/* Dark-background areas: explicitly preserve readable contrast instead of inheriting muted body colours. */
+#tutor-comparison .ks-decision-flow {
+  border: 1px solid rgba(156, 199, 255, 0.5) !important;
+  box-shadow: 0 1.1rem 2.2rem rgba(6, 31, 68, 0.28) !important;
+}
+
+#tutor-comparison .ks-decision-flow > h3 {
+  color: #ffffff !important;
+  text-shadow: 0 0.12rem 0.28rem rgba(0, 17, 44, 0.58);
+}
+
+#tutor-comparison .ks-decision-flow > p:not(.ks-decision-flow-label),
+#tutor-comparison .ks-decision-flow .ks-decision-steps article p {
+  color: #eaf3ff !important;
+  opacity: 1 !important;
+  text-shadow: 0 0.08rem 0.2rem rgba(0, 17, 44, 0.48);
+}
+
+#tutor-comparison .ks-decision-flow .ks-decision-steps article {
+  border-color: rgba(166, 205, 255, 0.58) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+#tutor-comparison .ks-decision-flow .ks-decision-steps article strong,
+#tutor-comparison .ks-decision-flow .is-destination strong {
+  color: #ffffff !important;
+}
+
+#tutor-comparison .ks-decision-flow .ks-decision-steps article > span:first-child {
+  color: #0b1f3a !important;
+  background: #f8c650 !important;
+  box-shadow: 0 0.25rem 0.6rem rgba(0, 17, 44, 0.24);
+}
+
+#direct-contract :is(p, li) {
+  color: #e8f2ff !important;
+  opacity: 1 !important;
+}
+
+#direct-contract :is(h2, h3, h4, strong) {
+  color: #ffffff !important;
+}
+
+@media (max-width: 767px) {
+  #tutor-comparison .ks-comparison-table {
+    min-width: 1000px !important;
+  }
+
+  #tutor-comparison .ks-comparison-table th,
+  #tutor-comparison .ks-comparison-table td {
+    padding: 0.9rem 0.68rem !important;
+    font-size: 0.91rem !important;
+    line-height: 1.58 !important;
+  }
+}
+
+
+/* Preserve the dark consultation panel in pricing and explicitly keep its copy readable. */
+#pricing .relative.overflow-hidden.rounded-2xl.bg-gradient-to-br {
+  border: 2px solid rgba(111, 166, 244, 0.88) !important;
+  background: linear-gradient(135deg, #0a264d 0%, #114b96 100%) !important;
+  box-shadow: 0 1rem 2rem rgba(7, 38, 83, 0.25) !important;
+}
+
+#pricing .relative.overflow-hidden.rounded-2xl.bg-gradient-to-br :is(h2, h3, h4, strong) {
+  color: #ffffff !important;
+  text-shadow: 0 0.08rem 0.2rem rgba(0, 17, 44, 0.5);
+}
+
+#pricing .relative.overflow-hidden.rounded-2xl.bg-gradient-to-br :is(p, li, span) {
+  color: #eaf3ff !important;
+  opacity: 1 !important;
+}
+
+#pricing .relative.overflow-hidden.rounded-2xl.bg-gradient-to-br a {
+  color: #ffffff !important;
+}
