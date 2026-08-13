@@ -2376,3 +2376,35 @@ main .ks-semantic-group {
     line-height: 1.85 !important;
   }
 }
+
+
+/* Card copy uses the whole available reading column before wrapping.
+   Only text confirmed to fit stays on one line; other copy keeps natural Japanese wrapping. */
+main .ks-card-copy-one-line {
+  overflow-wrap: normal !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+    text-wrap: nowrap !important;
+}
+
+main .ks-card-copy-one-line.ks-card-copy-font-fitted {
+  font-size: var(--ks-card-copy-fit-size) !important;
+}
+
+/* On narrow screens, place the For You icon above the copy so the sentence can use the full card width. */
+@media (max-width: 767px) {
+  #for-you .ks-for-you-card {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.5rem !important;
+  }
+
+  #for-you .ks-for-you-card > :first-child {
+    align-self: flex-start;
+  }
+
+  #for-you .ks-for-you-card-copy {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+}
