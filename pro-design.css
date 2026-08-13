@@ -1968,3 +1968,20 @@ nav .ks-header-growth-link:hover {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Japanese body copy: preserve natural phrase boundaries on every section.
+   One-line header/title/card elements keep their local nowrap rules. */
+main :where(p, li, dd, dt, blockquote, figcaption, td, th, summary) {
+  line-break: strict;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+/* Chromium and newer WebKit can select Japanese phrase boundaries natively. */
+@supports (word-break: auto-phrase) {
+  main :where(p, li, dd, dt, blockquote, figcaption, td, th, summary) {
+    overflow-wrap: normal;
+    word-break: auto-phrase !important;
+  }
+}
