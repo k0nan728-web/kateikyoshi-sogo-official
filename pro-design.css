@@ -2895,3 +2895,17 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
 #pricing .relative.overflow-hidden.rounded-2xl.bg-gradient-to-br a {
   color: #ffffff !important;
 }
+
+
+/* Keep the tutor-comparison introduction visibly centered on every viewport. */
+#tutor-comparison .ks-growth-heading.ks-growth-heading--center,
+#tutor-comparison .ks-growth-heading.ks-growth-heading--center .ks-eyebrow,
+#tutor-comparison .ks-growth-heading.ks-growth-heading--center h2 {
+  width: 100% !important;
+  margin-inline: auto !important;
+  text-align: center !important;
+}
+
+#tutor-comparison .ks-growth-heading.ks-growth-heading--center .ks-eyebrow {
+  display: block !important;
+}
