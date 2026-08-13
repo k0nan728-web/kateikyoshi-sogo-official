@@ -719,3 +719,28 @@
     text-align: center !important;
   }
 }
+
+/* Keep the homepage title as the dominant first row on compact headers. */
+@media (max-width: 767px) {
+  .ks-mobile-header-row > a {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+
+  .ks-mobile-header-row > a .ks-header-name {
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Treat the full site name as a single fitted title on mobile. */
+@media (max-width: 767px) {
+  .ks-mobile-header-row > a > div:first-child {
+    display: none !important;
+  }
+
+  .ks-header-name::before {
+    content: "プロ家庭教師　";
+    font-family: "Noto Serif JP", serif;
+    font-weight: 900;
+  }
+}

@@ -90,7 +90,7 @@
       return;
     }
 
-    fitSingleLine(name, name.clientWidth, 12, 32);
+    fitSingleLine(name, name.clientWidth, 12, 42);
     fitSingleLine(tagline, headerRow.clientWidth, 7, 14);
 
     const nameSize = Number.parseFloat(name.style.fontSize) || 12;
