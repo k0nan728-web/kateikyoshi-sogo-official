@@ -55,7 +55,19 @@
   const refineCardCopy = () => {
     document.querySelectorAll(CARD_COPY_SELECTOR).forEach((copy) => {
       const card = copy.closest(CARD_SELECTOR);
-      if (!card || !isEligibleCopy(copy, card)) return;
+      if (!card) return;
+
+      // The "こんな方に向いています" checklist keeps its native font size and
+      // browser-led Japanese wrapping. Compressing it to force one line makes
+      // mid-phrase line breaks noticeably less natural on narrow screens.
+      if (card.matches(".ks-for-you-card")) {
+        card.classList.remove("ks-card-copy-one-line");
+        copy.classList.remove("ks-card-copy-one-line", "ks-card-copy-font-fitted");
+        copy.style.removeProperty("--ks-card-copy-fit-size");
+        return;
+      }
+
+      if (!isEligibleCopy(copy, card)) return;
 
       card.classList.remove("ks-card-copy-one-line");
       copy.classList.remove("ks-card-copy-one-line", "ks-card-copy-font-fitted");
