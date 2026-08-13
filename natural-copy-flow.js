@@ -255,9 +255,19 @@
     }
   };
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", boot, { once: true });
-  } else {
+  let hasBooted = false;
+  const bootOnce = () => {
+    if (hasBooted) return;
+    hasBooted = true;
+    window.__naturalCopyFlowBooted = true;
     boot();
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bootOnce, { once: true });
+  } else {
+    bootOnce();
   }
+  window.addEventListener("load", bootOnce, { once: true });
+  window.setTimeout(bootOnce, 1200);
 })();
