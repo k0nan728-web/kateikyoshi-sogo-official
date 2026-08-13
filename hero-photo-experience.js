@@ -102,6 +102,31 @@
     }
   };
 
+  const formatStatLabel = (label) => {
+    if (!label || label.dataset.ksStatLabelReady === "true") return;
+
+    const source = label.textContent.replace(/\s+/g, "").trim();
+    const labelLines = {
+      "総指導生徒数": ["総指導", "生徒数"],
+      "英検指導実績": ["英検", "指導実績"],
+      "英検合格率": ["英検", "合格率"],
+    };
+    const lines = labelLines[source];
+
+    if (lines) {
+      label.replaceChildren(
+        ...lines.map((line) => {
+          const span = document.createElement("span");
+          span.className = "ks-stat-label-line";
+          span.textContent = line;
+          return span;
+        }),
+      );
+    }
+
+    label.dataset.ksStatLabelReady = "true";
+  };
+
   const fitHeroTypography = (copy) => {
     const heading = copy.querySelector("h1");
     if (heading) {
@@ -119,17 +144,31 @@
 
     if (!statsGrid) return;
 
+    const statNumbers = [];
+
     [...statsGrid.children].forEach((card) => {
       const holder = card.querySelector(".pl-2");
       const number = holder?.firstElementChild;
       const label = holder?.lastElementChild;
       if (number) {
         fitSingleLine(number, number.clientWidth, 16, 44);
+        statNumbers.push(number);
       }
 
       if (label) {
-        fitTwoLines(label, 13, 22);
+        formatStatLabel(label);
+        fitTwoLines(label, 13, 20);
       }
+    });
+
+    // The longest figure determines a shared safe size, so all four navy figures
+    // read as one balanced set rather than appearing arbitrarily large or small.
+    const sharedNumberSize = Math.min(
+      42,
+      ...statNumbers.map((number) => Number.parseFloat(number.style.fontSize) || 16),
+    );
+    statNumbers.forEach((number) => {
+      number.style.setProperty("font-size", `${sharedNumberSize.toFixed(2)}px`, "important");
     });
   };
 

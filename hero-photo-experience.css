@@ -744,3 +744,50 @@
     font-weight: 900;
   }
 }
+
+
+/* Hero proof cards: aligned navy figures and deliberate gold label line breaks. */
+.ks-photo-hero .ks-hero-copy > .grid.grid-cols-1.sm\:grid-cols-2.gap-4.pt-4 > div > .pl-2 {
+  display: flex !important;
+  min-height: 6.2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0 !important;
+  text-align: center !important;
+}
+
+.ks-photo-hero .ks-hero-copy > .grid.grid-cols-1.sm\:grid-cols-2.gap-4.pt-4 > div > .pl-2 > div:first-child {
+  width: 100%;
+  text-align: center !important;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.ks-photo-hero .ks-hero-copy > .grid.grid-cols-1.sm\:grid-cols-2.gap-4.pt-4 > div > .pl-2 > div:last-child {
+  display: flex !important;
+  min-height: 2.3em;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.38rem !important;
+  color: #8b6b2d !important;
+  text-align: center !important;
+  line-height: 1.22 !important;
+  letter-spacing: 0.035em !important;
+}
+
+.ks-photo-hero .ks-hero-copy .ks-stat-label-line {
+  display: block;
+  white-space: nowrap;
+}
+
+@media (max-width: 420px) {
+  .ks-photo-hero .ks-hero-copy > .grid.grid-cols-1.sm\:grid-cols-2.gap-4.pt-4 > div {
+    min-height: 8.45rem;
+  }
+
+  .ks-photo-hero .ks-hero-copy > .grid.grid-cols-1.sm\:grid-cols-2.gap-4.pt-4 > div > .pl-2 {
+    min-height: 6.55rem;
+  }
+}
