@@ -2502,3 +2502,13 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
     line-height: 1.68 !important;
   }
 }
+
+
+/* Keep the requested school-refusal support headline on one line at every viewport width. */
+#for-you .ks-for-you-wide-card-title.ks-for-you-single-line-title {
+  font-size: var(--ks-for-you-target-title-size) !important;
+  letter-spacing: 0 !important;
+  overflow-wrap: normal !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+}

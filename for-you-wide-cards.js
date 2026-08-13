@@ -74,6 +74,42 @@
     return true;
   };
 
+  const fitTargetTitle = (section) => {
+    const title = [...section.querySelectorAll(".ks-for-you-wide-card-title")].find(
+      (element) => element.textContent.trim() === "学校に行けない時期も、学びは止めない",
+    );
+    if (!title) return;
+
+    title.classList.remove("ks-for-you-single-line-title");
+    title.style.removeProperty("--ks-for-you-target-title-size");
+    const style = getComputedStyle(title);
+    const baseSize = Number.parseFloat(style.fontSize);
+    if (!baseSize || !title.clientWidth) return;
+
+    const ruler = title.cloneNode(true);
+    ruler.style.cssText = [
+      "position:fixed!important",
+      "left:-10000px!important",
+      "top:-10000px!important",
+      "width:max-content!important",
+      "max-width:none!important",
+      "white-space:nowrap!important",
+      "visibility:hidden!important",
+      `font-family:${style.fontFamily}!important`,
+      `font-weight:${style.fontWeight}!important`,
+      `font-size:${baseSize}px!important`,
+      "letter-spacing:0!important",
+    ].join(";");
+    document.body.append(ruler);
+    const required = ruler.getBoundingClientRect().width;
+    ruler.remove();
+
+    const ratio = title.clientWidth / required;
+    const fittedSize = Math.min(baseSize, baseSize * ratio * 0.985);
+    title.style.setProperty("--ks-for-you-target-title-size", `${fittedSize.toFixed(2)}px`);
+    title.classList.add("ks-for-you-single-line-title");
+  };
+
   const applyForYouWideCards = () => {
     const section = document.querySelector("#for-you");
     if (!section) return false;
@@ -88,6 +124,7 @@
 
     if (processed || section.querySelectorAll(".ks-for-you-wide-card").length === CARD_CONTENT.length) {
       section.querySelector(".ks-for-you-wide-card")?.parentElement?.classList.add("ks-for-you-wide-card-list");
+      fitTargetTitle(section);
       return true;
     }
     return false;
@@ -102,6 +139,7 @@
   const boot = () => {
     applyForYouWideCards();
     window.setTimeout(applyForYouWideCards, 400);
+    window.addEventListener("resize", schedule, { passive: true });
     new MutationObserver(schedule).observe(document.querySelector("#root") || document.body, {
       childList: true,
       subtree: true,
