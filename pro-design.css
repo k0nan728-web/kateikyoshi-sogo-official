@@ -2054,3 +2054,32 @@ main .ks-phrase-flow {
   flex: 0 0 100%;
   width: 100%;
 }
+
+
+/* Comparison table: center every cell while preserving phrase-aware wrapping. */
+.ks-comparison-table,
+.ks-comparison-table th,
+.ks-comparison-table td {
+  text-align: center;
+  line-break: strict;
+  word-break: auto-phrase;
+  overflow-wrap: normal;
+}
+
+.ks-comparison-table th,
+.ks-comparison-table td {
+  vertical-align: middle;
+}
+
+.ks-comparison-table .ks-phrase {
+  display: inline;
+  max-inline-size: 100%;
+  white-space: normal;
+}
+
+@media (max-width: 767px) {
+  .ks-comparison-table th,
+  .ks-comparison-table td {
+    padding-inline: 0.72rem;
+  }
+}
