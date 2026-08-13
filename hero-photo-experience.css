@@ -764,12 +764,8 @@
 }
 
 .ks-photo-hero .ks-hero-copy > .grid.grid-cols-1.sm\:grid-cols-2.gap-4.pt-4 > div > .pl-2 > div:last-child {
-  display: flex !important;
-  min-height: 2.3em;
+  display: block !important;
   width: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   margin-top: 0.38rem !important;
   color: #8b6b2d !important;
   text-align: center !important;
@@ -777,10 +773,6 @@
   letter-spacing: 0.035em !important;
 }
 
-.ks-photo-hero .ks-hero-copy .ks-stat-label-line {
-  display: block;
-  white-space: nowrap;
-}
 
 @media (max-width: 420px) {
   .ks-photo-hero .ks-hero-copy > .grid.grid-cols-1.sm\:grid-cols-2.gap-4.pt-4 > div {

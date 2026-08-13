@@ -102,31 +102,6 @@
     }
   };
 
-  const formatStatLabel = (label) => {
-    if (!label || label.dataset.ksStatLabelReady === "true") return;
-
-    const source = label.textContent.replace(/\s+/g, "").trim();
-    const labelLines = {
-      "総指導生徒数": ["総指導", "生徒数"],
-      "英検指導実績": ["英検", "指導実績"],
-      "英検合格率": ["英検", "合格率"],
-    };
-    const lines = labelLines[source];
-
-    if (lines) {
-      label.replaceChildren(
-        ...lines.map((line) => {
-          const span = document.createElement("span");
-          span.className = "ks-stat-label-line";
-          span.textContent = line;
-          return span;
-        }),
-      );
-    }
-
-    label.dataset.ksStatLabelReady = "true";
-  };
-
   const fitHeroTypography = (copy) => {
     const heading = copy.querySelector("h1");
     if (heading) {
@@ -156,8 +131,9 @@
       }
 
       if (label) {
-        formatStatLabel(label);
-        fitTwoLines(label, 13, 20);
+        ["display", "white-space", "word-break", "overflow-wrap", "line-height", "font-size"].forEach(
+          (property) => label.style.removeProperty(property),
+        );
       }
     });
 
