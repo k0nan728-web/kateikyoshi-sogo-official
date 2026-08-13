@@ -2619,3 +2619,52 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
     display: none;
   }
 }
+
+
+/* Credentials: make qualifications and career history an unmistakable proof card. */
+#teacher .ks-teacher-credentials-card {
+  position: relative !important;
+  overflow: hidden !important;
+  padding: clamp(1.35rem, 4vw, 2rem) !important;
+  border: 2px solid #c79a45 !important;
+  border-top: 0.42rem solid #c79a45 !important;
+  border-radius: 1.25rem !important;
+  background: linear-gradient(125deg, #fffdf8 0%, #f9f1dd 52%, #fffaf0 100%) !important;
+  box-shadow: 0 0.9rem 2rem rgba(160, 111, 24, 0.16) !important;
+}
+
+#teacher .ks-teacher-credentials-card h4 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1.1rem !important;
+  color: #0d315f !important;
+  font-size: clamp(1.12rem, 2.7vw, 1.32rem) !important;
+}
+
+#teacher .ks-teacher-credentials-card h4::before {
+  display: inline-grid;
+  width: 1.85rem;
+  height: 1.85rem;
+  place-items: center;
+  border-radius: 50%;
+  background: #c79a45;
+  color: #fff;
+  content: "✓";
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+#teacher .ks-teacher-credentials-card li {
+  position: relative;
+  padding-block: 0.25rem;
+  color: #35455c !important;
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  #teacher .ks-teacher-credentials-card {
+    padding: 1.2rem !important;
+    border-top-width: 0.34rem !important;
+  }
+}

@@ -48,6 +48,14 @@
     );
     actionCard?.classList.add("ks-teacher-action-card");
 
+    const credentialsHeading = [...section.querySelectorAll("h1, h2, h3, h4")].find(
+      (heading) => heading.textContent.trim() === "資格・経歴",
+    );
+    const credentialsCard = findAncestor(credentialsHeading, (element) =>
+      hasClasses(element, ["mt-12", "rounded-2xl", "fade-in-up"]),
+    );
+    credentialsCard?.classList.add("ks-teacher-credentials-card");
+
     section.dataset.ksTeacherCardEmphasis = "true";
     return true;
   };
