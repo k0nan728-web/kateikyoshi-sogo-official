@@ -110,6 +110,24 @@
     title.classList.add("ks-for-you-single-line-title");
   };
 
+  const addCounselingSpacing = (section) => {
+    const copy = [...section.querySelectorAll("p")].find(
+      (paragraph) => paragraph.textContent.includes("体験授業の前に、保護者様だけのご相談も歓迎しています。")
+        && paragraph.textContent.includes("学習状況の整理、今後の方針、不登校・英検・受験のお悩みなど"),
+    );
+    if (!copy || copy.dataset.ksCounselingSpaced === "true") return;
+
+    const lineBreak = copy.querySelector("br");
+    if (lineBreak) {
+      const spacer = document.createElement("span");
+      spacer.className = "ks-for-you-counseling-line-space";
+      spacer.setAttribute("aria-hidden", "true");
+      lineBreak.replaceWith(spacer);
+    }
+    copy.classList.add("ks-for-you-counseling-copy");
+    copy.dataset.ksCounselingSpaced = "true";
+  };
+
   const applyForYouWideCards = () => {
     const section = document.querySelector("#for-you");
     if (!section) return false;
@@ -125,6 +143,7 @@
     if (processed || section.querySelectorAll(".ks-for-you-wide-card").length === CARD_CONTENT.length) {
       section.querySelector(".ks-for-you-wide-card")?.parentElement?.classList.add("ks-for-you-wide-card-list");
       fitTargetTitle(section);
+      addCounselingSpacing(section);
       return true;
     }
     return false;

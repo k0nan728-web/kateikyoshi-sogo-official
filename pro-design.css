@@ -2512,3 +2512,10 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
   white-space: nowrap !important;
   word-break: keep-all !important;
 }
+
+
+/* Give the two counseling guidance sentences a full blank reading line between them. */
+#for-you .ks-for-you-counseling-line-space {
+  display: block;
+  height: 1.8em;
+}
