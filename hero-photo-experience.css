@@ -619,3 +619,45 @@
     font-size: clamp(1.35rem, 2.15vw, 1.8rem) !important;
   }
 }
+
+/* Mobile header: a prominent one-line tutor name with the service detail restored on a second line. */
+@media (max-width: 767px) {
+  .ks-header-brand-copy {
+    gap: 0.12rem !important;
+    padding: 0.1rem 0 !important;
+  }
+
+  .ks-header-name {
+    display: inline-block;
+    font-size: clamp(1.06rem, 5.3vw, 1.28rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0.035em !important;
+  }
+
+  .ks-header-tagline {
+    display: block !important;
+    max-width: calc(100vw - 7.1rem);
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.72) !important;
+    font-size: clamp(0.43rem, 2.05vw, 0.52rem) !important;
+    font-weight: 600;
+    line-height: 1.28 !important;
+    letter-spacing: 0.025em !important;
+    text-overflow: clip;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 767px) {
+  .ks-header-name {
+    font-size: clamp(1.22rem, 6.4vw, 1.56rem) !important;
+    letter-spacing: 0.045em !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .ks-header-name-suffix {
+    display: none;
+  }
+}
