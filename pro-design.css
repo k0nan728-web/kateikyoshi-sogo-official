@@ -2083,3 +2083,186 @@ main .ks-phrase-flow {
     padding-inline: 0.72rem;
   }
 }
+
+
+/* Teacher spotlight: a centered authority profile with a navy-and-gold EIKEN value strip. */
+#teacher .ks-teacher-spotlight-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+#teacher .ks-teacher-portrait-column,
+#teacher .ks-teacher-information-column {
+  min-width: 0;
+}
+
+#teacher .ks-teacher-portrait-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#teacher .ks-teacher-portrait-frame {
+  width: min(100%, 340px);
+  margin-inline: auto;
+}
+
+#teacher .ks-teacher-portrait-frame > img {
+  display: block;
+  width: 100%;
+  margin-inline: auto;
+}
+
+#teacher .ks-teacher-recognition-badge {
+  right: 50% !important;
+  transform: translateX(50%);
+  text-align: center;
+}
+
+#teacher .ks-teacher-information-column {
+  padding-top: clamp(0rem, 1vw, 0.65rem);
+}
+
+#teacher .ks-teacher-name-row {
+  justify-content: center;
+  margin-bottom: 0.7rem !important;
+  text-align: center;
+}
+
+#teacher .ks-teacher-name {
+  text-align: center;
+}
+
+#teacher .ks-teacher-role {
+  display: block;
+  margin-inline: auto;
+  text-align: center !important;
+}
+
+#teacher .ks-teacher-information-column > div:first-child {
+  text-align: center;
+}
+
+#teacher .ks-teacher-information-column > div:first-child > * {
+  justify-content: center;
+}
+
+#teacher .ks-teacher-value-strip {
+  width: min(100%, 370px);
+  margin: 1.2rem auto 0;
+  padding: 0.95rem 0.9rem 1rem;
+  overflow: hidden;
+  color: #fff;
+  border: 1px solid rgba(224, 176, 63, 0.78);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(246, 189, 53, 0.16), transparent 46%),
+    linear-gradient(135deg, #0a2f66, #071d3d);
+  box-shadow: 0 12px 24px rgba(10, 38, 77, 0.18);
+  text-align: center;
+}
+
+#teacher .ks-teacher-value-strip-label {
+  margin: 0 0 0.55rem;
+  color: #f6c44f;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+#teacher .ks-teacher-value-strip-items {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.25rem;
+}
+
+#teacher .ks-teacher-value-strip-items span {
+  padding-inline: 0.32rem;
+  font-size: clamp(0.68rem, 1.25vw, 0.78rem);
+  line-height: 1.55;
+}
+
+#teacher .ks-teacher-value-strip-items span + span {
+  border-left: 1px solid rgba(246, 196, 79, 0.34);
+}
+
+#teacher .ks-teacher-value-strip-items b {
+  display: block;
+  color: #f7ca5d;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 1023px) {
+  #teacher .ks-teacher-spotlight-grid {
+    grid-template-columns: 1fr;
+    gap: 2.1rem;
+  }
+
+  #teacher .ks-teacher-information-column {
+    max-width: 780px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  #teacher .ks-teacher-portrait-frame {
+    width: min(100%, 300px);
+  }
+
+  #teacher .ks-teacher-value-strip {
+    width: min(100%, 330px);
+  }
+}
+
+
+/* Keep the portrait, name and role on one shared center axis at every viewport. */
+#teacher .ks-teacher-spotlight-grid {
+  grid-template-columns: minmax(0, 1fr);
+  width: min(100%, 860px);
+  margin-inline: auto;
+  gap: 1.9rem;
+}
+
+#teacher .ks-teacher-information-column {
+  width: min(100%, 760px);
+  margin-inline: auto;
+}
+
+
+#teacher .ks-teacher-name-row {
+  display: flex !important;
+  width: 100%;
+  align-items: center;
+  justify-content: center !important;
+}
+
+#teacher .ks-teacher-role,
+#teacher .ks-teacher-alma-mater {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto !important;
+  text-align: center !important;
+}
+
+
+#teacher .ks-teacher-alma-mater {
+  display: flex !important;
+  width: fit-content !important;
+  justify-content: center;
+}
+
+
+#teacher .ks-teacher-alma-mater-wrap {
+  display: flex !important;
+  width: 100%;
+  justify-content: center;
+}
+
+
+/* The original identity row reserves a 16px visual inset; offset half of it to keep the name on the shared axis. */
+#teacher .ks-teacher-name-row {
+  position: relative;
+  left: -8px;
+}
