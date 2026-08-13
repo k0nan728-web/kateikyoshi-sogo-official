@@ -2341,3 +2341,38 @@ main .ks-semantic-group {
   display: inline-block;
   white-space: nowrap;
 }
+
+
+/* "For You" cards: centered cards with a vertically centered, left-aligned reading column. */
+#for-you .ks-for-you-card-grid {
+  justify-items: center;
+}
+
+#for-you .ks-for-you-card {
+  width: min(100%, 360px);
+  min-height: 100%;
+  align-items: center !important;
+  text-align: left !important;
+}
+
+#for-you .ks-for-you-card-copy {
+  flex: 1 1 0%;
+  min-width: 0;
+  margin: 0 !important;
+  color: var(--ks-ink) !important;
+  font-weight: 600;
+  line-height: 1.9 !important;
+  text-align: left !important;
+}
+
+@media (max-width: 767px) {
+  #for-you .ks-for-you-card {
+    width: min(100%, 340px);
+    min-height: 84px;
+    padding-block: 1rem;
+  }
+
+  #for-you .ks-for-you-card-copy {
+    line-height: 1.85 !important;
+  }
+}
