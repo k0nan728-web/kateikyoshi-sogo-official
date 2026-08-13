@@ -4,6 +4,8 @@
   const VARIABLE_TEXT_SELECTOR =
     "main :is(p, li, dd, dt, blockquote, figcaption, td, th, summary)";
   const NARRATIVE_SELECTOR = "main p";
+  const SEMANTIC_GROUPS = ["20年の経験", "お子様だけの学習プランナー"];
+  const SEMANTIC_GROUP_SELECTOR = "main p, main li, main dd, main dt, main blockquote";
   const FRAMED_ANCESTOR_SELECTOR = [
     "article",
     ".ks-comparison-scroll",
@@ -144,6 +146,36 @@
     });
   };
 
+  const protectSemanticGroups = (root = document) => {
+    root.querySelectorAll?.(SEMANTIC_GROUP_SELECTOR).forEach((element) => {
+      if (element.dataset.ksSemanticGroups === "true") return;
+      const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+      let node;
+      while ((node = walker.nextNode())) nodes.push(node);
+
+      nodes.forEach((textNode) => {
+        const source = textNode.textContent;
+        if (!source || !SEMANTIC_GROUPS.some((group) => source.includes(group))) return;
+        const pattern = new RegExp(`(${SEMANTIC_GROUPS.map((group) => group.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\$&")).join("|")})`, "g");
+        const fragment = document.createDocumentFragment();
+        source.split(pattern).forEach((part) => {
+          if (!part) return;
+          if (SEMANTIC_GROUPS.includes(part)) {
+            const group = document.createElement("span");
+            group.className = "ks-semantic-group";
+            group.textContent = part;
+            fragment.append(group);
+          } else {
+            fragment.append(part);
+          }
+        });
+        textNode.replaceWith(fragment);
+      });
+      element.dataset.ksSemanticGroups = "true";
+    });
+  };
+
   const getLineLayout = (element) => {
     const rows = new Map();
     const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
@@ -227,11 +259,11 @@
 
   let resizeTimer;
   const refineTypography = () => {
-    protectPhraseBoundaries();
+    // Keep paragraphs as continuous sentences. Native Japanese phrase wrapping
+    // chooses a natural line break; do not split text into fixed-length spans
+    // or reduce the font just to force a one-line result.
+    protectSemanticGroups();
     tagNarrativeCopy();
-    document
-      .querySelectorAll("main p[data-ks-narrative-copy='true']")
-      .forEach(fitNearSingleLine);
   };
 
   const scheduleRefine = () => {

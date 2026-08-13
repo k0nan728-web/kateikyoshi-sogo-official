@@ -2266,3 +2266,78 @@ main .ks-phrase-flow {
   position: relative;
   left: -8px;
 }
+
+
+/* Semantic Japanese copy: let the browser choose natural phrase boundaries.
+   Never force a fixed-length phrase or shrink body type merely to fit one row. */
+main :where(p, li, dd, dt, blockquote, figcaption, td, th, summary) {
+  overflow-wrap: normal;
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+
+/* Give compact supporting copy an intentional reading rhythm instead of a dense wall of small type. */
+main :where(p, li, dd, dt, blockquote, figcaption) {
+  line-height: 2.05;
+}
+
+main :where(p, li, dd, dt, blockquote, figcaption) + :where(p, li, dd, dt, blockquote, figcaption) {
+  margin-top: 1em;
+}
+
+.ks-reason-card p,
+.ks-value-item p,
+.ks-article-card p,
+.ks-social-hub > p,
+.ks-direct-contract-note,
+.ks-check-list li,
+#teacher li,
+#teacher p {
+  line-height: 2.05 !important;
+}
+
+.ks-reason-card p + p,
+.ks-value-item p + p,
+.ks-article-card p + p,
+#teacher p + p,
+#teacher li + li {
+  margin-top: 1em !important;
+}
+
+.ks-article-meta,
+.ks-social-card,
+.ks-content-topics {
+  row-gap: 0.85rem;
+}
+
+.ks-article-meta {
+  line-height: 1.75 !important;
+}
+
+.ks-social-card {
+  min-height: 82px;
+}
+
+@media (max-width: 767px) {
+  main :where(p, li, dd, dt, blockquote, figcaption) {
+    line-height: 2.1;
+  }
+
+  .ks-reason-card p,
+  .ks-value-item p,
+  .ks-article-card p,
+  .ks-social-hub > p,
+  .ks-direct-contract-note,
+  .ks-check-list li,
+  #teacher li,
+  #teacher p {
+    line-height: 2.12 !important;
+  }
+}
+
+
+/* Protect only explicitly meaningful groups; all other Japanese copy stays free to wrap naturally. */
+main .ks-semantic-group {
+  display: inline-block;
+  white-space: nowrap;
+}
