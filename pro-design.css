@@ -1985,3 +1985,72 @@ main :where(p, li, dd, dt, blockquote, figcaption, td, th, summary) {
     word-break: auto-phrase !important;
   }
 }
+
+
+/* Narrative copy outside framed components: centered, phrase-aware and orphan-resistant. */
+main p[data-ks-narrative-copy="true"] {
+  max-width: 52rem;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-align: center !important;
+  text-wrap: pretty;
+}
+
+@supports (text-wrap: pretty) {
+  main :where(p, li, dd, dt, blockquote, figcaption, td, th, summary) {
+    text-wrap: pretty;
+  }
+}
+
+
+
+/* Centered explanatory paragraphs use balanced lines before reducing type size. */
+@supports (text-wrap: balance) {
+  main p[data-ks-narrative-copy="true"] {
+    text-wrap: balance;
+  }
+}
+
+
+/* JavaScript marks natural Japanese phrase boundaries; phrases never split across lines. */
+main .ks-phrase {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+
+/* Let phrase-protected text inside checklist rows wrap within the remaining flex width. */
+main .ks-phrase-flow {
+  display: block;
+  min-width: 0;
+  flex: 1 1 0%;
+}
+
+
+/* Compact comparison cells may wrap between protected words without overflowing. */
+.ks-comparison-table .ks-phrase {
+  display: inline;
+  max-inline-size: 100%;
+  white-space: normal;
+}
+
+/* Keep the category and publication date within narrow article cards. */
+.ks-article-meta > .ks-phrase {
+  min-width: 0;
+  max-width: 100%;
+  flex: 0 1 auto;
+}
+
+
+/* On narrow cards, keep the date on its own row instead of allowing a clipped metadata line. */
+.ks-article-meta > .ks-phrase {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+}
+
+
+.ks-article-meta > .ks-phrase-flow {
+  flex: 0 0 100%;
+  width: 100%;
+}
