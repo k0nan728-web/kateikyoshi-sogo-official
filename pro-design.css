@@ -2909,3 +2909,60 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
 #tutor-comparison .ks-growth-heading.ks-growth-heading--center .ks-eyebrow {
   display: block !important;
 }
+
+
+/* Make the direct-partnership heading read as a clear section title, not body copy. */
+#direct-contract .ks-direct-contract-lead--center .ks-eyebrow {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.1rem;
+  padding: 0.36rem 0.9rem;
+  color: #ffd76a !important;
+  border: 1px solid rgba(255, 215, 106, 0.7);
+  border-radius: 999px;
+  background: rgba(248, 198, 80, 0.14);
+  box-shadow: 0 0.4rem 1rem rgba(0, 11, 31, 0.3);
+  font-size: clamp(0.72rem, 0.8vw, 0.9rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.16em !important;
+  line-height: 1 !important;
+  text-shadow: 0 0.1rem 0.22rem rgba(0, 11, 31, 0.75);
+}
+
+#direct-contract .ks-direct-contract-lead--center h2 {
+  position: relative;
+  margin-top: 0.85rem !important;
+  padding-bottom: 0.9rem;
+  color: #ffffff !important;
+  font-size: clamp(1.72rem, 3.2vw, 2.75rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.34 !important;
+  letter-spacing: 0.045em !important;
+  text-shadow: 0 0.14rem 0.3rem rgba(0, 11, 31, 0.7);
+}
+
+#direct-contract .ks-direct-contract-lead--center h2::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: min(7rem, 28%);
+  height: 0.22rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #dca92f, #ffe089, #dca92f);
+  box-shadow: 0 0.16rem 0.45rem rgba(248, 198, 80, 0.4);
+  content: "";
+  transform: translateX(-50%);
+}
+
+@media (max-width: 767px) {
+  #direct-contract .ks-direct-contract-lead--center .ks-eyebrow {
+    min-height: 1.9rem;
+    padding-inline: 0.72rem;
+  }
+
+  #direct-contract .ks-direct-contract-lead--center h2 {
+    margin-top: 0.72rem !important;
+    padding-bottom: 0.75rem;
+  }
+}
