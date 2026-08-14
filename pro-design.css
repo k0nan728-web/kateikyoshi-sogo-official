@@ -3440,3 +3440,34 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
     text-align: center !important;
   }
 }
+
+/* Match the tablet/desktop side-message rails to the instructor portrait height. */
+@media (min-width: 768px) {
+  #teacher .ks-teacher-centered-portrait {
+    align-items: stretch;
+  }
+
+  #teacher .ks-teacher-centered-portrait > .relative {
+    align-self: center;
+  }
+
+  #teacher .ks-teacher-portrait-sidecard {
+    align-self: stretch;
+    box-sizing: border-box;
+    min-height: 18rem;
+    justify-content: center;
+    padding-block: clamp(1.15rem, 2vw, 1.6rem);
+    background: linear-gradient(90deg, rgba(248, 198, 80, 0.07), rgba(255, 255, 255, 0));
+  }
+
+  #teacher .ks-teacher-portrait-sidecard-right {
+    background: linear-gradient(270deg, rgba(248, 198, 80, 0.07), rgba(255, 255, 255, 0));
+  }
+}
+
+/* Keep the portrait mathematically centered between equal side rails. */
+@media (min-width: 768px) {
+  #teacher .ks-teacher-centered-portrait {
+    grid-template-columns: minmax(0, 1fr) 18rem minmax(0, 1fr);
+  }
+}
