@@ -3595,3 +3595,52 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
   margin-inline: auto !important;
   text-align: center !important;
 }
+
+/* Credentials: wrap only between authored meaning units, never inside them. */
+.ks-teacher-credentials-card.ks-credential-copy-flow > ul {
+  row-gap: 1rem !important;
+}
+
+.ks-teacher-credentials-card.ks-credential-copy-flow > ul > li {
+  min-width: 0;
+  align-items: flex-start !important;
+  line-height: 1.85 !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  line-break: strict;
+}
+
+.ks-teacher-credentials-card.ks-credential-copy-flow .ks-credential-copy {
+  display: block;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.ks-teacher-credentials-card.ks-credential-copy-flow .ks-credential-phrase {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+@media (max-width: 639px) {
+  .ks-teacher-credentials-card.ks-credential-copy-flow {
+    padding: clamp(1.35rem, 5.25vw, 1.7rem) !important;
+  }
+
+  .ks-teacher-credentials-card.ks-credential-copy-flow > ul {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 1.15rem !important;
+  }
+
+  .ks-teacher-credentials-card.ks-credential-copy-flow > ul > li {
+    column-gap: 0.7rem !important;
+    font-size: clamp(0.94rem, 3.7vw, 1.04rem) !important;
+    line-height: 1.9 !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .ks-teacher-credentials-card.ks-credential-copy-flow > ul {
+    column-gap: 1.75rem !important;
+  }
+}
