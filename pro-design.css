@@ -3254,3 +3254,96 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
     letter-spacing: 0;
   }
 }
+
+/* Teacher trust overview: portrait first, proof points immediately beneath it. */
+#teacher .ks-teacher-trust-overview {
+  width: min(100%, 47rem);
+  margin: 0 auto clamp(2.35rem, 5vw, 4.3rem);
+  text-align: center;
+}
+
+#teacher .ks-teacher-centered-portrait {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto clamp(1.3rem, 3vw, 1.9rem);
+}
+
+#teacher .ks-teacher-centered-portrait > .relative {
+  width: min(100%, 18rem);
+  margin: 0 auto;
+}
+
+#teacher .ks-teacher-centered-portrait img[alt="プロ家庭教師 鈴木雄太"] {
+  display: block;
+  width: min(100%, 18rem) !important;
+  max-height: 25rem !important;
+  margin: 0 auto;
+}
+
+#teacher .ks-teacher-primary-stats {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  width: 100%;
+  margin: 0 !important;
+  gap: clamp(0.46rem, 1.5vw, 0.8rem) !important;
+}
+
+#teacher .ks-teacher-primary-stats > div {
+  min-width: 0;
+  padding: clamp(0.66rem, 1.4vw, 0.86rem) clamp(0.25rem, 0.7vw, 0.5rem) !important;
+  border-color: rgba(198, 151, 57, 0.55) !important;
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.98), rgba(255, 249, 232, 0.92)) !important;
+  box-shadow: 0 0.48rem 1.05rem rgba(15, 50, 93, 0.08);
+}
+
+#teacher .ks-teacher-primary-stats > div > div:first-child {
+  color: #a36d15 !important;
+  font-size: clamp(1rem, 2.15vw, 1.3rem) !important;
+  line-height: 1.28 !important;
+  white-space: nowrap;
+}
+
+#teacher .ks-teacher-primary-stats > div > div:last-child {
+  color: #173e70 !important;
+  font-size: clamp(0.6rem, 1.12vw, 0.76rem) !important;
+  font-weight: 700;
+  line-height: 1.45 !important;
+}
+
+#teacher .ks-teacher-biography {
+  width: min(100%, 56rem);
+  margin: 0 auto;
+}
+
+#teacher .ks-teacher-biography > .flex.items-center.gap-3.mb-2 {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  #teacher .ks-teacher-trust-overview {
+    margin-bottom: 2.35rem;
+  }
+
+  #teacher .ks-teacher-centered-portrait > .relative,
+  #teacher .ks-teacher-centered-portrait img[alt="プロ家庭教師 鈴木雄太"] {
+    width: min(100%, 15.25rem) !important;
+  }
+
+  #teacher .ks-teacher-primary-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.52rem !important;
+  }
+
+  #teacher .ks-teacher-primary-stats > div {
+    padding: 0.64rem 0.34rem !important;
+  }
+
+  #teacher .ks-teacher-primary-stats > div > div:first-child {
+    font-size: 1.06rem !important;
+  }
+
+  #teacher .ks-teacher-primary-stats > div > div:last-child {
+    font-size: 0.64rem !important;
+  }
+}
