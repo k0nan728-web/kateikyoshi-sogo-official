@@ -19,10 +19,10 @@
       '一人で学習計画を立てにくい方'
     ],
     '不登校支援コース': [
-      '学校に行けない時期でも学習を続けたい方',
-      'カメラオフやチャット中心から始めたい方',
-      '英検や受験を見据えて学習を再開したい方',
-      '保護者様も含めて相談しながら進めたい方'
+      '学校に行けていない方',
+      '学校復帰を目指しながら学習を進めたい方',
+      '心理的ハードルが高く、学習再開に不安がある方',
+      '小さな成功体験から自己肯定感を回復させたい方'
     ],
     '通信制高校 卒業・進学サポートコース': [
       '通信制高校の課題や単位取得を進めたい方',
@@ -147,8 +147,15 @@
       list.className = 'ks-course-recommendation-list';
       if (paragraph) paragraph.replaceWith(list);
       else box.appendChild(list);
+    } else if (paragraph) {
+      /* React may retain a fresh source paragraph beside the previously injected list. */
+      paragraph.remove();
     }
-    fillList(list, items);
+
+    var currentItems = Array.prototype.map.call(list.querySelectorAll('li'), function (row) {
+      return row.textContent.trim();
+    });
+    if (currentItems.join('\u0000') !== items.join('\u0000')) fillList(list, items);
     box.classList.add('ks-course-recommendation-box');
   }
 
@@ -169,6 +176,10 @@
     new MutationObserver(function () {
       window.setTimeout(enhanceRecommendations, 80);
     }).observe(section, { childList: true, subtree: true });
+
+    /* The course detail is rendered by a bundled React component. A lightweight guard
+       keeps the injected list synchronized even when that component reuses its card DOM. */
+    window.setInterval(enhanceRecommendations, 500);
   }
 
   if (document.readyState === 'loading') {
