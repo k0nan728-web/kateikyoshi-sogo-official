@@ -3706,3 +3706,17 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
     font-size: clamp(0.79rem, 3.15vw, 0.9rem) !important;
   }
 }
+
+/* Section explanations: center short explanatory copy, while keeping dense detail copy left-aligned. */
+#for-you .ks-for-you-wide-card-body,
+.ks-reason-card p,
+.ks-value-item p,
+.ks-article-card p,
+.ks-social-card p,
+.ks-course-card > p {
+  text-align: center !important;
+}
+
+#for-you .ks-for-you-wide-card-body {
+  margin-inline: auto;
+}
