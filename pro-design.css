@@ -3548,3 +3548,25 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
     letter-spacing: -0.035em;
   }
 }
+
+/* Prominent two-line hero subheadline, fitted to the available width by script. */
+.ks-photo-hero .ks-hero-copy .ks-hero-secondary[data-ks-hero-subheadline-fit="true"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-inline: auto !important;
+  text-align: center !important;
+  color: #174a86 !important;
+  font-weight: 800 !important;
+  line-height: 1.34 !important;
+  letter-spacing: -0.025em !important;
+}
+
+.ks-photo-hero .ks-hero-copy .ks-hero-secondary[data-ks-hero-subheadline-fit="true"] .ks-hero-subheadline-line {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  margin-inline: auto;
+  white-space: nowrap;
+  text-align: center;
+  letter-spacing: -0.025em;
+}
