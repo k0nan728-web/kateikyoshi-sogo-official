@@ -20,15 +20,15 @@
     },
     {
       match: '塾講師（個別・集団）',
-      lines: ['塾講師（個別・集団を合わせて） 20年超の指導経験']
+      groups: ['塾講師（個別・集団を合わせて）', '20年超の指導経験']
     },
     {
       match: '家庭教師（対面型）',
-      lines: ['家庭教師（対面型）13年 ・（オンライン型）6年']
+      groups: ['家庭教師（対面型）13年', '・（オンライン型）6年']
     },
     {
       match: '通信制高校のサポート校',
-      lines: [
+      groups: [
         '通信制高校のサポート校 現役講師',
         '（不登校・通信制高校から大学受験を目指す指導）'
       ]
@@ -46,68 +46,15 @@
     return phrase;
   }
 
-  function createFixedLine(text) {
-    var line = document.createElement('span');
-    line.className = 'ks-credential-fixed-line';
-    line.textContent = text;
-    return line;
-  }
-
   function buildCopy(entry) {
     var content = document.createElement('span');
     content.className = 'ks-credential-copy';
-
-    if (entry.lines) {
-      content.classList.add('ks-credential-copy--fixed-lines');
-      entry.lines.forEach(function (line) {
-        content.appendChild(createFixedLine(line));
-      });
-      return content;
-    }
 
     entry.groups.forEach(function (group, index) {
       if (index > 0) content.appendChild(document.createTextNode(' '));
       content.appendChild(createPhrase(group));
     });
     return content;
-  }
-
-  function measureLine(line, style) {
-    var ruler = line.cloneNode(true);
-    ruler.style.cssText = [
-      'position:fixed!important',
-      'left:-10000px!important',
-      'top:-10000px!important',
-      'display:block!important',
-      'width:max-content!important',
-      'max-width:none!important',
-      'white-space:nowrap!important',
-      'visibility:hidden!important',
-      'font-family:' + style.fontFamily + '!important',
-      'font-weight:' + style.fontWeight + '!important',
-      'letter-spacing:' + style.letterSpacing + '!important'
-    ].join(';');
-    document.body.appendChild(ruler);
-    var width = ruler.getBoundingClientRect().width;
-    ruler.remove();
-    return width;
-  }
-
-  function fitFixedCredentialLines(card) {
-    Array.prototype.forEach.call(card.querySelectorAll('.ks-credential-copy--fixed-lines'), function (copy) {
-      copy.style.removeProperty('--ks-credential-fixed-size');
-      var lines = Array.prototype.slice.call(copy.querySelectorAll('.ks-credential-fixed-line'));
-      var available = copy.getBoundingClientRect().width;
-      var style = getComputedStyle(copy);
-      var baseSize = Number.parseFloat(style.fontSize);
-      if (!lines.length || !available || !baseSize) return;
-
-      var required = Math.max.apply(null, lines.map(function (line) {
-        return measureLine(line, style);
-      }));
-      var fitted = required > available ? baseSize * (available / required) : baseSize;
-      copy.style.setProperty('--ks-credential-fixed-size', Math.max(9.5, fitted).toFixed(2) + 'px');
-    });
   }
 
   function enhanceCredentials() {
@@ -138,14 +85,12 @@
           if (node !== check) node.remove();
         });
         item.appendChild(buildCopy(entry));
-        if (entry.lines) item.classList.add('ks-credential-fixed-item');
       });
 
       card.classList.add('ks-credential-copy-flow');
       card.dataset.ksCredentialFlow = 'true';
     }
 
-    fitFixedCredentialLines(card);
   }
 
   var resizeTimer;

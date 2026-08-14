@@ -3850,3 +3850,10 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
   white-space: nowrap;
   text-align: center !important;
 }
+
+/* Credentials: one shared type scale; long items wrap only between meaningful phrases. */
+.ks-teacher-credentials-card.ks-credential-copy-flow .ks-credential-copy,
+.ks-teacher-credentials-card.ks-credential-copy-flow .ks-credential-phrase {
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
