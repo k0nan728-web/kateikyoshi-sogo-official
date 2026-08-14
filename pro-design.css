@@ -2966,3 +2966,44 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
     padding-bottom: 0.75rem;
   }
 }
+
+/* Unified gold rule beneath every primary section heading.
+   The site has a mix of React-rendered and dynamically inserted sections;
+   targeting only the actual section H2 elements avoids changing card titles. */
+#root main > section[id] h2 {
+  position: relative;
+  isolation: isolate;
+  padding-bottom: 1rem !important;
+}
+
+#root main > section[id] h2::after {
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 50%;
+  display: block !important;
+  width: clamp(6rem, 24%, 11rem) !important;
+  height: 0.22rem !important;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #dca92f 0%, #ffe089 50%, #dca92f 100%) !important;
+  box-shadow: 0 0.16rem 0.45rem rgba(248, 198, 80, 0.42);
+  content: "" !important;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 767px) {
+  #root main > section[id] h2 {
+    padding-bottom: 0.86rem !important;
+  }
+
+  #root main > section[id] h2::after {
+    width: clamp(5.75rem, 30%, 8rem) !important;
+    height: 0.2rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #root main > section[id] h2::after {
+    scroll-behavior: auto;
+  }
+}
