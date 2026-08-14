@@ -74,9 +74,9 @@
     return true;
   };
 
-  const fitTargetTitle = (section) => {
+  const fitTargetTitle = (section, targetText) => {
     const title = [...section.querySelectorAll(".ks-for-you-wide-card-title")].find(
-      (element) => element.textContent.trim() === "学校に行けない時期も、学びは止めない",
+      (element) => element.textContent.trim() === targetText,
     );
     if (!title) return;
 
@@ -142,7 +142,11 @@
 
     if (processed || section.querySelectorAll(".ks-for-you-wide-card").length === CARD_CONTENT.length) {
       section.querySelector(".ks-for-you-wide-card")?.parentElement?.classList.add("ks-for-you-wide-card-list");
-      fitTargetTitle(section);
+      [
+        "学校に行けない時期も、学びは止めない",
+        "逆転合格を、具体的な戦略に変える",
+        "保護者の不安にも、見通しをつくる",
+      ].forEach((targetText) => fitTargetTitle(section, targetText));
       addCounselingSpacing(section);
       return true;
     }
