@@ -3761,3 +3761,17 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
   white-space: nowrap;
   text-align: center !important;
 }
+
+/* Keep all nine For You card headings centered and on one line. */
+#for-you .ks-for-you-wide-card-title {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  font-size: clamp(0.83rem, 3.9vw, 1.4rem) !important;
+  letter-spacing: -0.05em;
+  line-height: 1.45;
+  white-space: nowrap;
+  text-align: center !important;
+}
