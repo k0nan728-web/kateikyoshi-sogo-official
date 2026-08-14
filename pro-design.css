@@ -3879,3 +3879,38 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
   font-size: inherit !important;
   line-height: inherit !important;
 }
+
+/* Stoaca lesson: centered label and profile link, with visual directly after the introduction. */
+#stoaca .ks-stoaca-grid.ks-stoaca-flow-ready {
+  display: block;
+  max-width: 52rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#stoaca .ks-stoaca-lesson-label {
+  display: block;
+  width: 100%;
+  text-align: center !important;
+}
+
+#stoaca .ks-stoaca-copy > .ks-stoaca-visual {
+  width: min(100%, 42rem);
+  margin: 1.5rem auto 1.75rem;
+  text-align: center;
+}
+
+#stoaca .ks-stoaca-copy > .ks-stoaca-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+#stoaca .ks-stoaca-profile-link {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.5rem auto 0;
+  text-align: center !important;
+}
