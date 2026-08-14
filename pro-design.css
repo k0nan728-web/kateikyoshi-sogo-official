@@ -3184,3 +3184,73 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
     white-space: nowrap;
   }
 }
+
+/* Brand proof badges: keep authority visible without shrinking the logo itself. */
+#teacher .ks-brand-logo-showcase-credentials {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.62rem;
+  margin: 0.78rem auto 0;
+  width: min(100%, 31rem);
+}
+
+#teacher .ks-brand-credential {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0.42rem 0.7rem 0.48rem;
+  border: 1px solid rgba(196, 151, 61, 0.64);
+  border-radius: 0.62rem;
+  background: linear-gradient(135deg, rgba(248, 198, 80, 0.16), rgba(255, 255, 255, 0.78));
+  text-align: center;
+}
+
+#teacher .ks-brand-credential-label,
+#teacher .ks-brand-credential-detail {
+  display: block;
+  font-family: "Noto Sans JP", sans-serif;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#teacher .ks-brand-credential-label {
+  color: #0f376d !important;
+  font-size: clamp(0.68rem, 1.18vw, 0.84rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.45 !important;
+}
+
+#teacher .ks-brand-credential-detail {
+  margin-top: 0.08rem;
+  color: #9b6c1b !important;
+  font-size: clamp(0.58rem, 0.98vw, 0.7rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em;
+  line-height: 1.45 !important;
+}
+
+#teacher .ks-brand-absorbed-recognition,
+#teacher .ks-brand-absorbed-academic {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  #teacher .ks-brand-logo-showcase-credentials {
+    gap: 0.42rem;
+    margin-top: 0.62rem;
+  }
+
+  #teacher .ks-brand-credential {
+    padding: 0.34rem 0.25rem 0.38rem;
+    border-radius: 0.5rem;
+  }
+
+  #teacher .ks-brand-credential-label {
+    font-size: 0.62rem !important;
+  }
+
+  #teacher .ks-brand-credential-detail {
+    font-size: 0.53rem !important;
+    letter-spacing: 0;
+  }
+}
