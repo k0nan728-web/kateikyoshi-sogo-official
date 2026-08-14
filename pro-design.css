@@ -3795,10 +3795,32 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
 }
 
 #direct-contract .ks-value-item .ks-benefit-copy-flow {
-  text-align: center !important;
+  text-align: left !important;
   word-break: normal !important;
   overflow-wrap: normal !important;
   line-break: strict;
+}
+
+/* The second benefit headline uses a slightly tighter rhythm to maximize one-line legibility. */
+#direct-contract .ks-value-item:nth-of-type(2).ks-benefit-copy-fit h3 {
+  letter-spacing: -0.095em;
+}
+
+@media (max-width: 639px) {
+  #direct-contract .ks-value-item {
+    display: block !important;
+  }
+
+  #direct-contract .ks-value-item .ks-value-icon {
+    display: flex;
+    width: 3.25rem;
+    height: 3.25rem;
+    margin: 0 auto 0.8rem;
+  }
+
+  #direct-contract .ks-value-item > div {
+    width: 100%;
+  }
 }
 
 #direct-contract .ks-value-item .ks-benefit-copy-phrase {
