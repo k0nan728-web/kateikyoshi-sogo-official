@@ -3914,3 +3914,35 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
   margin: 1.5rem auto 0;
   text-align: center !important;
 }
+
+/* Course recommendations: consistent, scan-friendly target lists. */
+#courses .ks-course-recommendation-box {
+  padding: clamp(1rem, 3vw, 1.35rem) !important;
+}
+
+#courses .ks-course-recommendation-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #4b5563;
+  font-family: var(--font-sans-jp, sans-serif);
+  font-size: clamp(0.9rem, 2.8vw, 1rem);
+  line-height: 1.7;
+  text-align: left;
+}
+
+#courses .ks-course-recommendation-list li {
+  position: relative;
+  padding-left: 1.45em;
+}
+
+#courses .ks-course-recommendation-list li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #b9791d;
+  content: '◯';
+  font-weight: 800;
+}
