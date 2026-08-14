@@ -3775,3 +3775,34 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
   white-space: nowrap;
   text-align: center !important;
 }
+
+/* Direct-partnership benefit cards: one-line headings and phrase-led body wrapping. */
+#direct-contract .ks-value-item > div {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+#direct-contract .ks-value-item.ks-benefit-copy-fit h3 {
+  width: 100%;
+  min-width: 0;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  font-size: var(--ks-benefit-heading-size, clamp(0.9rem, 4.4vw, 1.7rem)) !important;
+  letter-spacing: -0.055em;
+  line-height: 1.45;
+  white-space: nowrap;
+  text-align: center !important;
+}
+
+#direct-contract .ks-value-item .ks-benefit-copy-flow {
+  text-align: center !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  line-break: strict;
+}
+
+#direct-contract .ks-value-item .ks-benefit-copy-phrase {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+}
