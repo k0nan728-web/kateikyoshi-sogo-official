@@ -48,6 +48,8 @@
 
     profileName?.classList.add('ks-brand-absorbed-profile-name');
     profileRole?.classList.add('ks-brand-absorbed-profile-role');
+    profileName?.style.setProperty('display', 'none', 'important');
+    profileRole?.style.setProperty('display', 'none', 'important');
     return true;
   }
 
