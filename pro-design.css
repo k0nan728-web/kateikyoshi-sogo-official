@@ -3515,3 +3515,36 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
 #star-case .fade-in-up.rounded-2xl > .grid:first-child {
   background: #0b2c54 !important;
 }
+
+/* Mobile-safe two-line treatment for the star achievement headline. */
+#star-case h2 .ks-starcase-headline-line {
+  display: block;
+}
+
+#star-case h2 .ks-starcase-headline-plain {
+  color: #ffffff !important;
+}
+
+#star-case h2 .ks-starcase-headline-gold {
+  color: #ffd76a !important;
+}
+
+@media (max-width: 767px) {
+  #star-case h2.ks-starcase-headline-fit {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.42;
+    letter-spacing: -0.035em;
+  }
+
+  #star-case h2.ks-starcase-headline-fit .ks-starcase-headline-line {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    margin-inline: auto;
+    white-space: nowrap;
+    letter-spacing: -0.035em;
+  }
+}
