@@ -24,14 +24,17 @@
     },
     {
       match: '家庭教師（対面型）',
-      groups: ['家庭教師（対面型）13年', '・（オンライン型）6年']
+      groups: ['家庭教師（対面型）13年', '家庭教師（オンライン型）6年'],
+      stacked: true
     },
     {
       match: '通信制高校のサポート校',
       groups: [
         '通信制高校のサポート校 現役講師',
-        '（不登校・通信制高校から大学受験を目指す指導）'
-      ]
+        '（不登校・通信制高校から',
+        '大学受験を目指す指導）'
+      ],
+      stacked: true
     },
     {
       match: '大学受験・英検対策',
@@ -48,11 +51,18 @@
 
   function buildCopy(entry) {
     var content = document.createElement('span');
-    content.className = 'ks-credential-copy';
+    content.className = 'ks-credential-copy' + (entry.stacked ? ' ks-credential-copy--stacked' : '');
 
     entry.groups.forEach(function (group, index) {
-      if (index > 0) content.appendChild(document.createTextNode(' '));
-      content.appendChild(createPhrase(group));
+      if (entry.stacked) {
+        var line = document.createElement('span');
+        line.className = 'ks-credential-line';
+        line.appendChild(createPhrase(group));
+        content.appendChild(line);
+      } else {
+        if (index > 0) content.appendChild(document.createTextNode(' '));
+        content.appendChild(createPhrase(group));
+      }
     });
     return content;
   }
