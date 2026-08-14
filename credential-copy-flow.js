@@ -1,7 +1,6 @@
 /*
  * Credential copy flow
- * Keep meaningful Japanese phrases intact in the teacher credentials card.
- * Long items may wrap only between the authored phrase groups.
+ * Preserve natural Japanese phrases and fit the user-designated credential lines.
  */
 (function () {
   'use strict';
@@ -21,19 +20,17 @@
     },
     {
       match: '塾講師（個別・集団）',
-      groups: ['塾講師（個別・集団）', '20年超の指導経験']
+      lines: ['塾講師（個別・集団を合わせて） 20年超の指導経験']
     },
     {
       match: '家庭教師（対面型）',
-      groups: ['家庭教師（対面型）13年', '・（オンライン型）6年']
+      lines: ['家庭教師（対面型）13年 ・（オンライン型）6年']
     },
     {
       match: '通信制高校のサポート校',
-      groups: [
+      lines: [
         '通信制高校のサポート校 現役講師',
-        '（不登校および通信制高校から',
-        '大学受験を目指す指導・',
-        '高卒資格取得サポート）'
+        '（不登校・通信制高校から大学受験を目指す指導）'
       ]
     },
     {
@@ -49,6 +46,70 @@
     return phrase;
   }
 
+  function createFixedLine(text) {
+    var line = document.createElement('span');
+    line.className = 'ks-credential-fixed-line';
+    line.textContent = text;
+    return line;
+  }
+
+  function buildCopy(entry) {
+    var content = document.createElement('span');
+    content.className = 'ks-credential-copy';
+
+    if (entry.lines) {
+      content.classList.add('ks-credential-copy--fixed-lines');
+      entry.lines.forEach(function (line) {
+        content.appendChild(createFixedLine(line));
+      });
+      return content;
+    }
+
+    entry.groups.forEach(function (group, index) {
+      if (index > 0) content.appendChild(document.createTextNode(' '));
+      content.appendChild(createPhrase(group));
+    });
+    return content;
+  }
+
+  function measureLine(line, style) {
+    var ruler = line.cloneNode(true);
+    ruler.style.cssText = [
+      'position:fixed!important',
+      'left:-10000px!important',
+      'top:-10000px!important',
+      'display:block!important',
+      'width:max-content!important',
+      'max-width:none!important',
+      'white-space:nowrap!important',
+      'visibility:hidden!important',
+      'font-family:' + style.fontFamily + '!important',
+      'font-weight:' + style.fontWeight + '!important',
+      'letter-spacing:' + style.letterSpacing + '!important'
+    ].join(';');
+    document.body.appendChild(ruler);
+    var width = ruler.getBoundingClientRect().width;
+    ruler.remove();
+    return width;
+  }
+
+  function fitFixedCredentialLines(card) {
+    Array.prototype.forEach.call(card.querySelectorAll('.ks-credential-copy--fixed-lines'), function (copy) {
+      copy.style.removeProperty('--ks-credential-fixed-size');
+      var lines = Array.prototype.slice.call(copy.querySelectorAll('.ks-credential-fixed-line'));
+      var available = copy.getBoundingClientRect().width;
+      var style = getComputedStyle(copy);
+      var baseSize = Number.parseFloat(style.fontSize);
+      if (!lines.length || !available || !baseSize) return;
+
+      var required = Math.max.apply(null, lines.map(function (line) {
+        return measureLine(line, style);
+      }));
+      var fitted = required > available ? baseSize * (available / required) : baseSize;
+      copy.style.setProperty('--ks-credential-fixed-size', Math.max(9.5, fitted).toFixed(2) + 'px');
+    });
+  }
+
   function enhanceCredentials() {
     var heading = Array.prototype.find.call(
       document.querySelectorAll('h1, h2, h3, h4, h5, h6'),
@@ -58,42 +119,39 @@
     );
 
     var card = heading && heading.closest('.ks-teacher-credentials-card');
-    if (!card || card.dataset.ksCredentialFlow === 'true') return;
+    if (!card) return;
 
     var list = card.querySelector('ul');
     if (!list) return;
 
-    var items = Array.prototype.slice.call(list.querySelectorAll(':scope > li'));
-    var changed = false;
+    if (card.dataset.ksCredentialFlow !== 'true') {
+      Array.prototype.slice.call(list.querySelectorAll(':scope > li')).forEach(function (item) {
+        var entry = entries.find(function (candidate) {
+          return item.textContent.indexOf(candidate.match) !== -1;
+        });
+        if (!entry) return;
 
-    items.forEach(function (item) {
-      var entry = entries.find(function (candidate) {
-        return item.textContent.indexOf(candidate.match) !== -1;
-      });
-      if (!entry) return;
+        var check = item.querySelector('span');
+        if (!check) return;
 
-      var check = item.querySelector('span');
-      if (!check) return;
-
-      var content = document.createElement('span');
-      content.className = 'ks-credential-copy';
-
-      entry.groups.forEach(function (group, index) {
-        if (index > 0) content.appendChild(document.createTextNode(' '));
-        content.appendChild(createPhrase(group));
+        Array.prototype.slice.call(item.childNodes).forEach(function (node) {
+          if (node !== check) node.remove();
+        });
+        item.appendChild(buildCopy(entry));
+        if (entry.lines) item.classList.add('ks-credential-fixed-item');
       });
 
-      Array.prototype.slice.call(item.childNodes).forEach(function (node) {
-        if (node !== check) node.remove();
-      });
-      item.appendChild(content);
-      changed = true;
-    });
-
-    if (changed) {
       card.classList.add('ks-credential-copy-flow');
       card.dataset.ksCredentialFlow = 'true';
     }
+
+    fitFixedCredentialLines(card);
+  }
+
+  var resizeTimer;
+  function scheduleCredentials() {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(enhanceCredentials, 80);
   }
 
   function start() {
@@ -102,6 +160,7 @@
       window.setTimeout(enhanceCredentials, delay);
     });
     window.addEventListener('load', enhanceCredentials, { once: true });
+    window.addEventListener('resize', scheduleCredentials, { passive: true });
   }
 
   if (document.readyState === 'loading') {

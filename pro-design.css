@@ -3598,6 +3598,7 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
 
 /* Credentials: wrap only between authored meaning units, never inside them. */
 .ks-teacher-credentials-card.ks-credential-copy-flow > ul {
+  grid-template-columns: minmax(0, 1fr) !important;
   row-gap: 1rem !important;
 }
 
@@ -3622,9 +3623,29 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
   white-space: nowrap;
 }
 
+.ks-teacher-credentials-card.ks-credential-copy-flow .ks-credential-fixed-item {
+  width: 100%;
+}
+
+.ks-teacher-credentials-card.ks-credential-copy-flow .ks-credential-copy--fixed-lines {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+.ks-teacher-credentials-card.ks-credential-copy-flow .ks-credential-fixed-line {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  font-size: var(--ks-credential-fixed-size, inherit) !important;
+  letter-spacing: -0.06em;
+  line-height: 1.9;
+  white-space: nowrap;
+}
+
 @media (max-width: 639px) {
   .ks-teacher-credentials-card.ks-credential-copy-flow {
-    padding: clamp(1.35rem, 5.25vw, 1.7rem) !important;
+    padding: clamp(0.7rem, 3.5vw, 1rem) !important;
   }
 
   .ks-teacher-credentials-card.ks-credential-copy-flow > ul {
@@ -3633,9 +3654,17 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
   }
 
   .ks-teacher-credentials-card.ks-credential-copy-flow > ul > li {
-    column-gap: 0.7rem !important;
+    position: relative;
+    column-gap: 0 !important;
+    padding-left: 1.15rem;
     font-size: clamp(0.94rem, 3.7vw, 1.04rem) !important;
     line-height: 1.9 !important;
+  }
+
+  .ks-teacher-credentials-card.ks-credential-copy-flow > ul > li > span:first-child:not(.ks-credential-copy) {
+    position: absolute;
+    top: 0.18em;
+    left: 0;
   }
 }
 
