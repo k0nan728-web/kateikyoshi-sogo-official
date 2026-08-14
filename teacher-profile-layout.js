@@ -24,7 +24,26 @@
 
     const centeredPortrait = document.createElement('div');
     centeredPortrait.className = 'ks-teacher-centered-portrait';
-    centeredPortrait.append(portraitFrame);
+
+    const leftPanel = document.createElement('aside');
+    leftPanel.className = 'ks-teacher-portrait-sidecard ks-teacher-portrait-sidecard-left';
+    leftPanel.setAttribute('aria-label', '指導方針');
+    leftPanel.innerHTML = `
+      <span class="ks-teacher-portrait-sidecard-eyebrow">STUDY STRATEGY</span>
+      <strong>今の学びを<br>次の進路へ</strong>
+      <span class="ks-teacher-portrait-sidecard-copy">一人ひとりの現在地から<br>優先順位を整えます</span>
+    `;
+
+    const rightPanel = document.createElement('aside');
+    rightPanel.className = 'ks-teacher-portrait-sidecard ks-teacher-portrait-sidecard-right';
+    rightPanel.setAttribute('aria-label', '支援方針');
+    rightPanel.innerHTML = `
+      <span class="ks-teacher-portrait-sidecard-eyebrow">LONG-TERM SUPPORT</span>
+      <strong>変化する悩みに<br>一人で伴走</strong>
+      <span class="ks-teacher-portrait-sidecard-copy">英検・受験・学校生活を<br>切り分けずに支えます</span>
+    `;
+
+    centeredPortrait.append(leftPanel, portraitFrame, rightPanel);
 
     statGrid.classList.add('ks-teacher-primary-stats');
     trustOverview.append(centeredPortrait, statGrid);

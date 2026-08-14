@@ -3365,3 +3365,78 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
     white-space: nowrap;
   }
 }
+
+/* Tablet and desktop framing for the instructor portrait. */
+#teacher .ks-teacher-centered-portrait {
+  display: grid;
+  grid-template-columns: minmax(8.25rem, 1fr) auto minmax(8.25rem, 1fr);
+  column-gap: clamp(0.75rem, 2.4vw, 1.6rem);
+  align-items: center;
+}
+
+#teacher .ks-teacher-centered-portrait > .relative {
+  grid-column: 2;
+  margin: 0;
+}
+
+#teacher .ks-teacher-portrait-sidecard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.38rem;
+  max-width: 12.25rem;
+  padding: 0.9rem 0.72rem;
+  border-top: 1px solid rgba(196, 151, 61, 0.75);
+  border-bottom: 1px solid rgba(196, 151, 61, 0.42);
+  color: #123d73;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+#teacher .ks-teacher-portrait-sidecard-left {
+  grid-column: 1;
+  justify-self: end;
+  text-align: right;
+}
+
+#teacher .ks-teacher-portrait-sidecard-right {
+  grid-column: 3;
+  justify-self: start;
+  text-align: left;
+}
+
+#teacher .ks-teacher-portrait-sidecard-eyebrow {
+  color: #a26d16;
+  font-size: clamp(0.5rem, 0.8vw, 0.62rem);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+}
+
+#teacher .ks-teacher-portrait-sidecard strong {
+  color: #0f376d;
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(0.95rem, 1.55vw, 1.2rem);
+  font-weight: 800;
+  line-height: 1.55;
+}
+
+#teacher .ks-teacher-portrait-sidecard-copy {
+  color: #4a637e;
+  font-size: clamp(0.58rem, 0.9vw, 0.7rem);
+  font-weight: 600;
+  line-height: 1.72;
+}
+
+@media (max-width: 767px) {
+  #teacher .ks-teacher-centered-portrait {
+    display: flex;
+  }
+
+  #teacher .ks-teacher-portrait-sidecard {
+    display: none;
+  }
+
+  #teacher .ks-experience-highlight {
+    text-align: center !important;
+  }
+}
