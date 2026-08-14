@@ -3147,3 +3147,40 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
     max-height: none;
   }
 }
+
+/* Absorb the profile name and role into the official logo identity block. */
+#teacher .ks-brand-logo-showcase-role {
+  margin: clamp(0.4rem, 1vw, 0.68rem) 0 0 !important;
+  color: #0f376d !important;
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(0.86rem, 1.65vw, 1.22rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em;
+  line-height: 1.6 !important;
+  text-align: center;
+  text-wrap: balance;
+}
+
+#teacher .ks-brand-logo-showcase-role::before {
+  content: "";
+  display: block;
+  width: clamp(4.6rem, 13vw, 7.2rem);
+  height: 2px;
+  margin: 0 auto 0.42rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #f8c650 24%, #ffd76a 50%, #f8c650 76%, transparent);
+}
+
+#teacher .ks-brand-absorbed-profile-name,
+#teacher .ks-brand-absorbed-profile-role {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  #teacher .ks-brand-logo-showcase-role {
+    font-size: 0.82rem !important;
+    letter-spacing: 0.045em;
+    line-height: 1.5 !important;
+    white-space: nowrap;
+  }
+}
