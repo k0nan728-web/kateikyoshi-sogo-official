@@ -3644,3 +3644,65 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
     column-gap: 1.75rem !important;
   }
 }
+
+/* Course section: the prescribed two-line title and phrase-led detail copy. */
+#courses .ks-course-heading-fit {
+  width: 100%;
+  max-width: none !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-align: center !important;
+  text-wrap: initial !important;
+}
+
+#courses .ks-course-heading-fit .ks-course-heading-line {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  margin-inline: auto;
+  color: inherit;
+  font-size: var(--ks-course-heading-size, inherit);
+  line-height: 1.36;
+  white-space: nowrap;
+  text-align: center;
+}
+
+#courses .ks-course-detail-flow :is(p, li) {
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  line-break: strict;
+}
+
+#courses .ks-course-detail-flow .ks-course-copy-flow {
+  text-wrap: pretty;
+}
+
+#courses .ks-course-detail-flow .ks-course-phrase {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+#courses .ks-course-detail-flow .ks-course-support-copy {
+  min-width: 0;
+  flex: 1 1 auto;
+  line-height: 1.75;
+}
+
+@media (max-width: 639px) {
+  #courses .ks-course-heading-fit {
+    margin-bottom: 1.25rem !important;
+  }
+
+  #courses .ks-course-heading-fit .ks-course-heading-line {
+    letter-spacing: -0.035em;
+  }
+
+  #courses .ks-course-detail-flow > div:not(:first-child) {
+    padding: clamp(1.25rem, 5vw, 1.75rem) !important;
+  }
+
+  #courses .ks-course-detail-flow .ks-course-support-copy {
+    font-size: clamp(0.79rem, 3.15vw, 0.9rem) !important;
+  }
+}
