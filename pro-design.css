@@ -3007,3 +3007,90 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
     scroll-behavior: auto;
   }
 }
+
+/* Course detail headers use course-specific dark color bands. Keep their text
+   independent from the site-wide heading/body rules so it never blends into a band. */
+#courses .rounded-2xl.overflow-hidden > div:first-child {
+  position: relative;
+  isolation: isolate;
+}
+
+#courses .rounded-2xl.overflow-hidden > div:first-child :is(h1, h2, h3, h4, p, strong) {
+  color: #ffffff !important;
+  text-shadow: 0 0.1rem 0.22rem rgba(0, 20, 48, 0.56) !important;
+}
+
+#courses .rounded-2xl.overflow-hidden > div:first-child h3 {
+  font-weight: 900 !important;
+  letter-spacing: 0.025em !important;
+}
+
+#courses .rounded-2xl.overflow-hidden > div:first-child p {
+  color: rgba(255, 255, 255, 0.94) !important;
+  font-weight: 600 !important;
+}
+
+#courses .rounded-2xl.overflow-hidden > div:first-child .text-3xl {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.35rem;
+  min-height: 2.35rem;
+  padding: 0.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 0.68rem;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 0.22rem 0.55rem rgba(0, 18, 48, 0.22);
+  line-height: 1;
+}
+
+@media (max-width: 767px) {
+  #courses .rounded-2xl.overflow-hidden > div:first-child {
+    padding: 1.25rem 1.15rem !important;
+  }
+
+  #courses .rounded-2xl.overflow-hidden > div:first-child h3 {
+    font-size: clamp(1.18rem, 5.2vw, 1.42rem) !important;
+    line-height: 1.4 !important;
+  }
+
+  #courses .rounded-2xl.overflow-hidden > div:first-child p {
+    margin-top: 0.18rem !important;
+    font-size: 0.92rem !important;
+    line-height: 1.55 !important;
+  }
+}
+
+/* Let long course names use the text column beside their icon instead of
+   forcing the entire header row wider than a mobile card. */
+#courses .rounded-2xl.overflow-hidden > div:first-child .flex.items-center {
+  min-width: 0;
+}
+
+#courses .rounded-2xl.overflow-hidden > div:first-child .flex.items-center > div {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+#courses .rounded-2xl.overflow-hidden > div:first-child :is(h1, h2, h3, h4, p) {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  white-space: normal !important;
+  word-break: normal;
+}
+
+/* The natural-copy helper may wrap course subtitles in protected spans.
+   Release those spans inside the narrow detail-card header so long subtitles
+   can wrap in the available text column instead of widening the card. */
+#courses .rounded-2xl.overflow-hidden > div:first-child p,
+#courses .rounded-2xl.overflow-hidden > div:first-child p * {
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  text-wrap: wrap !important;
+}
+
+#courses .rounded-2xl.overflow-hidden > div:first-child p span {
+  display: inline !important;
+}
