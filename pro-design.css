@@ -3806,3 +3806,47 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
   max-width: 100%;
   white-space: nowrap;
 }
+
+/* Support cases: retain the focused mobile reading flow on tablets and desktops. */
+#futouko .grid.md\:grid-cols-3 {
+  grid-template-columns: minmax(0, 1fr) !important;
+  width: 100%;
+  max-width: 52rem;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+#futouko .grid.md\:grid-cols-3 > .rounded-2xl {
+  width: 100%;
+}
+
+#futouko .grid.md\:grid-cols-3 .px-6.py-5 > div:last-child {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+#futouko .grid.md\:grid-cols-3 .px-6.py-5 > div:last-child > p {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  font-size: var(--ks-case-heading-size, clamp(0.78rem, 3.9vw, 1rem)) !important;
+  letter-spacing: -0.045em;
+  line-height: 1.4 !important;
+  white-space: nowrap;
+  text-align: center !important;
+}
+
+/* Stoaca lesson headline: display label and one-line centered fit. */
+#stoaca .ks-stoaca-headline-fit {
+  width: 100%;
+  max-width: none !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+  font-size: var(--ks-stoaca-heading-size, clamp(1rem, 5.3vw, 2.25rem)) !important;
+  letter-spacing: -0.05em;
+  line-height: 1.35;
+  white-space: nowrap;
+  text-align: center !important;
+}
