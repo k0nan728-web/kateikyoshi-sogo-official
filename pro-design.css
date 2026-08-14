@@ -3347,3 +3347,21 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
     font-size: 0.64rem !important;
   }
 }
+
+/* Preserve the requested semantic break in the teacher-profile highlight. */
+#teacher .ks-experience-highlight-prefix,
+#teacher .ks-experience-highlight-suffix {
+  display: inline;
+}
+
+@media (max-width: 767px) {
+  #teacher .ks-experience-highlight {
+    text-align: left !important;
+  }
+
+  #teacher .ks-experience-highlight-prefix,
+  #teacher .ks-experience-highlight-suffix {
+    display: block;
+    white-space: nowrap;
+  }
+}

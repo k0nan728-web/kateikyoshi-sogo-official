@@ -29,6 +29,14 @@
     statGrid.classList.add('ks-teacher-primary-stats');
     trustOverview.append(centeredPortrait, statGrid);
 
+    const experienceHighlight = [...biography.querySelectorAll('p')]
+      .find((element) => (element.textContent || '').replace(/\s+/g, ' ').trim() === '▶ 各分野での専門経験が、「総合的な判断力」を生み出します');
+    if (experienceHighlight && experienceHighlight.dataset.ksExperienceLinebreak !== 'true') {
+      experienceHighlight.classList.add('ks-experience-highlight');
+      experienceHighlight.dataset.ksExperienceLinebreak = 'true';
+      experienceHighlight.innerHTML = '<span class="ks-experience-highlight-prefix">▶ 各分野での専門経験が、</span><span class="ks-experience-highlight-suffix">「総合的な判断力」を生み出します</span>';
+    }
+
     biography.classList.add('ks-teacher-biography');
     brandLogo.insertAdjacentElement('afterend', trustOverview);
     profileGrid.replaceWith(biography);
