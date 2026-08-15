@@ -3827,9 +3827,7 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
 }
 
 #direct-contract .ks-value-item .ks-benefit-copy-line {
-  display: block;
-  width: max-content;
-  max-width: 100%;
+  display: inline-block;
   white-space: nowrap;
 }
 
@@ -3859,7 +3857,6 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
 
 #direct-contract .ks-value-item .ks-benefit-copy-phrase {
   display: inline-block;
-  max-width: 100%;
   white-space: nowrap;
 }
 
