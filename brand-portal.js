@@ -17,11 +17,11 @@
             '<span class="ks-brand-card-copy">5級〜準1級・4技能に特化。級別の学習計画から二次面接まで、英検合格への道筋を専門サイトでご案内します。</span>' +
             '<span class="ks-brand-card-action">専門サイトを見る <b aria-hidden="true">→</b></span>' +
           '</a>' +
-          '<a class="ks-brand-card ks-brand-card--exam" href="#courses">' +
-            '<span class="ks-brand-card-kicker">EXAM STRATEGY</span>' +
-            '<span class="ks-brand-card-title">受験・学習戦略</span>' +
-            '<span class="ks-brand-card-copy">大学・高校・中学受験から総合型選抜まで。科目と進路を横断し、今から何をするかを整理します。</span>' +
-            '<span class="ks-brand-card-action">受験コースを見る <b aria-hidden="true">→</b></span>' +
+          '<a class="ks-brand-card ks-brand-card--exam" href="/gyakuten/">' +
+            '<span class="ks-brand-card-kicker">GYAKUTEN PASS SEMINAR</span>' +
+            '<span class="ks-brand-card-title">逆転合格ゼミナール</span>' +
+            '<span class="ks-brand-card-copy">大学受験専門｜現在の学力から志望大学合格を目指す。過去問分析と逆算カリキュラムで逆転合格へ伴走します。</span>' +
+            '<span class="ks-brand-card-action">専門サイトを見る <b aria-hidden="true">→</b></span>' +
           '</a>' +
           '<a class="ks-brand-card ks-brand-card--support" href="#courses">' +
             '<span class="ks-brand-card-kicker">LEARNING &amp; LIFE SUPPORT</span>' +
