@@ -816,6 +816,7 @@ body > footer a {
 
 .ks-direct-contract {
   color: #fff;
+  background-color: #0b2750;
   background:
     radial-gradient(
       circle at 85% 20%,
@@ -862,9 +863,11 @@ body > footer a {
   grid-template-columns: 48px 1fr;
   gap: 1rem;
   padding: 1.35rem 1.25rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.06);
+  background-color: rgba(14, 49, 96, 0.75);
+  background: rgba(14, 49, 96, 0.75);
+  box-shadow: 0 8px 24px rgba(0, 11, 31, 0.25);
 }
 
 .ks-value-icon {
@@ -881,7 +884,7 @@ body > footer a {
 }
 
 .ks-value-item p {
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .ks-stoaca {
