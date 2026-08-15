@@ -4542,3 +4542,128 @@ main > section:not(.ks-photo-hero):not(#stoaca)::after {
     word-break: normal;
   }
 }
+
+/* Classroom visual hierarchy: section title above, lesson-screen frame directly on the visual. */
+#how-we-teach > .container > .text-center.mb-12 {
+  margin-bottom: clamp(1.8rem, 4vw, 2.7rem) !important;
+}
+
+#how-we-teach .ks-classroom-showcase-layout {
+  display: block !important;
+  width: 100%;
+  margin: 0 auto !important;
+}
+
+#how-we-teach .ks-classroom-showcase-layout > div:first-child {
+  display: none !important;
+}
+
+#how-we-teach .ks-classroom-showcase-layout > div:last-child {
+  width: min(100%, 56rem) !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+#how-we-teach .ks-classroom-showcase-media {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden !important;
+  border: 2px solid rgba(201, 152, 50, 0.74);
+  border-radius: clamp(1rem, 2.2vw, 1.35rem) !important;
+  background: #0a264d;
+  box-shadow:
+    0 1rem 2.4rem rgba(10, 38, 77, 0.2),
+    0 0 0 0.3rem rgba(248, 198, 80, 0.12);
+}
+
+#how-we-teach .ks-classroom-showcase-media::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 32%;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(6, 26, 55, 0.38), rgba(6, 26, 55, 0));
+}
+
+#how-we-teach .ks-classroom-showcase-media > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit !important;
+}
+
+#how-we-teach .ks-classroom-showcase-label {
+  position: absolute;
+  z-index: 2;
+  top: clamp(0.72rem, 2.2vw, 1.2rem);
+  left: clamp(0.72rem, 2.2vw, 1.2rem);
+  display: flex;
+  max-width: calc(100% - 1.44rem);
+  pointer-events: none;
+}
+
+#how-we-teach .ks-classroom-showcase-heading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.55rem;
+  max-width: 100%;
+  margin: 0 !important;
+  padding: 0.46rem 0.92rem 0.5rem;
+  border: 1px solid rgba(255, 239, 184, 0.86);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffe69a 0%, #f8c650 48%, #d99d28 100%);
+  box-shadow:
+    0 0.4rem 0.88rem rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  color: #09274f !important;
+  font-family: "Noto Serif JP", serif !important;
+  font-size: clamp(1rem, 2.45vw, 1.34rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.018em;
+  line-height: 1.35 !important;
+  text-align: center !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.34);
+  white-space: nowrap;
+}
+
+#how-we-teach .ks-classroom-showcase-heading::before {
+  content: '◆';
+  display: inline-block;
+  margin-right: 0.38rem;
+  color: rgba(9, 39, 79, 0.75);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 0.52em;
+  line-height: 1;
+}
+
+@media (max-width: 639px) {
+  #how-we-teach > .container > .text-center.mb-12 {
+    margin-bottom: 1.35rem !important;
+  }
+
+  #how-we-teach .ks-classroom-showcase-layout > div:last-child {
+    width: 100% !important;
+  }
+
+  #how-we-teach .ks-classroom-showcase-media {
+    border-width: 1.5px;
+    box-shadow:
+      0 0.72rem 1.7rem rgba(10, 38, 77, 0.18),
+      0 0 0 0.2rem rgba(248, 198, 80, 0.11);
+  }
+
+  #how-we-teach .ks-classroom-showcase-heading {
+    min-height: 2.2rem;
+    padding: 0.36rem 0.68rem 0.4rem;
+    font-size: clamp(0.88rem, 4.35vw, 1.05rem) !important;
+    letter-spacing: 0;
+  }
+
+  #how-we-teach .ks-classroom-showcase-heading::before {
+    margin-right: 0.28rem;
+  }
+}
