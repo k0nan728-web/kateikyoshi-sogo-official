@@ -4235,3 +4235,154 @@ main > section:not(.ks-photo-hero):not(#stoaca)::after {
     height: 0.12rem;
   }
 }
+
+/* Classroom support cards: make each teaching-support promise easy to scan and visually distinct. */
+.ks-classroom-support-grid {
+  gap: clamp(1rem, 2.4vw, 1.65rem) !important;
+}
+
+.ks-classroom-support-card {
+  position: relative;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  padding: clamp(1.35rem, 3.2vw, 2rem) !important;
+  border: 1px solid rgba(193, 145, 46, 0.45);
+  border-radius: 1.25rem;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(248, 198, 80, 0.13), transparent 35%),
+    linear-gradient(145deg, #ffffff 0%, #f6f9fd 100%);
+  box-shadow:
+    0 0.72rem 1.65rem rgba(10, 38, 77, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+  transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 180ms cubic-bezier(0.23, 1, 0.32, 1), border-color 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.ks-classroom-support-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 12%;
+  left: 12%;
+  height: 0.22rem;
+  border-radius: 0 0 999px 999px;
+  background: linear-gradient(90deg, transparent, #f8c650 24%, #c99832 50%, #f8c650 76%, transparent);
+}
+
+.ks-classroom-support-card::after {
+  content: '';
+  position: absolute;
+  right: -2.8rem;
+  bottom: -2.8rem;
+  width: 7rem;
+  height: 7rem;
+  border: 1px solid rgba(248, 198, 80, 0.23);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ks-classroom-support-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.85rem !important;
+}
+
+.ks-classroom-support-icon-wrap > div {
+  width: 3rem !important;
+  height: 3rem !important;
+  border: 1px solid rgba(186, 129, 25, 0.42);
+  background: linear-gradient(135deg, #ffe596, #e2ab38) !important;
+  box-shadow: 0 0.36rem 0.8rem rgba(186, 129, 25, 0.19);
+}
+
+.ks-classroom-support-icon-wrap svg {
+  width: 1.22rem !important;
+  height: 1.22rem !important;
+  color: #09274f !important;
+  stroke-width: 2.7;
+}
+
+.ks-classroom-support-content {
+  width: 100%;
+  min-width: 0;
+}
+
+.ks-classroom-support-heading {
+  width: 100%;
+  margin: 0 !important;
+  color: #0a264d !important;
+  font-family: "Noto Serif JP", serif !important;
+  font-size: clamp(1.08rem, 2.2vw, 1.5rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.035em;
+  line-height: 1.48 !important;
+  text-align: center !important;
+  text-wrap: balance;
+}
+
+.ks-classroom-support-copy {
+  margin: 0.82rem 0 0 !important;
+  color: #4b5c72 !important;
+  font-size: clamp(0.9rem, 1.55vw, 1rem) !important;
+  line-height: 2 !important;
+  text-align: left !important;
+  text-wrap: pretty;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  line-break: strict;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ks-classroom-support-card:hover {
+    transform: translateY(-0.28rem);
+    border-color: rgba(193, 145, 46, 0.72);
+    box-shadow:
+      0 1rem 2.15rem rgba(10, 38, 77, 0.16),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  }
+}
+
+@media (max-width: 767px) {
+  .ks-classroom-support-grid {
+    gap: 0.95rem !important;
+  }
+
+  .ks-classroom-support-card {
+    padding: 1.25rem 1.1rem 1.35rem !important;
+    border-radius: 1.05rem;
+  }
+
+  .ks-classroom-support-icon-wrap {
+    margin-bottom: 0.7rem !important;
+  }
+
+  .ks-classroom-support-icon-wrap > div {
+    width: 2.72rem !important;
+    height: 2.72rem !important;
+  }
+
+  .ks-classroom-support-heading {
+    font-size: clamp(1.03rem, 5.15vw, 1.25rem) !important;
+    line-height: 1.52 !important;
+  }
+
+  .ks-classroom-support-copy {
+    margin-top: 0.7rem !important;
+    font-size: clamp(0.89rem, 3.8vw, 0.98rem) !important;
+    line-height: 1.93 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ks-classroom-support-card {
+    transition: none;
+  }
+}
+
+/* Preserve a comfortable reading edge beneath the centered classroom-support card headings. */
+#how-we-teach .ks-classroom-support-card .ks-classroom-support-copy {
+  text-align: left !important;
+}
