@@ -4074,3 +4074,111 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
 /* End results-to-Stoaca boundary. */
 
 /* Cache marker: 20260815 results-stoaca-boundary1 */
+
+/* Classroom showcase: promote the real lesson-screen visual without repeating copy already embedded in it. */
+.ks-classroom-showcase-header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 2.25rem auto 1.55rem;
+  text-align: center;
+}
+
+.ks-classroom-showcase-heading {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.3rem;
+  margin: 0 !important;
+  padding: 0.62rem 1.5rem 0.68rem;
+  border: 1px solid rgba(184, 128, 28, 0.64);
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, #ffe596 0%, #f8c650 45%, #dca537 100%);
+  box-shadow:
+    0 0.38rem 0.9rem rgba(166, 111, 18, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.68);
+  color: #09274f !important;
+  font-family: "Noto Serif JP", serif !important;
+  font-size: clamp(1.4rem, 4.6vw, 2.25rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.035em;
+  line-height: 1.35 !important;
+  text-align: center !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.36);
+}
+
+.ks-classroom-showcase-heading::before {
+  content: "◆";
+  display: inline-block;
+  margin-right: 0.55rem;
+  color: rgba(9, 39, 79, 0.78);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 0.55em;
+  line-height: 1;
+}
+
+.ks-classroom-showcase-row {
+  align-items: center !important;
+  justify-content: center;
+  width: 100%;
+  max-width: 76rem;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.ks-classroom-showcase-row > div {
+  min-width: 0;
+}
+
+.ks-classroom-showcase-row img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 2px solid rgba(203, 149, 42, 0.6);
+  box-shadow: 0 0.85rem 2.2rem rgba(10, 38, 77, 0.2);
+}
+
+@media (max-width: 1023px) {
+  .ks-classroom-showcase-header {
+    margin-top: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .ks-classroom-showcase-row > div:first-child {
+    display: none !important;
+  }
+
+  .ks-classroom-showcase-row > div:last-child {
+    width: min(100%, 52rem) !important;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 639px) {
+  .ks-classroom-showcase-header {
+    margin-top: 1.4rem;
+    margin-bottom: 1rem;
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+  }
+
+  .ks-classroom-showcase-heading {
+    min-height: 3rem;
+    max-width: 100%;
+    padding: 0.58rem 1rem 0.64rem;
+    font-size: clamp(1.24rem, 6.35vw, 1.7rem) !important;
+    letter-spacing: 0.015em;
+    white-space: nowrap;
+  }
+
+  .ks-classroom-showcase-heading::before {
+    margin-right: 0.38rem;
+  }
+
+  .ks-classroom-showcase-row img {
+    border-width: 1.5px;
+    border-radius: 1rem !important;
+  }
+}
