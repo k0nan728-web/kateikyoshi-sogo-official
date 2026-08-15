@@ -814,16 +814,20 @@ body > footer a {
   box-shadow: var(--ks-shadow-sm);
 }
 
-.ks-direct-contract {
-  color: #fff;
-  background-color: #0b2750;
+.ks-direct-contract, #direct-contract {
+  color: #ffffff !important;
+  background-color: #0b2750 !important;
   background:
     radial-gradient(
       circle at 85% 20%,
       rgba(67, 135, 222, 0.28),
       transparent 22rem
     ),
-    linear-gradient(132deg, #061529 0%, #0b2750 56%, #123b72 100%);
+    linear-gradient(132deg, #061529 0%, #0b2750 56%, #123b72 100%) !important;
+}
+
+#direct-contract p, #direct-contract span, #direct-contract li {
+  color: rgba(255, 255, 255, 0.92) !important;
 }
 
 .ks-direct-contract h2,
