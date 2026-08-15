@@ -30,12 +30,15 @@
   function createSupportTransition(grid) {
     if (!grid || grid.previousElementSibling?.classList?.contains('ks-classroom-support-transition')) return;
 
-    var transition = document.createElement('div');
+    var transition = document.createElement('figure');
     transition.className = 'ks-classroom-support-transition';
     transition.innerHTML = [
+      '<img class="ks-classroom-support-transition-image" src="/IMG_4921_learning-support.png" alt="オンラインで対話しながら学ぶ授業の様子" loading="eager" fetchpriority="high">',
+      '<figcaption class="ks-classroom-support-transition-panel">',
       '<p class="ks-classroom-support-transition-eyebrow">LEARNING SUPPORT SYSTEM</p>',
       '<h3 class="ks-classroom-support-transition-title">授業を成果へつなげる<br>6つのサポート</h3>',
-      '<p class="ks-classroom-support-transition-copy">授業後の定着、進捗の共有、心のケアまで。お子様の学びを継続的に支える仕組みです。</p>'
+      '<p class="ks-classroom-support-transition-copy">授業後の定着、進捗の共有、心のケアまで<br>お子様の学びを継続的に支える仕組みです。</p>',
+      '</figcaption>'
     ].join('');
 
     grid.parentNode.insertBefore(transition, grid);

@@ -4667,3 +4667,143 @@ main > section:not(.ks-photo-hero):not(#stoaca)::after {
     margin-right: 0.28rem;
   }
 }
+
+/* Learning-support photo: place the section copy in the intentionally open upper-right area. */
+#how-we-teach figure.ks-classroom-support-transition {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  width: min(100%, 66rem);
+  max-width: 66rem;
+  margin: clamp(3.4rem, 7vw, 5.8rem) auto clamp(1.5rem, 3vw, 2.35rem);
+  padding: 0;
+  border: 2px solid rgba(201, 152, 50, 0.72);
+  border-radius: 1.35rem;
+  overflow: hidden;
+  background: #0a264d;
+  box-shadow:
+    0 1rem 2.4rem rgba(10, 38, 77, 0.22),
+    0 0 0 0.34rem rgba(248, 198, 80, 0.1);
+  text-align: initial;
+}
+
+#how-we-teach figure.ks-classroom-support-transition::before,
+#how-we-teach figure.ks-classroom-support-transition::after {
+  display: none;
+}
+
+#how-we-teach .ks-classroom-support-transition-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+#how-we-teach .ks-classroom-support-transition-panel {
+  position: absolute;
+  z-index: 1;
+  top: clamp(0.9rem, 3.2vw, 2rem);
+  right: clamp(0.9rem, 3.2vw, 2rem);
+  width: min(48%, 29rem);
+  margin: 0;
+  padding: clamp(1rem, 2.5vw, 1.65rem);
+  border: 1px solid rgba(255, 228, 135, 0.6);
+  border-radius: 1rem;
+  background: linear-gradient(145deg, rgba(7, 29, 58, 0.93), rgba(10, 38, 77, 0.86));
+  box-shadow:
+    0 0.85rem 1.65rem rgba(5, 23, 48, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(4px);
+  text-align: left;
+}
+
+#how-we-teach .ks-classroom-support-transition-panel::before {
+  content: '';
+  display: block;
+  width: 4rem;
+  height: 0.22rem;
+  margin: 0 0 0.68rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffe596, #f8c650);
+  box-shadow: 0 0.12rem 0.45rem rgba(248, 198, 80, 0.35);
+}
+
+#how-we-teach .ks-classroom-support-transition-eyebrow {
+  margin: 0 0 0.4rem !important;
+  color: #ffe596 !important;
+  font-family: "Noto Sans JP", sans-serif !important;
+  font-size: clamp(0.61rem, 1.25vw, 0.73rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.15em;
+  line-height: 1.4 !important;
+  text-align: left !important;
+}
+
+#how-we-teach .ks-classroom-support-transition-title {
+  margin: 0 !important;
+  color: #ffffff !important;
+  font-family: "Noto Serif JP", serif !important;
+  font-size: clamp(1.25rem, 2.5vw, 2rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.005em;
+  line-height: 1.4 !important;
+  text-align: left !important;
+  text-shadow: 0 0.14rem 0.5rem rgba(0, 0, 0, 0.25);
+  text-wrap: balance;
+}
+
+#how-we-teach .ks-classroom-support-transition-copy {
+  margin: 0.72rem 0 0 !important;
+  color: #e5efff !important;
+  font-family: "Noto Sans JP", sans-serif !important;
+  font-size: clamp(0.78rem, 1.55vw, 0.98rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.8 !important;
+  text-align: left !important;
+  text-wrap: balance;
+}
+
+@media (max-width: 639px) {
+  #how-we-teach figure.ks-classroom-support-transition {
+    margin-top: 2.9rem;
+    margin-bottom: 1.25rem;
+    border-width: 1.5px;
+    border-radius: 1.05rem;
+    box-shadow:
+      0 0.72rem 1.7rem rgba(10, 38, 77, 0.18),
+      0 0 0 0.2rem rgba(248, 198, 80, 0.1);
+  }
+
+  #how-we-teach .ks-classroom-support-transition-panel {
+    top: 0.62rem;
+    right: 0.62rem;
+    width: 58%;
+    padding: 0.65rem 0.68rem 0.72rem;
+    border-radius: 0.72rem;
+  }
+
+  #how-we-teach .ks-classroom-support-transition-panel::before {
+    width: 2.35rem;
+    height: 0.16rem;
+    margin-bottom: 0.42rem;
+  }
+
+  #how-we-teach .ks-classroom-support-transition-eyebrow {
+    margin-bottom: 0.28rem !important;
+    font-size: clamp(0.48rem, 2.1vw, 0.62rem) !important;
+    letter-spacing: 0.09em;
+  }
+
+  #how-we-teach .ks-classroom-support-transition-title {
+    font-size: clamp(0.9rem, 4vw, 1.16rem) !important;
+    line-height: 1.42 !important;
+    letter-spacing: -0.02em;
+  }
+
+  #how-we-teach .ks-classroom-support-transition-copy {
+    margin-top: 0.42rem !important;
+    font-size: clamp(0.62rem, 2.72vw, 0.78rem) !important;
+    line-height: 1.64 !important;
+  }
+}
