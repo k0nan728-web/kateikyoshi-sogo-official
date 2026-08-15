@@ -27,6 +27,20 @@
     return null;
   }
 
+  function createSupportTransition(grid) {
+    if (!grid || grid.previousElementSibling?.classList?.contains('ks-classroom-support-transition')) return;
+
+    var transition = document.createElement('div');
+    transition.className = 'ks-classroom-support-transition';
+    transition.innerHTML = [
+      '<p class="ks-classroom-support-transition-eyebrow">LEARNING SUPPORT SYSTEM</p>',
+      '<h3 class="ks-classroom-support-transition-title">授業を成果へつなげる<br>6つのサポート</h3>',
+      '<p class="ks-classroom-support-transition-copy">授業後の定着、進捗の共有、心のケアまで。お子様の学びを継続的に支える仕組みです。</p>'
+    ].join('');
+
+    grid.parentNode.insertBefore(transition, grid);
+  }
+
   function enhanceCards() {
     var headings = Array.prototype.filter.call(
       document.querySelectorAll('h1, h2, h3, h4, h5, h6'),
@@ -34,6 +48,13 @@
     );
 
     if (headings.length !== titles.length) return;
+
+    var firstCard = findCard(headings[0]);
+    var supportGrid = firstCard && firstCard.parentElement;
+    if (supportGrid) {
+      supportGrid.classList.add('ks-classroom-support-grid');
+      createSupportTransition(supportGrid);
+    }
 
     headings.forEach(function (heading) {
       var card = findCard(heading);
@@ -44,7 +65,6 @@
       var content = heading.parentElement;
       var copy = content && content.querySelector('p');
 
-      if (grid) grid.classList.add('ks-classroom-support-grid');
       card.classList.add('ks-classroom-support-card');
       if (iconWrap) iconWrap.classList.add('ks-classroom-support-icon-wrap');
       if (content) content.classList.add('ks-classroom-support-content');
