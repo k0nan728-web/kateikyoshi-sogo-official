@@ -4807,3 +4807,19 @@ main > section:not(.ks-photo-hero):not(#stoaca)::after {
     line-height: 1.64 !important;
   }
 }
+
+/* Hero copy hierarchy: raise the parent concern above body copy on iPad and desktop, without altering mobile composition. */
+@media (min-width: 640px) {
+  .ks-photo-hero .ks-hero-copy p.text-lg.sm\:text-xl.text-gray-700.font-semibold {
+    margin-bottom: 0.9rem !important;
+    color: #153f72 !important;
+    font-size: clamp(1.15rem, 1.85vw, 1.5rem) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.015em;
+    line-height: 1.65 !important;
+  }
+
+  .ks-photo-hero .ks-hero-copy p.text-lg.sm\:text-xl.text-gray-700.font-semibold + p {
+    margin-top: 0 !important;
+  }
+}
