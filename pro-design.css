@@ -4182,3 +4182,56 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
     border-radius: 1rem !important;
   }
 }
+
+/* Global section rhythm: make every major section transition unmistakable without changing its content design. */
+main > section:not(.ks-photo-hero):not(#stoaca) {
+  position: relative;
+  isolation: isolate;
+}
+
+main > section:not(.ks-photo-hero):not(#stoaca)::before {
+  content: '';
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 0.58rem;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    #f8c650 0,
+    #d5a23b 48%,
+    #0a264d 50%,
+    #0a264d 100%
+  );
+  box-shadow: 0 0.2rem 0.52rem rgba(10, 38, 77, 0.22);
+}
+
+main > section:not(.ks-photo-hero):not(#stoaca)::after {
+  content: '';
+  position: absolute;
+  z-index: 4;
+  top: 0.48rem;
+  left: 50%;
+  width: min(11rem, 34vw);
+  height: 0.16rem;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, #fff3bd 26%, #f8c650 50%, #fff3bd 74%, transparent);
+  box-shadow: 0 0.08rem 0.3rem rgba(248, 198, 80, 0.68);
+}
+
+@media (max-width: 639px) {
+  main > section:not(.ks-photo-hero):not(#stoaca)::before {
+    height: 0.48rem;
+    box-shadow: 0 0.15rem 0.4rem rgba(10, 38, 77, 0.2);
+  }
+
+  main > section:not(.ks-photo-hero):not(#stoaca)::after {
+    top: 0.38rem;
+    width: min(8.5rem, 46vw);
+    height: 0.12rem;
+  }
+}
