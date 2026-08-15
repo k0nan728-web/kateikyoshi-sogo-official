@@ -3808,6 +3808,24 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
   line-break: strict;
 }
 
+/* Direct-partnership cards: center the numeral inside its gold circle and preserve authored reading units. */
+#direct-contract .ks-value-item .ks-value-icon {
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box;
+  padding: 0 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+#direct-contract .ks-value-item .ks-benefit-copy-line {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
 /* The second benefit headline uses a slightly tighter rhythm to maximize one-line legibility. */
 #direct-contract .ks-value-item:nth-of-type(2).ks-benefit-copy-fit h3 {
   letter-spacing: -0.095em;
@@ -3823,6 +3841,8 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
     width: 3.25rem;
     height: 3.25rem;
     margin: 0 auto 0.8rem;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   #direct-contract .ks-value-item > div {

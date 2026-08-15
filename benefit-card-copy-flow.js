@@ -11,29 +11,25 @@
       '必要がありません。',
       '学習の経緯を把握する',
       '担当講師が、',
-      '必要な調整をすぐに',
-      '行います。'
+      '必要な調整をすぐに行います。'
     ],
     '一人ひとりに合わせて、柔軟に組み立てる': [
       '学習量、教材、授業形式、',
-      'カメラの有無、',
-      '受験時期まで。',
+      'カメラの有無、受験時期まで。',
       'お子様の状態に合わせた',
-      '進め方を一緒に',
-      '選びます。'
+      '進め方を一緒に選びます。'
     ],
     '費用を、指導そのものに集中できる': [
       '入会金・仲介手数料・',
       '管理費はいただきません。',
       '必要な支援を、',
-      '指導の時間と質に',
-      '集中させます。'
+      '指導の時間と質に集中させます。'
     ]
   };
 
   function createPhrase(text) {
     var phrase = document.createElement('span');
-    phrase.className = 'ks-benefit-copy-phrase';
+    phrase.className = 'ks-benefit-copy-phrase ks-benefit-copy-line';
     phrase.textContent = text;
     return phrase;
   }
@@ -78,8 +74,7 @@
     if (!groups || !body || body.dataset.ksBenefitGroups === 'true') return;
 
     body.textContent = '';
-    groups.forEach(function (group, index) {
-      if (index > 0) body.appendChild(document.createTextNode(' '));
+    groups.forEach(function (group) {
       body.appendChild(createPhrase(group));
     });
     body.classList.add('ks-benefit-copy-flow');
