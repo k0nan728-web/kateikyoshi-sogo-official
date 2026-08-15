@@ -31,9 +31,10 @@
       match: '通信制高校のサポート校',
       groups: [
         '通信制高校のサポート校 現役講師',
-        '卒業・大学受験に向けた個別指導'
+        '（卒業・大学受験に向けた個別指導）'
       ],
-      stacked: true
+      stacked: true,
+      compactGroupIndex: 1
     },
     {
       match: '大学受験・英検対策',
@@ -41,9 +42,9 @@
     }
   ];
 
-  function createPhrase(text) {
+  function createPhrase(text, compact) {
     var phrase = document.createElement('span');
-    phrase.className = 'ks-credential-phrase';
+    phrase.className = 'ks-credential-phrase' + (compact ? ' ks-credential-phrase--compact' : '');
     phrase.textContent = text;
     return phrase;
   }
@@ -56,11 +57,11 @@
       if (entry.stacked) {
         var line = document.createElement('span');
         line.className = 'ks-credential-line';
-        line.appendChild(createPhrase(group));
+        line.appendChild(createPhrase(group, entry.compactGroupIndex === index));
         content.appendChild(line);
       } else {
         if (index > 0) content.appendChild(document.createTextNode(' '));
-        content.appendChild(createPhrase(group));
+        content.appendChild(createPhrase(group, entry.compactGroupIndex === index));
       }
     });
     return content;

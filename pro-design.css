@@ -3623,6 +3623,13 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
   white-space: nowrap;
 }
 
+/* Keep the parenthetical tsushinsei support-school descriptor on one readable line. */
+.ks-teacher-credentials-card.ks-credential-copy-flow .ks-credential-phrase--compact {
+  font-size: min(1em, clamp(0.74rem, 3.4vw, 0.9rem)) !important;
+  letter-spacing: -0.065em;
+  white-space: nowrap;
+}
+
 .ks-teacher-credentials-card.ks-credential-copy-flow .ks-credential-fixed-item {
   width: 100%;
 }
