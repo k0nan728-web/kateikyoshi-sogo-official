@@ -8,7 +8,7 @@
         '<div class="ks-brand-portal-heading">' +
           '<p class="ks-brand-portal-eyebrow">ONE TEACHER, MULTIPLE PATHS</p>' +
           '<h2 id="ks-brand-portal-title">お子様の課題に合わせた<br class="ks-brand-portal-break" />専門ブランド</h2>' +
-          '<p class="ks-brand-portal-lead">英検を深く、受験を戦略的に。不登校・通信制高校には、学びを止めない伴走を。<br class="ks-brand-portal-break" />総合サイトから、それぞれの目的に合う入口を選べます。</p>' +
+          '<p class="ks-brand-portal-lead">英検を深く、大学受験を戦略的に。不登校・通信制高校には、進路まで見据えた伴走を。<br class="ks-brand-portal-break" />総合サイトから、それぞれの目的に合う専門ブランドを選べます。</p>' +
         '</div>' +
         '<div class="ks-brand-portal-grid">' +
           '<a class="ks-brand-card ks-brand-card--eiken" href="/eiken/">' +
@@ -23,11 +23,11 @@
             '<span class="ks-brand-card-copy">大学受験専門｜現在の学力から志望大学合格を目指す。過去問分析と逆算カリキュラムで逆転合格へ伴走します。</span>' +
             '<span class="ks-brand-card-action">専門サイトを見る <b aria-hidden="true">→</b></span>' +
           '</a>' +
-          '<a class="ks-brand-card ks-brand-card--support" href="#courses">' +
-            '<span class="ks-brand-card-kicker">LEARNING &amp; LIFE SUPPORT</span>' +
-            '<span class="ks-brand-card-title">不登校・通信制高校サポート</span>' +
-            '<span class="ks-brand-card-copy">学習再開、課題整理、卒業・大学受験まで。お子様のペースを尊重しながら、次の一歩を一緒に設計します。</span>' +
-            '<span class="ks-brand-card-action">サポートコースを見る <b aria-hidden="true">→</b></span>' +
+          '<a class="ks-brand-card ks-brand-card--support" href="/bansou/">' +
+            '<span class="ks-brand-card-kicker">SHINRO BANSOU SEMINAR</span>' +
+            '<span class="ks-brand-card-title">進路伴走ゼミナール</span>' +
+            '<span class="ks-brand-card-copy">不登校・通信制高校生のための大学受験専門指導。学び直しから卒業・志望大学合格まで、進路を一緒に設計します。</span>' +
+            '<span class="ks-brand-card-action">専門サイトを見る <b aria-hidden="true">→</b></span>' +
           '</a>' +
         '</div>' +
         '<div class="ks-brand-portal-proof" aria-label="総合サイト共通の強み">' +

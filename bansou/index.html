@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>進路伴走ゼミナール | 不登校・通信制高校生のための大学受験専門指導</title>
+  <meta name="description" content="不登校・通信制高校生のための大学受験専門指導。現在の学習状況と生活リズムを丁寧に整理し、基礎の学び直しから志望大学合格まで、プロ家庭教師・鈴木雄太がオンラインで伴走します。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy:#082b50; --navy-2:#115074; --teal:#55c4b5; --teal-soft:#dcf6f1; --gold:#f5c64f; --ink:#122e47; --muted:#5d7384; --mist:#f2f8f7; --line:#d7e8e5; --shadow:0 20px 55px rgba(6,49,72,.13); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:#fff; color:var(--ink); font-family:"Noto Sans JP",sans-serif; line-height:1.8; }
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(1160px,calc(100% - 40px)); margin-inline:auto; }
+    .section { position:relative; padding:88px 0; }
+    h1,h2,h3,p { margin-top:0; }
+    h1,h2,h3 { font-family:"Noto Serif JP",serif; line-height:1.38; }
+    h2 { margin-bottom:1rem; color:var(--navy); font-size:clamp(1.8rem,3.5vw,2.75rem); text-align:center; }
+    .eyebrow { display:flex; width:fit-content; align-items:center; justify-content:center; gap:.5rem; margin:0 auto .75rem; color:#16877e; font-size:.74rem; font-weight:900; letter-spacing:.14em; line-height:1.3; text-align:center; }
+    .eyebrow::before { width:1.8rem; height:2px; content:""; background:linear-gradient(90deg,#9ce1d6,var(--teal)); }
+    .section-intro { max-width:860px; margin:0 auto 2.5rem; color:var(--muted); font-size:1.04rem; line-height:1.85; text-align:center; }
+    .site-header { position:sticky; z-index:20; top:0; border-bottom:1px solid rgba(255,255,255,.14); background:rgba(5,33,61,.95); backdrop-filter:blur(14px); color:#fff; }
+    .nav { display:flex; min-height:72px; align-items:center; justify-content:space-between; gap:1rem; }
+    .brand { display:flex; min-width:0; align-items:center; gap:.7rem; }
+    .brand-mark { display:grid; width:35px; height:35px; border:1px solid rgba(148,241,225,.75); border-radius:50%; place-items:center; color:#9fe7db; font-size:.84rem; font-weight:900; }
+    .brand-name { font-family:"Noto Serif JP",serif; font-size:1.08rem; font-weight:900; letter-spacing:.02em; white-space:nowrap; }
+    .brand-sub { display:block; color:#b9dce4; font-size:.6rem; font-weight:700; letter-spacing:.12em; }
+    .nav-links { display:flex; align-items:center; gap:1.25rem; color:#d9edf0; font-size:.76rem; font-weight:700; }
+    .nav-links a:hover { color:#a9efe2; }
+    .nav-cta,.button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; padding:.7rem 1.2rem; border:1px solid transparent; border-radius:.72rem; font-weight:800; transition:transform .18s ease,box-shadow .18s ease; }
+    .nav-cta,.button-primary { background:linear-gradient(135deg,#8ce3d4,#39aa9f); box-shadow:0 7px 20px rgba(74,196,180,.26); color:#073950; }
+    .button-outline { border-color:#adcbd3; background:#fff; color:var(--navy); }
+    .nav-cta:hover,.button:hover { transform:translateY(-2px); box-shadow:0 11px 24px rgba(5,44,70,.2); }
+    .hero { overflow:hidden; background:linear-gradient(122deg,#052c50 0%,#0c5d77 58%,#147d86 100%); color:#fff; }
+    .hero::before { position:absolute; inset:0; content:""; background:radial-gradient(circle at 82% 19%,rgba(124,236,212,.22),transparent 27%),linear-gradient(120deg,rgba(3,27,52,.42),rgba(3,27,52,0)); }
+    .hero-grid { position:relative; display:grid; min-height:630px; grid-template-columns:1.05fr .95fr; align-items:center; gap:clamp(2.5rem,7vw,6rem); }
+    .hero-kicker { display:flex; width:fit-content; align-items:center; gap:.45rem; margin:0 0 1.2rem; padding:.44rem .72rem; border:1px solid rgba(159,231,219,.64); border-radius:999px; background:rgba(255,255,255,.08); color:#b7f5eb; font-size:.7rem; font-weight:900; letter-spacing:.13em; }
+    .hero h1 { margin-bottom:1.15rem; font-size:clamp(2.05rem,3.85vw,3.2rem); letter-spacing:-.045em; text-align:left; }
+    .hero h1 .accent { color:#9be9dc; }
+    .hero-lead { max-width:700px; margin:0 0 2.1rem; color:#dceff1; font-size:1.1rem; line-height:1.85; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:.75rem; }
+    .hero .button-outline { border-color:rgba(255,255,255,.58); background:rgba(255,255,255,.08); color:#fff; }
+    .hero-visual { position:relative; justify-self:end; width:min(100%,470px); }
+    .hero-photo { display:block; width:100%; aspect-ratio:1/1; border:2px solid rgba(174,242,228,.7); border-radius:1.5rem; object-fit:cover; box-shadow:0 28px 60px rgba(0,0,0,.32); }
+    .hero-card { position:absolute; right:-1.1rem; bottom:1.25rem; width:min(84%,320px); padding:1rem 1.1rem; border:1px solid rgba(171,243,227,.5); border-radius:.9rem; background:rgba(5,43,72,.92); box-shadow:0 16px 30px rgba(0,0,0,.23); }
+    .hero-card span { display:block; color:#b3f4e8; font-size:.67rem; font-weight:900; letter-spacing:.12em; text-align:center; }
+    .hero-card strong { display:block; margin-top:.18rem; color:#fff; font-family:"Noto Serif JP",serif; font-size:1.14rem; line-height:1.5; text-align:center; }
+    .proof { position:relative; z-index:1; margin-top:-1px; background:#fff; }
+    .proof-grid { display:grid; grid-template-columns:repeat(4,1fr); margin-top:-38px; overflow:hidden; border:1px solid #d9e8e6; border-radius:1rem; background:#fff; box-shadow:var(--shadow); }
+    .proof-item { padding:1.2rem .9rem; border-right:1px solid #e1eeec; text-align:center; }
+    .proof-item:last-child { border-right:0; }
+    .proof-num { display:block; color:#0d5c70; font-family:"Noto Serif JP",serif; font-size:clamp(1.45rem,2.5vw,2.05rem); font-weight:900; line-height:1.25; }
+    .proof-label { display:block; margin-top:.2rem; color:#65808a; font-size:.71rem; font-weight:700; }
+    .band { background:var(--mist); }
+    .need-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:2.6rem; }
+    .need { min-height:178px; padding:1.35rem; border:1px solid #d6e9e5; border-radius:1rem; background:#fff; box-shadow:0 8px 18px rgba(10,84,88,.06); }
+    .need-icon { display:grid; width:38px; height:38px; margin-bottom:.72rem; border-radius:.7rem; place-items:center; background:var(--teal-soft); color:#117b72; font-weight:900; }
+    .need h3 { margin-bottom:.42rem; color:#133c50; font-family:"Noto Sans JP",sans-serif; font-size:1rem; font-weight:800; }
+    .need p { margin-bottom:0; color:var(--muted); font-size:.83rem; line-height:1.75; }
+    .pillars { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:2.5rem; }
+    .pillar { padding:1.45rem 1.1rem; border-top:4px solid var(--teal); border-radius:.95rem; background:linear-gradient(180deg,#fff,#f4fbfa); box-shadow:0 9px 20px rgba(10,84,88,.07); text-align:center; }
+    .pillar-label { display:block; color:#16877e; font-size:.7rem; font-weight:900; letter-spacing:.13em; }
+    .pillar h3 { margin:.45rem 0 .36rem; font-size:1.2rem; }
+    .pillar p { margin:0; color:var(--muted); font-size:.79rem; line-height:1.7; }
+    .system { overflow:hidden; background:linear-gradient(135deg,#06334f,#0d7075); color:#fff; }
+    .system-grid { position:relative; display:grid; grid-template-columns:.92fr 1.08fr; align-items:center; gap:4rem; }
+    .system h2 { color:#fff; text-align:left; }
+    .system-copy { color:#dceff0; }
+    .system-copy .eyebrow { margin-left:0; color:#adf0e4; }
+    .flow { display:grid; gap:.85rem; }
+    .flow-item { display:grid; grid-template-columns:46px 1fr; align-items:start; gap:1rem; padding:1rem; border:1px solid rgba(255,255,255,.16); border-radius:.85rem; background:rgba(255,255,255,.08); }
+    .flow-no { display:grid; width:38px; height:38px; border-radius:50%; place-items:center; background:#99e6d9; color:#08455b; font-weight:900; }
+    .flow-item h3 { margin:0 0 .2rem; font-family:"Noto Sans JP",sans-serif; font-size:.96rem; }
+    .flow-item p { margin:0; color:#dceff1; font-size:.78rem; line-height:1.7; }
+    .case { display:grid; grid-template-columns:.8fr 1.2fr; gap:2rem; align-items:stretch; margin-top:2.5rem; padding:clamp(1.4rem,4vw,3rem); border:1px solid #bcded8; border-radius:1.3rem; background:linear-gradient(135deg,#effcf9,#fff); box-shadow:0 15px 35px rgba(8,92,83,.09); }
+    .case-badge { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:1.4rem; border-radius:1rem; background:#0c6370; color:#fff; text-align:center; }
+    .case-badge small { color:#b2f0e6; font-weight:800; letter-spacing:.14em; }
+    .case-badge strong { margin:.7rem 0; font-family:"Noto Serif JP",serif; font-size:clamp(1.38rem,2.7vw,1.9rem); line-height:1.45; }
+    .case-badge span { color:#d2f0ed; font-size:.78rem; }
+    .case h3 { margin-bottom:.65rem; color:#0b5767; font-size:1.35rem; }
+    .case p { color:#536f78; }
+    .case-note { margin:0; color:#74888f !important; font-size:.71rem; }
+    .cta { overflow:hidden; background:linear-gradient(125deg,#70d5c5,#c3f2e7); }
+    .cta-grid { display:grid; grid-template-columns:1fr auto; align-items:center; gap:2rem; padding:clamp(2.2rem,5vw,4.2rem) 0; }
+    .cta h2 { margin:0 0 .55rem; color:#073d56; text-align:left; }
+    .cta p { max-width:860px; margin:0 auto; color:#18515c; line-height:1.75; text-align:center; }
+    .cta .eyebrow { display:block; width:100%; margin:0 auto .65rem; color:#0e6c65; text-align:center; }
+    .cta-actions { display:flex; flex-wrap:wrap; gap:.65rem; }
+    .cta .button-primary { background:#063d58; color:#fff; box-shadow:none; }
+    .cta .button-outline { border-color:rgba(5,62,80,.45); background:rgba(255,255,255,.34); }
+    footer { padding:36px 0; background:#05283d; color:#d3e9e8; }
+    .footer-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .footer-brand { color:#fff; font-family:"Noto Serif JP",serif; font-weight:900; }
+    .footer-links { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:1.1rem; font-size:.75rem; font-weight:700; }
+    .footer-copy { margin:1rem 0 0; color:#9fc1c1; font-size:.67rem; }
+    .heading-line { display:inline-block; max-width:100%; text-align:center; }
+    .heading-nowrap { white-space:nowrap; }
+    @media (max-width:900px) { .nav-links { display:none; } .hero-grid,.system-grid { grid-template-columns:1fr; } .hero-grid { padding:74px 0 94px; } .hero-visual { justify-self:center; width:min(86%,470px); } .proof-grid { grid-template-columns:repeat(2,1fr); } .proof-item:nth-child(2) { border-right:0; } .proof-item:nth-child(-n+2) { border-bottom:1px solid #e1eeec; } .need-grid,.pillars { grid-template-columns:repeat(2,1fr); } .system-grid { gap:2rem; } .system h2 { text-align:center; } .system-copy .eyebrow { margin-inline:auto; } .case { grid-template-columns:1fr; gap:1rem; } .cta-grid { grid-template-columns:1fr; } }
+    @media (max-width:560px) { .container { width:min(100% - 30px,1160px); } .site-header .nav { min-height:62px; } .brand-mark { width:31px; height:31px; } .brand-name { font-size:.91rem; } .nav-cta { min-height:39px; padding:.52rem .64rem; font-size:.71rem; } .hero-grid { min-height:auto; padding:56px 0 78px; } .hero h1 { font-size:clamp(1.72rem,8.65vw,2.16rem); text-align:center; } .hero-kicker { margin-inline:auto; } .hero-lead { margin-inline:auto; text-align:center; } .hero-actions { display:grid; grid-template-columns:1fr; } .hero-visual { width:100%; } .hero-card { right:.6rem; bottom:-1.2rem; width:82%; } .section { padding:65px 0; } .proof-grid { margin-top:-28px; } .proof-item { padding:1rem .45rem; } .proof-num { font-size:1.36rem; } .need-grid,.pillars { grid-template-columns:1fr; } .case-badge { min-height:170px; } .cta-actions { display:grid; grid-template-columns:1fr; } .footer-row { align-items:flex-start; flex-direction:column; } .footer-links { justify-content:flex-start; } }
+    @media (max-width:360px) { .hero h1 { font-size:clamp(1.62rem,8.35vw,2rem); } h2 { font-size:clamp(1.4rem,6.2vw,1.7rem); } .heading-nowrap { font-size:clamp(.96rem,5.45vw,1.15rem); letter-spacing:-.06em; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/bansou/" aria-label="進路伴走ゼミナール トップ"><span class="brand-mark">伴</span><span><span class="brand-name">進路伴走ゼミナール</span><span class="brand-sub">SHINRO BANSOU SEMINAR</span></span></a>
+      <nav class="nav-links" aria-label="ページ内ナビゲーション"><a href="#support">支援の特徴</a><a href="#system">伴走の流れ</a><a href="#case">支援事例</a><a href="/">総合サイト</a></nav>
+      <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdS7FOxXb3MnoANiffjXAxZvVi4GBSIeHrVAZQ_wmkBNsz6NA/viewform?usp=pp_url&amp;entry.1564624791=%E4%BD%93%E9%A8%93%E6%8E%88%E6%A5%AD%E3%81%AE%E3%81%8A%E7%94%B3%E3%81%97%E8%BE%BC%E3%81%BF&amp;entry.69889553=%E5%BD%93%E6%96%B9%E3%81%AE%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8&amp;entry.1305738703=%E4%B8%8D%E7%99%BB%E6%A0%A1%E3%83%BB%E9%80%9A%E4%BF%A1%E5%88%B6%E9%AB%98%E6%A0%A1%E6%94%AF%E6%8F%B4">体験授業を相談</a>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="hero-kicker">PATHWAY SUPPORT FOR UNIVERSITY ADMISSION</p>
+          <h1><span class="heading-line">一人ひとりの今から、</span><br><span class="heading-line accent">大学合格への</span><br><span class="heading-line accent">進路をつくる。</span></h1>
+          <p class="hero-lead">不登校・通信制高校生のための大学受験専門指導。生活リズム、学習の土台、単位や進路の不安を一緒に整理し、志望大学合格までの道筋を無理なく組み立てます。</p>
+          <div class="hero-actions"><a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdS7FOxXb3MnoANiffjXAxZvVi4GBSIeHrVAZQ_wmkBNsz6NA/viewform?usp=pp_url&amp;entry.1564624791=%E4%BD%93%E9%A8%93%E6%8E%88%E6%A5%AD%E3%81%AE%E3%81%8A%E7%94%B3%E3%81%97%E8%BE%BC%E3%81%BF&amp;entry.69889553=%E5%BD%93%E6%96%B9%E3%81%AE%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8&amp;entry.1305738703=%E4%B8%8D%E7%99%BB%E6%A0%A1%E3%83%BB%E9%80%9A%E4%BF%A1%E5%88%B6%E9%AB%98%E6%A0%A1%E6%94%AF%E6%8F%B4">進路の相談をする</a><a class="button button-outline" href="#support">支援の特徴を見る</a></div>
+        </div>
+        <div class="hero-visual"><img class="hero-photo" src="/IMG_4921_learning-support.png" alt="オンラインで個別指導を行う様子" /><div class="hero-card"><span>ONE-TO-ONE SUPPORT</span><strong>学びと進路をつなぐ<br>完全個別の伴走支援</strong></div></div>
+      </div>
+    </section>
+    <section class="proof"><div class="container"><div class="proof-grid"><div class="proof-item"><b class="proof-num">20年超</b><span class="proof-label">学習支援・受験指導経験</span></div><div class="proof-item"><b class="proof-num">1,000名超</b><span class="proof-label">総指導実績</span></div><div class="proof-item"><b class="proof-num">全国対応</b><span class="proof-label">オンライン個別指導</span></div><div class="proof-item"><b class="proof-num">保護者連携</b><span class="proof-label">状況共有と進路相談</span></div></div></div></section>
+    <section class="section band"><div class="container"><p class="eyebrow">FOR STUDENTS &amp; PARENTS</p><h2><span class="heading-line">進路のこと、学習のこと。</span><br><span class="heading-line">一人で抱えていませんか？</span></h2><p class="section-intro">学校に行きづらい時期があっても、大学進学を諦める必要はありません。今の状態を否定せず、学習の再開から受験準備まで、次にできることを一つずつ整理します。</p><div class="need-grid"><article class="need"><span class="need-icon">01</span><h3>学校に行けない時期が続いている</h3><p>気持ちや生活の状態を大切にしながら、取り組める範囲から学習のリズムをつくります。</p></article><article class="need"><span class="need-icon">02</span><h3>通信制高校から大学を目指したい</h3><p>単位取得と大学受験の準備を切り離さず、今の履修状況に合う計画を設計します。</p></article><article class="need"><span class="need-icon">03</span><h3>基礎の抜けが多く不安がある</h3><p>できなかったところに戻り、志望校合格に必要な力まで段階的につなげていきます。</p></article><article class="need"><span class="need-icon">04</span><h3>生活リズムと学習を両立したい</h3><p>無理な量を押しつけず、続けられる学習時間と小さな目標を一緒に決めます。</p></article><article class="need"><span class="need-icon">05</span><h3>進路や受験方式を整理したい</h3><p>一般選抜・総合型選抜などの選択肢を整理し、今から準備できることを明確にします。</p></article><article class="need"><span class="need-icon">06</span><h3>保護者だけでも相談したい</h3><p>お子様の状態を踏まえ、家庭での関わり方や今後の見通しを一緒に考えます。</p></article></div></div></section>
+    <section id="support" class="section"><div class="container"><p class="eyebrow">THREE PILLARS OF BANSOU</p><h2><span class="heading-line">学びの再開から大学受験まで。</span><br><span class="heading-line">3つの柱で伴走します。</span></h2><p class="section-intro">学力だけを見るのではなく、生活・心の負担・卒業と進学の見通しを含めて、安心して前へ進める土台をつくります。</p><div class="pillars"><article class="pillar"><span class="pillar-label">01 RESTART</span><h3>安心して学びを再開する</h3><p>「今できること」から始め、成功体験を積み重ねながら、机に向かう習慣を少しずつ取り戻します。</p></article><article class="pillar"><span class="pillar-label">02 ROADMAP</span><h3>卒業と受験を同時に設計する</h3><p>通信制高校の学習や単位と受験準備を結び、限られた時間を有効に使う進路計画を描きます。</p></article><article class="pillar"><span class="pillar-label">03 PARTNERSHIP</span><h3>生徒・保護者と情報を共有する</h3><p>授業での進捗と方針を丁寧に共有し、ご家庭の不安に対しても見通しをつくります。</p></article></div></div></section>
+    <section id="system" class="section system"><div class="container system-grid"><div class="system-copy"><p class="eyebrow">BANSOU ROADMAP</p><h2><span class="heading-line heading-nowrap">大学合格までの個別伴走設計。</span></h2><p>初回のご相談から、学習の再開、志望校・受験方式の整理、過去問演習まで。状況の変化に合わせて、無理のない計画を一緒に更新し続けます。</p></div><div class="flow"><article class="flow-item"><b class="flow-no">01</b><div><h3>現状と気持ちを整理</h3><p>生活リズム、学習状況、学校との関わり、将来への希望を丁寧にお伺いします。</p></div></article><article class="flow-item"><b class="flow-no">02</b><div><h3>最初の一歩を決める</h3><p>すぐに取り組める学習量と、今週の具体的な行動を一緒に決めます。</p></div></article><article class="flow-item"><b class="flow-no">03</b><div><h3>卒業・進学の道筋を設計</h3><p>単位、受験方式、志望校を整理し、必要な準備を時系列で見える化します。</p></div></article><article class="flow-item"><b class="flow-no">04</b><div><h3>学習と進路を継続支援</h3><p>進捗や状況の変化を確認しながら、合格までの計画を現実的に調整します。</p></div></article></div></div></section>
+    <section id="case" class="section"><div class="container"><p class="eyebrow">A PATHWAY FORWARD</p><h2><span class="heading-line">できなかったところから、</span><br><span class="heading-line">進路の選択肢を広げる。</span></h2><p class="section-intro">学習の空白や学校生活への不安があっても、現在地を正確に見つめ、必要な順番で取り組むことで、大学進学への道はつくれます。</p><article class="case"><div class="case-badge"><small>STEP BY STEP</small><strong>学び直しから始める<br>大学受験への道筋</strong><span>一人ひとりの状況に合わせた計画</span></div><div><h3>進路を急がせず、可能性を狭めない支援</h3><p>まずは「今の生活の中で続けられること」を見つけるところから始めます。基礎の学び直しを積み重ねながら、卒業や受験に必要な準備を整理し、本人の希望に合わせて志望校や受験方式を検討します。小さな一歩を継続することが、将来の選択肢を広げる土台になります。</p><p class="case-note">※ 支援内容は、お子様の状態・学校の制度・進路希望に応じて個別にご提案します。</p></div></article></div></section>
+    <section id="contact" class="cta"><div class="container cta-grid"><div><p class="eyebrow">FREE CONSULTATION</p><h2><span class="heading-line">進路への一歩を、</span><br><span class="heading-line">まずは一緒に整理しませんか？</span></h2><p>保護者様だけのご相談も歓迎しています。不登校・通信制高校・大学受験について、今のお悩みからお気軽にお聞かせください。</p></div><div class="cta-actions"><a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdS7FOxXb3MnoANiffjXAxZvVi4GBSIeHrVAZQ_wmkBNsz6NA/viewform?usp=pp_url&amp;entry.1564624791=%E4%BD%93%E9%A8%93%E6%8E%88%E6%A5%AD%E3%81%AE%E3%81%8A%E7%94%B3%E3%81%97%E8%BE%BC%E3%81%BF&amp;entry.69889553=%E5%BD%93%E6%96%B9%E3%81%AE%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8&amp;entry.1305738703=%E4%B8%8D%E7%99%BB%E6%A0%A1%E3%83%BB%E9%80%9A%E4%BF%A1%E5%88%B6%E9%AB%98%E6%A0%A1%E6%94%AF%E6%8F%B4">体験授業を申し込む</a><a class="button button-outline" href="/">総合サイトへ戻る</a></div></div></section>
+  </main>
+  <footer><div class="container"><div class="footer-row"><a class="footer-brand" href="/bansou/">進路伴走ゼミナール</a><div class="footer-links"><a href="/">プロ家庭教師 鈴木雄太 総合サイト</a><a href="/eiken/">英検合格ゼミナール</a><a href="/gyakuten/">逆転合格ゼミナール</a><a href="mailto:info@kateikyoshi-sogo.com">お問い合わせ</a></div></div><p class="footer-copy">© 進路伴走ゼミナール / プロ家庭教師 鈴木雄太.</p></div></footer>
+</body>
+</html>
