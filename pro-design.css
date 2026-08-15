@@ -4498,3 +4498,47 @@ main > section:not(.ks-photo-hero):not(#stoaca)::after {
     line-height: 1.8 !important;
   }
 }
+
+/* Course heading and course selector cards: protect iPhone mini widths from horizontal clipping. */
+@media (max-width: 399px) {
+  #courses .ks-course-heading-fit {
+    width: calc(100% - 1.5rem) !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  #courses .ks-course-heading-fit .ks-course-heading-line {
+    max-width: 100%;
+    font-size: clamp(1.05rem, 5.2vw, 1.28rem) !important;
+    letter-spacing: -0.06em !important;
+    line-height: 1.46 !important;
+    overflow: visible !important;
+  }
+
+  #courses button.text-left.p-4.rounded-lg {
+    min-width: 0;
+    padding: 0.9rem !important;
+  }
+
+  #courses button.text-left.p-4.rounded-lg > div,
+  #courses button.text-left.p-4.rounded-lg > div > div {
+    min-width: 0;
+  }
+
+  #courses button.text-left.p-4.rounded-lg h4 {
+    font-size: clamp(0.9rem, 4.05vw, 1.02rem) !important;
+    line-height: 1.5 !important;
+    letter-spacing: -0.035em;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  #courses button.text-left.p-4.rounded-lg p {
+    font-size: clamp(0.77rem, 3.42vw, 0.86rem) !important;
+    line-height: 1.55 !important;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+}
