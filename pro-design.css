@@ -5008,3 +5008,90 @@ main > section:not(.ks-photo-hero):not(#stoaca)::after {
 @media (prefers-reduced-motion: reduce) {
   .ks-brand-card, .ks-brand-card-action b { transition: none; }
 }
+
+
+/* Brand-wide mobile typography alignment: central, readable, and phrase-aware. */
+#root main > section > .container > p,
+#root main > section > .container > div > p,
+.ks-brand-portal-lead,
+.ks-brand-card-copy,
+.ks-direct-contract-lead,
+.ks-comparison-intro,
+.ks-stoaca-copy,
+.ks-classroom-support-transition-copy,
+.ks-teacher-portrait-sidecard-copy {
+  margin-right: auto !important;
+  margin-left: auto !important;
+  text-align: center !important;
+  text-wrap: pretty;
+  overflow-wrap: normal;
+  word-break: normal;
+  line-break: strict;
+}
+
+.ks-brand-portal-lead,
+.ks-direct-contract-lead,
+.ks-comparison-intro,
+.ks-stoaca-copy,
+.ks-classroom-support-transition-copy {
+  max-width: 58rem;
+}
+
+.ks-brand-card-copy,
+.ks-teacher-portrait-sidecard-copy {
+  text-align: center !important;
+}
+
+@media (max-width: 560px) {
+  #root main > section > .container > p,
+  #root main > section > .container > div > p,
+  .ks-brand-portal-lead,
+  .ks-brand-card-copy,
+  .ks-direct-contract-lead,
+  .ks-comparison-intro,
+  .ks-stoaca-copy,
+  .ks-classroom-support-transition-copy,
+  .ks-teacher-portrait-sidecard-copy {
+    max-width: none !important;
+    text-align: center !important;
+    text-wrap: pretty;
+    overflow-wrap: normal;
+    word-break: normal;
+    line-break: strict;
+  }
+
+  /* Keep phrase spans together where possible; allow natural wrapping only at the edge. */
+  #root .ks-phrase,
+  #root .ks-semantic-group {
+    display: inline-block;
+    max-width: 100%;
+    text-align: center;
+    white-space: normal;
+  }
+}
+
+
+/* Root hero: preserve the core service heading as one centered line on compact phones. */
+@media (max-width: 560px) {
+  #root main > section:first-child h1.text-4xl {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    overflow: visible !important;
+    color: var(--ks-navy) !important;
+    font-size: clamp(1.02rem, 5.45vw, 1.72rem) !important;
+    letter-spacing: -0.075em !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+    text-wrap: nowrap !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+  }
+
+  #root main > section:first-child .space-y-4 {
+    min-width: 0;
+    text-align: center !important;
+  }
+}

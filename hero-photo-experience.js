@@ -107,7 +107,14 @@
     if (heading) {
       heading.style.setProperty("width", "100%", "important");
       heading.style.setProperty("max-width", "100%", "important");
-      fitSingleLine(heading, heading.clientWidth, 15, 52);
+      // Use the physical viewport on compact screens. The desktop grid may retain a
+      // wider intrinsic copy column after stacking, so clientWidth alone can overflow.
+      const viewportWidth = window.visualViewport?.width || window.innerWidth;
+      const compactViewportWidth = Math.max(0, Math.min(viewportWidth, 360) - 32);
+      const availableWidth = viewportWidth <= 560
+        ? Math.min(heading.clientWidth, compactViewportWidth)
+        : heading.clientWidth;
+      fitSingleLine(heading, availableWidth, 15, 52);
     }
 
     const statsGrid = [...copy.children].find(
