@@ -301,7 +301,6 @@
               <p>ブログの更新を起点に、LINE・X・Instagram・YouTubeでも学習のヒントや講座情報をお届けする予定です。</p>
               <div class="ks-social-grid">${socialCards}</div>
               <a href="${BLOG_HOME_URL}" class="ks-growth-cta ks-growth-cta--outline">教育コラム一覧を見る <span>→</span></a>
-              <a ${openExternal(LEGACY_BLOG_URL)} class="ks-text-link">英検合格ゼミナールの旧ブログを見る <span>↗</span></a>
             </aside>
           </div>
           <div class="ks-content-topics" aria-label="今後発信するテーマ">
