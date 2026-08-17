@@ -5095,3 +5095,71 @@ main > section:not(.ks-photo-hero):not(#stoaca)::after {
     text-align: center !important;
   }
 }
+
+/* Chapter dividers: reinforce the visual handoff between major portal sections. */
+#root main > section[id].ks-growth-section {
+  isolation: isolate;
+}
+
+#root main > section[id].ks-growth-section::after {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 50%;
+  width: clamp(8rem, 25vw, 15rem);
+  height: 0.22rem;
+  border-radius: 999px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(220, 169, 47, 0) 0%,
+    #dca92f 17%,
+    #ffe089 50%,
+    #dca92f 83%,
+    rgba(220, 169, 47, 0) 100%
+  );
+  box-shadow: 0 0.16rem 0.45rem rgba(248, 198, 80, 0.42);
+  content: "";
+  transform: translateX(-50%);
+}
+
+#root main > section[id].ks-growth-section > .ks-growth-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* The topic chips follow the dark social panel as a separate editorial block. */
+.ks-blog .ks-content-topics {
+  position: relative;
+  margin-top: 3.35rem;
+  padding-top: 2rem;
+}
+
+.ks-blog .ks-content-topics::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: clamp(6.5rem, 20vw, 10rem);
+  height: 0.18rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #dca92f, #ffe089, #dca92f);
+  box-shadow: 0 0.12rem 0.36rem rgba(248, 198, 80, 0.35);
+  content: "";
+  transform: translateX(-50%);
+}
+
+@media (max-width: 767px) {
+  #root main > section[id].ks-growth-section::after {
+    width: clamp(7rem, 38vw, 11rem);
+    height: 0.2rem;
+  }
+
+  .ks-blog .ks-content-topics {
+    margin-top: 2.75rem;
+    padding-top: 1.65rem;
+  }
+
+  .ks-blog .ks-content-topics::before {
+    width: clamp(6rem, 34vw, 8.75rem);
+  }
+}
