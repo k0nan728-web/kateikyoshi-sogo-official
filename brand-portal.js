@@ -10,6 +10,11 @@
           '<h2 id="ks-brand-portal-title">お子様の課題に合わせた<br class="ks-brand-portal-break" />専門ブランド</h2>' +
           '<p class="ks-brand-portal-lead">英検を深く、大学受験を戦略的に。不登校・通信制高校には、進路まで見据えた伴走を。<br class="ks-brand-portal-break" />総合サイトから、それぞれの目的に合う専門ブランドを選べます。</p>' +
         '</div>' +
+        '<div class="ks-brand-portal-positioning" aria-label="幅広い教育対応と専門ブランドの位置づけ">' +
+          '<p class="ks-brand-portal-positioning-label">ONE TEACHER, FULL-SCOPE SUPPORT</p>' +
+          '<p class="ks-brand-portal-positioning-copy"><span>高校受験・中学受験・定期テスト対策</span>、<span>学校の補習・進路相談</span>、<span>学習カウンセリングまで。</span><br />教育に関する幅広いご相談を、<span>鈴木が一人で一貫してお受けします。</span></p>' +
+          '<p class="ks-brand-portal-positioning-focus">とりわけ、<span>英検・大学受験</span>、<span>不登校・通信制高校支援</span>の3領域は、豊富な指導実績と多くのお問い合わせをいただいているため、<strong>他コースとは別に、独立ブランドとして詳しい情報と専門の相談導線をご用意しています。</strong></p>' +
+        '</div>' +
         '<div class="ks-brand-portal-grid">' +
           '<a class="ks-brand-card ks-brand-card--eiken" href="/eiken/">' +
             '<span class="ks-brand-card-kicker">EIKEN PASS SEMINAR</span>' +
