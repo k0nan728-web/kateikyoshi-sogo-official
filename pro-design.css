@@ -5215,3 +5215,19 @@ main > section:not(.ks-photo-hero):not(#stoaca)::after {
   .ks-brand-portal-positioning-copy,
   .ks-brand-portal-positioning-focus { line-height: 1.8; }
 }
+
+/* Direct-partnership cards: keep the three approved mobile copy lines intact. */
+@media (max-width: 560px) {
+  #direct-contract .ks-value-item .ks-benefit-copy-flow {
+    font-size: clamp(.75rem, 3.7vw, .95rem) !important;
+    line-height: 1.85;
+    text-align: center !important;
+  }
+  #direct-contract .ks-value-item .ks-benefit-copy-line {
+    display: block;
+    max-width: 100%;
+    letter-spacing: -0.045em;
+    text-align: center;
+    white-space: nowrap;
+  }
+}

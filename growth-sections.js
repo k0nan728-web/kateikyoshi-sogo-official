@@ -136,7 +136,7 @@
             </article>
             <article class="ks-value-item" role="listitem">
               <span class="ks-value-icon">03</span>
-              <div><h3>費用を、指導そのものに集中できる</h3><p>入会金・仲介手数料・管理費はいただきません。必要な支援を、指導の時間と質に集中させます。</p></div>
+              <div><h3>費用を、指導そのものに集中できる</h3><p>入会金・仲介手数料・管理費などはいただきません。必要な支援を、指導の時間と質に集中させます。</p></div>
             </article>
           </div>
         </div>
