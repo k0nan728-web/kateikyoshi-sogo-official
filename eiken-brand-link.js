@@ -1,6 +1,30 @@
-/* Add a distinct brand-navigation link from the general tutoring site to the EIKEN specialist site. */
+/* Add specialist-brand links immediately after the all-courses heading. */
 (function () {
   'use strict';
+
+  var brands = [
+    {
+      variant: 'ks-course-brand-link--eiken',
+      href: '/eiken/',
+      kicker: 'EIKEN PASS SEMINAR',
+      title: '英検合格ゼミナール',
+      label: '英検合格ゼミナールの専門サイトを見る'
+    },
+    {
+      variant: 'ks-course-brand-link--gyakuten',
+      href: '/gyakuten/',
+      kicker: 'GYAKUTEN PASS SEMINAR',
+      title: '逆転合格ゼミナール',
+      label: '逆転合格ゼミナールの専門サイトを見る'
+    },
+    {
+      variant: 'ks-course-brand-link--bansou',
+      href: '/bansou/',
+      kicker: 'SHINRO BANSOU SEMINAR',
+      title: '進路伴走ゼミナール',
+      label: '進路伴走ゼミナールの専門サイトを見る'
+    }
+  ];
 
   function findCourseHeading() {
     return Array.prototype.find.call(document.querySelectorAll('h1, h2, h3'), function (heading) {
@@ -8,25 +32,37 @@
     });
   }
 
-  function addBrandLink() {
-    var heading = findCourseHeading();
-    if (!heading || document.querySelector('.ks-eiken-brand-link')) return false;
-
+  function createBrandLink(brand) {
     var link = document.createElement('a');
-    link.className = 'ks-eiken-brand-link';
-    link.href = '/eiken/';
-    link.innerHTML = '<span class="ks-eiken-brand-link-kicker">EIKEN PASS SEMINAR</span><strong>英検合格ゼミナール 専門サイトを見る</strong><span class="ks-eiken-brand-link-arrow" aria-hidden="true">→</span>';
+    link.className = 'ks-course-brand-link ' + brand.variant;
+    link.href = brand.href;
+    link.setAttribute('aria-label', brand.label);
+    link.innerHTML =
+      '<span class="ks-course-brand-link-kicker">' + brand.kicker + '</span>' +
+      '<strong>' + brand.title + '</strong>' +
+      '<span class="ks-course-brand-link-arrow" aria-hidden="true">→</span>';
+    return link;
+  }
 
-    var copy = heading.parentElement && heading.parentElement.querySelector('p');
-    if (copy) copy.insertAdjacentElement('afterend', link);
-    else heading.insertAdjacentElement('afterend', link);
+  function addBrandLinks() {
+    var heading = findCourseHeading();
+    if (!heading || document.querySelector('.ks-course-brand-links')) return false;
+
+    var links = document.createElement('nav');
+    links.className = 'ks-course-brand-links';
+    links.setAttribute('aria-label', '専門ブランドサイト');
+    brands.forEach(function (brand) {
+      links.appendChild(createBrandLink(brand));
+    });
+
+    heading.insertAdjacentElement('afterend', links);
     return true;
   }
 
   function start() {
-    if (addBrandLink()) return;
+    if (addBrandLinks()) return;
     var observer = new MutationObserver(function () {
-      if (addBrandLink()) observer.disconnect();
+      if (addBrandLinks()) observer.disconnect();
     });
     observer.observe(document.documentElement, { childList: true, subtree: true });
   }

@@ -5231,3 +5231,77 @@ main > section:not(.ks-photo-hero):not(#stoaca)::after {
     white-space: nowrap;
   }
 }
+
+/* All-courses heading: three equal specialist-brand paths, placed immediately below the heading. */
+.ks-course-brand-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .75rem;
+  width: min(100%, 66rem);
+  margin: 1.25rem auto 1.65rem;
+}
+.ks-course-brand-link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: .08rem .7rem;
+  align-items: center;
+  min-width: 0;
+  padding: .82rem .86rem .88rem .95rem;
+  border: 1px solid rgba(206, 156, 38, .72);
+  border-radius: .9rem;
+  box-shadow: 0 .75rem 1.4rem rgba(9, 42, 85, .14);
+  color: #fff;
+  text-align: left;
+  transition: transform 180ms cubic-bezier(.23, 1, .32, 1), box-shadow 180ms cubic-bezier(.23, 1, .32, 1), filter 180ms ease;
+}
+.ks-course-brand-link:hover,
+.ks-course-brand-link:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 1rem 1.8rem rgba(9, 42, 85, .25);
+  filter: brightness(1.07);
+}
+.ks-course-brand-link:focus-visible { outline: 3px solid #ffe290; outline-offset: 3px; }
+.ks-course-brand-link--eiken { background: linear-gradient(135deg, #092a55 0%, #114b96 100%); }
+.ks-course-brand-link--gyakuten { background: linear-gradient(135deg, #071d42 0%, #365f9f 100%); }
+.ks-course-brand-link--bansou { background: linear-gradient(135deg, #083e53 0%, #18766f 100%); }
+.ks-course-brand-link-kicker {
+  grid-column: 1;
+  min-width: 0;
+  color: #ffe290;
+  font-size: .57rem;
+  font-weight: 900;
+  letter-spacing: .11em;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.ks-course-brand-link strong {
+  grid-column: 1;
+  min-width: 0;
+  color: #fff;
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(.88rem, 1.65vw, 1.05rem);
+  line-height: 1.45;
+  text-align: left;
+}
+.ks-course-brand-link-arrow {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  display: grid;
+  width: 1.9rem;
+  height: 1.9rem;
+  border: 1px solid rgba(255, 231, 161, .65);
+  border-radius: 50%;
+  place-items: center;
+  color: #ffe290;
+  font-size: .95rem;
+  font-weight: 900;
+}
+@media (max-width: 900px) {
+  .ks-course-brand-links { grid-template-columns: 1fr; width: min(100%, 42rem); }
+}
+@media (max-width: 560px) {
+  .ks-course-brand-links { gap: .6rem; margin: 1.05rem auto 1.35rem; }
+  .ks-course-brand-link { padding: .78rem .9rem .82rem; }
+  .ks-course-brand-link-kicker { font-size: .58rem; }
+  .ks-course-brand-link strong { font-size: clamp(.9rem, 4.25vw, 1.02rem); }
+}
