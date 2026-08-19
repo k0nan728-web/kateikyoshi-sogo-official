@@ -5305,3 +5305,93 @@ main > section:not(.ks-photo-hero):not(#stoaca)::after {
   .ks-course-brand-link-kicker { font-size: .58rem; }
   .ks-course-brand-link strong { font-size: clamp(.9rem, 4.25vw, 1.02rem); }
 }
+
+/* Course section: specialist paths after the description, followed by a clearly visible all-course path. */
+.ks-course-specialist-intro {
+  width: min(100%, 54rem);
+  margin: clamp(1.55rem, 3vw, 2.2rem) auto .78rem;
+  color: #173c70;
+  font-size: clamp(.84rem, 1.35vw, .98rem);
+  font-weight: 800;
+  line-height: 1.65;
+  text-align: center;
+}
+.ks-course-brand-links {
+  margin: 0 auto clamp(1rem, 2.3vw, 1.45rem);
+}
+.ks-course-brand-link {
+  grid-template-rows: auto auto auto;
+  gap: .12rem .7rem;
+}
+.ks-course-brand-link-area {
+  grid-column: 1;
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  padding: .18rem .5rem;
+  border: 1px solid rgba(255, 231, 161, .52);
+  border-radius: 999px;
+  color: #fff0b6;
+  font-size: .66rem;
+  font-weight: 900;
+  letter-spacing: .045em;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+.ks-course-brand-link-kicker { grid-row: 2; }
+.ks-course-brand-link strong { grid-row: 3; }
+.ks-course-brand-link-arrow { grid-row: 1 / span 3; }
+.ks-course-general-path {
+  width: min(100%, 66rem);
+  margin: 0 auto clamp(1.85rem, 3.6vw, 2.7rem);
+  padding: clamp(.95rem, 2.5vw, 1.25rem) clamp(1rem, 3vw, 1.6rem);
+  border: 1px solid rgba(34, 78, 137, .22);
+  border-left: 4px solid #d7aa42;
+  border-radius: .82rem;
+  background: linear-gradient(110deg, #f7fbff 0%, #fffdf7 100%);
+  box-shadow: 0 .7rem 1.3rem rgba(18, 61, 113, .07);
+  text-align: center;
+}
+.ks-course-general-path-eyebrow {
+  margin: 0;
+  color: #a57511;
+  font-size: .65rem;
+  font-weight: 900;
+  letter-spacing: .13em;
+  line-height: 1.4;
+}
+.ks-course-general-path-title {
+  margin: .38rem auto 0;
+  color: #102f5c;
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(.98rem, 1.75vw, 1.2rem);
+  font-weight: 800;
+  line-height: 1.55;
+}
+.ks-course-general-path-copy {
+  max-width: 54rem;
+  margin: .45rem auto 0;
+  color: #536277;
+  font-size: clamp(.8rem, 1.3vw, .94rem);
+  line-height: 1.78;
+}
+.ks-course-general-path-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin-top: .72rem;
+  color: #174d8f;
+  font-size: .85rem;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+.ks-course-general-path-link:hover,
+.ks-course-general-path-link:focus-visible { color: #a57511; }
+@media (max-width: 560px) {
+  .ks-course-specialist-intro { margin-top: 1.3rem; font-size: .82rem; }
+  .ks-course-brand-link-area { font-size: .62rem; }
+  .ks-course-general-path { margin-bottom: 1.45rem; padding: .95rem .82rem; }
+  .ks-course-general-path-title { font-size: .98rem; }
+}
