@@ -5415,3 +5415,14 @@ main > section:not(.ks-photo-hero):not(#stoaca)::after {
     white-space: nowrap;
   }
 }
+
+/* All-course cards: keep the title and supporting copy aligned to the icon's text column. */
+#courses button .flex.items-start > .min-w-0,
+#courses button .flex.items-start > .min-w-0 h4,
+#courses button .flex.items-start > .min-w-0 p {
+  text-align: left !important;
+}
+#courses button .flex.items-start > .min-w-0 p {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
