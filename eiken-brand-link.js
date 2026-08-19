@@ -71,8 +71,8 @@
     path.setAttribute('aria-label', 'その他の指導コースへのご案内');
     path.innerHTML =
       '<p class="ks-course-general-path-eyebrow">OTHER LEARNING GOALS</p>' +
-      '<p class="ks-course-general-path-title">高校受験・定期テスト・学校補習などをお探しの方へ</p>' +
-      '<p class="ks-course-general-path-copy">中学受験・総合型選抜・高卒認定・進路相談・学習カウンセリングも、鈴木が一人で対応します。以下の15コースから、目的に合うコースをご覧ください。</p>' +
+      '<p class="ks-course-general-path-title"><span>高校受験・中学受験（文系科目のみ）・</span><span>定期テスト・学校補習・進路相談・</span><span>学習カウンセリングなどをご希望の方へ</span></p>' +
+      '<p class="ks-course-general-path-copy"><span>以下の15コースから、目的に合うものを</span><span>ご覧ください。コース名をタップして</span><span>いただくと、詳細が表示されます。</span></p>' +
       '<a class="ks-course-general-path-link" href="#all-course-list">その他のコースを見る <span aria-hidden="true">↓</span></a>';
     return path;
   }

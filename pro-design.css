@@ -5395,3 +5395,23 @@ main > section:not(.ks-photo-hero):not(#stoaca)::after {
   .ks-course-general-path { margin-bottom: 1.45rem; padding: .95rem .82rem; }
   .ks-course-general-path-title { font-size: .98rem; }
 }
+
+/* General-course path: keep the approved three-line message intact on phones. */
+@media (max-width: 560px) {
+  .ks-course-general-path-title {
+    font-size: clamp(.82rem, 3.6vw, .96rem);
+    letter-spacing: -0.045em;
+    line-height: 1.62;
+  }
+  .ks-course-general-path-copy {
+    font-size: clamp(.76rem, 3.35vw, .9rem);
+    letter-spacing: -0.035em;
+    line-height: 1.82;
+  }
+  .ks-course-general-path-title span,
+  .ks-course-general-path-copy span {
+    display: block;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+}
