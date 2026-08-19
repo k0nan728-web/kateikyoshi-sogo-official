@@ -74,6 +74,12 @@
       '<p class="ks-course-general-path-title"><span>高校受験・中学受験（文系科目のみ）・</span><span>定期テスト・学校補習・進路相談・</span><span>学習カウンセリングなどをご希望の方へ</span></p>' +
       '<p class="ks-course-general-path-copy"><span>以下の15コースから、目的に合うものを</span><span>ご覧ください。コース名をタップして</span><span>いただくと、詳細が表示されます。</span></p>' +
       '<a class="ks-course-general-path-link" href="#all-course-list">その他のコースを見る <span aria-hidden="true">↓</span></a>';
+
+    Array.prototype.forEach.call(path.querySelectorAll('.ks-course-general-path-title, .ks-course-general-path-copy'), function (element) {
+      element.dataset.ksPhraseProtected = 'true';
+      element.dataset.ksSemanticGroups = 'true';
+      element.dataset.ksNarrativeCopy = 'true';
+    });
     return path;
   }
 
