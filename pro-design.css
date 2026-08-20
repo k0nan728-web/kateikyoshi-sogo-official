@@ -5461,3 +5461,9 @@ main > section:not(.ks-photo-hero):not(#stoaca)::after {
   color: #ffffff !important;
   text-shadow: 0 1px 2px rgba(0, 20, 44, 0.26);
 }
+
+/* Cancellation policy is a standalone section, not part of the pricing section. */
+#cancel-policy .rounded-2xl.overflow-hidden :is([class*="bg-green-"], [class*="bg-red-"]) :is(h1, h2, h3, h4, p, span) {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 20, 44, 0.26);
+}
