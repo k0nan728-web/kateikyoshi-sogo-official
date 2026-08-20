@@ -5426,3 +5426,21 @@ main > section:not(.ks-photo-hero):not(#stoaca)::after {
   margin-right: 0 !important;
   margin-left: 0 !important;
 }
+
+/* Requested headline alignment: keep the English label and Japanese heading centered as one unit. */
+.ks-growth-heading > .ks-eyebrow,
+.ks-growth-heading > h2,
+.ks-social-hub > .ks-social-hub-label,
+.ks-social-hub > h3 {
+  text-align: center !important;
+}
+.ks-growth-heading > h2,
+.ks-social-hub > h3 {
+  margin-left: auto;
+  margin-right: auto;
+}
+#pricing .fade-in-up.mb-10 > .bg-white > .mb-6 > .ks-card-copy-one-line {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
