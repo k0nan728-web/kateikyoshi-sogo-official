@@ -2,6 +2,7 @@
  * Professional responsive design layer
  * Maintains existing content and form links while establishing an editorial,
  * accessible visual system across desktop, tablet, and mobile.
+ * Goldline comparison-route extensions make the official contract-comparison guide discoverable at high-intent decision points.
  */
 
 :root {
@@ -5466,4 +5467,235 @@ main > section:not(.ks-photo-hero):not(#stoaca)::after {
 #cancel-policy .rounded-2xl.overflow-hidden :is([class*="bg-green-"], [class*="bg-red-"]) :is(h1, h2, h3, h4, p, span) {
   color: #ffffff !important;
   text-shadow: 0 1px 2px rgba(0, 20, 44, 0.26);
+}
+
+/* Comparison-route UI: give high-intent visitors a calm, visible path to the official contract guide. */
+.ks-hero-comparison-wrap {
+  margin-top: 0.85rem;
+}
+
+.ks-hero-comparison-cta {
+  display: grid;
+  width: min(100%, 32rem);
+  grid-template-columns: 1fr auto;
+  gap: 0.22rem 1rem;
+  align-items: center;
+  padding: 0.8rem 1rem 0.82rem;
+  color: #102f5c !important;
+  border: 1px solid rgba(188, 135, 24, 0.45);
+  border-left: 4px solid #dca92f;
+  border-radius: 0.75rem;
+  background: linear-gradient(105deg, #fffdf7 0%, #f7ebc9 100%);
+  box-shadow: 0 0.7rem 1.5rem rgba(18, 61, 113, 0.1);
+  line-height: 1.35;
+  text-decoration: none !important;
+  transition: transform 180ms var(--ks-ease), box-shadow 180ms var(--ks-ease);
+}
+
+.ks-hero-comparison-cta:hover,
+.ks-hero-comparison-cta:focus-visible {
+  box-shadow: 0 1rem 2rem rgba(18, 61, 113, 0.16);
+  transform: translateY(-2px);
+}
+
+.ks-hero-comparison-cta:focus-visible {
+  outline: 3px solid #f8c650;
+  outline-offset: 3px;
+}
+
+.ks-hero-comparison-kicker {
+  grid-column: 1;
+  color: #a57511;
+  font-size: 0.6rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.ks-hero-comparison-cta strong {
+  grid-column: 1;
+  color: #123b72;
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(0.86rem, 1.7vw, 1rem);
+  font-weight: 800;
+}
+
+.ks-hero-comparison-arrow {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  color: #fff;
+  border-radius: 50%;
+  background: #123b72;
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.ks-direct-comparison-bridge {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.4rem 2rem;
+  align-items: center;
+  margin-top: clamp(1.4rem, 3vw, 2rem);
+  padding: clamp(1.2rem, 2.8vw, 1.75rem);
+  border: 1px solid rgba(248, 198, 80, 0.48);
+  border-left: 4px solid #f8c650;
+  border-radius: 1rem;
+  background: linear-gradient(115deg, rgba(248, 198, 80, 0.17), rgba(255, 255, 255, 0.07));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.ks-comparison-bridge-kicker {
+  margin: 0;
+  color: #ffe290 !important;
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  line-height: 1.4;
+}
+
+.ks-direct-comparison-bridge h3 {
+  margin: 0.38rem 0 0;
+  color: #fff !important;
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(1.08rem, 2.1vw, 1.38rem) !important;
+  font-weight: 800;
+  line-height: 1.55 !important;
+}
+
+.ks-direct-comparison-bridge p:not(.ks-comparison-bridge-kicker) {
+  max-width: 46rem;
+  margin: 0.62rem 0 0;
+  color: rgba(255, 255, 255, 0.84) !important;
+  font-size: 0.88rem;
+  line-height: 1.85;
+  text-align: left !important;
+}
+
+.ks-growth-cta--comparison {
+  flex: none;
+  white-space: nowrap;
+}
+
+.ks-growth-cta-row--comparison {
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.ks-growth-cta--outline-light {
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.56);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+}
+
+.ks-growth-cta--outline-light:hover,
+.ks-growth-cta--outline-light:focus-visible {
+  color: #fff !important;
+  border-color: #f8c650;
+  background: rgba(255, 255, 255, 0.17);
+}
+
+nav .ks-header-comparison-link {
+  color: #ffe290 !important;
+  font-weight: 900 !important;
+}
+
+nav .ks-header-comparison-link::before {
+  display: inline-block;
+  width: 0.38rem;
+  height: 0.38rem;
+  margin-right: 0.38rem;
+  border-radius: 50%;
+  background: #f8c650;
+  content: "";
+  vertical-align: middle;
+}
+
+#pricing .ks-pricing-comparison-link {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 3.35rem;
+  padding: 0.85rem 1.1rem !important;
+  color: #fff !important;
+  border: 1px solid rgba(248, 198, 80, 0.76) !important;
+  border-radius: 0.76rem !important;
+  background: linear-gradient(135deg, #082a55 0%, #174d8f 100%) !important;
+  box-shadow: 0 0.75rem 1.55rem rgba(9, 42, 85, 0.2) !important;
+  font-size: 0.94rem !important;
+  font-weight: 900 !important;
+  line-height: 1.45;
+  text-decoration: none !important;
+}
+
+#pricing .ks-pricing-comparison-link:hover,
+#pricing .ks-pricing-comparison-link:focus-visible {
+  background: linear-gradient(135deg, #0c3970 0%, #2263ad 100%) !important;
+  transform: translateY(-2px);
+}
+
+.ks-pricing-comparison-icon {
+  display: grid;
+  width: 1.55rem;
+  height: 1.55rem;
+  place-items: center;
+  color: #102f5c;
+  border-radius: 50%;
+  background: #f8c650;
+  font-size: 0.9rem;
+}
+
+.ks-pricing-comparison-arrow {
+  color: #ffe290;
+  font-size: 1.12rem;
+  line-height: 1;
+}
+
+@media (max-width: 767px) {
+  .ks-hero-comparison-cta {
+    width: 100%;
+    padding: 0.78rem 0.85rem;
+  }
+
+  .ks-hero-comparison-cta strong {
+    font-size: clamp(0.82rem, 3.8vw, 0.96rem);
+  }
+
+  .ks-direct-comparison-bridge {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.1rem 1rem;
+    text-align: center;
+  }
+
+  .ks-direct-comparison-bridge p:not(.ks-comparison-bridge-kicker) {
+    text-align: left !important;
+  }
+
+  .ks-direct-comparison-bridge .ks-growth-cta,
+  .ks-growth-cta-row--comparison .ks-growth-cta {
+    width: 100%;
+    white-space: normal;
+  }
+
+  .ks-growth-cta-row--comparison {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  #pricing .ks-pricing-comparison-link {
+    width: 100%;
+    font-size: 0.88rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ks-hero-comparison-cta,
+  #pricing .ks-pricing-comparison-link {
+    transition: none;
+  }
 }

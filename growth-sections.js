@@ -1,4 +1,4 @@
-/* Content-growth sections for the static production build. */
+/* Goldline portal UI: growth sections connect trust, direct-contract value, and the official comparison guide without interrupting the reading flow. */
 (() => {
   const STREET_ACADEMY_PROFILE_URL =
     "https://www.street-academy.com/steachers/685282";
@@ -21,6 +21,7 @@
     },
   ];
   const BLOG_HOME_URL = "/blog/";
+  const COMPARISON_GUIDE_URL = "/hikaku/";
   const LEGACY_BLOG_URL = "https://eiken-seminar.hatenablog.jp/";
 
   // Set an account URL here when each official channel is ready to publish.
@@ -139,6 +140,14 @@
               <div><h3>費用を、指導そのものに集中できる</h3><p>入会金・仲介手数料・管理費などはいただきません。必要な支援を、指導の時間と質に集中させます。</p></div>
             </article>
           </div>
+          <aside class="ks-direct-comparison-bridge" aria-label="料金と契約形態の比較案内">
+            <div>
+              <p class="ks-comparison-bridge-kicker">CONTRACT COMPARISON GUIDE</p>
+              <h3>料金だけでなく、<br>契約の仕組みも比べてください。</h3>
+              <p>大手予備校・個別指導塾、学生家庭教師、センター経由のプロ家庭教師と比較し、費用・担当体制・相談のつながりを分かりやすく整理しています。</p>
+            </div>
+            <a href="${COMPARISON_GUIDE_URL}" class="ks-growth-cta ks-growth-cta--comparison">4つの契約形態を詳しく比較する <span>→</span></a>
+          </aside>
         </div>
       `,
     );
@@ -225,7 +234,7 @@
               <article class="is-destination"><span>✓</span><p><strong>無料相談で、今の状況と最適な進め方を確認</strong></p></article>
             </div>
           </div>
-          <div class="ks-growth-cta-row"><a href="#contact" class="ks-growth-cta">英検・文系受験の進め方を相談する <span>→</span></a></div>
+          <div class="ks-growth-cta-row ks-growth-cta-row--comparison"><a href="${COMPARISON_GUIDE_URL}" class="ks-growth-cta ks-growth-cta--comparison">費用・担当体制を詳しく比較する <span>→</span></a><a href="#contact" class="ks-growth-cta ks-growth-cta--outline-light">英検・文系受験の進め方を相談する <span>→</span></a></div>
         </div>
       `,
     );
@@ -317,6 +326,7 @@
 
   const addHeaderLinks = () => {
     const entries = [
+      { href: COMPARISON_GUIDE_URL, label: "料金・比較", className: "ks-header-comparison-link" },
       { href: "#reasons", label: "選ばれる理由" },
       { href: "#stoaca", label: "講座・SNS" },
       { href: "/blog/", label: "教育コラム" },
@@ -328,16 +338,43 @@
       entries.forEach((entry) => {
         const link = document.createElement("a");
         link.href = entry.href;
-        link.className = "ks-header-growth-link";
+        link.className = `ks-header-growth-link${entry.className ? ` ${entry.className}` : ""}`;
         link.textContent = entry.label;
         parent.insertBefore(link, faqLink);
       });
     });
   };
 
+  const addHeroComparisonGuide = () => {
+    if (document.querySelector(".ks-hero-comparison-wrap")) return;
+    const contactCta = document.querySelector('main > section:first-child a[href="#contact"]');
+    const actionRow = contactCta?.parentElement;
+    if (!actionRow) return;
+
+    const wrap = document.createElement("div");
+    wrap.className = "ks-hero-comparison-wrap";
+    wrap.innerHTML = `<a href="${COMPARISON_GUIDE_URL}" class="ks-hero-comparison-cta"><span class="ks-hero-comparison-kicker">CONTRACT COMPARISON</span><strong>料金・担当体制を比較して選ぶ</strong><span class="ks-hero-comparison-arrow" aria-hidden="true">→</span></a>`;
+    actionRow.insertAdjacentElement("afterend", wrap);
+  };
+
+  const updatePricingComparisonLink = () => {
+    const legacyLinks = document.querySelectorAll('a[href="https://prokatekyo-lesson-fee.manus.space/"]');
+    legacyLinks.forEach((link) => {
+      link.href = COMPARISON_GUIDE_URL;
+      link.removeAttribute("target");
+      link.removeAttribute("rel");
+      link.classList.add("ks-pricing-comparison-link");
+      link.innerHTML = `<span class="ks-pricing-comparison-icon" aria-hidden="true">⇄</span><span>4つの契約形態を比較する</span><span class="ks-pricing-comparison-arrow" aria-hidden="true">→</span>`;
+      const note = link.parentElement?.querySelector("p");
+      if (note) note.textContent = "料金だけでなく、担当体制や相談のつながりも比較できます。";
+    });
+  };
+
   const buildGrowthSections = () => {
-    if (window.location.pathname !== "/" || document.getElementById("reasons"))
-      return;
+    if (window.location.pathname !== "/") return;
+    addHeroComparisonGuide();
+    updatePricingComparisonLink();
+    if (document.getElementById("reasons")) return;
     const teacherVideo = document.getElementById("teacher-video");
     const results = document.getElementById("results");
     const howWeTeach = document.getElementById("how-we-teach");
