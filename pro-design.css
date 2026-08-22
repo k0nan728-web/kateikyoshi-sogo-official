@@ -2860,6 +2860,27 @@ main .ks-card-copy-one-line.ks-card-copy-font-fitted {
   box-shadow: 0 0.25rem 0.6rem rgba(0, 17, 44, 0.24);
 }
 
+/* Direct-guidance fit cards: preserve the user-specified Japanese phrase breaks on phones. */
+@media (max-width: 767px) {
+  #tutor-comparison .ks-decision-flow .ks-decision-steps .ks-decision-card-copy {
+    padding-top: 0.08rem;
+    font-size: clamp(0.61rem, 2.85vw, 0.75rem);
+    line-height: 1.78;
+    letter-spacing: 0;
+  }
+  #tutor-comparison .ks-decision-flow .ks-decision-mobile-line {
+    display: block;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 360px) {
+  #tutor-comparison .ks-decision-flow .ks-decision-steps article {
+    display: block;
+  }
+  #tutor-comparison .ks-decision-flow .ks-decision-steps article > span:first-child {
+    margin-bottom: 0.48rem;
+  }
+}
 #direct-contract :is(p, li) {
   color: #e8f2ff !important;
   opacity: 1 !important;

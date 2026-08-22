@@ -225,13 +225,13 @@
             <p class="ks-decision-flow-label">CHECK POINT</p>
             <h3>このようなご家庭には、<br>鈴木の直接指導が適しています</h3>
             <div class="ks-decision-steps">
-              <article><span>01</span><p><strong>英検の級・4技能</strong>と受験を、別々にせず一人へ相談したい</p></article>
+              <article><span>01</span><p class="ks-decision-card-copy"><span class="ks-decision-mobile-line">英検・受験・定期テストなどを別々にせず、</span><span class="ks-decision-mobile-line">全てに共通する一貫したアプローチの仕方を</span><span class="ks-decision-mobile-line">一人の専門家に細かく指導してほしい</span></p></article>
               <span class="ks-decision-arrow">→</span>
-              <article><span>02</span><p><strong>英語・国語・社会</strong>を含む文系受験の優先順位を整理したい</p></article>
+              <article><span>02</span><p class="ks-decision-card-copy"><span class="ks-decision-mobile-line">英語・国語・社会を含む文系科目の</span><span class="ks-decision-mobile-line">受験や勉強についての悩みを解決し、</span><span class="ks-decision-mobile-line">優先順位をしっかりと整理したい</span></p></article>
               <span class="ks-decision-arrow">→</span>
-              <article><span>03</span><p>不登校・通信制など、<strong>状況の変化も踏まえて</strong>長く伴走してほしい</p></article>
+              <article><span>03</span><p class="ks-decision-card-copy"><span class="ks-decision-mobile-line">不登校・通信制など、個人の状況の変化も</span><span class="ks-decision-mobile-line">踏まえて長く伴走してほしい</span></p></article>
               <span class="ks-decision-arrow">→</span>
-              <article class="is-destination"><span>✓</span><p><strong>無料相談で、今の状況と最適な進め方を確認</strong></p></article>
+              <article class="ks-decision-step--checkin"><span>04</span><p class="ks-decision-card-copy"><span class="ks-decision-mobile-line">定期的に学習状況と最適な進め方を</span><span class="ks-decision-mobile-line">確認してほしい</span></p></article>
             </div>
           </div>
           <div class="ks-growth-cta-row ks-growth-cta-row--comparison"><a href="${COMPARISON_GUIDE_URL}" class="ks-growth-cta ks-growth-cta--comparison">費用・担当体制を詳しく比較する <span>→</span></a><a href="#contact" class="ks-growth-cta ks-growth-cta--outline-light">英検・文系受験の進め方を相談する <span>→</span></a></div>
