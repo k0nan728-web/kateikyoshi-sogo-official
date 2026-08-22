@@ -5720,3 +5720,84 @@ nav .ks-header-comparison-link::before {
     transition: none;
   }
 }
+
+/* Official course-fee policy: a restrained goldline brief makes duration multipliers easy to verify without competing with the core 60-minute price table. */
+.ks-course-duration-policy {
+  max-width: 56rem;
+  margin: 1.4rem auto 2rem;
+  padding: 1.25rem 1.35rem;
+  color: #173b65;
+  border: 1px solid rgba(191, 143, 36, 0.46);
+  border-left: 4px solid #d6a843;
+  background: linear-gradient(115deg, #fffdf6 0%, #f8eed2 100%);
+  box-shadow: 0 0.75rem 1.6rem rgba(18, 54, 91, 0.09);
+}
+
+.ks-course-duration-policy__eyebrow {
+  margin: 0 0 0.5rem !important;
+  color: #9b7119 !important;
+  font-size: 0.68rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.12em;
+}
+
+.ks-course-duration-policy h3 {
+  margin: 0 !important;
+  color: #102f5c !important;
+  font-size: clamp(1.05rem, 2vw, 1.3rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.55 !important;
+}
+
+.ks-course-duration-policy > p:not(.ks-course-duration-policy__eyebrow) {
+  margin: 0.7rem 0 0 !important;
+  color: #31536e !important;
+  font-size: 0.89rem !important;
+  line-height: 1.85 !important;
+}
+
+.ks-course-duration-policy strong { color: #8d6411; }
+
+.ks-course-duration-policy__formula {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin-top: 0.9rem;
+}
+
+.ks-course-duration-policy__formula span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.65rem 0.7rem;
+  border: 1px solid rgba(16, 47, 92, 0.13);
+  background: rgba(255, 255, 255, 0.68);
+  text-align: center;
+}
+
+.ks-course-duration-policy__formula b {
+  color: #173b65;
+  font-size: 0.95rem;
+}
+
+.ks-course-duration-policy__formula em {
+  color: #785e35;
+  font-size: 0.74rem;
+  font-style: normal;
+  line-height: 1.45;
+}
+
+.ks-course-duration-policy__note {
+  color: #687985 !important;
+  font-size: 0.76rem !important;
+}
+
+@media (max-width: 767px) {
+  .ks-course-duration-policy {
+    margin: 1rem 0 1.35rem;
+    padding: 1.05rem 1rem;
+  }
+
+  .ks-course-duration-policy__formula { grid-template-columns: 1fr; }
+  .ks-course-duration-policy__formula span { align-items: center; }
+}
