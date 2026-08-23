@@ -2,7 +2,7 @@
   "use strict";
 
   const STYLE_ID = "ks-homepage-quality-pass-style";
-  const SECTION_ID = "ks-direct-contract-proof";
+  const SECTION_ID = "ks-first-contact-flow";
 
   const injectStyles = () => {
     if (document.getElementById(STYLE_ID)) return;
@@ -18,17 +18,17 @@
         border-top: 1px solid rgba(255,255,255,.08);
         border-bottom: 1px solid rgba(255,255,255,.08);
       }
-      #${SECTION_ID} .ks-proof-inner {
+      #${SECTION_ID} .ks-flow-inner {
         width: min(100%, 1200px);
         margin: 0 auto;
         padding: 0 32px;
       }
-      #${SECTION_ID} .ks-proof-heading {
-        max-width: 760px;
+      #${SECTION_ID} .ks-flow-heading {
+        max-width: 780px;
         margin: 0 auto 1.75rem;
         text-align: center;
       }
-      #${SECTION_ID} .ks-proof-kicker {
+      #${SECTION_ID} .ks-flow-kicker {
         margin: 0 0 .45rem;
         color: #fcd34d;
         font-size: .75rem;
@@ -42,56 +42,75 @@
         font-size: clamp(1.45rem, 3vw, 2.35rem);
         line-height: 1.5;
       }
-      #${SECTION_ID} .ks-proof-lead {
+      #${SECTION_ID} .ks-flow-lead {
         margin: .75rem auto 0;
-        max-width: 700px;
+        max-width: 720px;
         color: rgba(255,255,255,.82);
         font-size: .98rem;
         line-height: 1.9;
       }
-      #${SECTION_ID} .ks-proof-grid {
+      #${SECTION_ID} .ks-flow-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 1px;
-        overflow: hidden;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
         margin-top: 1.75rem;
+      }
+      #${SECTION_ID} .ks-flow-item {
+        position: relative;
+        min-width: 0;
+        padding: 1.35rem 1.15rem;
+        background: rgba(255,255,255,.07);
         border: 1px solid rgba(255,255,255,.14);
         border-radius: 18px;
-        background: rgba(255,255,255,.14);
       }
-      #${SECTION_ID} .ks-proof-item {
-        min-width: 0;
-        padding: 1.25rem 1rem;
-        background: rgba(6,21,41,.72);
-        text-align: center;
+      #${SECTION_ID} .ks-flow-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        margin-bottom: .7rem;
+        border-radius: 999px;
+        background: #fcd34d;
+        color: #0b1f3a;
+        font-size: .78rem;
+        font-weight: 900;
       }
-      #${SECTION_ID} .ks-proof-item strong {
-        display: block;
-        color: #fff;
-        font-size: 1.02rem;
+      #${SECTION_ID} .ks-flow-item h3 {
+        margin: 0;
+        color: #fff !important;
+        font-size: 1.05rem;
         line-height: 1.55;
       }
-      #${SECTION_ID} .ks-proof-item span {
-        display: block;
-        margin-top: .35rem;
-        color: rgba(255,255,255,.7);
-        font-size: .8rem;
-        line-height: 1.6;
+      #${SECTION_ID} .ks-flow-item p {
+        margin: .55rem 0 0;
+        color: rgba(255,255,255,.72);
+        font-size: .86rem;
+        line-height: 1.75;
       }
-      #${SECTION_ID} .ks-proof-note {
-        margin: 1rem auto 0;
-        max-width: 820px;
-        color: rgba(255,255,255,.64);
-        font-size: .78rem;
-        line-height: 1.7;
-        text-align: center;
+      #${SECTION_ID} .ks-flow-cta {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.35rem;
       }
+      #${SECTION_ID} .ks-flow-cta a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: .75rem 1.35rem;
+        border: 1px solid rgba(255,255,255,.35);
+        border-radius: 999px;
+        color: #fff;
+        background: rgba(255,255,255,.08);
+        text-decoration: none;
+        font-weight: 700;
+      }
+      #${SECTION_ID} .ks-flow-cta a:hover { background: rgba(255,255,255,.14); }
       @media (max-width: 767px) {
-        #${SECTION_ID} .ks-proof-inner { padding: 0 20px; }
-        #${SECTION_ID} .ks-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        #${SECTION_ID} .ks-proof-item { padding: 1rem .75rem; }
-        #${SECTION_ID} .ks-proof-item strong { font-size: .92rem; }
-        #${SECTION_ID} .ks-proof-item span { font-size: .75rem; }
+        #${SECTION_ID} .ks-flow-inner { padding: 0 20px; }
+        #${SECTION_ID} .ks-flow-grid { grid-template-columns: 1fr; gap: .75rem; }
+        #${SECTION_ID} .ks-flow-item { padding: 1.05rem 1rem; }
       }
     `;
     document.head.appendChild(style);
@@ -104,21 +123,32 @@
 
     const section = document.createElement("section");
     section.id = SECTION_ID;
-    section.setAttribute("aria-labelledby", "ks-direct-contract-proof-title");
+    section.setAttribute("aria-labelledby", "ks-first-contact-flow-title");
     section.innerHTML = `
-      <div class="ks-proof-inner">
-        <div class="ks-proof-heading">
-          <p class="ks-proof-kicker">DIRECT CONTRACT</p>
-          <h2 id="ks-direct-contract-proof-title">「講師を紹介してもらう」のではなく、<br>講師本人と直接契約する家庭教師です。</h2>
-          <p class="ks-proof-lead">ご相談から授業まで、鈴木雄太本人が一貫して担当。仲介を挟まないからこそ、学習状況やご家庭の希望をそのまま指導へつなげます。</p>
+      <div class="ks-flow-inner">
+        <div class="ks-flow-heading">
+          <p class="ks-flow-kicker">FIRST CONSULTATION</p>
+          <h2 id="ks-first-contact-flow-title">初めてのご相談から、<br>指導開始までの流れ</h2>
+          <p class="ks-flow-lead">いきなり契約を決める必要はありません。お子様の現在地とご家庭の希望を整理し、どのコース・進め方が合うかを一緒に確認します。</p>
         </div>
-        <div class="ks-proof-grid" role="list">
-          <div class="ks-proof-item" role="listitem"><strong>入会金 0円</strong><span>個人契約</span></div>
-          <div class="ks-proof-item" role="listitem"><strong>管理費 0円</strong><span>固定の管理費なし</span></div>
-          <div class="ks-proof-item" role="listitem"><strong>仲介手数料 0円</strong><span>センターを介さない契約</span></div>
-          <div class="ks-proof-item" role="listitem"><strong>一貫して本人が担当</strong><span>相談・授業・学習設計</span></div>
+        <div class="ks-flow-grid" role="list">
+          <article class="ks-flow-item" role="listitem">
+            <span class="ks-flow-number">01</span>
+            <h3>まずは状況を相談</h3>
+            <p>学年、現在の学習状況、英検・受験などの目標、困っていることをお聞きします。保護者様だけのご相談も可能です。</p>
+          </article>
+          <article class="ks-flow-item" role="listitem">
+            <span class="ks-flow-number">02</span>
+            <h3>合うコースと進め方を整理</h3>
+            <p>目標と現在地から、必要な指導内容や学習の優先順位を整理します。既存の15コースから適した選択肢をご案内します。</p>
+          </article>
+          <article class="ks-flow-item" role="listitem">
+            <span class="ks-flow-number">03</span>
+            <h3>納得してから指導へ</h3>
+            <p>方針と条件をご確認いただいたうえで、指導を開始します。契約後も講師本人が継続して状況を見ながら調整します。</p>
+          </article>
         </div>
-        <p class="ks-proof-note">料金・指導条件はコースごとに異なります。詳細は各コースと料金比較ページでご確認ください。</p>
+        <div class="ks-flow-cta"><a href="#contact">まずは無料相談で状況を整理する →</a></div>
       </div>
     `;
     hero.insertAdjacentElement("afterend", section);
