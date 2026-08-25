@@ -15,15 +15,17 @@
     if (element.dataset.ksHeroSubheadlineFit === 'true') return;
 
     element.innerHTML = `
-      <span class="ks-hero-subheadline-line">複数の悩みを、1人の先生が</span>
-      <span class="ks-hero-subheadline-line">横断的に見守ります。</span>
+      <span class="ks-hero-subheadline-line">英検・受験・不登校まで、</span>
+      <span class="ks-hero-subheadline-line">1人のプロが一貫して伴走します。</span>
     `;
     element.dataset.ksHeroSubheadlineFit = 'true';
   }
 
   function fit(element) {
     const heading = mainHeading();
-    const renderedMainFontSize = Number.parseFloat(window.getComputedStyle(heading).fontSize) || 20;
+    const renderedMainFontSize = heading
+      ? Number.parseFloat(window.getComputedStyle(heading).fontSize) || 20
+      : 20;
     const mainFitRatio = heading && heading.scrollWidth > heading.clientWidth
       ? heading.clientWidth / heading.scrollWidth
       : 1;
