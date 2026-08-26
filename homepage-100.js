@@ -22,10 +22,8 @@
       if(keys.some(k=>t.includes(k))){const sec=h.closest('section,article,div'); if(sec && !sec.classList.contains('p100-section')) sec.classList.add('p100-section');}
     });
 
-    // Reframe the four core paths into a clear parent decision point when the existing cards are present.
     const target=q('a').filter(a=>/英検合格ゼミナール|逆転合格ゼミナール|進路伴走ゼミナール/.test(text(a)));
     if(target.length>=2){
-      const unique=[]; target.forEach(a=>{const key=text(a); if(!unique.some(x=>text(x)===key)) unique.push(a);});
       const box=document.createElement('div'); box.className='p100-choice-grid';
       const data=[
         ['英検を取りたい','級・弱点・4技能を整理して、合格までの学習計画を一緒に作ります。','英検合格ゼミナール','/eiken/'],
@@ -38,12 +36,20 @@
       if(anchor && !document.querySelector('.p100-choice-grid')) anchor.parentNode.insertBefore(box,anchor);
     }
 
-    // Add a mobile-only persistent contact action without obscuring content.
+    // Customer-facing consultation reassurance: explain what happens after the first contact without exposing the internal persuasion model.
+    if(!document.querySelector('.p100-consult')){
+      const consult=document.createElement('section'); consult.className='p100-consult';
+      consult.innerHTML='<div class="p100-consult__inner"><span class="p100-badge">はじめての方へ</span><h2>無料相談では、まず今の状況をお聞かせください</h2><p class="p100-consult__lead">いきなり入会を決めていただく必要はありません。お子さまの現在地やお悩み、目標を整理し、必要なサポートを一緒に考えます。</p><div class="p100-consult__steps"><div><strong>01</strong><h3>状況を伺う</h3><p>学習状況・学校生活・受験や英検の目標などをお聞きします。</p></div><div><strong>02</strong><h3>課題を整理する</h3><p>今どこから始めるべきか、優先順位を一緒に整理します。</p></div><div><strong>03</strong><h3>方向性をご提案</h3><p>必要な指導内容や進め方をご説明し、ご家庭で検討いただけます。</p></div></div><a class="p100-cta p100-cta-primary p100-consult__cta" href="mailto:info@kateikyoshi-sogo.com?subject=無料相談について">まずは無料相談をする →</a></div></section>';
+      const contactHeading=q('h2,h3').find(h=>/お問い合わせ|無料相談/.test(text(h)));
+      const anchor=contactHeading&&contactHeading.closest('section,article,div');
+      if(anchor&&anchor.parentNode) anchor.parentNode.insertBefore(consult,anchor);
+      else if(document.querySelector('footer')) document.querySelector('footer').before(consult);
+    }
+
     if(!document.querySelector('.p100-sticky')){
       const s=document.createElement('div');s.className='p100-sticky';s.innerHTML='<a class="secondary" href="mailto:info@kateikyoshi-sogo.com">メールで相談</a><a class="primary" href="mailto:info@kateikyoshi-sogo.com?subject=無料相談について">無料相談をする</a>';document.body.appendChild(s);
     }
 
-    // Style FAQ/details blocks and cards consistently.
     q('details').forEach(d=>d.classList.add('p100-faq'));
     q('article, [class*="card"], [class*="Card"]').forEach(el=>{if(el.offsetWidth>220 && el.offsetWidth<900) el.classList.add('p100-card');});
   };
