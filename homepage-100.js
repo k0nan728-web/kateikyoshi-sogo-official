@@ -36,6 +36,16 @@
       if(anchor && !document.querySelector('.p100-choice-grid')) anchor.parentNode.insertBefore(box,anchor);
     }
 
+    // Customer-facing reassurance: explain the concrete conditions of individual contracting.
+    if(!document.querySelector('.p100-contract')){
+      const contract=document.createElement('section'); contract.className='p100-contract';
+      contract.innerHTML='<div class="p100-contract__inner"><span class="p100-badge">個人契約について</span><h2>費用と担当が分かりやすい、直接契約です</h2><p class="p100-contract__lead">ご家庭が安心して検討できるよう、契約に関わる負担と担当体制をシンプルにしています。</p><div class="p100-contract__grid"><div><strong>0円</strong><h3>入会金</h3><p>入会時の初期費用はありません。</p></div><div><strong>0円</strong><h3>管理費</h3><p>月々の管理費はありません。</p></div><div><strong>0円</strong><h3>仲介手数料</h3><p>紹介会社を介した仲介手数料はありません。</p></div><div><strong>本人が担当</strong><h3>一貫した指導</h3><p>ご相談から指導まで、講師本人が直接対応します。</p></div></div></div></section>';
+      const anchor=q('h2,h3').find(h=>/料金|個人契約|費用/.test(text(h)));
+      const targetAnchor=anchor&&anchor.closest('section,article,div');
+      if(targetAnchor&&targetAnchor.parentNode) targetAnchor.parentNode.insertBefore(contract,targetAnchor);
+      else if(document.querySelector('.p100-consult')) document.querySelector('.p100-consult').before(contract);
+    }
+
     // Customer-facing consultation reassurance: explain what happens after the first contact without exposing the internal persuasion model.
     if(!document.querySelector('.p100-consult')){
       const consult=document.createElement('section'); consult.className='p100-consult';
