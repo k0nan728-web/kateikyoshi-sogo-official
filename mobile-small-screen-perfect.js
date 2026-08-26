@@ -15,9 +15,7 @@
     "今の状況を一緒に整理し、必要な支援だけをご提案します。": ["今の状況を一緒に整理し、", "必要な支援だけをご提案します。"],
     "級・弱点・4技能を整理して、合格までの学習計画を一緒に作ります。": ["級・弱点・4技能を整理して、", "合格までの学習計画を一緒に作ります。"],
     "現在地から志望校まで逆算し、英語・国語・社会の優先順位を整えます。": ["現在地から志望校まで逆算し、", "英語・国語・社会の優先順位を整えます。"],
-    "学習だけでなく生活リズムや進路まで、無理のないペースで伴走します。": ["学習だけでなく", "生活リズムや進路まで、", "無理のないペースで伴走します。"],
-    "今の状況を一緒に整理し、必要な支援だけをご提案します。": ["今の状況を一緒に整理し、", "必要な支援だけをご提案します。"],
-    "講師を紹介してもらうのではなく、講師本人と直接契約する家庭教師です。": ["講師を紹介してもらうのではなく、", "講師本人と", "直接契約", "する家庭教師です."]
+    "講師を紹介してもらうのではなく、講師本人と直接契約する家庭教師です。": ["講師を紹介してもらうのではなく、", "講師本人と", "直接契約", "する家庭教師です。"]
   };
 
   const esc = (s) => s.replace(/[&<>\"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
@@ -26,10 +24,9 @@
     if (!el || el.dataset.phraseWrapped === "1") return;
     const current = (el.textContent || "").replace(/\s+/g, "").trim();
     if (!current) return;
-    const match = Object.keys(PHRASES).find((key) => current === key || (current.includes("直接契約") && key.includes("直接契約")));
+    const match = Object.keys(PHRASES).find((key) => current === key);
     if (!match) return;
-    const parts = PHRASES[match];
-    el.innerHTML = parts.map((p) => `<span class="ms-phrase${p.includes("直接契約") ? " ms-accent" : ""}">${esc(p)}</span>`).join("");
+    el.innerHTML = PHRASES[match].map((p) => `<span class="ms-phrase${p.includes("直接契約") ? " ms-accent" : ""}">${esc(p)}</span>`).join("");
     el.dataset.phraseWrapped = "1";
   };
 
