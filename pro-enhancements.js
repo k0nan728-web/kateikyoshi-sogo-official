@@ -64,9 +64,6 @@
       const purpose = CTA_PURPOSES[label];
       if (!purpose || anchor.dataset.ksFormLink === "true") return;
 
-      // Replace in-site #contact links with direct, prefilled Google Form URLs.
-      // A normal anchor is intentionally used so it remains reliable in Safari,
-      // works without JavaScript navigation APIs, and supports opening in a new tab.
       anchor.href = makeFormUrl(courseId, purpose);
       anchor.target = "_blank";
       anchor.rel = "noopener noreferrer";
@@ -76,6 +73,28 @@
         `${label}（${COURSE_NAMES[courseId]}）`,
       );
     });
+  };
+
+  const mountHeader100 = () => {
+    if (document.getElementById("h100-header")) return;
+
+    // The rebuilt header is intentionally loaded as a separate, cache-busted
+    // asset so the existing page CSS cannot partially overwrite its structure.
+    if (!document.querySelector('link[data-h100-css="1"]')) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "/header-100-final.css?v=20260827-h100-1";
+      link.dataset.h100Css = "1";
+      document.head.appendChild(link);
+    }
+
+    if (!document.querySelector('script[data-h100-js="1"]')) {
+      const script = document.createElement("script");
+      script.src = "/header-100-final.js?v=20260827-h100-1";
+      script.defer = true;
+      script.dataset.h100Js = "1";
+      document.head.appendChild(script);
+    }
   };
 
   const init = () => {
@@ -117,14 +136,16 @@
     }
 
     enhanceCourseDetailCtas();
+    mountHeader100();
     refreshFixedElements();
     window.addEventListener("scroll", refreshFixedElements, { passive: true });
 
-    // React renders after the module bundle; observe once more so direct links
-    // are also applied after the course-detail DOM is mounted.
     const root = document.getElementById("root");
     if (root) {
-      const observer = new MutationObserver(() => enhanceCourseDetailCtas());
+      const observer = new MutationObserver(() => {
+        enhanceCourseDetailCtas();
+        mountHeader100();
+      });
       observer.observe(root, { childList: true, subtree: true });
     }
   };
