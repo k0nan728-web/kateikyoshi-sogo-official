@@ -1,0 +1,195 @@
+/* FIRST SECTION RESPONSIVE TYPOGRAPHY — 2026-08-27
+   Final viewport-aware typography layer.
+   Purpose: keep the first section readable and balanced from iPhone mini to iPad/desktop.
+*/
+
+.ks-mobile-section1-final,
+.ks-mobile-section1-final * {
+  box-sizing: border-box !important;
+}
+
+.ks-mobile-section1-final {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow-x: hidden !important;
+}
+
+/* Reset accidental narrow widths inherited by older responsive layers. */
+.ks-mobile-section1-final h1,
+.ks-mobile-section1-final h2,
+.ks-mobile-section1-final h3,
+.ks-mobile-section1-final p {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  line-break: strict !important;
+  hyphens: none !important;
+  text-wrap: pretty !important;
+}
+
+/* Main first-section message: scale smoothly with the viewport. */
+.ks-mobile-section1-final h1,
+.ks-mobile-section1-final h2 {
+  width: min(100%, 900px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+  font-size: clamp(26px, 4.2vw, 48px) !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0 !important;
+}
+
+/* The short service list should not collapse into one word per line. */
+.ks-mobile-section1-final h2 {
+  max-width: min(100%, 820px) !important;
+}
+
+/* Supporting copy gets wider as screens grow, while remaining comfortable on phones. */
+.ks-mobile-section1-final p {
+  width: min(100%, 820px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+  font-size: clamp(15px, 1.65vw, 19px) !important;
+  line-height: 1.9 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Intro block must never inherit an overly narrow max-width. */
+.ks-mobile-section1-final .ks-section1-intro {
+  width: min(100%, 820px) !important;
+  max-width: 820px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.ks-mobile-section1-final .ks-section1-intro h1,
+.ks-mobile-section1-final .ks-section1-intro h2,
+.ks-mobile-section1-final .ks-section1-intro h3 {
+  width: 100% !important;
+  max-width: 100% !important;
+  font-size: clamp(24px, 3.9vw, 42px) !important;
+  line-height: 1.5 !important;
+}
+
+.ks-mobile-section1-final .ks-section1-intro p {
+  width: 100% !important;
+  max-width: 100% !important;
+  font-size: clamp(15px, 1.65vw, 19px) !important;
+  line-height: 1.9 !important;
+}
+
+/* Stat values scale but remain single-line inside their own cards. */
+.ks-mobile-section1-final .ks-section1-stats strong,
+.ks-mobile-section1-final .ks-section1-stats b {
+  max-width: 100% !important;
+  font-size: clamp(24px, 4.2vw, 40px) !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+}
+
+.ks-mobile-section1-final .ks-section1-stats span,
+.ks-mobile-section1-final .ks-section1-stats small {
+  max-width: 100% !important;
+  font-size: clamp(12px, 1.5vw, 15px) !important;
+  line-height: 1.55 !important;
+  white-space: normal !important;
+}
+
+/* The comparison link is a normal responsive block, never a horizontal banner. */
+.ks-mobile-section1-final .ks-section1-route {
+  width: min(100%, 900px) !important;
+  max-width: 900px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  overflow: hidden !important;
+}
+
+.ks-mobile-section1-final .ks-section1-route h3 {
+  width: 100% !important;
+  max-width: 100% !important;
+  font-size: clamp(17px, 2.5vw, 27px) !important;
+  line-height: 1.5 !important;
+  text-align: center !important;
+  white-space: normal !important;
+  word-break: normal !important;
+}
+
+@media (max-width: 600px) {
+  .ks-mobile-section1-final h1,
+  .ks-mobile-section1-final h2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: clamp(22px, 6.8vw, 31px) !important;
+    line-height: 1.5 !important;
+  }
+
+  .ks-mobile-section1-final .ks-section1-intro {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .ks-mobile-section1-final .ks-section1-intro h1,
+  .ks-mobile-section1-final .ks-section1-intro h2,
+  .ks-mobile-section1-final .ks-section1-intro h3 {
+    font-size: clamp(22px, 6.6vw, 30px) !important;
+    line-height: 1.5 !important;
+  }
+
+  .ks-mobile-section1-final p,
+  .ks-mobile-section1-final .ks-section1-intro p {
+    font-size: clamp(14px, 4vw, 17px) !important;
+    line-height: 1.85 !important;
+  }
+
+  .ks-mobile-section1-final .ks-section1-route h3 {
+    font-size: clamp(16px, 4.7vw, 21px) !important;
+    line-height: 1.5 !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .ks-mobile-section1-final h1,
+  .ks-mobile-section1-final h2 {
+    font-size: clamp(21px, 6.5vw, 27px) !important;
+  }
+
+  .ks-mobile-section1-final .ks-section1-intro h1,
+  .ks-mobile-section1-final .ks-section1-intro h2,
+  .ks-mobile-section1-final .ks-section1-intro h3 {
+    font-size: clamp(21px, 6.4vw, 27px) !important;
+  }
+
+  .ks-mobile-section1-final p,
+  .ks-mobile-section1-final .ks-section1-intro p {
+    font-size: 14px !important;
+    line-height: 1.85 !important;
+  }
+
+  .ks-mobile-section1-final .ks-section1-stats strong,
+  .ks-mobile-section1-final .ks-section1-stats b {
+    font-size: clamp(22px, 7vw, 28px) !important;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .ks-mobile-section1-final h1,
+  .ks-mobile-section1-final h2 {
+    font-size: clamp(28px, 4vw, 42px) !important;
+  }
+
+  .ks-mobile-section1-final .ks-section1-intro h1,
+  .ks-mobile-section1-final .ks-section1-intro h2,
+  .ks-mobile-section1-final .ks-section1-intro h3 {
+    font-size: clamp(27px, 3.7vw, 40px) !important;
+  }
+
+  .ks-mobile-section1-final p,
+  .ks-mobile-section1-final .ks-section1-intro p {
+    font-size: clamp(16px, 1.8vw, 19px) !important;
+  }
+}
