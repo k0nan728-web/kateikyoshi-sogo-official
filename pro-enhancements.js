@@ -51,8 +51,6 @@
 
     document.body.classList.add("ks-course-detail");
 
-    // The legacy floating CTA overlaps the two detail-page buttons on compact
-    // screens. Hide it only on course pages, where the dedicated CTAs are present.
     const floatingCta = document.getElementById("floating-cta");
     if (floatingCta) {
       floatingCta.setAttribute("aria-hidden", "true");
@@ -78,8 +76,6 @@
   const mountHeader100 = () => {
     if (document.getElementById("h100-header")) return;
 
-    // The rebuilt header is intentionally loaded as a separate, cache-busted
-    // asset so the existing page CSS cannot partially overwrite its structure.
     if (!document.querySelector('link[data-h100-css="1"]')) {
       const link = document.createElement("link");
       link.rel = "stylesheet";
@@ -95,6 +91,15 @@
       script.dataset.h100Js = "1";
       document.head.appendChild(script);
     }
+  };
+
+  const mountFirstSectionResponsive = () => {
+    if (document.querySelector('link[data-first-section-responsive="1"]')) return;
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "/first-section-responsive-final.css?v=20260827-first-section-typography1";
+    link.dataset.firstSectionResponsive = "1";
+    document.head.appendChild(link);
   };
 
   const init = () => {
@@ -137,6 +142,7 @@
 
     enhanceCourseDetailCtas();
     mountHeader100();
+    mountFirstSectionResponsive();
     refreshFixedElements();
     window.addEventListener("scroll", refreshFixedElements, { passive: true });
 
@@ -145,6 +151,7 @@
       const observer = new MutationObserver(() => {
         enhanceCourseDetailCtas();
         mountHeader100();
+        mountFirstSectionResponsive();
       });
       observer.observe(root, { childList: true, subtree: true });
     }
