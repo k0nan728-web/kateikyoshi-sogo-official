@@ -94,12 +94,29 @@
   };
 
   const mountFirstSectionResponsive = () => {
-    if (document.querySelector('link[data-first-section-responsive="1"]')) return;
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "/first-section-responsive-final.css?v=20260827-first-section-typography1";
-    link.dataset.firstSectionResponsive = "1";
-    document.head.appendChild(link);
+    if (!document.querySelector('link[data-first-section-responsive="1"]')) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "/first-section-responsive-final.css?v=20260827-first-section-typography1";
+      link.dataset.firstSectionResponsive = "1";
+      document.head.appendChild(link);
+    }
+
+    if (!document.querySelector('link[data-first-section-category="1"]')) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = "/first-section-category-final.css?v=20260827-first-section-category2";
+      link.dataset.firstSectionCategory = "1";
+      document.head.appendChild(link);
+    }
+
+    if (!document.querySelector('script[data-first-section-category="1"]')) {
+      const script = document.createElement("script");
+      script.src = "/section1-category-layout-final.js?v=20260827-first-section-category2";
+      script.defer = true;
+      script.dataset.firstSectionCategory = "1";
+      document.head.appendChild(script);
+    }
   };
 
   const init = () => {
