@@ -2,6 +2,15 @@
   const ready = () => {
     if (document.body.dataset.p100 === '1') return;
     document.body.dataset.p100 = '1';
+
+    // The legacy mobile navigation is now obsolete. The 100-point header is the single
+    // canonical header; keeping the legacy nav visible creates the duplicate navy/pink
+    // banner shown above the hero on small screens.
+    const legacyHeaderStyle = document.createElement('style');
+    legacyHeaderStyle.id = 'p100-remove-legacy-mobile-header';
+    legacyHeaderStyle.textContent = 'nav.ks-mobile-header-clean{display:none!important;}';
+    document.head.appendChild(legacyHeaderStyle);
+
     const q = (s) => Array.from(document.querySelectorAll(s));
     const text = (el) => ((el && el.textContent) || '').replace(/\s+/g, ' ').trim();
     const links = q('a[href]');
