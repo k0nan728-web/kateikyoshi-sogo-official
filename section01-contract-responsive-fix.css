@@ -1,0 +1,219 @@
+/*
+ * SECTION 01 RESPONSIVE FIX — 2026-08-30
+ * Scope: first comparison route + direct-contract proof block only.
+ * This deliberately uses high-specificity selectors because legacy runtime
+ * scripts inject !important rules after the static stylesheets.
+ */
+
+html body main .ks-mobile-section1-final .ks-section1-route,
+html body main .ks-mobile-section1-final .ks-section1-route * {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+html body main .ks-mobile-section1-final .ks-section1-route {
+  width: 100% !important;
+  margin-inline: auto !important;
+  overflow: visible !important;
+}
+
+html body main .ks-mobile-section1-final .ks-section1-route h2,
+html body main .ks-mobile-section1-final .ks-section1-route h3,
+html body main .ks-mobile-section1-final .ks-section1-route p,
+html body main .ks-mobile-section1-final .ks-section1-route a,
+html body main .ks-mobile-section1-final .ks-section1-route span,
+html body main .ks-mobile-section1-final .ks-section1-route strong {
+  width: auto !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: anywhere !important;
+  line-break: strict !important;
+  hyphens: none !important;
+}
+
+html body main .ks-mobile-section1-final .ks-section1-route::before,
+html body main .ks-mobile-section1-final .ks-section1-route::after {
+  max-width: 100% !important;
+  pointer-events: none !important;
+}
+
+/* Direct-contract proof block: constrain every structural wrapper to the viewport. */
+html body main #ks-direct-contract-proof-v7,
+html body main #ks-direct-contract-proof-v7 .ks-proof-inner,
+html body main #ks-direct-contract-proof-v7 .ks-proof-heading,
+html body main #ks-direct-contract-proof-v7 .ks-proof-lead,
+html body main #ks-direct-contract-proof-v7 .ks-proof-grid,
+html body main #ks-direct-contract-proof-v7 .ks-proof-item,
+html body main #ks-direct-contract-proof-v7 .ks-credibility,
+html body main #ks-direct-contract-proof-v7 .ks-route-heading,
+html body main #ks-direct-contract-proof-v7 .ks-route-grid,
+html body main #ks-direct-contract-proof-v7 .ks-route-card {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+html body main #ks-direct-contract-proof-v7 {
+  width: 100% !important;
+  overflow: clip !important;
+}
+
+html body main #ks-direct-contract-proof-v7 .ks-proof-inner {
+  width: min(100%, 1160px) !important;
+  margin-inline: auto !important;
+}
+
+html body main #ks-direct-contract-proof-v7 .ks-proof-heading {
+  width: 100% !important;
+  margin-inline: auto !important;
+  text-align: center !important;
+}
+
+html body main #ks-direct-contract-proof-v7 h2 {
+  width: auto !important;
+  max-width: 22ch !important;
+  margin-inline: auto !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: anywhere !important;
+  text-wrap: balance !important;
+}
+
+html body main #ks-direct-contract-proof-v7 .ks-proof-lead {
+  width: min(100%, 820px) !important;
+  margin-inline: auto !important;
+  padding-inline: 0 !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: anywhere !important;
+  line-break: strict !important;
+  text-align: center !important;
+}
+
+html body main #ks-direct-contract-proof-v7 .ks-proof-grid,
+html body main #ks-direct-contract-proof-v7 .ks-route-grid {
+  width: 100% !important;
+}
+
+/* iPad / tablets: avoid forcing long callouts into one horizontal strip. */
+@media (min-width: 601px) and (max-width: 1180px) {
+  html body main .ks-mobile-section1-final {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  html body main .ks-mobile-section1-final .ks-section1-route {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    justify-items: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    padding: 18px 20px !important;
+    text-align: center !important;
+  }
+
+  html body main .ks-mobile-section1-final .ks-section1-route h2,
+  html body main .ks-mobile-section1-final .ks-section1-route h3 {
+    width: 100% !important;
+    max-width: 24ch !important;
+    margin: 0 auto !important;
+    font-size: clamp(22px, 3.3vw, 32px) !important;
+    line-height: 1.48 !important;
+    letter-spacing: 0 !important;
+    text-align: center !important;
+  }
+
+  html body main .ks-mobile-section1-final .ks-section1-route p,
+  html body main .ks-mobile-section1-final .ks-section1-route a,
+  html body main .ks-mobile-section1-final .ks-section1-route span,
+  html body main .ks-mobile-section1-final .ks-section1-route strong {
+    font-size: clamp(14px, 1.7vw, 18px) !important;
+    line-height: 1.65 !important;
+  }
+
+  html body main #ks-direct-contract-proof-v7 {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  html body main #ks-direct-contract-proof-v7 .ks-proof-inner {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  html body main #ks-direct-contract-proof-v7 h2 {
+    font-size: clamp(28px, 4vw, 38px) !important;
+    line-height: 1.48 !important;
+  }
+
+  html body main #ks-direct-contract-proof-v7 .ks-proof-lead {
+    font-size: clamp(15px, 1.9vw, 18px) !important;
+    line-height: 1.85 !important;
+  }
+
+  html body main #ks-direct-contract-proof-v7 .ks-proof-grid,
+  html body main #ks-direct-contract-proof-v7 .ks-route-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+}
+
+/* Phones: one-column route, two-column proof cards where space permits. */
+@media (max-width: 600px) {
+  html body main .ks-mobile-section1-final {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  html body main .ks-mobile-section1-final .ks-section1-route {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 8px !important;
+    padding: 14px 12px !important;
+    overflow: visible !important;
+  }
+
+  html body main .ks-mobile-section1-final .ks-section1-route h2,
+  html body main .ks-mobile-section1-final .ks-section1-route h3 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    font-size: clamp(17px, 5.1vw, 22px) !important;
+    line-height: 1.5 !important;
+  }
+
+  html body main #ks-direct-contract-proof-v7 {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  html body main #ks-direct-contract-proof-v7 h2 {
+    max-width: 100% !important;
+    font-size: clamp(23px, 7vw, 31px) !important;
+  }
+
+  html body main #ks-direct-contract-proof-v7 .ks-proof-lead {
+    width: 100% !important;
+    font-size: clamp(14px, 4vw, 16px) !important;
+    line-height: 1.82 !important;
+  }
+
+  html body main #ks-direct-contract-proof-v7 .ks-proof-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  html body main #ks-direct-contract-proof-v7 .ks-route-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+@media (max-width: 359px) {
+  html body main #ks-direct-contract-proof-v7 .ks-proof-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
