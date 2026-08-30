@@ -1,108 +1,200 @@
 (() => {
   'use strict';
 
-  const STYLE_ID = 'mobile-section1-current-style-v4';
-  const ROUTE_CLASS = 'ks-current-contract-route';
   const HEADER_CLASS = 'ks-mobile-header-clean';
   const norm = (s) => (s || '').replace(/\s+/g, '').trim();
 
-  function injectStyles() {
-    if (document.getElementById(STYLE_ID)) return;
-    const style = document.createElement('style');
-    style.id = STYLE_ID;
+  const setImp = (el, prop, value) => {
+    if (el) el.style.setProperty(prop, value, 'important');
+  };
+
+  function findContractRoute() {
+    const candidates = Array.from(document.querySelectorAll('a[href], aside, div'))
+      .filter((el) => {
+        const t = norm(el.textContent);
+        return t.includes('料金・担当体制を比較して選ぶ') ||
+          (t.includes('CONTRACTCOMPARISON') && t.includes('料金'));
+      })
+      .sort((a, b) => a.querySelectorAll('*').length - b.querySelectorAll('*').length);
+
+    if (!candidates.length) return null;
+    const hit = candidates[0];
+    return hit.tagName === 'A' ? hit : (hit.closest('a[href]') || hit.querySelector('a[href]') || hit);
+  }
+
+  function rebuildContractRoute() {
+    const route = findContractRoute();
+    if (!route) return;
+
+    if (!route.dataset.ksCleanContractRoute) {
+      route.dataset.ksCleanContractRoute = '1';
+      route.innerHTML = [
+        '<span class="ks-clean-contract-label">CONTRACT COMPARISON</span>',
+        '<span class="ks-clean-contract-title">料金・担当体制を比較して選ぶ</span>',
+        '<span class="ks-clean-contract-arrow" aria-hidden="true">→</span>'
+      ].join('');
+    }
+
+    setImp(route, 'position', 'relative');
+    setImp(route, 'box-sizing', 'border-box');
+    setImp(route, 'width', '100%');
+    setImp(route, 'max-width', '100%');
+    setImp(route, 'min-width', '0');
+    setImp(route, 'overflow', 'hidden');
+    setImp(route, 'text-decoration', 'none');
+    setImp(route, 'background', 'linear-gradient(90deg,#fffaf0 0%,#fff4d8 100%)');
+    setImp(route, 'border', '1px solid #e6b84b');
+    setImp(route, 'border-left', '6px solid #e2a91f');
+    setImp(route, 'border-radius', '16px');
+    setImp(route, 'box-shadow', 'none');
+
+    /* Kill every legacy decorative layer that caused the navy paint-over. */
+    route.classList.add('ks-contract-route-clean-v5');
+
+    const label = route.querySelector('.ks-clean-contract-label');
+    const title = route.querySelector('.ks-clean-contract-title');
+    const arrow = route.querySelector('.ks-clean-contract-arrow');
+    [label, title, arrow].forEach((el) => {
+      setImp(el, 'min-width', '0');
+      setImp(el, 'max-width', '100%');
+      setImp(el, 'background', 'transparent');
+      setImp(el, 'box-shadow', 'none');
+      setImp(el, 'transform', 'none');
+      setImp(el, 'position', 'static');
+    });
+
+    setImp(label, 'color', '#9b6500');
+    setImp(label, 'font-family', 'Noto Sans JP, sans-serif');
+    setImp(label, 'font-weight', '800');
+    setImp(label, 'letter-spacing', '.14em');
+    setImp(label, 'line-height', '1.4');
+    setImp(label, 'text-align', 'center');
+
+    setImp(title, 'color', '#0b3d78');
+    setImp(title, 'font-family', 'Noto Serif JP, serif');
+    setImp(title, 'font-weight', '900');
+    setImp(title, 'line-height', '1.35');
+    setImp(title, 'text-align', 'center');
+    setImp(title, 'white-space', 'normal');
+    setImp(title, 'word-break', 'normal');
+    setImp(title, 'overflow-wrap', 'normal');
+
+    setImp(arrow, 'color', '#0b3d78');
+    setImp(arrow, 'font-weight', '900');
+    setImp(arrow, 'line-height', '1');
+    setImp(arrow, 'text-align', 'center');
+
+    const w = window.innerWidth || document.documentElement.clientWidth;
+    if (w >= 601) {
+      setImp(route, 'display', 'grid');
+      setImp(route, 'grid-template-columns', 'minmax(190px,.34fr) minmax(0,1fr) 44px');
+      setImp(route, 'align-items', 'center');
+      setImp(route, 'gap', '14px');
+      setImp(route, 'padding', '18px 22px');
+      setImp(label, 'font-size', 'clamp(13px,1.55vw,17px)');
+      setImp(title, 'font-size', 'clamp(24px,3.5vw,36px)');
+      setImp(arrow, 'font-size', '24px');
+      setImp(label, 'white-space', 'nowrap');
+    } else {
+      setImp(route, 'display', 'grid');
+      setImp(route, 'grid-template-columns', 'minmax(0,1fr)');
+      setImp(route, 'gap', '7px');
+      setImp(route, 'padding', '14px 14px');
+      setImp(label, 'font-size', '12px');
+      setImp(title, 'font-size', 'clamp(20px,6vw,26px)');
+      setImp(arrow, 'font-size', '20px');
+      setImp(label, 'white-space', 'normal');
+    }
+  }
+
+  function fixDirectContractHeading() {
+    const section = document.getElementById('ks-direct-contract-proof-v7');
+    if (!section) return;
+    const heading = section.querySelector('h2');
+    if (!heading) return;
+
+    const original = norm(heading.textContent);
+    if (!original.includes('講師を紹介してもらうのではなく') || !original.includes('直接契約')) return;
+
+    const w = window.innerWidth || document.documentElement.clientWidth;
+    setImp(heading, 'width', '100%');
+    setImp(heading, 'margin-left', 'auto');
+    setImp(heading, 'margin-right', 'auto');
+    setImp(heading, 'text-align', 'center');
+    setImp(heading, 'letter-spacing', '0');
+    setImp(heading, 'word-break', 'normal');
+    setImp(heading, 'overflow-wrap', 'normal');
+    setImp(heading, 'line-break', 'strict');
+
+    if (w >= 601 && w <= 1100) {
+      heading.innerHTML = '<span class="ks-contract-head-line">講師を紹介してもらうのではなく、</span><span class="ks-contract-head-line">講師本人と<span class="ks-accent">直接契約</span>する家庭教師です。</span>';
+      setImp(heading, 'max-width', '980px');
+      setImp(heading, 'font-size', 'clamp(30px,3.7vw,40px)');
+      setImp(heading, 'line-height', '1.48');
+      heading.querySelectorAll('.ks-contract-head-line').forEach((line) => {
+        setImp(line, 'display', 'block');
+        setImp(line, 'width', '100%');
+        setImp(line, 'white-space', 'nowrap');
+      });
+    } else {
+      heading.innerHTML = '講師を紹介してもらうのではなく、<br>講師本人と<span class="ks-accent">直接契約</span>する家庭教師です。';
+      setImp(heading, 'max-width', '100%');
+      setImp(heading, 'white-space', 'normal');
+    }
+
+    const lead = section.querySelector('.ks-proof-lead');
+    if (lead) {
+      setImp(lead, 'width', '100%');
+      setImp(lead, 'max-width', w >= 601 ? '900px' : '100%');
+      setImp(lead, 'margin-left', 'auto');
+      setImp(lead, 'margin-right', 'auto');
+      setImp(lead, 'text-align', 'center');
+      setImp(lead, 'white-space', 'normal');
+    }
+  }
+
+  function cleanHeader() {
+    const nav = document.querySelector('nav.fixed.top-0, nav.fixed');
+    if (!nav) return;
+    nav.classList.add(HEADER_CLASS);
+  }
+
+  function injectPseudoKillStyle() {
+    let style = document.getElementById('ks-contract-route-pseudo-kill-v5');
+    if (style) return;
+    style = document.createElement('style');
+    style.id = 'ks-contract-route-pseudo-kill-v5';
     style.textContent = `
-      *,*::before,*::after{box-sizing:border-box}
-      html,body,#root,main{max-width:100%!important;min-width:0!important;overflow-x:hidden!important}
-
-      .${ROUTE_CLASS},.${ROUTE_CLASS} *{box-sizing:border-box!important;min-width:0!important;max-width:100%!important}
-      .${ROUTE_CLASS}{width:100%!important;max-width:100%!important;margin-inline:auto!important;overflow:hidden!important}
-      .${ROUTE_CLASS} h1,.${ROUTE_CLASS} h2,.${ROUTE_CLASS} h3,.${ROUTE_CLASS} p,.${ROUTE_CLASS} span,.${ROUTE_CLASS} strong,.${ROUTE_CLASS} b,.${ROUTE_CLASS} small{white-space:normal!important;word-break:normal!important;overflow-wrap:anywhere!important;line-break:strict!important;hyphens:none!important}
-
-      #ks-direct-contract-proof-v7,#ks-direct-contract-proof-v7 *{box-sizing:border-box!important;min-width:0!important;max-width:100%!important}
-      #ks-direct-contract-proof-v7{width:100%!important;overflow:hidden!important}
-      #ks-direct-contract-proof-v7 .ks-proof-inner{width:100%!important;max-width:1160px!important;margin-inline:auto!important}
-      #ks-direct-contract-proof-v7 .ks-proof-heading{width:100%!important;max-width:1000px!important;margin-left:auto!important;margin-right:auto!important;text-align:center!important}
-      #ks-direct-contract-proof-v7 h2{width:100%!important;max-width:940px!important;margin-left:auto!important;margin-right:auto!important;white-space:normal!important;word-break:normal!important;overflow-wrap:normal!important;line-break:strict!important;text-wrap:balance!important}
-      #ks-direct-contract-proof-v7 .ks-proof-lead{width:100%!important;max-width:900px!important;margin-left:auto!important;margin-right:auto!important;white-space:normal!important;word-break:normal!important;overflow-wrap:normal!important;line-break:strict!important}
-
-      @media(min-width:601px) and (max-width:1100px){
-        .${ROUTE_CLASS}{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:.7rem!important;padding:1rem 1.15rem!important;text-align:center!important}
-        .${ROUTE_CLASS}>*{width:100%!important;max-width:100%!important;margin-inline:auto!important}
-        .${ROUTE_CLASS} h1,.${ROUTE_CLASS} h2,.${ROUTE_CLASS} h3{font-size:clamp(1.5rem,3.5vw,2.15rem)!important;line-height:1.42!important;text-align:center!important;text-wrap:balance!important}
-        .${ROUTE_CLASS} p,.${ROUTE_CLASS} span,.${ROUTE_CLASS} strong{font-size:clamp(.88rem,1.7vw,1rem)!important;line-height:1.65!important}
-        .${ROUTE_CLASS}::before,.${ROUTE_CLASS}::after{max-width:100%!important}
-
-        #ks-direct-contract-proof-v7{padding-left:22px!important;padding-right:22px!important}
-        #ks-direct-contract-proof-v7 .ks-proof-inner{padding-left:10px!important;padding-right:10px!important}
-        #ks-direct-contract-proof-v7 h2{max-width:940px!important;font-size:clamp(2rem,4.1vw,2.75rem)!important;line-height:1.42!important;letter-spacing:0!important}
-        #ks-direct-contract-proof-v7 .ks-proof-lead{font-size:clamp(.95rem,1.75vw,1.08rem)!important;line-height:1.85!important}
-        #ks-direct-contract-proof-v7 .ks-proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important}
+      .ks-contract-route-clean-v5::before,
+      .ks-contract-route-clean-v5::after,
+      .ks-contract-route-clean-v5 > *::before,
+      .ks-contract-route-clean-v5 > *::after {
+        content:none !important;
+        display:none !important;
+        background:none !important;
+        box-shadow:none !important;
       }
-
-      @media(max-width:600px){
-        .${ROUTE_CLASS}{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:.6rem!important;padding:.9rem .85rem!important;text-align:center!important}
-        .${ROUTE_CLASS} h1,.${ROUTE_CLASS} h2,.${ROUTE_CLASS} h3{font-size:clamp(1.18rem,5.7vw,1.55rem)!important;line-height:1.48!important;text-align:center!important}
-
-        #ks-direct-contract-proof-v7{padding-left:14px!important;padding-right:14px!important}
-        #ks-direct-contract-proof-v7 .ks-proof-inner{padding-left:0!important;padding-right:0!important}
-        #ks-direct-contract-proof-v7 h2{max-width:100%!important;font-size:clamp(1.62rem,7vw,2.02rem)!important;line-height:1.5!important}
-        #ks-direct-contract-proof-v7 .ks-proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
-
-        nav.${HEADER_CLASS}{width:100%!important;max-width:100vw!important;overflow:hidden!important}
-        nav.${HEADER_CLASS}>.container{width:100%!important;max-width:100%!important;padding:0 12px!important}
-        nav.${HEADER_CLASS}>.container>div{min-height:60px!important;display:flex!important;align-items:center!important;gap:7px!important}
-        nav.${HEADER_CLASS} .ks-mobile-brand{flex:1 1 auto!important;min-width:0!important;display:flex!important;flex-direction:column!important;color:#fff!important;text-decoration:none!important}
-        nav.${HEADER_CLASS} .ks-mobile-brand-main{display:block!important;font-family:'Noto Serif JP',serif!important;font-size:14px!important;font-weight:900!important;line-height:1.2!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
-        nav.${HEADER_CLASS} .ks-mobile-brand-sub{display:block!important;margin-top:2px!important;font-size:8px!important;line-height:1.2!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
-        nav.${HEADER_CLASS} .ks-mobile-cta{flex:0 0 auto!important;min-height:40px!important;padding:7px 10px!important;border-radius:999px!important;white-space:nowrap!important}
-        nav.${HEADER_CLASS} .ks-mobile-menu{flex:0 0 40px!important;width:40px!important;height:40px!important}
-        nav.${HEADER_CLASS}>div:nth-child(2){display:none!important}
-      }
-
-      @media(max-width:359px){
-        #ks-direct-contract-proof-v7 .ks-proof-grid{grid-template-columns:minmax(0,1fr)!important}
+      @media (min-width:601px) and (max-width:1100px) {
+        #ks-direct-contract-proof-v7 .ks-proof-heading { max-width:1000px !important; }
       }
     `;
     document.head.appendChild(style);
   }
 
-  function markContractRoute(){
-    const links=Array.from(document.querySelectorAll('a[href]'));
-    let route=links.find((el)=>{
-      const t=norm(el.textContent);
-      return t.includes('料金・担当体制を比較して選ぶ')||(t.includes('CONTRACTCOMPARISON')&&t.includes('料金'));
-    });
-    if(!route){
-      const candidates=Array.from(document.querySelectorAll('aside,div'));
-      route=candidates.filter((el)=>{
-        const t=norm(el.textContent);
-        return t.includes('料金・担当体制を比較して選ぶ')||(t.includes('CONTRACTCOMPARISON')&&t.includes('料金'));
-      }).sort((a,b)=>a.querySelectorAll('*').length-b.querySelectorAll('*').length)[0];
-    }
-    if(route) route.classList.add(ROUTE_CLASS);
+  function run() {
+    injectPseudoKillStyle();
+    rebuildContractRoute();
+    fixDirectContractHeading();
+    cleanHeader();
   }
 
-  function cleanHeader(){
-    const nav=document.querySelector('nav.fixed.top-0,nav.fixed');
-    if(!nav)return;
-    nav.classList.add(HEADER_CLASS);
-    const anchors=Array.from(nav.querySelectorAll('a'));
-    const brand=anchors.find(a=>{const t=norm(a.textContent);return t.includes('プロ家庭教師')&&t.includes('鈴木雄太');});
-    if(brand){
-      brand.classList.add('ks-mobile-brand');
-      if(!brand.dataset.mobileBrandCurrent){
-        brand.dataset.mobileBrandCurrent='1';
-        brand.innerHTML='<span class="ks-mobile-brand-main">プロ家庭教師　鈴木雄太</span><span class="ks-mobile-brand-sub">英検・受験・不登校・通信制を一人で担当</span>';
-      }
-    }
-    const cta=anchors.find(a=>{const t=norm(a.textContent);return /無料相談|お問い合わせ/.test(t)&&t.length<40;});
-    if(cta)cta.classList.add('ks-mobile-cta');
-    const buttons=Array.from(nav.querySelectorAll('button'));
-    const menu=buttons.find(b=>/メニュー|menu/i.test(`${b.getAttribute('aria-label')||''}${b.textContent||''}`))||buttons.find(b=>b.querySelector('svg'));
-    if(menu)menu.classList.add('ks-mobile-menu');
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run, { once: true });
+  } else {
+    run();
   }
 
-  function run(){injectStyles();markContractRoute();cleanHeader();}
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
-  [400,1200,2600,3300].forEach((delay)=>setTimeout(run,delay));
+  /* Run after all known legacy mutations. */
+  [250, 700, 1400, 2800, 3600, 4500].forEach((delay) => setTimeout(run, delay));
+  window.addEventListener('resize', () => setTimeout(run, 80), { passive: true });
 })();
