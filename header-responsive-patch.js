@@ -3,16 +3,40 @@ const HOST='ks-ideal-header-host';
 function apply(){
   const host=document.getElementById(HOST),root=host?.shadowRoot;if(!root)return false;
   root.querySelectorAll('style[id^="ks-responsive-patch"]').forEach(x=>x.remove());
-  const style=document.createElement('style');style.id='ks-responsive-patch-v5';style.textContent=`
-    .shell{padding-left:max(clamp(10px,2vw,24px),env(safe-area-inset-left))!important;padding-right:max(clamp(10px,2vw,24px),env(safe-area-inset-right))!important}
-    .row{gap:clamp(8px,1.1vw,16px)!important}.brand{flex:1 1 auto!important;min-width:0!important;gap:clamp(8px,1vw,14px)!important}.brand>span:last-child{display:block!important;flex:1 1 auto!important;min-width:0!important}.actions{flex:0 0 auto!important;gap:clamp(6px,.8vw,10px)!important}.title,.sub{display:block!important}.title{font-size:clamp(22px,2.25vw,31px)!important;line-height:1.18!important;white-space:nowrap!important}.sub{margin-top:4px!important;font-size:clamp(10px,.95vw,12px)!important;line-height:1.25!important;white-space:nowrap!important;color:#deb64c!important;font-weight:700!important}.badge{font-size:clamp(11px,1.05vw,14px)!important;padding-inline:clamp(9px,1.2vw,15px)!important}.cta{min-height:clamp(46px,4.6vw,54px)!important;padding-inline:clamp(14px,1.7vw,24px)!important;font-size:clamp(12px,1.1vw,15px)!important}.menu{width:clamp(46px,4.6vw,54px)!important;height:clamp(46px,4.6vw,54px)!important;font-size:clamp(24px,2.4vw,28px)!important}
-    @media(max-width:1100px){.em{display:none!important}.brand{gap:10px!important}.title{font-size:clamp(20px,2.6vw,28px)!important}.sub{font-size:clamp(10px,1.2vw,12px)!important}.badge{font-size:clamp(10px,1.2vw,13px)!important}.cta{font-size:clamp(11px,1.3vw,14px)!important;padding-inline:clamp(12px,1.5vw,18px)!important}}
-    @media(max-width:850px){.shell{padding-left:max(10px,env(safe-area-inset-left))!important;padding-right:max(10px,env(safe-area-inset-right))!important}.row{min-height:76px!important;gap:8px!important}.brand{gap:8px!important}.badge{font-size:10px!important;padding-inline:8px!important}.title{font-size:clamp(17px,2.8vw,21px)!important}.sub{font-size:clamp(9px,1.35vw,10.5px)!important}.cta{min-height:44px!important;font-size:11px!important;padding-inline:12px!important}.menu{width:44px!important;height:44px!important;flex-basis:44px!important}}
-    @media(max-width:600px){.shell{padding-left:max(7px,env(safe-area-inset-left))!important;padding-right:max(7px,env(safe-area-inset-right))!important}.row{min-height:72px!important;padding:6px 0!important;gap:5px!important}.brand{gap:5px!important;overflow:hidden!important}.badge{min-height:34px!important;padding-inline:5px!important;font-size:8px!important;border-radius:6px!important}.title{font-size:clamp(13px,3.7vw,16px)!important;line-height:1.12!important;white-space:normal!important}.title .ks-line{display:block!important;white-space:nowrap!important}.sub{margin-top:2px!important;font-size:clamp(7.5px,2.1vw,9px)!important;line-height:1.1!important;white-space:nowrap!important}.actions{gap:4px!important}.cta{min-height:40px!important;padding-inline:8px!important;font-size:0!important;white-space:nowrap!important}.cta::after{content:'無料相談';font-size:11px!important;font-weight:800!important}.menu{width:40px!important;height:40px!important;flex:0 0 40px!important;font-size:22px!important}}
-    @media(max-width:380px){.shell{padding-left:max(5px,env(safe-area-inset-left))!important;padding-right:max(5px,env(safe-area-inset-right))!important}.row{gap:4px!important}.brand{gap:4px!important}.badge{font-size:7.4px!important;padding-inline:4px!important}.title{font-size:12.5px!important}.sub{font-size:7px!important}.cta{padding-inline:6px!important}.cta::after{font-size:10px!important}.menu{width:38px!important;height:38px!important;flex-basis:38px!important;font-size:20px!important}}
-    @media(max-width:340px){.badge{font-size:7px!important}.title{font-size:11.5px!important}.sub{font-size:6.5px!important}.cta::after{font-size:9.5px!important}.menu{width:36px!important;height:36px!important;flex-basis:36px!important}}
+  const style=document.createElement('style');style.id='ks-responsive-patch-v6';style.textContent=`
+    .shell{padding-left:max(clamp(6px,1.8vw,22px),env(safe-area-inset-left))!important;padding-right:max(clamp(6px,1.8vw,22px),env(safe-area-inset-right))!important}
+    .row{min-height:clamp(64px,7vw,82px)!important;padding:clamp(5px,.8vw,9px) 0!important;gap:clamp(4px,.8vw,12px)!important}
+    .brand{display:flex!important;align-items:center!important;flex:1 1 auto!important;min-width:0!important;gap:clamp(5px,.8vw,12px)!important;overflow:hidden!important}
+    .em{display:none!important}
+    .badge{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;min-height:clamp(32px,3.8vw,46px)!important;padding:0 clamp(5px,1vw,12px)!important;border-radius:7px!important;font-size:clamp(8px,1vw,13px)!important;line-height:1!important;white-space:nowrap!important}
+    .brand>span:last-child{display:block!important;flex:1 1 auto!important;min-width:0!important;text-align:center!important;overflow:hidden!important}
+    .title{display:block!important;margin:0!important;color:#fff!important;font-family:'Noto Serif JP',serif!important;font-size:clamp(13px,2vw,27px)!important;font-weight:700!important;line-height:1.12!important;letter-spacing:0!important;white-space:nowrap!important;text-align:center!important;overflow:visible!important;text-overflow:clip!important}
+    .sub{display:block!important;margin:clamp(2px,.35vw,4px) 0 0!important;color:#deb64c!important;font-size:clamp(7px,.85vw,11px)!important;font-weight:700!important;line-height:1.1!important;letter-spacing:0!important;white-space:nowrap!important;text-align:center!important;overflow:hidden!important;text-overflow:clip!important}
+    .actions{display:flex!important;align-items:center!important;flex:0 0 auto!important;gap:clamp(4px,.65vw,9px)!important}
+    .cta{display:flex!important;align-items:center!important;justify-content:center!important;min-height:clamp(40px,4.5vw,52px)!important;padding:0 clamp(8px,1.5vw,20px)!important;font-size:clamp(10px,1vw,14px)!important;font-weight:800!important;line-height:1!important;white-space:nowrap!important}
+    .menu{width:clamp(40px,4.5vw,52px)!important;height:clamp(40px,4.5vw,52px)!important;flex:0 0 clamp(40px,4.5vw,52px)!important;font-size:clamp(21px,2.3vw,27px)!important}
+    @media(max-width:600px){
+      .shell{padding-left:max(5px,env(safe-area-inset-left))!important;padding-right:max(5px,env(safe-area-inset-right))!important}
+      .row{min-height:66px!important;padding:5px 0!important;gap:3px!important}
+      .brand{gap:3px!important}
+      .badge{min-height:32px!important;padding:0 4px!important;font-size:clamp(7px,2.05vw,8.5px)!important;border-radius:5px!important}
+      .title{font-size:clamp(11px,3.15vw,13.5px)!important;line-height:1.05!important}
+      .sub{margin-top:2px!important;font-size:clamp(6px,1.7vw,7.5px)!important;line-height:1.05!important}
+      .actions{gap:3px!important}
+      .cta{min-height:38px!important;padding:0 clamp(5px,1.5vw,7px)!important;font-size:clamp(9px,2.35vw,10.5px)!important}
+      .menu{width:38px!important;height:38px!important;flex-basis:38px!important;font-size:20px!important}
+    }
+    @media(max-width:360px){
+      .shell{padding-left:max(4px,env(safe-area-inset-left))!important;padding-right:max(4px,env(safe-area-inset-right))!important}
+      .row{gap:2px!important}.brand{gap:2px!important}.actions{gap:2px!important}
+      .badge{padding:0 3px!important;font-size:6.8px!important}
+      .title{font-size:10.6px!important}.sub{font-size:5.8px!important}
+      .cta{padding:0 4px!important;font-size:8.7px!important}
+      .menu{width:36px!important;height:36px!important;flex-basis:36px!important;font-size:19px!important}
+    }
   `;root.appendChild(style);
-  const title=root.querySelector('.title');if(title){title.innerHTML=innerWidth<=600?'<span class="ks-line">鈴木雄太のオンライン</span><span class="ks-line">指導</span>':'鈴木雄太のオンライン指導'}
+  const title=root.querySelector('.title');if(title)title.textContent='鈴木雄太のオンライン指導';
+  const sub=root.querySelector('.sub');if(sub)sub.textContent='一人ひとりに最適な指導で、未来を創る';
   const cta=root.querySelector('.cta');if(cta)cta.textContent=innerWidth<=600?'無料相談':'無料相談・お問い合わせ';
   return true;
 }
