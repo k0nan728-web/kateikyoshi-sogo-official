@@ -1,1 +1,1 @@
-(()=>{'use strict';const load=(src)=>new Promise((ok,ng)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=ng;document.head.appendChild(s)});load('/header-core-v1.js?v=20260830-1705').then(()=>load('/header-responsive-patch.js?v=20260830-1731')).catch(()=>{});})();
+(()=>{'use strict';const load=(src)=>new Promise((ok,ng)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=ng;document.head.appendChild(s)});load('/header-core-v1.js?v=20260830-1705').then(()=>load('/header-responsive-patch.js?v=20260830-1744')).catch(()=>{});})();
