@@ -1,0 +1,344 @@
+/* /test — clean responsive design layer
+   Goals: preserve all existing content/images, improve readability, spacing,
+   semantic Japanese line wrapping, and tablet/mobile behavior without piling
+   device-specific JS hotfixes onto the production homepage. */
+
+body.ks-test-redesign {
+  --ks-navy: #17324d;
+  --ks-blue: #2f6f9f;
+  --ks-ink: #22313f;
+  --ks-muted: #61707d;
+  --ks-paper: #ffffff;
+  --ks-soft: #f6f8fb;
+  --ks-line: #dce4eb;
+  --ks-gold: #b9984c;
+  --ks-radius: 22px;
+  color: var(--ks-ink);
+  background: var(--ks-paper);
+  font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 17px;
+  line-height: 1.9;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+body.ks-test-redesign *,
+body.ks-test-redesign *::before,
+body.ks-test-redesign *::after {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+body.ks-test-redesign img,
+body.ks-test-redesign video,
+body.ks-test-redesign iframe,
+body.ks-test-redesign svg {
+  max-width: 100%;
+}
+
+body.ks-test-redesign img {
+  height: auto;
+}
+
+body.ks-test-redesign main,
+body.ks-test-redesign #root {
+  width: 100%;
+  overflow: visible;
+}
+
+body.ks-test-redesign section {
+  scroll-margin-top: 88px;
+}
+
+body.ks-test-redesign h1,
+body.ks-test-redesign h2,
+body.ks-test-redesign h3,
+body.ks-test-redesign h4 {
+  color: var(--ks-navy);
+  font-family: "Noto Serif JP", serif;
+  font-weight: 700;
+  letter-spacing: .015em;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  line-break: strict;
+  text-wrap: balance;
+}
+
+body.ks-test-redesign h1 {
+  font-size: clamp(2.35rem, 5.6vw, 4.9rem);
+  line-height: 1.26;
+}
+
+body.ks-test-redesign h2 {
+  font-size: clamp(2rem, 4.4vw, 3.5rem);
+  line-height: 1.34;
+}
+
+body.ks-test-redesign h3 {
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.52;
+}
+
+body.ks-test-redesign h4 {
+  font-size: clamp(1.12rem, 1.7vw, 1.4rem);
+  line-height: 1.58;
+}
+
+body.ks-test-redesign p,
+body.ks-test-redesign li,
+body.ks-test-redesign dd,
+body.ks-test-redesign dt,
+body.ks-test-redesign blockquote {
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-break: strict;
+}
+
+body.ks-test-redesign p {
+  max-width: 46rem;
+}
+
+body.ks-test-redesign a,
+body.ks-test-redesign button,
+body.ks-test-redesign input,
+body.ks-test-redesign select,
+body.ks-test-redesign textarea {
+  font: inherit;
+}
+
+body.ks-test-redesign a,
+body.ks-test-redesign button {
+  touch-action: manipulation;
+}
+
+body.ks-test-redesign button,
+body.ks-test-redesign a[class*="btn"],
+body.ks-test-redesign a[class*="button"],
+body.ks-test-redesign [class*="cta"] a {
+  min-height: 48px;
+}
+
+/* Keep long sections breathable instead of compressing everything above the fold. */
+body.ks-test-redesign main > section,
+body.ks-test-redesign main > div > section {
+  padding-top: clamp(64px, 8vw, 112px);
+  padding-bottom: clamp(64px, 8vw, 112px);
+}
+
+body.ks-test-redesign main > section > div,
+body.ks-test-redesign main > div > section > div {
+  width: min(100% - 40px, 1180px);
+  margin-inline: auto;
+}
+
+/* Cards: consistent rhythm and enough inner space for Japanese text. */
+body.ks-test-redesign [class*="card"],
+body.ks-test-redesign [class*="Card"] {
+  border-radius: var(--ks-radius);
+}
+
+body.ks-test-redesign [class*="grid"],
+body.ks-test-redesign [class*="Grid"] {
+  min-width: 0;
+}
+
+/* Direct-contract block retained from production content, but rebuilt responsively. */
+body.ks-test-redesign #ks-direct-contract-proof-v7 {
+  width: 100% !important;
+  padding: clamp(64px, 8vw, 104px) 20px !important;
+  overflow: visible !important;
+}
+
+body.ks-test-redesign #ks-direct-contract-proof-v7 .ks-proof-inner {
+  width: min(100%, 1120px) !important;
+  margin-inline: auto !important;
+}
+
+body.ks-test-redesign #ks-direct-contract-proof-v7 h2 {
+  max-width: 18ch !important;
+  margin-inline: auto !important;
+  font-size: clamp(2rem, 4.4vw, 3.55rem) !important;
+  line-height: 1.38 !important;
+  text-align: center !important;
+  white-space: normal !important;
+}
+
+body.ks-test-redesign #ks-direct-contract-proof-v7 .ks-proof-lead {
+  width: min(100%, 760px) !important;
+  margin: 20px auto 0 !important;
+  font-size: clamp(1rem, 1.4vw, 1.16rem) !important;
+  line-height: 2 !important;
+  text-align: center !important;
+}
+
+body.ks-test-redesign #ks-direct-contract-proof-v7 .ks-proof-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  margin-top: 38px !important;
+}
+
+body.ks-test-redesign #ks-direct-contract-proof-v7 .ks-route-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+
+body.ks-test-redesign #ks-direct-contract-proof-v7 .ks-proof-item,
+body.ks-test-redesign #ks-direct-contract-proof-v7 .ks-route-card {
+  padding: 24px 20px !important;
+}
+
+/* First-section route: never squeeze text to preserve columns. */
+body.ks-test-redesign .ks-mobile-section1-final .ks-section1-route {
+  width: min(100%, 1120px) !important;
+  margin-inline: auto !important;
+  padding: clamp(22px, 3vw, 34px) !important;
+  overflow: visible !important;
+}
+
+body.ks-test-redesign .ks-mobile-section1-final .ks-section1-route h2,
+body.ks-test-redesign .ks-mobile-section1-final .ks-section1-route h3 {
+  font-size: clamp(1.5rem, 3vw, 2.4rem) !important;
+  line-height: 1.55 !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+}
+
+body.ks-test-redesign .ks-mobile-section1-final .ks-section1-route p,
+body.ks-test-redesign .ks-mobile-section1-final .ks-section1-route a,
+body.ks-test-redesign .ks-mobile-section1-final .ks-section1-route span,
+body.ks-test-redesign .ks-mobile-section1-final .ks-section1-route strong {
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  line-break: strict !important;
+}
+
+/* Tables remain usable on narrow screens without shrinking text to illegibility. */
+body.ks-test-redesign table {
+  font-size: clamp(.92rem, 1.6vw, 1rem);
+}
+
+body.ks-test-redesign table,
+body.ks-test-redesign pre {
+  max-width: 100%;
+}
+
+body.ks-test-redesign .ks-test-footer {
+  margin-top: 0;
+  padding: 32px 20px;
+  text-align: center;
+  background: var(--ks-soft);
+  border-top: 1px solid var(--ks-line);
+}
+
+body.ks-test-redesign .ks-test-footer p {
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  body.ks-test-redesign {
+    font-size: 16.5px;
+  }
+
+  body.ks-test-redesign main > section > div,
+  body.ks-test-redesign main > div > section > div {
+    width: min(100% - 36px, 960px);
+  }
+
+  body.ks-test-redesign #ks-direct-contract-proof-v7 .ks-proof-grid,
+  body.ks-test-redesign #ks-direct-contract-proof-v7 .ks-route-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body.ks-test-redesign .ks-mobile-section1-final .ks-section1-route {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 680px) {
+  body.ks-test-redesign {
+    font-size: 16px;
+    line-height: 1.86;
+  }
+
+  body.ks-test-redesign h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.34;
+  }
+
+  body.ks-test-redesign h2 {
+    font-size: clamp(1.72rem, 8vw, 2.45rem);
+    line-height: 1.42;
+  }
+
+  body.ks-test-redesign h3 {
+    font-size: clamp(1.25rem, 5.8vw, 1.7rem);
+  }
+
+  body.ks-test-redesign main > section,
+  body.ks-test-redesign main > div > section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  body.ks-test-redesign main > section > div,
+  body.ks-test-redesign main > div > section > div {
+    width: min(100% - 28px, 640px);
+  }
+
+  body.ks-test-redesign #ks-direct-contract-proof-v7 {
+    padding-inline: 14px !important;
+  }
+
+  body.ks-test-redesign #ks-direct-contract-proof-v7 h2 {
+    max-width: 100% !important;
+    font-size: clamp(1.8rem, 8vw, 2.55rem) !important;
+  }
+
+  body.ks-test-redesign #ks-direct-contract-proof-v7 .ks-proof-grid,
+  body.ks-test-redesign #ks-direct-contract-proof-v7 .ks-route-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  body.ks-test-redesign #ks-direct-contract-proof-v7 .ks-proof-item,
+  body.ks-test-redesign #ks-direct-contract-proof-v7 .ks-route-card {
+    padding: 22px 18px !important;
+  }
+
+  body.ks-test-redesign .ks-mobile-section1-final {
+    padding-inline: 14px !important;
+  }
+
+  body.ks-test-redesign .ks-mobile-section1-final .ks-section1-route {
+    padding: 20px 16px !important;
+  }
+
+  body.ks-test-redesign .ks-mobile-section1-final .ks-section1-route h2,
+  body.ks-test-redesign .ks-mobile-section1-final .ks-section1-route h3 {
+    font-size: clamp(1.28rem, 6.5vw, 1.78rem) !important;
+    line-height: 1.58 !important;
+  }
+}
+
+@media (max-width: 359px) {
+  body.ks-test-redesign main > section > div,
+  body.ks-test-redesign main > div > section > div {
+    width: min(100% - 22px, 340px);
+  }
+
+  body.ks-test-redesign h1 {
+    font-size: 1.9rem;
+  }
+
+  body.ks-test-redesign h2 {
+    font-size: 1.65rem;
+  }
+}
