@@ -3,9 +3,6 @@
     if (document.body.dataset.p100 === '1') return;
     document.body.dataset.p100 = '1';
 
-    // The legacy mobile navigation is now obsolete. The 100-point header is the single
-    // canonical header; keeping the legacy nav visible creates the duplicate navy/pink
-    // banner shown above the hero on small screens.
     const legacyHeaderStyle = document.createElement('style');
     legacyHeaderStyle.id = 'p100-remove-legacy-mobile-header';
     legacyHeaderStyle.textContent = 'nav.ks-mobile-header-clean{display:none!important;}';
@@ -36,12 +33,12 @@
     if (target.length >= 2) {
       const box = document.createElement('div'); box.className = 'p100-choice-grid';
       const data = [
-        ['英検を取りたい','級・弱点・4技能を整理して、合格までの学習計画を一緒に作ります。','英検合格ゼミナール','/eiken/'],
-        ['大学受験で伸ばしたい','現在地から志望校まで逆算し、英語・国語・社会の優先順位を整えます。','逆転合格ゼミナール','/gyakuten/'],
-        ['不登校・通信制で学びたい','学習だけでなく生活リズムや進路まで、無理のないペースで伴走します。','進路伴走ゼミナール','/shinro/'],
-        ['まず相談して整理したい','今の状況を一緒に整理し、必要な支援だけをご提案します。','無料相談へ','mailto:info@kateikyoshi-sogo.com']
+        ['英検を取りたい','級・弱点・4技能を整理して、合格までの学習計画を一緒に作ります。','英検合格ゼミナール','/eiken/','英検'],
+        ['大学受験で伸ばしたい','現在地から志望校まで逆算し、英語・国語・社会の優先順位を整えます。','逆転合格ゼミナール','/gyakuten/','大学受験'],
+        ['不登校・通信制で学びたい','学習だけでなく生活リズムや進路まで、無理のないペースで伴走します。','進路伴走ゼミナール','/bansou/','不登校・通信制'],
+        ['大学受験にもう一度挑戦したい','浪人・再受験・社会人・仮面浪人・高卒認定からの大学受験を、現在地から一緒に組み立てます。','Re:大学受験ゼミナール','/retry/','再受験・浪人']
       ];
-      data.forEach((d,i)=>{ const c=document.createElement('div'); c.className='p100-choice p100-card'; c.innerHTML='<span class="p100-badge">'+(['英検','大学受験','不登校・通信制','個別相談'][i])+'</span><h3>'+d[0]+'</h3><p>'+d[1]+'</p><a href="'+d[3]+'">'+d[2]+' →</a>'; box.appendChild(c); });
+      data.forEach((d)=>{ const c=document.createElement('div'); c.className='p100-choice p100-card'; c.innerHTML='<span class="p100-badge">'+d[4]+'</span><h3>'+d[0]+'</h3><p>'+d[1]+'</p><a href="'+d[3]+'">'+d[2]+' →</a>'; box.appendChild(c); });
       const anchor = target[0].closest('section,article,div');
       if (anchor && !document.querySelector('.p100-choice-grid')) anchor.parentNode.insertBefore(box, anchor);
     }
@@ -70,32 +67,6 @@
 
     q('details').forEach(d => d.classList.add('p100-faq'));
     q('article, [class*="card"], [class*="Card"]').forEach(el => { if (el.offsetWidth > 220 && el.offsetWidth < 900) el.classList.add('p100-card'); });
-
-    // First section: make the hero's contract conditions immediately understandable.
-    const hero = document.querySelector('.ks-photo-hero');
-    const heroCopy = hero?.querySelector('.ks-hero-copy');
-    const heroSecondary = heroCopy?.querySelector('.ks-hero-secondary');
-    if (hero && heroCopy && heroSecondary && !hero.querySelector('.p100-hero-assurance')) {
-      const styleId = 'p100-hero-assurance-style';
-      if (!document.getElementById(styleId)) {
-        const style = document.createElement('style'); style.id = styleId;
-        style.textContent = `
-          .p100-hero-assurance{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:1rem 0 0}
-          .p100-hero-assurance__item{min-width:0;padding:.62rem .45rem;border:1px solid #e8d5df;border-radius:10px;background:linear-gradient(180deg,#fff 0%,#fff8fb 100%);text-align:center}
-          .p100-hero-assurance__item strong{display:block;color:#d92f67;font-size:1.02rem;line-height:1.25;font-weight:900}
-          .p100-hero-assurance__item span{display:block;margin-top:.18rem;color:#536276;font-size:.66rem;line-height:1.45}
-          .p100-hero-assurance-note{margin:.62rem 0 0;color:#52647a;font-size:.73rem;line-height:1.65}
-          .p100-hero-assurance-note b{color:#173f73}
-          @media(max-width:900px){.p100-hero-assurance{gap:6px}.p100-hero-assurance__item{padding:.58rem .28rem}.p100-hero-assurance__item strong{font-size:.9rem}.p100-hero-assurance__item span{font-size:.6rem}.p100-hero-assurance-note{font-size:.68rem}}
-          @media(max-width:380px){.p100-hero-assurance__item strong{font-size:.8rem}.p100-hero-assurance__item span{font-size:.56rem}}
-        `;
-        document.head.appendChild(style);
-      }
-      const assurance = document.createElement('div'); assurance.className = 'p100-hero-assurance'; assurance.setAttribute('aria-label','契約と料金の安心ポイント');
-      assurance.innerHTML = '<div class="p100-hero-assurance__item"><strong>0円</strong><span>入会金</span></div><div class="p100-hero-assurance__item"><strong>0円</strong><span>管理費</span></div><div class="p100-hero-assurance__item"><strong>0円</strong><span>仲介手数料</span></div>';
-      const note = document.createElement('p'); note.className = 'p100-hero-assurance-note'; note.innerHTML = '<b>講師本人が直接担当</b>。ご相談から指導まで、一貫して対応します。';
-      heroSecondary.insertAdjacentElement('afterend', assurance); assurance.insertAdjacentElement('afterend', note);
-    }
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready); else ready();
   setTimeout(ready, 1200); setTimeout(ready, 3000);
