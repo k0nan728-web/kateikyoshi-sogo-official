@@ -1,0 +1,36 @@
+/* Critical responsive/readability fix — 2026-09-04. Loaded after test-positioning.css. */
+html,body{width:100%;max-width:100%;overflow-x:clip}
+.ks-new-main,.ks-new-main section,.ks-heading,.ks-brand-grid,.ks-brand-grid a{min-width:0;max-width:100%}
+
+/* Never let balanced Japanese headings become wider than their container. */
+.ks-heading{width:100%;padding-inline:clamp(4px,1vw,12px)}
+.ks-heading h2,.ks-teacher-copy h2,.ks-comparison-cta h2,.ks-new-hero h1{width:100%;max-width:100%!important;padding-inline:0;overflow-wrap:anywhere!important;word-break:auto!important;line-break:strict;text-wrap:pretty}
+
+/* Specialist brands: dark cards always use light text, including labels and links. */
+.ks-brand-grid a,.ks-brand-grid a:link,.ks-brand-grid a:visited,.ks-brand-grid a:hover,.ks-brand-grid a:active{color:#fff!important}
+.ks-brand-grid a b,.ks-brand-grid a h3,.ks-brand-grid a p,.ks-brand-grid a span{position:relative;z-index:1;color:#fff!important;text-shadow:0 1px 1px rgba(0,0,0,.12)}
+.ks-brand-grid a p{color:#f4f7fb!important}
+.ks-brand-grid a span{font-weight:900;text-decoration:underline;text-underline-offset:4px}
+
+/* At tablet widths, preserve readable two-column cards but prevent the section title from clipping. */
+@media (min-width:701px) and (max-width:1100px){
+  .ks-heading h2,.ks-teacher-copy h2,.ks-comparison-cta h2{font-size:clamp(2rem,4.5vw,2.85rem);line-height:1.45;max-width:22ch!important}
+  .ks-brands-section .ks-heading h2{max-width:18ch!important}
+  .ks-brand-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .ks-brand-grid a{padding:28px 24px;min-height:250px}
+  .ks-brand-grid h3{font-size:clamp(1.45rem,2.7vw,1.9rem);max-width:100%!important}
+  .ks-brand-grid b,.ks-brand-grid p,.ks-brand-grid span{max-width:100%;overflow-wrap:anywhere;line-break:strict}
+}
+
+/* Phones: one generous column; typography is never shrunk merely to preserve columns. */
+@media (max-width:700px){
+  .ks-heading h2,.ks-teacher-copy h2,.ks-comparison-cta h2{max-width:18ch!important;font-size:clamp(1.8rem,8vw,2.3rem)}
+  .ks-brand-grid{grid-template-columns:1fr!important}
+  .ks-brand-grid a{min-height:0;padding:30px 22px}
+}
+
+/* Narrow landscape phones / unusual intermediate widths. */
+@media (max-width:560px){
+  .ks-new-main section{width:calc(100% - 24px)!important}
+  .ks-heading{padding-inline:2px}
+}
