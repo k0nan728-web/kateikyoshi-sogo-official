@@ -15,13 +15,19 @@
 .hero-copy .hero-eyebrow{position:absolute;top:clamp(34px,4vw,54px);left:0;right:0;display:block;width:100%;max-width:100%;margin:0;color:#8b6514;font-weight:900;letter-spacing:0;line-height:1.15;text-align:center;white-space:nowrap;font-size:clamp(.86rem,4.8vw,3.55rem)}
 .hero-copy .hero-title{width:100%;max-width:100%;margin:0 auto;font-family:"Noto Serif JP",serif;color:#102d4c;text-align:center;line-height:1.28;letter-spacing:0;font-size:clamp(1.8rem,3.6vw,2.85rem)}
 .hero-copy .hero-title-line{display:block;max-width:100%;white-space:nowrap}
-.hero-copy .hero-sub{margin-top:clamp(1.35rem,2.5vw,2rem);text-align:center;font-size:clamp(1rem,1.55vw,1.22rem);line-height:1.8;color:#243b53}
-.hero-copy .hero-sub .hero-audience{display:block;font-family:"Noto Serif JP",serif;font-size:clamp(1.22rem,2.1vw,1.65rem);font-weight:900;line-height:1.45;color:#a92350;margin-bottom:.7rem}
-.hero-copy .hero-sub .subject-line{display:block;font-weight:700}
+.subject-panel{max-width:48rem;margin:clamp(1.35rem,2.5vw,2rem) auto 0;text-align:center}
+.subject-panel .hero-audience{display:block;font-family:"Noto Serif JP",serif;font-size:clamp(1.22rem,2.1vw,1.65rem);font-weight:900;line-height:1.45;color:#a92350;margin-bottom:clamp(.8rem,1.8vw,1.1rem)}
+.subject-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:stretch}
+.subject-card{min-width:0;padding:14px 12px;border:1px solid #d8c99e;border-radius:14px;background:linear-gradient(180deg,#fff,#fffaf0);box-shadow:0 8px 20px rgba(16,45,76,.07);text-align:center}
+.subject-card strong{display:block;margin:0 0 5px;font-family:"Noto Serif JP",serif;color:#123f70;font-size:clamp(1rem,1.45vw,1.18rem);line-height:1.35}
+.subject-card span{display:block;color:#314b64;font-size:clamp(.82rem,1.02vw,.96rem);font-weight:700;line-height:1.6}
+.subject-card.social{border-color:#c9a94c;background:linear-gradient(180deg,#fff8e8,#fffdf8);box-shadow:0 9px 22px rgba(132,94,19,.10)}
+.subject-card.social strong{color:#8b6514}
+.subject-wide-note{margin:10px auto 0;color:#8b6514;font-size:clamp(.78rem,1vw,.9rem);font-weight:900;letter-spacing:.02em}
 .hero-copy .lead.hero-direct{margin:clamp(1.25rem,2.4vw,1.8rem) auto 0;padding:clamp(1rem,2vw,1.35rem) clamp(1rem,2.5vw,1.6rem);max-width:46rem;text-align:center;font-size:clamp(1.05rem,1.75vw,1.3rem);font-weight:800;line-height:1.75;color:#102d4c;background:#fff;border:1px solid rgba(177,135,42,.42);border-radius:16px;box-shadow:0 10px 28px rgba(16,45,76,.08)}
-@media(max-width:900px){.hero{padding-top:clamp(102px,13vw,138px)!important}.hero-copy .hero-title{font-size:clamp(1.35rem,7vw,3.45rem);line-height:1.3}.hero-copy .hero-sub{font-size:clamp(.98rem,2.6vw,1.18rem)}}
-@media(max-width:600px){.hero{padding-top:clamp(92px,16vw,116px)!important}.hero-copy .hero-sub{line-height:1.72}.hero-copy .hero-sub .hero-audience{font-size:clamp(1.16rem,5.1vw,1.42rem)}.hero-copy .hero-sub .subject-line{font-size:clamp(.91rem,3.8vw,1.05rem)}.hero-copy .lead.hero-direct{font-size:clamp(1rem,4.25vw,1.15rem);line-height:1.7}}
-@media(max-width:380px){.hero{padding-top:88px!important}.hero-copy .hero-sub .subject-line{font-size:.88rem}}
+@media(max-width:900px){.hero{padding-top:clamp(102px,13vw,138px)!important}.hero-copy .hero-title{font-size:clamp(1.35rem,7vw,3.45rem);line-height:1.3}.subject-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.subject-card.social{grid-column:1/-1}}
+@media(max-width:600px){.hero{padding-top:clamp(92px,16vw,116px)!important}.subject-panel .hero-audience{font-size:clamp(1.16rem,5.1vw,1.42rem)}.subject-cards{grid-template-columns:1fr;gap:8px}.subject-card.social{grid-column:auto}.subject-card{padding:12px 10px}.subject-card strong{font-size:clamp(1rem,4.3vw,1.12rem)}.subject-card span{font-size:clamp(.84rem,3.55vw,.98rem)}.hero-copy .lead.hero-direct{font-size:clamp(1rem,4.25vw,1.15rem);line-height:1.7}}
+@media(max-width:380px){.hero{padding-top:88px!important}}
 </style>
 </head>
 <body>
@@ -35,7 +41,15 @@
   <div class="hero-copy">
     <p class="eyebrow hero-eyebrow">全国オンライン×講師本人との直接契約</p>
     <h1 class="hero-title"><span class="hero-title-line">英検・大学受験（文系科目）</span><span class="hero-title-line">不登校・通信制高校に強い</span><span class="hero-title-line">プロ家庭教師</span></h1>
-    <p class="hero-sub"><strong class="hero-audience">大学受験は文系・理系を問いません。</strong><span class="subject-line">英語・国語（現代文・古文・漢文）・</span><span class="subject-line">社会（世界史・日本史・地理）・</span><span class="subject-line">政治経済・倫理・歴史総合・公共</span></p>
+    <div class="subject-panel" aria-label="大学受験の指導可能科目">
+      <strong class="hero-audience">大学受験は文系・理系を問いません。</strong>
+      <div class="subject-cards">
+        <div class="subject-card"><strong>英語</strong><span>大学受験英語</span></div>
+        <div class="subject-card"><strong>国語</strong><span>現代文・古文・漢文</span></div>
+        <div class="subject-card social"><strong>社会</strong><span>世界史・日本史・地理<br>政治経済・倫理・歴史総合・公共</span></div>
+      </div>
+      <p class="subject-wide-note">社会科目を横断して、一人の講師が一貫して指導できます。</p>
+    </div>
     <p class="lead hero-direct">ご相談から授業まで同じ講師が一貫して担当し、全国どこからでもオンラインで受講できます。</p>
     <div class="proof-grid"><div><strong>20年超</strong><span>指導経験</span></div><div><strong>1,000名超</strong><span>延べ指導人数</span></div><div><strong>300名以上</strong><span>英検指導実績</span></div><div><strong>0円</strong><span>仲介手数料</span></div></div>
     <div class="cta-row"><a class="btn primary" href="#contact">無料相談・体験授業を申し込む</a><a class="btn secondary" href="/hikaku/">他社との違いを比較する</a></div>
