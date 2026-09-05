@@ -34,26 +34,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700;900&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet" />
+
+    <!-- 2026年7月 Manus 原型のランタイム／CSS -->
     <script type="module" crossorigin src="/index-ROriAf5U.js"></script>
     <link rel="stylesheet" crossorigin href="/index-7rj-SZHH.css" />
     <link rel="stylesheet" href="/next-official.css" />
 
     <style>
-      @media (max-width: 768px) {
-        body { padding-top: 80px; }
-        header, nav, .fixed.top-0 { height: auto !important; min-height: 60px; }
-        #root > div > section:first-of-type,
-        main > section:first-of-type { padding-top: 80px !important; }
-      }
-      @media (min-width: 1025px) {
-        body { padding-top: 0; }
-      }
+      html, body, #root { max-width: 100%; overflow-x: hidden; }
+      img, video, svg { max-width: 100%; }
+      h1, h2, h3, p, a, button, span { word-break: normal; overflow-wrap: break-word; }
+      @media (min-width: 769px) and (max-width: 1024px) { .container { max-width: 90%; } }
     </style>
     <link rel="canonical" href="https://kateikyoshi-sogo.com/" />
   </head>
 
   <body>
     <div id="root"></div>
-    <script src="/next-official-content.js"></script>
+
+    <!-- 現在の公式サイトで採用中のヘッダーを、そのまま次期公式版へ移植 -->
+    <script src="https://cdn.jsdelivr.net/gh/k0nan728-web/kateikyoshi-sogo-official@b1b7fd5dfbf7a6c87ae6b2a0f9c0d6f717384693/header-core-v1.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/k0nan728-web/kateikyoshi-sogo-official@b1b7fd5dfbf7a6c87ae6b2a0f9c0d6f717384693/header-responsive-patch.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/k0nan728-web/kateikyoshi-sogo-official@b1b7fd5dfbf7a6c87ae6b2a0f9c0d6f717384693/header-autofit-v1.js"></script>
+
+    <!-- 現在の公式サイトのファーストセクション最終版。第2セクション以降は Manus 原型を維持 -->
+    <script src="https://cdn.jsdelivr.net/gh/k0nan728-web/kateikyoshi-sogo-official@b1b7fd5dfbf7a6c87ae6b2a0f9c0d6f717384693/section1-visual-match.js"></script>
   </body>
 </html>
