@@ -35,11 +35,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700;900&family=Noto+Sans+JP:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet" />
 
-    <!-- 2026年7月 Manus 原型のランタイム／CSS -->
     <script type="module" crossorigin src="/index-ROriAf5U.js"></script>
     <link rel="stylesheet" crossorigin href="/index-7rj-SZHH.css" />
     <link rel="stylesheet" href="/next-official.css" />
-
     <style>
       html, body, #root { max-width: 100%; overflow-x: hidden; }
       img, video, svg { max-width: 100%; }
@@ -52,14 +50,15 @@
   <body>
     <div id="root"></div>
 
-    <!-- 現在の公式サイトで採用中のヘッダー -->
+    <!-- 現行公式で承認済みのヘッダー -->
     <script src="https://cdn.jsdelivr.net/gh/k0nan728-web/kateikyoshi-sogo-official@b1b7fd5dfbf7a6c87ae6b2a0f9c0d6f717384693/header-core-v1.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/k0nan728-web/kateikyoshi-sogo-official@b1b7fd5dfbf7a6c87ae6b2a0f9c0d6f717384693/header-responsive-patch.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/k0nan728-web/kateikyoshi-sogo-official@b1b7fd5dfbf7a6c87ae6b2a0f9c0d6f717384693/header-autofit-v1.js"></script>
 
-    <!-- 現在の公式サイトのファーストセクション本体＋最終整形 -->
-    <script src="https://cdn.jsdelivr.net/gh/k0nan728-web/kateikyoshi-sogo-official@b1b7fd5dfbf7a6c87ae6b2a0f9c0d6f717384693/mobile-section1-final.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/k0nan728-web/kateikyoshi-sogo-official@b1b7fd5dfbf7a6c87ae6b2a0f9c0d6f717384693/section1-visual-match.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/k0nan728-web/kateikyoshi-sogo-official@next-official-manus/next-official-iphone13mini.js"></script>
+    <!-- ファーストセクションは単一実装に統合。端末名別ホットフィックスを禁止 -->
+    <script src="/next-official-section1.js"></script>
+
+    <!-- Manus原型の第2セクションから順次レスポンシブ最適化 -->
+    <script src="/next-official-section2.js"></script>
   </body>
 </html>
