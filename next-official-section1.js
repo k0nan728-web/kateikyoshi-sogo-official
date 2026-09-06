@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const ID='ks-premium-intro-v6';
-  const STYLE_ID='ks-next-section1-style-v1';
+  const STYLE_ID='ks-next-section1-style-v2';
   const norm=s=>(s||'').replace(/\s+/g,'').trim();
 
   const book='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2H11v17H7.5A3.5 3.5 0 0 0 4 22V5.5Z"/><path d="M20 5.5A3.5 3.5 0 0 0 16.5 2H13v17h3.5A3.5 3.5 0 0 1 20 22V5.5Z"/></svg>';
@@ -11,14 +11,16 @@
   const trend='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18 10 12l4 4 6-8"/><path d="M15 8h5v5"/></svg>';
 
   function style(){
+    document.getElementById('ks-next-section1-style-v1')?.remove();
     if(document.getElementById(STYLE_ID)) return;
     const s=document.createElement('style'); s.id=STYLE_ID; s.textContent=`
       #${ID},#${ID} *{box-sizing:border-box!important;min-width:0!important}
       #${ID}{width:100%!important;max-width:100vw!important;padding:clamp(8px,1.8vw,22px)!important;background:linear-gradient(180deg,#f4f7fb,#eef3f8)!important;overflow:hidden!important;font-family:"Noto Sans JP",sans-serif!important;color:#173e67!important}
       #${ID} .ks-panel{width:min(100%,1220px)!important;margin:0 auto!important;padding:clamp(24px,4vw,48px) clamp(12px,4vw,44px) clamp(26px,4vw,42px)!important;border:1px solid rgba(202,177,113,.48)!important;border-radius:clamp(17px,2.2vw,24px)!important;background:linear-gradient(135deg,#fff 0%,#fffefb 68%,#fff8e9 100%)!important;box-shadow:0 18px 42px rgba(20,47,78,.08)!important;overflow:hidden!important;text-align:center!important}
       #${ID} .ks-categories{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:clamp(9px,1.4vw,16px)!important;width:min(100%,1120px)!important;margin:0 auto clamp(28px,4vw,44px)!important}
-      #${ID} .ks-category{display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;min-height:clamp(66px,8vw,108px)!important;padding:10px 12px!important;border-radius:16px!important;background:#fff!important;font-family:"Noto Serif JP",serif!important;font-weight:900!important;line-height:1.2!important;white-space:nowrap!important;overflow:hidden!important}
+      #${ID} .ks-category{display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;min-height:clamp(66px,8vw,108px)!important;padding:10px 12px!important;border-radius:16px!important;background:#fff!important;font-family:"Noto Serif JP",serif!important;font-weight:900!important;line-height:1.2!important;overflow:hidden!important}
       #${ID} .ks-category svg{width:clamp(28px,4vw,46px)!important;height:clamp(28px,4vw,46px)!important;flex:0 0 auto!important}
+      #${ID} .ks-category-label{display:block!important;flex:0 1 auto!important;width:auto!important;max-width:100%!important;white-space:nowrap!important;word-break:normal!important;overflow-wrap:normal!important;line-break:strict!important;hyphens:none!important;text-align:center!important}
       #${ID} .ks-category.rose{border:2px solid #e85884!important;color:#df3568!important}#${ID} .ks-category.blue{border:2px solid #4f91da!important;color:#286fc0!important}
       #${ID} .ks-fit{display:block!important;width:100%!important;max-width:100%!important;white-space:nowrap!important;word-break:normal!important;overflow-wrap:normal!important;line-break:strict!important;hyphens:none!important;text-align:center!important}
       #${ID} .ks-hero{margin:0 auto 18px!important;color:#082f59!important;font-family:"Noto Serif JP",serif!important;font-weight:900!important;line-height:1.28!important}
@@ -76,7 +78,7 @@
     support:[['学校に通えている子も、通えていない子も、','お子様に最適な指導で英検・受験などに一貫対応。'],['学校に通えている子も、','通えていない子も、','お子様に最適な指導で','英検・受験などに一貫対応。']],
     plannerLead:[['進路指導や学習習慣の定着まで見据えた'],['進路指導や学習習慣の定着まで','見据えた']],
     plannerEm:[['お子様だけの学習プランナー。'],['お子様だけの','学習プランナー。']],
-    title:[['一人ひとりに合わせるための、','<strong>3</strong>つの約束'],['一人ひとりに合わせるための、','<strong>3</strong>つの約束']],
+    title:[['一人ひとりに合わせるための、','<strong>3</strong>つの約束']],
     proofTitle:[['多くのご家庭に選ばれています']],
     ctaStrong:[['まずはお気軽にご相談ください'],['まずはお気軽に','ご相談ください']],
     ctaText:[['無料相談・体験授業で、お子様に合う学び方を一緒に考えます。'],['無料相談・体験授業で、','お子様に合う学び方を一緒に考えます。'],['無料相談・体験授業で、','お子様に合う学び方を','一緒に考えます。']]
@@ -87,6 +89,20 @@
   function fitCandidate(el,lines,min,max){render(el,lines);const avail=innerWidth(el);let lo=min,hi=max;for(let i=0;i<12;i++){const m=(lo+hi)/2;el.style.setProperty('font-size',m+'px','important');const ok=[...el.querySelectorAll('.ks-fit')].every(x=>x.scrollWidth<=avail+1);if(ok)lo=m;else hi=m}return lo}
   function fitBest(el,sets,min,max){let best=null;sets.forEach(lines=>{const size=fitCandidate(el,lines,min,max);const score=size-(lines.length-1)*1.25;if(!best||score>best.score+0.05||(Math.abs(score-best.score)<=0.05&&lines.length<best.lines.length))best={lines,size,score}});render(el,best.lines);el.style.setProperty('font-size',best.size.toFixed(2)+'px','important')}
   function fitSingle(el,min,max){if(!el)return;const avail=innerWidth(el.parentElement||el);let lo=min,hi=max;for(let i=0;i<12;i++){const m=(lo+hi)/2;el.style.setProperty('font-size',m+'px','important');if(el.scrollWidth<=avail+1)lo=m;else hi=m}el.style.setProperty('font-size',lo.toFixed(2)+'px','important')}
+  function fitCategoryLabel(el,min,max){
+    if(!el)return;
+    const card=el.closest('.ks-category'); if(!card)return fitSingle(el,min,max);
+    const cs=getComputedStyle(card);
+    const icon=card.querySelector('svg');
+    const gap=parseFloat(cs.columnGap||cs.gap)||0;
+    const available=card.clientWidth-(parseFloat(cs.paddingLeft)||0)-(parseFloat(cs.paddingRight)||0)-(icon?.getBoundingClientRect().width||0)-gap-4;
+    let lo=min,hi=max;
+    for(let i=0;i<12;i++){
+      const m=(lo+hi)/2;el.style.setProperty('font-size',m+'px','important');
+      if(el.scrollWidth<=available+0.5)lo=m;else hi=m;
+    }
+    el.style.setProperty('font-size',lo.toFixed(2)+'px','important');
+  }
 
   function content(sec){
     fitBest(sec.querySelector('.ks-hero'),candidates.hero,24,60);
@@ -102,7 +118,7 @@
     const heads=[['お子様に合わせた','オーダーメイド指導'],['相談から授業まで','同じプロが担当'],['英検・受験・進路まで','長期的に伴走']];
     const bodies=[[['現在地・目標・性格・生活環境を丁寧に把握し、','最適な学習計画を一緒に作ります。'],['現在地・目標・性格・生活環境を','丁寧に把握し、','最適な学習計画を一緒に作ります。']],[['相談した内容がそのまま指導につながるので、','安心して何でも相談できます。'],['相談した内容がそのまま','指導につながるので、','安心して何でも相談できます。']],[['点数だけでなく将来を見据えたサポートで、','学力と自信をしっかり育てます。'],['点数だけでなく将来を見据えた','サポートで、','学力と自信をしっかり育てます。']]];
     [...sec.querySelectorAll('.promise')].forEach((card,i)=>{fitBest(card.querySelector('h3'),[heads[i]],20,34);fitBest(card.querySelector('p'),bodies[i],13,17)});
-    [...sec.querySelectorAll('.ks-category-label')].forEach(x=>fitSingle(x,16,42));
+    [...sec.querySelectorAll('.ks-category-label')].forEach(x=>fitCategoryLabel(x,16,42));
     [...sec.querySelectorAll('.proof strong')].forEach(x=>fitSingle(x,20,38));
   }
 
