@@ -90,8 +90,8 @@
   function fitBest(el,sets,min,max){let best=null;sets.forEach(lines=>{const size=fitCandidate(el,lines,min,max);const score=size-(lines.length-1)*1.25;if(!best||score>best.score+0.05||(Math.abs(score-best.score)<=0.05&&lines.length<best.lines.length))best={lines,size,score}});render(el,best.lines);el.style.setProperty('font-size',best.size.toFixed(2)+'px','important')}
   function fitSingle(el,min,max){if(!el)return;const avail=innerWidth(el.parentElement||el);let lo=min,hi=max;for(let i=0;i<12;i++){const m=(lo+hi)/2;el.style.setProperty('font-size',m+'px','important');if(el.scrollWidth<=avail+1)lo=m;else hi=m}el.style.setProperty('font-size',lo.toFixed(2)+'px','important')}
   function fitCategoryLabel(el,min,max){
-    if(!el)return;
-    const card=el.closest('.ks-category'); if(!card)return fitSingle(el,min,max);
+    if(!el)return max;
+    const card=el.closest('.ks-category'); if(!card){fitSingle(el,min,max);return parseFloat(getComputedStyle(el).fontSize)||max}
     const cs=getComputedStyle(card);
     const icon=card.querySelector('svg');
     const gap=parseFloat(cs.columnGap||cs.gap)||0;
@@ -102,6 +102,14 @@
       if(el.scrollWidth<=available+0.5)lo=m;else hi=m;
     }
     el.style.setProperty('font-size',lo.toFixed(2)+'px','important');
+    return lo;
+  }
+  function fitCategoryPair(sec,min,max){
+    const labels=[...sec.querySelectorAll('.ks-category-label')];
+    if(!labels.length)return;
+    const fitted=labels.map(el=>fitCategoryLabel(el,min,max));
+    const common=Math.min(...fitted);
+    labels.forEach(el=>el.style.setProperty('font-size',common.toFixed(2)+'px','important'));
   }
 
   function content(sec){
@@ -118,7 +126,7 @@
     const heads=[['お子様に合わせた','オーダーメイド指導'],['相談から授業まで','同じプロが担当'],['英検・受験・進路まで','長期的に伴走']];
     const bodies=[[['現在地・目標・性格・生活環境を丁寧に把握し、','最適な学習計画を一緒に作ります。'],['現在地・目標・性格・生活環境を','丁寧に把握し、','最適な学習計画を一緒に作ります。']],[['相談した内容がそのまま指導につながるので、','安心して何でも相談できます。'],['相談した内容がそのまま','指導につながるので、','安心して何でも相談できます。']],[['点数だけでなく将来を見据えたサポートで、','学力と自信をしっかり育てます。'],['点数だけでなく将来を見据えた','サポートで、','学力と自信をしっかり育てます。']]];
     [...sec.querySelectorAll('.promise')].forEach((card,i)=>{fitBest(card.querySelector('h3'),[heads[i]],20,34);fitBest(card.querySelector('p'),bodies[i],13,17)});
-    [...sec.querySelectorAll('.ks-category-label')].forEach(x=>fitCategoryLabel(x,16,42));
+    fitCategoryPair(sec,16,42);
     [...sec.querySelectorAll('.proof strong')].forEach(x=>fitSingle(x,20,38));
   }
 
