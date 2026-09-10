@@ -1,0 +1,61 @@
+{
+  "structural_regressions": "PASS",
+  "counts": {
+    "header": 1,
+    "lesson-photo": 1,
+    "first-section": 1,
+    "promises-section": 1,
+    "comparison-cta": 1,
+    "direct-contract": 1,
+    "h1": 1
+  },
+  "assets_on_disk": [
+    {
+      "path": "/IMG_4684_trimmed_35c73ae5.PNG",
+      "bytes": 1383774,
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "path": "/teacher_intro_clean_403456db.mp4",
+      "bytes": 3141592
+    },
+    {
+      "path": "/achievement-certificate.jpg",
+      "bytes": 202350,
+      "width": 1536,
+      "height": 1253
+    },
+    {
+      "path": "/online-lesson-screen.jpg",
+      "bytes": 263142,
+      "width": 1536,
+      "height": 1010
+    }
+  ],
+  "course_price_tables": 15,
+  "browser_QA": "NOT_RUN: browser could not reach the supervised preview (ERR_BLOCKED_BY_CLIENT)",
+  "required_widths": [
+    320,
+    360,
+    375,
+    390,
+    430,
+    568,
+    667,
+    736,
+    768,
+    810,
+    820,
+    844,
+    1024,
+    1180,
+    1280,
+    1366,
+    1440,
+    1536,
+    1920
+  ],
+  "overflow_result": "UNKNOWN — no rendered viewport was tested",
+  "publication_gate": "BLOCKED until browser visual and interaction QA passes"
+}
