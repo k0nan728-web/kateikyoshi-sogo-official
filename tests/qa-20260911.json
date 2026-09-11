@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-09-11",
+  "environment": "Chrome, same-origin iframe; classic scrollbar subtracts 15px from layout width. Native iOS/Safari not tested.",
+  "viewportWidths": [320,360,375,390,430,568,667,736,768,810,820,844,1024,1180,1280,1366,1440,1536,1920],
+  "boundaryWidths": [319,479,480,481,759,760,761,999,1000,1001],
+  "pageOverflowPixelsAllTestedWidths": 0,
+  "visibleElementLocalOverflowCountAllTestedWidths": 0,
+  "promisesHeading": "Centered, two lines, equal font size on both lines at all 19 widths",
+  "directHeading": "Centered, equal size, minimum 18px. Semantic wrapping at 320/360/375; two single-line spans at 390 and wider.",
+  "rootFontEnlargement": {
+    "320": [20,24,32],
+    "390": [32],
+    "768": [32],
+    "bodyFollowsRoot": true,
+    "pageOverflowPixels": 0,
+    "localOverflowCount": 0,
+    "limitation": "Root-font enlargement simulation, not native browser zoom or Safari text resizing"
+  },
+  "expandedPricing320Root32": {"tables":15,"clientWidth":305,"scrollWidth":305,"localOverflowCount":0,"visual":"Amounts remain intact; labels and amounts stack/reflow"},
+  "build": "PASS",
+  "structuralRegression": "PASS",
+  "priceCalculationAssertions": 6,
+  "publication": "NOT_PUBLISHED",
+  "remaining": ["Final functional and visual review", "GitHub synchronization", "PageShare publish and published verification"]
+}

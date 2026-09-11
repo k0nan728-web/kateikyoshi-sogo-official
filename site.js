@@ -94,8 +94,8 @@ function updateEstimate() {
   const minutes = Number(document.getElementById("estimate-minutes").value);
   const count = Number(document.getElementById("estimate-count").value);
   const withSupport = document.getElementById("estimate-support").checked;
-  document.getElementById("estimate-total").textContent =
-    `月額 ${yen.format(monthlyEstimate(rate, minutes, count, withSupport))}円（税込）`;
+  document.getElementById("estimate-amount").textContent =
+    `${yen.format(monthlyEstimate(rate, minutes, count, withSupport))}円`;
   document.getElementById("estimate-breakdown").textContent =
     `${yen.format(rate)}円 × ${minutes}分 ÷ 60 × ${count}回${withSupport ? " ＋ サポート10,000円" : ""}`;
 }

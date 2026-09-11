@@ -26,7 +26,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font: 400 16px/1.95 var(--sans);
+  font: 400 1rem/1.95 var(--sans);
 }
 img,
 video {
@@ -74,15 +74,15 @@ h3 {
   line-height: 1.65;
 }
 h1 {
-  font-size: clamp(21px, 3.8vw, 44px);
+  font-size: clamp(1.3125rem, 3.8vw, 2.75rem);
 }
 h2 {
-  font-size: clamp(25px, 3.3vw, 40px);
+  font-size: clamp(1.5625rem, 3.3vw, 2.5rem);
   letter-spacing: 0.025em;
   margin-bottom: 24px;
 }
 h3 {
-  font-size: clamp(19px, 2vw, 24px);
+  font-size: clamp(1.1875rem, 2vw, 1.5rem);
   margin-bottom: 14px;
 }
 p:last-child {
@@ -132,10 +132,10 @@ main > * {
 }
 .eyebrow {
   font:
-    700 13px/1.6 "Playfair Display",
+    700 0.8125rem/1.6 "Playfair Display",
     serif;
   letter-spacing: 0.15em;
-  color: #987322;
+  color: #826421;
   margin: 0 0 16px;
 }
 .navy-section .eyebrow {
@@ -154,7 +154,7 @@ main > * {
 .fine-print,
 .caption,
 figcaption {
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.85;
   color: var(--muted);
 }
@@ -187,7 +187,7 @@ figcaption {
 }
 /* One shared rule keeps the two heading lines at the same size. */
 [data-fit-lines] {
-  font-size: var(--fit-size, var(--heading-size, clamp(25px, 3.3vw, 40px)));
+  font-size: var(--fit-size, var(--heading-size, clamp(1.5625rem, 3.3vw, 2.5rem)));
 }
 [data-fit-lines] > span {
   display: block;
@@ -240,7 +240,7 @@ figcaption {
   border: 1px solid var(--gold);
   border-radius: 7px;
   color: #f0cd70;
-  font-size: clamp(10px, 1vw, 13px);
+  font-size: clamp(0.625rem, 1vw, 0.8125rem);
   font-weight: 800;
   white-space: nowrap;
 }
@@ -255,13 +255,18 @@ figcaption {
   display: block;
   white-space: nowrap;
 }
+.brand strong > span,
+.brand small > span {
+  display: inline-block;
+  white-space: nowrap;
+}
 .brand strong {
-  font: 700 clamp(14px, 2.05vw, 28px) / 1.4 var(--serif);
+  font: 700 clamp(0.875rem, 2.05vw, 1.75rem) / 1.4 var(--serif);
 }
 .brand small {
   margin-top: 3px;
   color: #e1ba58;
-  font-size: clamp(9px, 0.9vw, 12px);
+  font-size: clamp(0.5625rem, 0.9vw, 0.75rem);
   font-weight: 700;
 }
 .header-cta {
@@ -272,7 +277,7 @@ figcaption {
   background: #fff;
   color: #102b4b;
   text-decoration: none;
-  font-size: clamp(11px, 1vw, 14px);
+  font-size: clamp(0.6875rem, 1vw, 0.875rem);
   font-weight: 800;
   white-space: nowrap;
 }
@@ -312,7 +317,7 @@ figcaption {
   border-radius: 7px;
   text-align: center;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .global-nav a:hover {
   background: #ffffff14;
@@ -354,7 +359,7 @@ figcaption {
   border: 1px solid currentColor;
   border-radius: 12px;
   background: #fff;
-  font: 700 clamp(15px, 2vw, 22px) / 1.5 var(--serif);
+  font: 700 clamp(0.9375rem, 2vw, 1.375rem) / 1.5 var(--serif);
 }
 .category.rose {
   color: var(--rose);
@@ -363,7 +368,7 @@ figcaption {
   color: #2b659b;
 }
 .intro h1 {
-  --heading-size: clamp(16px, 5vw, 44px);
+  --heading-size: clamp(1rem, 5vw, 2.75rem);
   margin-bottom: 22px;
 }
 .gold-rule {
@@ -373,12 +378,12 @@ figcaption {
   background: linear-gradient(90deg, #c79e35, #f4df99, #c79e35);
 }
 .problem {
-  font-size: clamp(16px, 2vw, 23px);
+  font-size: clamp(1rem, 2vw, 1.4375rem);
   font-weight: 700;
   margin-bottom: 12px;
 }
 .answer {
-  font-size: clamp(16px, 2vw, 23px);
+  font-size: clamp(1rem, 2vw, 1.4375rem);
   margin-bottom: 24px;
 }
 .answer strong {
@@ -404,7 +409,7 @@ figcaption {
 }
 .planner strong {
   display: block;
-  font: 700 clamp(19px, 2.5vw, 30px) / 1.7 var(--serif);
+  font: 700 clamp(1.1875rem, 2.5vw, 1.875rem) / 1.7 var(--serif);
 }
 /* The approved reference uses three stacked white cards. */
 .promises h2 {
@@ -413,6 +418,7 @@ figcaption {
 }
 .promise-grid {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 22px;
   margin-bottom: 38px;
 }
@@ -449,7 +455,8 @@ figcaption {
   color: var(--green);
 }
 .promise-card h3 {
-  --heading-size: clamp(21px, 2.5vw, 28px);
+  max-width: 100%;
+  --heading-size: clamp(1.3125rem, 2.5vw, 1.75rem);
   margin-bottom: 18px;
 }
 .promise-card p {
@@ -466,7 +473,7 @@ figcaption {
   text-align: center;
 }
 .cta-strip strong {
-  font-size: clamp(20px, 2.5vw, 27px);
+  font-size: clamp(1.25rem, 2.5vw, 1.6875rem);
 }
 .cta-strip p {
   margin: 8px 0 18px;
@@ -481,7 +488,7 @@ figcaption {
   padding: 17px 28px;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.7;
   max-width: 100%;
@@ -515,12 +522,13 @@ figcaption {
 }
 .comparison-copy {
   flex: 1;
+  max-width: 100%;
   text-align: center;
   min-width: 0;
 }
 .comparison small {
   display: block;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   color: #8c681f;
@@ -528,7 +536,7 @@ figcaption {
 }
 .comparison p {
   margin: 0;
-  font: 700 clamp(17px, 2vw, 23px) / 1.8 var(--serif);
+  font: 700 clamp(1.0625rem, 2vw, 1.4375rem) / 1.8 var(--serif);
 }
 .comparison p span {
   display: inline-block;
@@ -536,7 +544,7 @@ figcaption {
 }
 .comparison strong {
   display: block;
-  font: 700 clamp(23px, 3vw, 32px) / 1.8 var(--serif);
+  font: 700 clamp(1.4375rem, 3vw, 2rem) / 1.8 var(--serif);
 }
 .comparison-arrow {
   width: 56px;
@@ -560,11 +568,14 @@ figcaption {
   background: #eff2ff;
   color: #2d5fa0;
   letter-spacing: 0.1em;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
 }
 .direct-contract h2 {
-  --heading-size: clamp(15px, 4.4vw, 40px);
+  --heading-size: clamp(1.125rem, 4.4vw, 2.5rem);
+}
+.direct-contract h2.fit-wrap > span + span {
+  margin-top: 0.35em;
 }
 .direct-contract h2 em {
   color: var(--rose);
@@ -616,18 +627,18 @@ figcaption {
   font: 32px/42px var(--sans);
 }
 .direct-contract-grid h3 {
-  font: 700 clamp(17px, 2vw, 22px) / 1.8 var(--sans);
+  font: 700 clamp(1.0625rem, 2vw, 1.375rem) / 1.8 var(--sans);
   margin: 0;
 }
 .direct-contract-grid strong {
   display: block;
   color: var(--rose);
-  font: 700 clamp(29px, 3vw, 40px) / 1.6 var(--sans);
+  font: 700 clamp(1.8125rem, 3vw, 2.5rem) / 1.6 var(--sans);
 }
 .direct-contract-grid p {
   margin: 0;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .proof-grid {
   display: grid;
@@ -648,12 +659,12 @@ figcaption {
 .proof-grid strong {
   display: block;
   color: #f0c660;
-  font-size: clamp(18px, 2vw, 24px);
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
   white-space: nowrap;
 }
 .proof-grid span {
   display: block;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .proof-grid .proof-pass-rate {
   grid-column: 1/-1;
@@ -668,7 +679,7 @@ figcaption {
 }
 .proof-note {
   grid-column: 1/-1;
-  font-size: 13px;
+  font-size: 0.8125rem;
   line-height: 1.8;
   color: #c2d1e0;
   padding: 0 20px 14px;
@@ -676,7 +687,7 @@ figcaption {
 }
 .teacher-layout {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
   gap: clamp(30px, 5vw, 62px);
   align-items: center;
 }
@@ -690,12 +701,12 @@ figcaption {
   margin-bottom: 8px;
 }
 .teacher-name {
-  font-size: 32px;
+  font-size: 2rem;
   margin: 0 0 10px;
 }
 .teacher-name small {
   display: block;
-  font: 400 14px/1.8 var(--sans);
+  font: 400 0.875rem/1.8 var(--sans);
 }
 .qualification {
   border-bottom: 1px solid #d8e0e7;
@@ -710,7 +721,7 @@ figcaption {
 }
 .split-layout {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 32px;
 }
 .split-layout > * {
@@ -739,7 +750,7 @@ figcaption {
 }
 .support-list > div > span {
   font:
-    700 24px/1.7 "Playfair Display",
+    700 1.5rem/1.7 "Playfair Display",
     serif;
   color: #e7c871;
 }
@@ -750,7 +761,7 @@ figcaption {
 .support-list strong {
   display: block;
   color: white;
-  font-size: 18px;
+  font-size: 1.125rem;
   margin-bottom: 12px;
 }
 .brand-grid {
@@ -784,13 +795,13 @@ figcaption {
 }
 .path-number {
   font:
-    700 38px/1 "Playfair Display",
+    700 2.375rem/1 "Playfair Display",
     serif;
   color: var(--path-color);
   margin-bottom: 20px;
 }
 .path-question {
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: var(--muted);
   margin-bottom: 8px;
 }
@@ -806,7 +817,7 @@ figcaption {
   border-top: 1px solid #e1e5eb;
   align-self: stretch;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 .path-link b {
   float: right;
@@ -827,7 +838,7 @@ figcaption {
 }
 .subject-note dl > div {
   display: grid;
-  grid-template-columns: 70px 1fr;
+  grid-template-columns: 70px minmax(0, 1fr);
   padding: 12px 0;
   border-bottom: 1px solid #d9e0e6;
   gap: 12px;
@@ -846,7 +857,7 @@ figcaption {
 }
 .case-layout {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
   gap: 48px;
   align-items: center;
 }
@@ -873,17 +884,17 @@ figcaption {
   top: 10px;
 }
 .timeline > div > span {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #e9c465;
 }
 .timeline strong {
   display: block;
-  font-size: 19px;
+  font-size: 1.1875rem;
   color: #fff;
 }
 .timeline p {
   color: #c1d2e1;
-  font-size: 15px;
+  font-size: 0.9375rem;
   margin-bottom: 0;
 }
 .certificate img {
@@ -894,7 +905,7 @@ figcaption {
 }
 .care-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 64px;
   align-items: center;
 }
@@ -909,14 +920,14 @@ figcaption {
   border-bottom: 1px solid #dde3e9;
 }
 .care-notes h3 {
-  font-size: 21px;
+  font-size: 1.3125rem;
 }
 .care-notes p {
   color: var(--muted);
 }
 .lesson-layout {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   gap: 44px;
   align-items: center;
 }
@@ -938,7 +949,7 @@ figcaption {
 .lesson-steps li > span {
   display: inline-block;
   padding: 2px 12px;
-  font-size: 14px;
+  font-size: 0.875rem;
   background: #e9eff7;
   color: #1e4c79;
   border-radius: 4px;
@@ -952,7 +963,7 @@ figcaption {
 }
 .voice-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 40px;
 }
 .voice-grid figure {
@@ -962,7 +973,7 @@ figcaption {
 .voice-grid blockquote {
   margin: 0 0 24px;
   font-family: var(--serif);
-  font-size: clamp(17px, 1.7vw, 21px);
+  font-size: clamp(1.0625rem, 1.7vw, 1.3125rem);
   line-height: 2;
 }
 .voice-grid figcaption {
@@ -1012,7 +1023,7 @@ summary:hover {
 }
 .details-body h3 {
   margin-top: 20px;
-  font-size: 19px;
+  font-size: 1.1875rem;
   color: var(--ink);
 }
 .pricing-intro {
@@ -1025,7 +1036,7 @@ summary:hover {
   padding-top: 22px;
 }
 .pricing-intro .eyebrow {
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 .pricing-intro h3 {
   margin: 10px 0;
@@ -1043,7 +1054,7 @@ summary:hover {
   padding: 20px 44px 20px 20px;
 }
 .price-range {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
   white-space: nowrap;
   color: var(--muted);
@@ -1052,11 +1063,11 @@ summary:hover {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 .price-table caption {
   text-align: left;
-  font-size: 14px;
+  font-size: 0.875rem;
   margin: 0 0 12px;
   color: var(--muted);
 }
@@ -1074,6 +1085,10 @@ summary:hover {
 .price-table th {
   font-weight: 500;
 }
+.course-level {
+  display: inline-block;
+  white-space: nowrap;
+}
 .price-table thead {
   background: #eaf0f6;
   color: var(--ink);
@@ -1087,7 +1102,7 @@ summary:hover {
 }
 .estimate {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
   gap: 30px;
   margin: 38px 0;
   background: #fff;
@@ -1102,7 +1117,7 @@ summary:hover {
 .estimate-form label,
 #estimate-form label {
   display: block;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
 }
 select {
@@ -1116,14 +1131,14 @@ select {
   border: 1px solid #9dadbd;
   border-radius: 6px;
   padding: 10px 6px;
-  font-size: 16px;
+  font-size: 1rem;
 }
 #estimate-form {
   min-width: 0;
 }
 .estimate-controls {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 16px;
 }
 .checkbox-label {
@@ -1140,17 +1155,83 @@ select {
   flex: none;
 }
 output {
-  display: block;
-  font: 700 clamp(23px, 2.8vw, 34px) / 1.7 var(--sans);
+  display: flex;
+  flex-wrap: wrap;
+  font: 700 clamp(1.4375rem, 2.8vw, 2.125rem) / 1.7 var(--sans);
   color: #173f68;
   margin-top: 20px;
+}
+output > span {
+  white-space: nowrap;
+}
+/* Text enlargement keeps the identity and controls readable without masking content. */
+html.text-enlarged {
+  scroll-padding-top: 20px;
+}
+.text-enlarged .site-header {
+  position: relative;
+}
+.text-enlarged .brand strong,
+.text-enlarged .brand small {
+  white-space: normal;
+}
+.text-enlarged .header-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+.text-enlarged .brand {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+.text-enlarged .pro-badge {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: start;
+}
+.text-enlarged .header-cta {
+  grid-column: 1;
+  grid-row: 3;
+  justify-self: start;
+}
+.text-enlarged .menu-button {
+  grid-column: 2;
+  grid-row: 2 / 4;
+}
+.text-enlarged .comparison small {
+  overflow-wrap: anywhere;
+}
+.text-enlarged .proof-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+}
+.text-enlarged .proof-grid strong {
+  white-space: normal;
+}
+.text-enlarged .comparison p span {
+  white-space: normal;
+}
+.text-enlarged .price-table th {
+  overflow-wrap: anywhere;
+}
+.text-enlarged .price-table tr {
+  grid-template-columns: minmax(0, 1fr);
+}
+.text-enlarged .price-table td {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  white-space: nowrap;
+}
+.details-body {
+  overflow-wrap: break-word;
 }
 .price-terms {
   margin-top: 35px;
 }
 .counseling-layout {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   gap: 48px;
   align-items: center;
 }
@@ -1167,11 +1248,11 @@ output {
   border-left: 4px solid #b59747;
 }
 .counseling-price > strong {
-  font-size: 34px;
+  font-size: 2.125rem;
   color: var(--navy);
 }
 .counseling-price > strong > small {
-  font-size: 16px;
+  font-size: 1rem;
 }
 .counseling-price .primary-button {
   margin-top: 16px;
@@ -1199,14 +1280,14 @@ output {
 }
 .process-list > li > span {
   font:
-    700 38px/1 "Playfair Display",
+    700 2.375rem/1 "Playfair Display",
     serif;
   color: #ad8327;
   display: block;
   margin-bottom: 20px;
 }
 .process-list h3 {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 .process-list p {
   color: var(--muted);
@@ -1233,7 +1314,7 @@ output {
   color: #e8cc80;
 }
 .contact-note {
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 1.9;
 }
 .contact details {
@@ -1260,12 +1341,12 @@ footer {
 footer > a,
 footer .section-shell > a {
   font-family: var(--serif);
-  font-size: 19px;
+  font-size: 1.1875rem;
   text-decoration: none;
 }
 footer p {
   color: #bfcede;
-  font-size: 14px;
+  font-size: 0.875rem;
   margin-top: 16px;
 }
 footer nav {
@@ -1273,11 +1354,11 @@ footer nav {
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px 22px;
-  font-size: 14px;
+  font-size: 0.875rem;
   margin: 20px 0;
 }
 footer small {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: #a8bbcf;
 }
 @media (min-width: 1600px) {
@@ -1294,7 +1375,7 @@ footer small {
     gap: 30px;
   }
   .teacher-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .teacher-media {
     width: min(100%, 650px);
@@ -1302,7 +1383,7 @@ footer small {
   }
   .care-layout,
   .counseling-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .care-layout .section-heading,
   .counseling-layout .section-heading {
@@ -1312,7 +1393,7 @@ footer small {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .support-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .support-list > div {
     border-bottom: 1px solid #ffffff30;
@@ -1339,14 +1420,14 @@ footer small {
     gap: 8px;
   }
   .pro-badge {
-    font-size: 10px;
+    font-size: 0.625rem;
     padding: 7px 6px;
   }
   .brand strong {
-    font-size: clamp(12px, 2.2vw, 17px);
+    font-size: clamp(0.75rem, 2.2vw, 1.0625rem);
   }
   .brand small {
-    font-size: clamp(8px, 1.22vw, 10px);
+    font-size: clamp(0.5rem, 1.22vw, 0.625rem);
   }
   .wide-label {
     display: none;
@@ -1356,7 +1437,7 @@ footer small {
   }
   .header-cta {
     padding: 10px 8px;
-    font-size: 11px;
+    font-size: 0.6875rem;
   }
   .menu-button {
     width: 42px;
@@ -1374,10 +1455,10 @@ footer small {
   .lesson-layout,
   .voice-grid,
   .estimate {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .pricing-intro {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 22px;
   }
   .lesson-photo {
@@ -1407,23 +1488,23 @@ footer small {
     padding: 12px 7px;
   }
   .price-table {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .price-table th:first-child {
     width: 40%;
   }
   .teacher-name {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
   .proof-grid strong {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
   .cta-strip {
     padding: 24px 16px;
   }
   .cta-strip > a {
     padding-inline: 12px;
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
 }
 @media (max-width: 480px) {
@@ -1439,7 +1520,7 @@ footer small {
   .pro-badge {
     grid-column: 1;
     grid-row: 2;
-    font-size: 10px;
+    font-size: 0.625rem;
     padding: 4px 7px;
     text-align: center;
   }
@@ -1450,17 +1531,17 @@ footer small {
     padding-bottom: 3px;
   }
   .brand strong {
-    font-size: 16px;
+    font-size: 1rem;
   }
   .brand small {
-    font-size: 9px;
+    font-size: 0.5625rem;
   }
   .header-cta {
     grid-column: 2;
     grid-row: 2;
     justify-self: end;
     padding: 5px 12px;
-    font-size: 12px;
+    font-size: 0.75rem;
   }
   .menu-button {
     grid-column: 3;
@@ -1476,7 +1557,7 @@ footer small {
   }
   .category {
     padding: 10px 12px;
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
   .promise-card {
     padding: 32px 18px;
@@ -1488,7 +1569,7 @@ footer small {
     font-size: 35px;
   }
   .promise-card h3 {
-    --heading-size: 24px;
+    --heading-size: 1.5rem;
   }
   .comparison > a {
     padding: 24px 18px;
@@ -1496,11 +1577,11 @@ footer small {
     flex-direction: column;
   }
   .comparison small {
-    font-size: 12px;
+    font-size: 0.75rem;
     letter-spacing: 0.08em;
   }
   .comparison p {
-    font-size: 17px;
+    font-size: 1.0625rem;
   }
   .comparison-arrow {
     width: 44px;
@@ -1508,16 +1589,16 @@ footer small {
     font-size: 24px;
   }
   .direct-contract-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .direct-contract-grid article {
     padding: 24px 14px;
   }
   .proof-grid strong {
-    font-size: 17px;
+    font-size: 1.0625rem;
   }
   .proof-grid span {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
   .proof-grid > div {
     padding: 20px 7px;
@@ -1526,13 +1607,13 @@ footer small {
     padding-inline: 14px;
   }
   .subject-note dl > div {
-    grid-template-columns: 46px 1fr;
+    grid-template-columns: 46px minmax(0, 1fr);
   }
   .course-price .price-range {
-    font-size: 13px;
+    font-size: 0.8125rem;
   }
   .course-price > summary {
-    font-size: 15px;
+    font-size: 0.9375rem;
     gap: 8px;
   }
   .price-table,
@@ -1547,7 +1628,7 @@ footer small {
   }
   .price-table tr {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
     margin-bottom: 16px;
     border: 1px solid #dce3e9;
     border-radius: 10px;
@@ -1567,13 +1648,13 @@ footer small {
     border: 0;
     text-align: center;
     border-top: 1px solid #dce3e9;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 1.8;
   }
   .price-table td:before {
     content: attr(data-label);
     display: block;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 400;
     color: #53677b;
   }
@@ -1584,18 +1665,18 @@ footer small {
     gap: 12px;
   }
   .process-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 24px;
   }
   .process-list > li {
     display: grid;
-    grid-template-columns: 44px 1fr;
+    grid-template-columns: 2.75rem minmax(0, 1fr);
     gap: 0 16px;
     padding-top: 18px;
   }
   .process-list > li > span {
     grid-row: 1/3;
-    font-size: 32px;
+    font-size: 2rem;
   }
   .process-list h3 {
     margin-bottom: 10px;

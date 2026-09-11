@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja"><meta charset="utf-8"><title>Responsive QA — development only</title>
+<style>body{margin:0;background:#cbd2da}#stage{margin:12px auto;background:white}iframe{border:0;transform-origin:top left}</style>
+<div id="stage"><iframe id="site" title="検証対象"></iframe></div>
+<script>
+const params=new URLSearchParams(location.search);
+const width=Number(params.get('w')||390), height=Number(params.get('h')||844);
+const frame=document.querySelector('#site'),stage=document.querySelector('#stage');
+const scale=Math.min(1,(innerWidth-32)/width);
+Object.assign(frame.style,{width:width+'px',height:height+'px',transform:`scale(${scale})`});
+Object.assign(stage.style,{width:width*scale+'px',height:height*scale+'px'});
+frame.onload=async()=>{
+ const doc=frame.contentDocument;
+ const qaStyle=doc.createElement('style');
+ qaStyle.textContent='html{scroll-behavior:auto!important}';
+ doc.head.append(qaStyle);
+ if(params.has('root'))doc.documentElement.style.fontSize=params.get('root')+'px';
+ await doc.fonts.ready;
+ frame.contentWindow.dispatchEvent(new Event('resize'));
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  const section=params.get('section');
+  if(section){doc.getElementById(section)?.scrollIntoView();}
+  document.title='QA ready: '+width+'×'+height;
+ }));
+};
+frame.src='/';
+</script></html>

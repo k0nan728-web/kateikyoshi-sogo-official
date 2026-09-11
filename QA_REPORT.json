@@ -1,66 +1,74 @@
 {
-  "qa_date": "2026-09-11",
-  "structural_regressions": "PASS",
-  "counts": {
-    "header": 1,
-    "lesson-photo": 1,
-    "first-section": 1,
-    "promises-section": 1,
-    "comparison-cta": 1,
-    "direct-contract": 1,
-    "h1": 1
-  },
-  "required_widths": [
-    320, 360, 375, 390, 430, 568, 667, 736, 768, 810, 820, 844, 1024, 1180,
-    1280, 1366, 1440, 1536, 1920
+  "checkedAt": "2026-09-11",
+  "environment": "Chrome, same-origin iframe; classic scrollbar subtracts 15px from layout width. Native iOS/Safari not tested.",
+  "viewportWidths": [
+    320,
+    360,
+    375,
+    390,
+    430,
+    568,
+    667,
+    736,
+    768,
+    810,
+    820,
+    844,
+    1024,
+    1180,
+    1280,
+    1366,
+    1440,
+    1536,
+    1920
   ],
-  "boundary_widths": [319, 479, 480, 481, 759, 760, 761, 999, 1000, 1001],
-  "browser_QA": "PASS",
-  "overflow_result": "PASS: scrollWidth - clientWidth = 0 at every required and boundary width",
-  "bounding_box_result": "PASS: no visible element outside viewport at every required width",
-  "semantic_headings": {
-    "promises": "PASS: two centered single-line spans with identical computed font size at normal text size",
-    "direct_contract": "PASS: two centered single-line spans with identical computed font size at normal text size",
-    "minimum_direct_contract_heading_px_at_320": 15,
-    "text_enlargement_125_150_200_percent": "PASS: 320px target with 20px, 24px and 32px root sizes; scrollWidth = clientWidth = 305 in every case; semantic wrapping enabled only for enlarged text"
-  },
-  "interaction_QA": {
-    "menu_landscape_568x320": "PASS: all eight items visible; nav bottom 311px within 320px viewport",
-    "monthly_estimator": "PASS: 5,500 yen x 90 minutes / 60 x 8 + 10,000 = 76,000 yen",
-    "mobile_price_table": "PASS: expanded at 390px; overflow 0",
-    "video": "PASS: 640x360 metadata loaded; poster displayed; object-fit contain"
-  },
-  "images": [
-    {
-      "path": "/IMG_4684_trimmed_35c73ae5.PNG",
-      "complete": true,
-      "natural": [1024, 1536],
-      "rendered_desktop": [420, 630],
-      "aspect_ratio_preserved": true
-    },
-    {
-      "path": "/achievement-certificate.jpg",
-      "complete": true,
-      "natural": [1536, 1253],
-      "aspect_ratio_preserved": true
-    },
-    {
-      "path": "/online-lesson-screen.jpg",
-      "complete": true,
-      "natural": [1536, 1010],
-      "aspect_ratio_preserved": true
-    },
-    {
-      "path": "/teacher-intro-poster.jpg",
-      "natural": [1280, 720]
-    }
+  "boundaryWidths": [
+    319,
+    479,
+    480,
+    481,
+    759,
+    760,
+    761,
+    999,
+    1000,
+    1001
   ],
-  "course_price_tables": 15,
-  "automated_tests": {
-    "vite_build": "PASS",
-    "pricing_tests": "PASS: 6 checks",
-    "static_verification": "PASS"
+  "pageOverflowPixelsAllTestedWidths": 0,
+  "visibleElementLocalOverflowCountAllTestedWidths": 0,
+  "promisesHeading": "Centered, two lines, equal font size on both lines at all 19 widths",
+  "directHeading": "Centered, equal size, minimum 18px. Semantic wrapping at 320/360/375; two single-line spans at 390 and wider.",
+  "rootFontEnlargement": {
+    "320": [
+      20,
+      24,
+      32
+    ],
+    "390": [
+      32
+    ],
+    "768": [
+      32
+    ],
+    "bodyFollowsRoot": true,
+    "pageOverflowPixels": 0,
+    "localOverflowCount": 0,
+    "limitation": "Root-font enlargement simulation, not native browser zoom or Safari text resizing"
   },
-  "browser_console": "PASS for site code; only the cloud-browser extension logged metadata errors",
-  "publication_gate": "PASS pending independent final code review and published-state verification"
+  "expandedPricing320Root32": {
+    "tables": 15,
+    "clientWidth": 305,
+    "scrollWidth": 305,
+    "localOverflowCount": 0,
+    "visual": "Amounts remain intact; labels and amounts stack/reflow"
+  },
+  "build": "PASS",
+  "structuralRegression": "PASS",
+  "priceCalculationAssertions": 6,
+  "publication": "BLOCKED: final browser QA interrupted by explicit URL security policy",
+  "remaining": [
+    "Complete final visual and functional QA in an authorized environment",
+    "Verify statistical context and operational disclosures",
+    "PageShare publish and published verification"
+  ]
 }
