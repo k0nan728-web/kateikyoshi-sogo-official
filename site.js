@@ -90,14 +90,27 @@ fitAll();
 const estimateForm = document.getElementById("estimate-form");
 const yen = new Intl.NumberFormat("ja-JP");
 function updateEstimate() {
-  const rate = Number(document.getElementById("estimate-course").value);
+  const course = document.getElementById("estimate-course");
+  const rate = Number(course.value);
+  const summary = document.getElementById("estimate-course-summary");
+  const courseName = course.selectedOptions[0].textContent.trim().replace(/\s+/g, " ");
+  summary.replaceChildren("選択中：", ...courseName.split(/(?=[（])|(?<=[・])|(?=国公立)| (?=[0-9～])/u).map((part) => {
+    const unit = document.createElement("span");
+    unit.textContent = part;
+    return unit;
+  }));
   const minutes = Number(document.getElementById("estimate-minutes").value);
   const count = Number(document.getElementById("estimate-count").value);
   const withSupport = document.getElementById("estimate-support").checked;
   document.getElementById("estimate-amount").textContent =
     `${yen.format(monthlyEstimate(rate, minutes, count, withSupport))}円`;
-  document.getElementById("estimate-breakdown").textContent =
-    `${yen.format(rate)}円 × ${minutes}分 ÷ 60 × ${count}回${withSupport ? " ＋ サポート10,000円" : ""}`;
+  const parts = [`${yen.format(rate)}円`, ` × ${minutes}分`, " ÷ 60", ` × ${count}回`];
+  if (withSupport) parts.push(" ＋ サポート", "10,000円");
+  document.getElementById("estimate-breakdown").replaceChildren(...parts.map((part) => {
+    const unit = document.createElement("span");
+    unit.textContent = part;
+    return unit;
+  }));
 }
 estimateForm.addEventListener("input", updateEstimate);
 estimateForm.addEventListener("change", updateEstimate);

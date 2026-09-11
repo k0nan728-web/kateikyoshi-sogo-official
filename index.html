@@ -1470,7 +1470,7 @@
             </div>
             <form id="estimate-form">
               <label
-                >コース・レベル<select id="estimate-course">
+                >コース・レベル<select id="estimate-course" aria-describedby="estimate-course-summary">
                   <optgroup label="英検対策">
                     <option value="4000">英検5級</option>
                     <option value="4500">英検4級</option>
@@ -1539,6 +1539,7 @@
                   </optgroup>
                 </select></label
               >
+              <p id="estimate-course-summary" class="estimate-course-summary" aria-live="polite"></p>
               <div class="estimate-controls">
                 <label
                   >1回の授業時間<select id="estimate-minutes">
@@ -1666,7 +1667,7 @@
           </div>
           <details>
             <summary>
-              うちの子は勉強がかなり苦手で、やる気も安定しません。それでも大丈夫ですか？
+              <span class="semantic-unit">うちの子は</span><span class="semantic-unit">勉強がかなり苦手で、</span><span class="semantic-unit">やる気も安定しません。</span><span class="semantic-unit">それでも大丈夫ですか？</span>
             </summary>
             <div class="details-body">
               <p>
@@ -1911,7 +1912,7 @@
             </h2>
           </div>
           <p>
-            まだ目標が決まっていなくても大丈夫です。<br />今の状況や、気になっていることからお聞かせください。
+            <span class="semantic-unit">まだ目標が</span><span class="semantic-unit">決まっていなくても</span><span class="semantic-unit">大丈夫です。</span><br /><span class="semantic-unit">今の状況や、</span><span class="semantic-unit">気になっていることから</span><span class="semantic-unit">お聞かせください。</span>
           </p>
           <div class="contact-actions">
             <a
@@ -1924,7 +1925,7 @@
             >
           </div>
           <p class="contact-note">
-            保護者のみの相談も可能／無理な勧誘はありません<br />ご相談は無料です。<span
+            <span class="semantic-unit">保護者のみの相談も可能</span>／<span class="semantic-unit">無理な勧誘はありません</span><br />ご相談は無料です。<span
               class="semantic-unit"
               >体験授業</span
             >は初回のみ、<span class="semantic-unit">継続受講</span
@@ -1936,10 +1937,10 @@
               <p>
                 <span class="semantic-unit">Googleフォーム</span
                 >から送信いただけます。メールの場合は、info@kateikyoshi-sogo.com
-                宛に、学年・お悩み・ご希望をお知らせください。返信は基本的に24時間以内に行います。
+                宛に、学年・お悩み・ご希望を<span class="semantic-unit">お知らせください。</span>返信は基本的に<span class="semantic-unit">24時間以内に</span><span class="semantic-unit">行います。</span>
               </p>
               <p>
-                いただいた情報は、お問い合わせへの返信・サービス提供に使用し、第三者への提供は行いません。
+                いただいた情報は、お問い合わせへの返信・サービス提供に使用し、第三者への提供は<span class="semantic-unit">行いません。</span>
               </p>
             </div>
           </details>
@@ -1953,7 +1954,7 @@
         >
         <p>
           全国オンライン対応｜英検・<span class="semantic-unit">大学受験</span
-          >・不登校・<span class="semantic-unit">通信制高校</span>
+          >・<span class="semantic-unit">不登校</span>・<span class="semantic-unit">通信制高校</span>
         </p>
         <nav aria-label="フッターメニュー">
           <a href="#teacher">講師紹介</a><a href="#pricing">料金</a

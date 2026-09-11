@@ -1136,9 +1136,22 @@ select {
 #estimate-form {
   min-width: 0;
 }
+.estimate-course-summary {
+  margin: -6px 0 20px;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.estimate-course-summary span {
+  display: inline-block;
+  max-width: 100%;
+}
+#estimate-breakdown span {
+  display: inline-block;
+  white-space: pre;
+}
 .estimate-controls {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
   gap: 16px;
 }
 .checkbox-label {
@@ -1213,8 +1226,25 @@ html.text-enlarged {
 .text-enlarged .price-table th {
   overflow-wrap: anywhere;
 }
+.text-enlarged .price-table,
+.text-enlarged .price-table tbody,
+.text-enlarged .price-table caption {
+  display: block;
+}
+.text-enlarged .price-table thead {
+  display: none;
+}
 .text-enlarged .price-table tr {
+  display: grid;
   grid-template-columns: minmax(0, 1fr);
+  margin-bottom: 16px;
+  border: 1px solid #dce3e9;
+  border-radius: 10px;
+  padding: 10px;
+}
+.text-enlarged .price-table th:first-child {
+  width: auto;
+  border: 0;
 }
 .text-enlarged .price-table td {
   display: flex;
@@ -1222,6 +1252,12 @@ html.text-enlarged {
   justify-content: space-between;
   gap: 8px;
   white-space: nowrap;
+}
+.text-enlarged .price-table td::before {
+  content: attr(data-label);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #53677b;
 }
 .details-body {
   overflow-wrap: break-word;

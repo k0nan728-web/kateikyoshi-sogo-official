@@ -1,0 +1,188 @@
+{
+  "date": "2026-09-11",
+  "normal": [
+    {
+      "overflow": [],
+      "scroll": 305,
+      "viewport": 320,
+      "width": 305
+    },
+    {
+      "overflow": [],
+      "scroll": 345,
+      "viewport": 360,
+      "width": 345
+    },
+    {
+      "overflow": [],
+      "scroll": 360,
+      "viewport": 375,
+      "width": 360
+    },
+    {
+      "overflow": [],
+      "scroll": 375,
+      "viewport": 390,
+      "width": 375
+    },
+    {
+      "overflow": [],
+      "scroll": 415,
+      "viewport": 430,
+      "width": 415
+    },
+    {
+      "overflow": [],
+      "scroll": 553,
+      "viewport": 568,
+      "width": 553
+    },
+    {
+      "overflow": [],
+      "scroll": 652,
+      "viewport": 667,
+      "width": 652
+    },
+    {
+      "overflow": [],
+      "scroll": 721,
+      "viewport": 736,
+      "width": 721
+    },
+    {
+      "overflow": [],
+      "scroll": 753,
+      "viewport": 768,
+      "width": 753
+    },
+    {
+      "overflow": [],
+      "scroll": 795,
+      "viewport": 810,
+      "width": 795
+    },
+    {
+      "overflow": [],
+      "scroll": 805,
+      "viewport": 820,
+      "width": 805
+    },
+    {
+      "overflow": [],
+      "scroll": 829,
+      "viewport": 844,
+      "width": 829
+    },
+    {
+      "overflow": [],
+      "scroll": 1009,
+      "viewport": 1024,
+      "width": 1009
+    },
+    {
+      "overflow": [],
+      "scroll": 1165,
+      "viewport": 1180,
+      "width": 1165
+    },
+    {
+      "overflow": [],
+      "scroll": 1265,
+      "viewport": 1280,
+      "width": 1265
+    },
+    {
+      "overflow": [],
+      "scroll": 1351,
+      "viewport": 1366,
+      "width": 1351
+    },
+    {
+      "overflow": [],
+      "scroll": 1425,
+      "viewport": 1440,
+      "width": 1425
+    },
+    {
+      "overflow": [],
+      "scroll": 1521,
+      "viewport": 1536,
+      "width": 1521
+    },
+    {
+      "overflow": [],
+      "scroll": 1905,
+      "viewport": 1920,
+      "width": 1905
+    }
+  ],
+  "expandedNormal": [
+    {
+      "viewport": 320,
+      "totalDetails": 35,
+      "openDetails": 35,
+      "pageOverflow": 0,
+      "localOverflow": 0
+    },
+    {
+      "viewport": 390,
+      "totalDetails": 35,
+      "openDetails": 35,
+      "pageOverflow": 0,
+      "localOverflow": 0
+    },
+    {
+      "viewport": 768,
+      "totalDetails": 35,
+      "openDetails": 35,
+      "pageOverflow": 0,
+      "localOverflow": 0
+    },
+    {
+      "viewport": 1024,
+      "totalDetails": 35,
+      "openDetails": 35,
+      "pageOverflow": 0,
+      "localOverflow": 0
+    },
+    {
+      "viewport": 1366,
+      "totalDetails": 35,
+      "openDetails": 35,
+      "pageOverflow": 0,
+      "localOverflow": 0
+    }
+  ],
+  "expandedText200": [
+    {
+      "viewport": 320,
+      "totalDetails": 35,
+      "openDetails": 35,
+      "pageOverflow": 0,
+      "localOverflow": 0
+    },
+    {
+      "viewport": 768,
+      "totalDetails": 35,
+      "openDetails": 35,
+      "pageOverflow": 0,
+      "localOverflow": 0
+    },
+    {
+      "viewport": 1024,
+      "totalDetails": 35,
+      "openDetails": 35,
+      "pageOverflow": 0,
+      "localOverflow": 0
+    }
+  ],
+  "status": "INCOMPLETE_NOT_PUBLISHED",
+  "limitations": [
+    "Chrome iframe rendering; not native iOS/Safari.",
+    "Screenshots cover selected lower sections; not every pixel at every width.",
+    "Factual provenance and final review remain."
+  ],
+  "calculator": "5500 × 90 / 60 × 8 + 10000 = 76000; browser verified",
+  "landscapeMenu": "568×320: all 8 links visible; pricing navigation closes menu",
+  "normalMeasurement": "After fonts ready and heading resize completed; inner iframe width excludes 15px scrollbar."
+}

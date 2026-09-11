@@ -21,6 +21,7 @@ frame.onload=async()=>{
   const section=params.get('section');
   if(section){doc.getElementById(section)?.scrollIntoView();}
   document.title='QA ready: '+width+'×'+height;
+  stage.dataset.qaReady='true';
  }));
 };
 frame.src='/';
