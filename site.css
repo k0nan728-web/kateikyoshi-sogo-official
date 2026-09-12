@@ -368,7 +368,7 @@ figcaption {
   color: #2b659b;
 }
 .intro h1 {
-  --heading-size: clamp(1rem, 5vw, 2.75rem);
+  --heading-size: clamp(1.125rem, 5vw, 2.75rem);
   margin-bottom: 22px;
 }
 .gold-rule {
