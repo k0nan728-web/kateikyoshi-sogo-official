@@ -391,7 +391,7 @@ figcaption {
   font-family: var(--serif);
   font-size: 1.2em;
 }
-.lead span {
+.lead > span {
   display: block;
 }
 .lead {

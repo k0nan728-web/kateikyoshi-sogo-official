@@ -1,0 +1,254 @@
+{
+  "latestQA": [
+    {
+      "h1Font": "18px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 320
+    },
+    {
+      "h1Font": "18px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 360
+    },
+    {
+      "h1Font": "18.75px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 375
+    },
+    {
+      "h1Font": "19.5px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 390
+    },
+    {
+      "h1Font": "21.5px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 430
+    },
+    {
+      "h1Font": "28.4px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 568
+    },
+    {
+      "h1Font": "33.35px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 667
+    },
+    {
+      "h1Font": "36.8px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 736
+    },
+    {
+      "h1Font": "38.4px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 768
+    },
+    {
+      "h1Font": "40.5px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 810
+    },
+    {
+      "h1Font": "41px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 820
+    },
+    {
+      "h1Font": "42.2px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 844
+    },
+    {
+      "h1Font": "44px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 1024
+    },
+    {
+      "h1Font": "44px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 1180
+    },
+    {
+      "h1Font": "44px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 1280
+    },
+    {
+      "h1Font": "44px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 1366
+    },
+    {
+      "h1Font": "44px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 1440
+    },
+    {
+      "h1Font": "44px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 1536
+    },
+    {
+      "h1Font": "44px",
+      "local": [],
+      "open": 35,
+      "overflow": 0,
+      "width": 1920
+    }
+  ],
+  "textReflowQA": [
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 320
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 360
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 375
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 390
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 430
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 568
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 667
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 736
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 768
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 810
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 820
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 844
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 1024
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 1180
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 1280
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 1366
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 1440
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 1536
+    },
+    {
+      "local": [],
+      "overflow": 0,
+      "width": 1920
+    }
+  ],
+  "enlargedQA": [
+    {
+      "font": "32px",
+      "local": [],
+      "overflow": 0,
+      "width": 320
+    },
+    {
+      "font": "32px",
+      "local": [],
+      "overflow": 0,
+      "width": 768
+    },
+    {
+      "font": "32px",
+      "local": [],
+      "overflow": 0,
+      "width": 1024
+    }
+  ]
+}
