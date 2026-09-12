@@ -1,0 +1,199 @@
+{
+  "date": "2026-09-12",
+  "scope": "未確認の実績表記を分離して制作・QAを継続",
+  "expandedAllWidths": [
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 305,
+      "viewport": 320,
+      "width": 305
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 345,
+      "viewport": 360,
+      "width": 345
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 360,
+      "viewport": 375,
+      "width": 360
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 375,
+      "viewport": 390,
+      "width": 375
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 415,
+      "viewport": 430,
+      "width": 415
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 553,
+      "viewport": 568,
+      "width": 553
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 652,
+      "viewport": 667,
+      "width": 652
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 721,
+      "viewport": 736,
+      "width": 721
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 753,
+      "viewport": 768,
+      "width": 753
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 795,
+      "viewport": 810,
+      "width": 795
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 805,
+      "viewport": 820,
+      "width": 805
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 829,
+      "viewport": 844,
+      "width": 829
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 1009,
+      "viewport": 1024,
+      "width": 1009
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 1165,
+      "viewport": 1180,
+      "width": 1165
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 1265,
+      "viewport": 1280,
+      "width": 1265
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 1351,
+      "viewport": 1366,
+      "width": 1351
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 1425,
+      "viewport": 1440,
+      "width": 1425
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 1521,
+      "viewport": 1536,
+      "width": 1521
+    },
+    {
+      "open": 35,
+      "overflow": [],
+      "scroll": 1905,
+      "viewport": 1920,
+      "width": 1905
+    }
+  ],
+  "textEnlargement": [
+    {
+      "fontSize": "32px",
+      "open": 35,
+      "overflow": [],
+      "scroll": 305,
+      "viewport": 320,
+      "width": 305
+    },
+    {
+      "fontSize": "32px",
+      "open": 35,
+      "overflow": [],
+      "scroll": 753,
+      "viewport": 768,
+      "width": 753
+    }
+  ],
+  "keyboard": {
+    "menuEnter": true,
+    "tabToFirstNavLink": true,
+    "escapeRestoresMenuButton": true,
+    "skipLinkFocusesMain": true,
+    "all35DetailsEnter": true
+  },
+  "contrastRatios": {
+    "ctaWhiteOnLightRose": 4.73,
+    "ctaWhiteOnDarkRose": 5.86,
+    "mutedOnPaper": 5.75,
+    "goldEyebrowOnIvory": 5.17,
+    "proofGoldOnNavy": 10.43,
+    "focusRingOnNavy": 4.06
+  },
+  "externalBrowserChecks": {
+    "eiken": true,
+    "gyakuten": true,
+    "bansou": true,
+    "retry": true,
+    "hikaku": true,
+    "googleForm": "public form loaded, not submitted",
+    "ogImage": {
+      "complete": true,
+      "naturalWidth": 1024,
+      "naturalHeight": 1536
+    }
+  },
+  "images": "All 3 complete with nonzero natural dimensions after scrolling into view. Lazy images correctly deferred.",
+  "video": "81.710998s, 640x360, readyState4. Playback progressed to19.61575s and Space paused. Burned-in captions observed at5s intervals; not a full audio transcript audit.",
+  "headingFontEquality": "320/390/768/1366: no mismatched sizes between heading rows. Desktop asymmetric sections intentionally left aligned.",
+  "facts": {
+    "pricing": "Historical runtime explicitly identifies general deviation-score bands and individual guidance. Restored notes for middle/high/university entrance tables. Specific mock exam provider is not named.",
+    "passRate": "Withheld pending evidence",
+    "topProCertification": "Withheld pending evidence"
+  },
+  "publication": "NOT_PUBLISHED; main/root unchanged",
+  "limitations": [
+    "Chrome CSS viewport harness; native Safari/iOS not verified.",
+    "Numerical checks cover all19 widths; visual checks use representative sections and widths.",
+    "Automated HEAD requests were403, but independent browser link and OG-image checks succeeded."
+  ]
+}

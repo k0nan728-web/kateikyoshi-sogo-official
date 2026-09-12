@@ -642,7 +642,8 @@ figcaption {
 }
 .proof-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  text-align: center;
   margin-top: 28px;
   border-radius: 20px;
   background: var(--navy);
@@ -653,7 +654,7 @@ figcaption {
   padding: 22px 12px;
   border-right: 1px solid #ffffff35;
 }
-.proof-grid > div:nth-child(4) {
+.proof-grid > div:last-of-type {
   border-right: 0;
 }
 .proof-grid strong {
@@ -665,17 +666,6 @@ figcaption {
 .proof-grid span {
   display: block;
   font-size: 0.875rem;
-}
-.proof-grid .proof-pass-rate {
-  grid-column: 1/-1;
-  border-top: 1px solid #ffffff35;
-  border-right: 0;
-  padding: 18px;
-}
-.proof-pass-rate strong,
-.proof-pass-rate span {
-  display: inline-block;
-  margin-inline: 8px;
 }
 .proof-note {
   grid-column: 1/-1;
@@ -1441,8 +1431,8 @@ footer small {
   .proof-grid > div:nth-child(even) {
     border-right: 0;
   }
-  .proof-grid > div:nth-child(3),
-  .proof-grid > div:nth-child(4) {
+  .proof-grid > div:last-of-type {
+    grid-column: 1/-1;
     border-top: 1px solid #ffffff35;
   }
   .global-nav {
