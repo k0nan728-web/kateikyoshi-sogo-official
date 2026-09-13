@@ -559,14 +559,17 @@ figcaption {
 }
 .direct-contract {
   padding: var(--section-space) 0;
-  background: linear-gradient(140deg, #f5faff, #fff);
+  background: #edf2f5;
+  border-top: 1px solid #d6e0e7;
   text-align: center;
 }
 .direct-contract-label {
   padding: 12px;
-  border-radius: 999px;
-  background: #eff2ff;
-  color: #2d5fa0;
+  margin: 0 auto 24px;
+  border-bottom: 1px solid #a9bac8;
+  width: fit-content;
+  max-width: 100%;
+  color: #32516e;
   letter-spacing: 0.1em;
   font-size: 0.875rem;
   font-weight: 700;
@@ -599,24 +602,17 @@ figcaption {
 .direct-contract-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+  gap: 1px;
+  background: #cbd6de;
+  border: 1px solid #cbd6de;
 }
 .direct-contract-grid article {
   min-width: 0;
   padding: 26px 14px;
-  border: 2px solid #e7adc3;
-  border-radius: 22px;
-  background: #fff;
-  box-shadow: 0 10px 25px #102d4c08;
-}
-.direct-contract-grid article:nth-child(2) {
-  border-color: #b8cceb;
-}
-.direct-contract-grid article:nth-child(3) {
-  border-color: #b9e1d0;
+  background: #f8fafb;
 }
 .direct-contract-grid article:nth-child(4) {
-  border-color: #ecd39b;
+  background: #fff8e8;
 }
 .direct-contract-icon {
   display: block;
@@ -660,7 +656,8 @@ figcaption {
 .proof-grid strong {
   display: block;
   color: #f0c660;
-  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-family: var(--serif);
+  font-size: clamp(1.125rem, 2.5vw, 2rem);
   white-space: nowrap;
 }
 .proof-grid span {
@@ -675,6 +672,25 @@ figcaption {
   padding: 0 20px 14px;
   margin: 0;
 }
+.teacher {
+  background: linear-gradient(110deg, #f7f0e1, #fffdf8 72%);
+  border-top: 5px solid #c6a65a;
+}
+.teacher .section-heading {
+  padding-bottom: 28px;
+  border-bottom: 1px solid #d7c6a4;
+}
+.teacher-media {
+  padding: clamp(12px, 2vw, 24px);
+  background: #fffdf8;
+  border: 1px solid #dacba9;
+  box-shadow: 12px 16px 0 #e9dfcc;
+  margin-right: 12px;
+}
+.teacher-copy {
+  border-left: 2px solid #b9994b;
+  padding-left: clamp(18px, 3vw, 36px);
+}
 .teacher-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
@@ -683,7 +699,7 @@ figcaption {
 }
 .teacher-media video {
   background: #071d38;
-  border-radius: 20px;
+  border-radius: 4px;
   aspect-ratio: 16/9;
   object-fit: contain;
 }
@@ -711,8 +727,9 @@ figcaption {
 }
 .split-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 32px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
 }
 .split-layout > * {
   min-width: 0;
@@ -729,13 +746,14 @@ figcaption {
 }
 .support-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   border-top: 1px solid #ffffff35;
 }
 .support-list > div {
   display: flex;
   gap: 20px;
-  padding: 25px 20px 0 0;
+  padding: 25px 0;
+  border-bottom: 1px solid #ffffff35;
   min-width: 0;
 }
 .support-list > div > span {
@@ -757,7 +775,7 @@ figcaption {
 .brand-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  gap: 0 40px;
 }
 .brand-path {
   --path-color: var(--blue);
@@ -766,13 +784,10 @@ figcaption {
   flex-direction: column;
   align-items: flex-start;
   min-width: 0;
-  padding: 32px;
-  border: 1px solid #d9e1e7;
-  border-top: 4px solid var(--path-color);
-  border-radius: 6px 6px 22px 22px;
-  background: white;
+  padding: 36px 8px;
+  border-top: 2px solid var(--path-color);
+  background: transparent;
   text-decoration: none;
-  box-shadow: 0 12px 28px #0b233d09;
 }
 .path-gold {
   --path-color: #b38930;
@@ -785,7 +800,7 @@ figcaption {
 }
 .path-number {
   font:
-    700 2.375rem/1 "Playfair Display",
+    700 clamp(2.75rem, 5vw, 4.5rem)/1 "Playfair Display",
     serif;
   color: var(--path-color);
   margin-bottom: 20px;
@@ -815,7 +830,7 @@ figcaption {
 .brand-path:hover {
   border-color: var(--path-color);
   color: var(--ink);
-  box-shadow: 0 14px 32px #0b233d16;
+  background: #f2eadb;
 }
 .subject-note {
   max-width: 920px;
@@ -924,6 +939,15 @@ figcaption {
 .lesson-layout img {
   border: 1px solid #d6dee6;
   border-radius: 16px;
+}
+.lesson-method {
+  background: #eaf0f3;
+  border-top: 1px solid #c8d5df;
+}
+.lesson-layout figure {
+  padding: clamp(12px, 2vw, 24px);
+  background: #fff;
+  border-bottom: 4px solid #b79a54;
 }
 .lesson-steps {
   list-style: none;
@@ -1403,6 +1427,9 @@ footer small {
   .teacher-layout {
     grid-template-columns: minmax(0, 1fr);
   }
+  .split-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
   .teacher-media {
     width: min(100%, 650px);
     margin: auto;
@@ -1492,13 +1519,13 @@ footer small {
     margin: 24px auto;
   }
   .direct-contract-grid {
-    gap: 14px;
+    gap: 1px;
   }
   .direct-contract-grid article {
     padding: 24px 10px;
   }
   .brand-path {
-    padding: 26px;
+    padding: 30px 4px;
   }
   .voice-grid {
     gap: 30px;
