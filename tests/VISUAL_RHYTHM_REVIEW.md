@@ -29,3 +29,17 @@ Chromeのiframeで指定19幅（320,360,375,390,430,568,667,736,768,810,820,844,
 - SEO/集客目線：見出し階層、本文、4ブランド・比較・フォームへのリンク、料金情報、noindexプレビュー設定を維持。文言や根拠は変更せず。
 
 これは改善レビュー版。総合100点・最終完成・本番反映ではない。iPhone/iPad Safariの再確認を受け、必要な修正だけ追加する。
+
+## PageShare反映確認（2026-09-13）
+
+中断された公開処理はサーバー側で完了していた。再公開せずsites_getと公開ブラウザで確認。
+
+- URL: https://smoky-arbor-9431.hosted.pageshare.ai/
+- Site: site_6de31bc499c24a21b7b861a677ccab9b
+- currentVersionId: ver_e15ba9ce995f4e0b967ac17351a0e444
+- isPublished=true / protectionType=public / hostedSubdomainStatus=active / isExpired=false
+- 有効期限: 2026-09-20T00:26:43.911Z
+- 公開内容のGitHubコミット: a6cb6dda9f1476627b0dabeb9ecf8516bd346d84
+- ブランチ: codex/official-parent-rebuild-20260910
+- 公開CSS index-C-LybGdM.css が検証済みビルドと一致。直接契約背景rgb(237,242,245)、講師紹介のアイボリーグラデーション、指導特徴のPC2列を公開DOMで確認。指導特徴の公開スクリーンショットを目視確認、公開ページの横超過0。
+- main/root/本番は変更なし。Safari実機確認待ちであり100点・最終完成ではない。
