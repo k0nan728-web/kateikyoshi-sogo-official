@@ -10,12 +10,15 @@ const scale=Math.min(1,(innerWidth-32)/width);
 Object.assign(frame.style,{width:width+'px',height:height+'px',transform:`scale(${scale})`});
 Object.assign(stage.style,{width:width*scale+'px',height:height*scale+'px'});
 frame.onload=async()=>{
+ stage.dataset.qaPhase='frame-loaded';
  const doc=frame.contentDocument;
  const qaStyle=doc.createElement('style');
  qaStyle.textContent='html{scroll-behavior:auto!important}';
  doc.head.append(qaStyle);
  if(params.has('root'))doc.documentElement.style.fontSize=params.get('root')+'px';
+ stage.dataset.qaPhase='fonts-loading';
  await doc.fonts.ready;
+ stage.dataset.qaPhase='fonts-ready';
  frame.contentWindow.dispatchEvent(new Event('resize'));
  requestAnimationFrame(()=>requestAnimationFrame(()=>{
   const section=params.get('section');
