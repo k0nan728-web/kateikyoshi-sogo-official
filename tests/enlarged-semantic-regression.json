@@ -1,0 +1,7 @@
+{
+  "sourceCommit": "a46d1c0cb0288b920505b3edb42e5ad4c2bb1268",
+  "scope": "共通semantic-unit変更後。全details展開。requestedWidthとclientWidthはスクロールバー分異なる。",
+  "results": [
+    {"requestedWidth":768,"height":1024,"clientWidth":753,"rootFontPx":32,"openDetails":38,"totalDetails":38,"pageOverflow":0,"localOverflow":[]}
+  ]
+}
