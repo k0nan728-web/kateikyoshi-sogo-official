@@ -1,4 +1,5 @@
 import { monthlyEstimate } from "./pricing.mjs";
+import { focusAnchorTarget } from "./navigation.mjs";
 // Each behaviour owns its component; no DOM relocation or text-based removal.
 const menuButton = document.querySelector(".menu-button");
 const menu = document.querySelector(".global-nav");
@@ -18,7 +19,10 @@ menuButton.addEventListener("click", () => {
   menu.classList.toggle("is-open", open);
 });
 menu.addEventListener("click", (e) => {
-  if (e.target.closest("a")) closeMenu();
+  const link = e.target.closest("a");
+  if (!link || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+  closeMenu();
+  focusAnchorTarget(link);
 });
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && menu.classList.contains("is-open"))

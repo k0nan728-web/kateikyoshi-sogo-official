@@ -17,6 +17,7 @@
 <meta content="https://kateikyoshi-sogo.com/IMG_4684_trimmed_35c73ae5.PNG" property="og:image"/>
 <meta content="1024" property="og:image:width"/>
 <meta content="1536" property="og:image:height"/>
+<meta content="鈴木雄太が机でオンライン授業を行っている様子" property="og:image:alt"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&amp;family=Noto+Serif+JP:wght@600;700;900&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
@@ -190,10 +191,10 @@
 </div>
 <div class="teacher-layout">
 <div class="teacher-media">
-<video aria-label="鈴木雄太の自己紹介動画" controls="" playsinline="" poster="/teacher-intro-poster.jpg" preload="metadata">
+<video aria-label="鈴木雄太の自己紹介動画" aria-describedby="teacher-video-description" controls="" playsinline="" poster="/teacher-intro-poster.jpg" preload="metadata">
 <source src="/teacher_intro_clean_403456db.mp4" type="video/mp4"/>
 </video>
-<p class="caption">
+<p class="caption" id="teacher-video-description">
                 自己紹介動画で、講師の雰囲気や話し方をご確認いただけます。科目ごとの優先順位と時間配分、志望校分析、過去問の活用を組み合わせた指導方針を紹介しています。
               </p>
 </div>
@@ -1319,7 +1320,7 @@
 <option value="12">12回</option>
 </select></label>
 </div>
-<label class="checkbox-label"><input id="estimate-support" type="checkbox"/>月額サポートを追加（10,000円／月）</label><output aria-live="polite" id="estimate-total"><span>月額 </span><span id="estimate-amount">16,000円</span><span>（税込）</span></output>
+<label class="checkbox-label"><input id="estimate-support" type="checkbox"/>月額サポートを追加（10,000円／月）</label><output aria-live="polite" for="estimate-course estimate-minutes estimate-count estimate-support" id="estimate-total"><span>月額 </span><span id="estimate-amount">16,000円</span><span>（税込）</span></output>
 <p class="fine-print" id="estimate-breakdown">
                 4,000円 × 60分 ÷ 60 × 4回
               </p>
