@@ -1,5 +1,14 @@
 # 全面再設計・再開記録
 
+## 2026-09-19 最新再開試行・ブラウザポリシー停止
+
+- 開始時レビューbranch codex/official-parent-rebuild-20260910、local9e20195、worktree clean。対応する保存済みremoteは30400793ca030bb4722aed042ff286e9658fba83。未コミット修正の消失なし。
+- 未完了の320×844/root32/processを開く際ERR_CONNECTION_REFUSED。既存プロジェクトの実行profileを確認し、sites-preview startで内部プレビューを正常起動。
+- 次のtab.reload()がブラウザセキュリティポリシーにより拒否。「requested URL protocol is not allowed」「Allowed protocols http:, https:」「同じ結果を得る回避を禁止」と返された。要求した初回URLはhttpであり、内部エラーページの再読み込みが原因かどうかは未確定。セッション消失とは区別する。
+- ポリシー拒否後は代替URL・別ブラウザ・低レベルAPIでの回避を実施していない。今回新しい実表示QAの合格結果はない。既存QAと修正コードは変更なし。
+- 次回開始地点は引き続き、許可された検証ブラウザで320×844/root32/processの01〜05全文を目視し、最後の意味単位修正を確認すること。ブラウザ制限の解消が必要。下記の検証済み部分を最初からやり直さない。
+- PageShare/main/root/本番は未更新。全章目視と6観点評価は未完了、100点・完成判定なし。
+
 ## 2026-09-19 再開チェックポイント（この先頭記録を優先）
 
 レビューbranch: codex/official-parent-rebuild-20260910。基点remote a46d1c0cb0288b920505b3edb42e5ad4c2bb1268 / local35f2252。停止直前の未コミットindex.htmlとQA JSONを保全し、remote76dee150dfc0472ffb7449e467ab2bcd45741ccf / local a14b408593fb8c1501068a1e493ab71d8871ef21 / tree7362374bb76b248c357afbb1ca181386cf1f5ee8として保存済み。この追記を含む新コミットが最新再開地点。
