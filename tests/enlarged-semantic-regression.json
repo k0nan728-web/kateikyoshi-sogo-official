@@ -2,6 +2,8 @@
   "sourceCommit": "a46d1c0cb0288b920505b3edb42e5ad4c2bb1268",
   "scope": "共通semantic-unit変更後。全details展開。requestedWidthとclientWidthはスクロールバー分異なる。",
   "results": [
-    {"requestedWidth":768,"height":1024,"clientWidth":753,"rootFontPx":32,"openDetails":38,"totalDetails":38,"pageOverflow":0,"localOverflow":[]}
+    {"requestedWidth":768,"height":1024,"clientWidth":753,"rootFontPx":32,"openDetails":38,"totalDetails":38,"pageOverflow":0,"localOverflow":[],"scope":"前回確認済み。process局所パッチ前。"},
+    {"requestedWidth":320,"height":844,"clientWidth":305,"rootFontPx":32,"openDetails":38,"totalDetails":38,"pageOverflow":0,"localOverflow":[],"source":"76dee150dfc0472ffb7449e467ab2bcd45741ccf","visual":"process見出しの意味単位を確認。全章の目視合格を意味しない。"},
+    {"requestedWidth":1024,"height":768,"clientWidth":1009,"rootFontPx":32,"openDetails":38,"totalDetails":38,"pageOverflow":0,"localOverflow":[],"source":"76dee150dfc0472ffb7449e467ab2bcd45741ccf","visual":"全項目展開の数値検査。章別目視は継続中。"}
   ]
 }

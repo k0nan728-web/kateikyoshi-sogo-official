@@ -1,5 +1,34 @@
 # 全面再設計・再開記録
 
+## 2026-09-19 再開チェックポイント（この先頭記録を優先）
+
+レビューbranch: codex/official-parent-rebuild-20260910。基点remote a46d1c0cb0288b920505b3edb42e5ad4c2bb1268 / local35f2252。停止直前の未コミットindex.htmlとQA JSONを保全し、remote76dee150dfc0472ffb7449e467ab2bcd45741ccf / local a14b408593fb8c1501068a1e493ab71d8871ef21 / tree7362374bb76b248c357afbb1ca181386cf1f5ee8として保存済み。この追記を含む新コミットが最新再開地点。
+
+### 完了・観測
+- 320×844/root32: process見出しの意味単位を目視。全38details展開でpage/local overflow0、client305。
+- 1024×768/root32: 全38details展開でpage/local overflow0、client1009。ただし初回画像はフォント待ちで先頭に留まったため、全章目視合格ではない。
+- 768/root32の既存全38QAは再実施せず維持。process局所再確認で「必要は／ありません」が分かれたため、外側の意味単位の中に短い意味単位を入れ、広幅は文節全体、狭幅は短いまとまりで折返す。768で「必要はありません。」がまとまり、320も横超過0を確認。
+- Manusの学習相談/FAQをライブブラウザで直接比較。学習相談は旧版の相談項目発見性が優位だったため、既存本文の内容を4項目のdl（学習計画/勉強方法/進路選び/気持ちと学習方針）へ。新しい実績・サービスは追加なし。金線の一覧で白カード反復を避けた。
+- 学習相談:1366通常、390通常、320/root32、1024/root32目視。1024/root32の窮屈な2列をauto-fit min26remに変更し1列で改善確認。料金と無料入会相談との区別維持。320で「も。」孤立を見つけ、相談／だけでも。へ意味単位変更し確認。局所overflow0。
+- FAQ:1366通常でManusと比較。線区切りの一覧は旧版と同等の質問発見性。最初のsummaryをEnterで展開確認。全端末最終合格ではない。
+- process320/root32:横超過0でも番号横の本文が極端に細くなっていることを目視。container20rem以下を番号上・本文下のblock配置へ修正。お問い合わせが1行に戻ったことを目視。その後本文の「ご連絡ください」の途中分断を発見し、全5段階の本文/見出しを短い自然な意味単位へ変更。**この最後のHTML修正後の目視が未実施**。
+
+### QAの境界
+既存19幅/38展開記録は保持。enlarged-semantic-regression.jsonの320/1024全38結果はremote76dee時点。今回後続変更はcounseling/processのみなので該当章の回帰を行うこと。最後のフローHTML変更を未検証のまま合格にしない。
+途中build PASS（90.92kB HTML/index-D3FV6QCy.css/index-BUpZ36yh.js）、verify.py責務各1・15料金表PASS、料金6ケースPASS。その後process修正があるため保存前の最新buildもPASS（91.55kB HTML/index-B45iVI2V.css/index-BD_TAvLg.js）。diff --check PASS。
+
+### 技術的事象
+プレビュー停止でERR_CONNECTION_REFUSED→sites-preview startで復旧。768のharnessはfonts-loadingで停止し1回reloadでも同じ。後続の1366/320/1024ではfonts-readyとなり実表示検証を継続できた。サイト停止やbot検知とは断定しない。2026-09-19の最新再開指示時、Node側tabがundefinedで検証セッション消失を確認。修正ファイルは保持。
+
+### 次回の正確な開始地点
+1. この最新コミットとworktreeを確認。browser skillに従い接続し、必要なら既存previewを再起動。
+2. **320×844/root32/processを開き、番号01〜05と本文を最後までスクロールして、最後の意味単位パッチの結果を目視。** 必要に応じ修正。最新CSSは20rem以下で番号上、本文下。全38の再実施よりprocess/counselingの局所回帰を優先。
+3. processの320通常・390通常・768/root32・1366通常（横5段階）で影響確認。counselingの最終grid/ラベル変更を1366通常と320/root32で回帰。前半の変更なし。
+4. 残る全章目視:導入/約束、モバイル講師動画、全合格校一覧、合格事例/授業画面/声、料金計算UI・全CTA・記事クリック・ブランドhover、画像原比率、縦横。既存確認を重複せず未完の状態をVISUAL_COMPARISON_20260914.mdと照合。
+5. 6観点の全章最終採点は未完了。技術的にoverflow0でも意味のある問題が見つかっているので100点・完成宣言不可。
+6. PageShare/main/root/本番は一切更新禁止。最新候補はGitHubレビューbranchだけに保存する。
+
+
 ## 2026-09-14 追加レビュー・今回の到達点（最優先）
 
 基点remote: 5dd91f42b6597cc628b15f6716560a68fb3d284a。local e48a059109fc30e0dd041e01c8e83dd4ced129f1と同一tree bca974c629aa7c78046a0cb3a43f7d4d7387bd39、開始時worktree cleanを確認。この追記を含むコミットが次の再開地点。

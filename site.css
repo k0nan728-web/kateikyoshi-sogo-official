@@ -1287,7 +1287,7 @@ html.text-enlarged {
 }
 .counseling-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
   gap: 48px;
   align-items: center;
 }
@@ -1302,6 +1302,25 @@ html.text-enlarged {
   background: #f6f8fb;
   border-radius: 18px;
   border-left: 4px solid #b59747;
+}
+.consultation-topics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: 20px 28px;
+  margin: 28px 0;
+}
+.consultation-topics > div {
+  min-width: 0;
+  border-top: 2px solid #b59747;
+  padding-top: 12px;
+}
+.consultation-topics dt {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+.consultation-topics dd {
+  margin: 6px 0 0;
 }
 .counseling-price > strong {
   font-size: 2.125rem;
@@ -1357,6 +1376,9 @@ html.text-enlarged {
   color: var(--muted);
 }
 .process > .section-shell { container-type:inline-size; }
+@container(max-width:20rem) {
+  .process-list > li { display:block; }
+}
 @container(min-width:66rem) {
   .process-list { grid-template-columns:repeat(5,minmax(0,1fr)); max-width:none; gap:20px; }
   .process-list > li { display:block; border-left:0; border-top:2px solid #c5af6f; padding:24px 0 0; }
