@@ -336,15 +336,16 @@ figcaption {
   box-shadow: 0 20px 55px #0b233d22;
 }
 .intro {
-  background: linear-gradient(#f1f5f9, #edf2f6);
+  background: radial-gradient(ellipse at 10% 0%, #f7dce5 0%, transparent 48%), radial-gradient(ellipse at 95% 90%, #dcecf9 0%, transparent 45%), #fff8eb;
   padding-top: 36px;
 }
 .intro-panel {
   padding: clamp(30px, 5vw, 62px) clamp(8px, 2vw, 32px);
-  border: 1px solid #dec98e;
-  border-radius: 24px;
-  background: linear-gradient(140deg, #fff, #fffdf7);
-  box-shadow: 0 18px 48px #14304f12;
+  border: 0;
+  border-block: 1px solid #caa866;
+  border-radius: 0;
+  background: #ffffff99;
+  box-shadow: none;
   text-align: center;
 }
 .category-grid {
@@ -357,15 +358,19 @@ figcaption {
 .category {
   padding: 12px 24px;
   border: 1px solid currentColor;
-  border-radius: 12px;
+  border-radius: 6px;
   background: #fff;
   font: 700 clamp(0.9375rem, 2vw, 1.375rem) / 1.5 var(--serif);
 }
 .category.rose {
-  color: var(--rose);
+  color: #fff;
+  background: #b9285b;
+  border-color: #b9285b;
 }
 .category.blue {
-  color: #2b659b;
+  color: #fff;
+  background: #1b5790;
+  border-color: #1b5790;
 }
 .intro h1 {
   --heading-size: clamp(1.125rem, 5vw, 2.75rem);
@@ -402,7 +407,7 @@ figcaption {
   max-width: 670px;
   margin: 26px auto 0;
   padding: 25px 12px 0;
-  border-top: 1px solid #e4d6b6;
+  border-top: 2px solid #d2b269;
 }
 .planner p {
   margin: 0;
@@ -411,26 +416,29 @@ figcaption {
   display: block;
   font: 700 clamp(1.1875rem, 2.5vw, 1.875rem) / 1.7 var(--serif);
 }
-/* The approved reference uses three stacked white cards. */
+/* Three promises: one family, three distinct accents; rem-based columns respect text enlargement. */
 .promises h2 {
   text-align: center;
   margin-bottom: 38px;
 }
 .promise-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
   gap: 22px;
   margin-bottom: 38px;
 }
 .promise-card {
+  --promise-tone: #ad2956;
+  --promise-wash: #fff0f4;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 38px 26px;
-  border: 1px solid #d7dce3;
+  border: 1px solid #ead9dd;
+  border-top: 5px solid var(--promise-tone);
   border-radius: 24px;
-  background: #fff;
-  box-shadow: 0 8px 22px #142d480e;
+  background: linear-gradient(135deg,var(--promise-wash),#fff 75%);
+  box-shadow: 0 12px 30px #142d4810;
   text-align: center;
 }
 .promise-icon {
@@ -440,20 +448,18 @@ figcaption {
   height: 76px;
   margin-bottom: 20px;
   flex: 0 0 76px;
-  border: 2px solid currentColor;
+  border: 0;
   border-radius: 50%;
-  background: transparent;
+  background: var(--promise-tone);
+  color: #fff;
   font: 400 40px/1 var(--sans);
 }
-.rose-card .promise-icon {
-  color: var(--rose);
-}
-.blue-card .promise-icon {
-  color: var(--blue);
-}
-.green-card .promise-icon {
-  color: var(--green);
-}
+
+
+
+.blue-card { --promise-tone:#1b5790; --promise-wash:#eaf4ff; }
+.green-card { --promise-tone:#17725e; --promise-wash:#e7f6ed; }
+.promises { background:#fffdf8; }
 .promise-card h3 {
   max-width: 100%;
   --heading-size: clamp(1.3125rem, 2.5vw, 1.75rem);
@@ -559,7 +565,7 @@ figcaption {
 }
 .direct-contract {
   padding: var(--section-space) 0;
-  background: #edf2f5;
+  background: #f2f6fc;
   border-top: 1px solid #d6e0e7;
   text-align: center;
 }
@@ -609,7 +615,7 @@ figcaption {
 .direct-contract-grid article {
   min-width: 0;
   padding: 26px 14px;
-  background: #f8fafb;
+  background: #fff;
 }
 .direct-contract-grid article:nth-child(4) {
   background: #fff8e8;
@@ -641,8 +647,9 @@ figcaption {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   text-align: center;
   margin-top: 28px;
-  border-radius: 20px;
-  background: var(--navy);
+  border-radius: 0;
+  border-top: 4px solid #dfbc69;
+  background: linear-gradient(115deg,#071d38,#164b76);
   color: white;
   padding: 8px 0;
 }
@@ -657,7 +664,7 @@ figcaption {
   display: block;
   color: #f0c660;
   font-family: var(--serif);
-  font-size: clamp(1.125rem, 2.5vw, 2rem);
+  font-size: clamp(1.5rem, 3vw, 2.75rem);
   white-space: nowrap;
 }
 .proof-grid span {
@@ -673,18 +680,20 @@ figcaption {
   margin: 0;
 }
 .teacher {
-  background: linear-gradient(110deg, #f7f0e1, #fffdf8 72%);
+  background: linear-gradient(110deg,#fff8e8 0%,#fffdf8 52%,#edf5fc 100%);
   border-top: 5px solid #c6a65a;
 }
 .teacher .section-heading {
+  text-align: left;
   padding-bottom: 28px;
   border-bottom: 1px solid #d7c6a4;
 }
 .teacher-media {
   padding: clamp(12px, 2vw, 24px);
+  border-radius: 4px 30px 4px 4px;
   background: #fffdf8;
   border: 1px solid #dacba9;
-  box-shadow: 12px 16px 0 #e9dfcc;
+  box-shadow: 10px 12px 0 #d5b574;
   margin-right: 12px;
 }
 .teacher-copy {
@@ -734,8 +743,9 @@ figcaption {
 .split-layout > * {
   min-width: 0;
 }
+.support { background:radial-gradient(ellipse at 95% 10%,#20597c,transparent 60%),#071d38; }
 .support-intro {
-  text-align: center;
+  text-align: left;
 }
 .support-intro .light-copy {
   max-width: 1020px;
