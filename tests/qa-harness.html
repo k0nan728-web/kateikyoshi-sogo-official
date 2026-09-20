@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja"><meta charset="utf-8"><title>Responsive QA — development only</title>
+<html lang="ja"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>Responsive QA — development only</title>
 <style>body{margin:0;background:#cbd2da}#stage{margin:12px auto;background:white}iframe{border:0;transform-origin:top left}</style>
 <div id="stage"><iframe id="site" title="検証対象"></iframe></div>
 <script>
@@ -15,6 +15,7 @@ frame.onload=async()=>{
  const qaStyle=doc.createElement('style');
  qaStyle.textContent='html{scroll-behavior:auto!important}';
  doc.head.append(qaStyle);
+ if(params.has('open'))doc.querySelectorAll('details').forEach(e=>e.open=true);
  if(params.has('root'))doc.documentElement.style.fontSize=params.get('root')+'px';
  stage.dataset.qaPhase='fonts-loading';
  await doc.fonts.ready;
@@ -23,6 +24,9 @@ frame.onload=async()=>{
  requestAnimationFrame(()=>requestAnimationFrame(()=>{
   const section=params.get('section');
   if(section){doc.getElementById(section)?.scrollIntoView();}
+  if(params.has('promise'))doc.querySelectorAll('.promise-card')[Number(params.get('promise'))]?.scrollIntoView();
+  const qaOverflow=Array.from(doc.querySelectorAll('main *')).filter(e=>e.clientWidth>0 && e.scrollWidth>e.clientWidth+2).map(e=>({tag:e.tagName,cls:e.className,over:e.scrollWidth-e.clientWidth}));
+  const out=document.createElement('pre');out.id='qa-result';out.textContent=JSON.stringify({width,root:params.get('root')||16,pageOverflow:doc.documentElement.scrollWidth-doc.documentElement.clientWidth,local:qaOverflow,details:doc.querySelectorAll('details[open]').length,section:section||'top'});document.body.append(out);
   document.title='QA ready: '+width+'×'+height;
   stage.dataset.qaReady='true';
  }));
