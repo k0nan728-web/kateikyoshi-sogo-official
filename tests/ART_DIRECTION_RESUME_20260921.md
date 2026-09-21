@@ -1,5 +1,7 @@
 # 正確な再開地点 — 2026-09-21
 
+> 最新更新: 相談ボタンと最終CTAの320px/root32目視確認は完了。開始フロー、代表幅の全展開回帰測定、重点実表示、Manus比較と6観点暫定評価を実施。詳細は ART_DIRECTION_REVIEW_20260921.md を優先する。サイトはd43915c / Version7のまま。次はユーザーのSafari実機レビュー。以下の「次の未完了工程」と停止記録は過去の経緯であり、相談ボタンから再度やり直さない。
+
 ## 保存・公開
 - Review branch: codex/official-parent-rebuild-20260910
 - GitHub source commit: d43915ce6b280bd412d3967b8728f4fe1179a95f
