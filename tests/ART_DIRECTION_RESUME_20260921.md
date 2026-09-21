@@ -25,3 +25,9 @@ Browser locator press('Shift') timed out although focus/scroll took effect. A re
 
 ## 保持条件
 main/root/production untouched. FAQ/policy keep existing readable treatment. No invented claims/SNS. All image/video bytes preserved. No full earlier QA repetition before sectional work complete.
+
+## 追加の再開試行 — 相談ボタンで停止
+Version 7 counseling at 320px/root32 loaded successfully. qa-result: pageOverflow=0, local=[]; button DOM text is 学習相談について問い合わせる, width233px, height197.171875px, own overflow0. Button viewport rect top2797.453125/bottom2994.625 means it was outside the visible iframe. Screenshot confirmed only the heading and topics, not the button.
+A single supported CUA scroll at x700/y650, scrollY2430 timed out with Input.synthesizeScrollGesture. No repetition, no layout modification, no rebuild/publish. User requested stop on timeout, so visual button verification remains incomplete.
+Next: restore browser responsiveness and inspect the counseling button at 320px/root32 without repeating the failed scroll or already-completed journal QA. Then final CTA phrase check, remaining-section review, full regression and Manus/six-perspective assessment. Do not treat DOM overflow0 as visual verification.
+Site source remains d43915c; this additional documentation does not change Version7 content. Previous checkpoint-only GitHub commit: 24898414486abc2926cbb239c57ce1e9f9b448b7.
