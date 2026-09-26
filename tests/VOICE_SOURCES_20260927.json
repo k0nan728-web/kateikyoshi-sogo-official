@@ -1,0 +1,90 @@
+{
+  "sources": [
+    "https://kateikyoshi-sogo.com/#testimonials",
+    "https://manusrestore-cdqtlmgp.manus.space/#testimonials",
+    "index-ROriAf5U.js / m3,p3"
+  ],
+  "verification": "Published original wording and attributes matched in both live sites and repository. This confirms publication provenance, not independent identity or original consent documentation. No stars, gender portraits or time-to-result claims added.",
+  "parents": [
+    {
+      "initials": "H.M",
+      "relation": "中学3年生の保護者",
+      "achievement": "英検2級合格",
+      "comment": "先生の指導は非常に丁寧で、子供が英語を楽しめるようになりました。英検2級に合格し、高校受験でも英語が得意科目になりました。本当にありがとうございました。",
+      "rating": 5,
+      "gender": "female",
+      "ageGroup": "middle"
+    },
+    {
+      "initials": "S.T",
+      "relation": "高校3年生の保護者",
+      "achievement": "英検2級合格",
+      "comment": "大学受験に向けて英検2級が必要でしたが、先生の的確な指導のおかげで合格できました。英語の基礎から丁寧に教えていただき、本当に助かりました。",
+      "rating": 5,
+      "gender": "male",
+      "ageGroup": "middle"
+    },
+    {
+      "initials": "S.Y",
+      "relation": "小学6年生の保護者",
+      "achievement": "英検準2級合格",
+      "comment": "小学生で準2級に挑戦するのは難しいかと思いましたが、先生の分かりやすい指導のおかげで合格できました。子供の自信にもつながりました。",
+      "rating": 5,
+      "gender": "female",
+      "ageGroup": "middle"
+    },
+    {
+      "initials": "O.M",
+      "relation": "小学5年生の保護者",
+      "achievement": "英検4級合格",
+      "comment": "英語が苦手だった娘が、先生の指導で英語を好きになりました。4級に合格し、次は3級に挑戦したいと言っています。先生のおかげです。",
+      "rating": 5,
+      "gender": "female",
+      "ageGroup": "middle"
+    }
+  ],
+  "students": [
+    {
+      "initials": "I.T",
+      "grade": "中学1年生",
+      "from": "英語が苦手",
+      "to": "英検3級 合格",
+      "period": "3ヶ月",
+      "story": "英語が苦手で心配していましたが、先生の丁寧な指導のおかげで短期間で3級に合格することができました。わかりやすく教えていただき、本当にありがとうございました。",
+      "tags": [
+        "英語が苦手",
+        "中学生",
+        "3ヶ月で合格"
+      ],
+      "gender": "female"
+    },
+    {
+      "initials": "H.J",
+      "grade": "高校1年生",
+      "from": "英語が苦手",
+      "to": "英検2級 合格",
+      "period": "6ヶ月",
+      "story": "高校1年生で2級を取得できたことで、大学入試に向けて大きなアドバンテージになりました。先生の指導は非常にわかりやすく、苦手だったリスニングも克服できました。",
+      "tags": [
+        "高校生",
+        "大学入試対策",
+        "6ヶ月で合格"
+      ],
+      "gender": "male"
+    },
+    {
+      "initials": "M.Y",
+      "grade": "高校2年生",
+      "from": "英語が苦手",
+      "to": "英検準1級 合格",
+      "period": "9ヶ月",
+      "story": "準1級は難しいと聞いていましたが、先生の丁寧な指導と戦略的な学習計画のおかげで合格できました。特に英作文の指導が的確で、二次試験も自信を持って臨めました。",
+      "tags": [
+        "高校生",
+        "推薦入試",
+        "9ヶ月で準1級"
+      ],
+      "gender": "female"
+    }
+  ]
+}

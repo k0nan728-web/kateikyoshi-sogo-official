@@ -4,6 +4,10 @@
   --gold: #cda33b;
   --ivory: #fbf7ed;
   --paper: #fffdfa;
+  --surface-warm: #f1e5ca;
+  --surface-sage: #dceee4;
+  --surface-blue: #e0eaf3;
+  --chapter-accent: #ae8636;
   --ink: #102d4c;
   --muted: #53677b;
   --rose: #c93668;
@@ -119,7 +123,7 @@ main > * {
 }
 .ivory-section {
   padding: var(--section-space) 0;
-  background: linear-gradient(135deg, #fffaf0, #fffefa 55%, #f4f7fa);
+  background: var(--surface-warm);
 }
 .navy-section {
   padding: var(--section-space) 0;
@@ -127,9 +131,20 @@ main > * {
   color: #fff;
 }
 .section-heading {
-  text-align: center;
-  margin-bottom: 28px;
+  text-align: var(--heading-align, center);
+  margin-bottom: 36px;
 }
+/* Chapter hierarchy: overview headings centered; narrative headings follow text.
+   Alignment is semantic and remains stable when columns stack. */
+[data-heading="story"] { --heading-align:left; --heading-marker-margin:0; }
+.section-heading::after {
+  content:""; display:block; width:64px; height:3px;
+  background:var(--chapter-accent); margin:24px var(--heading-marker-margin, auto) 0;
+}
+[data-heading="story"] .section-lead { text-align:left; margin-left:0; }
+[data-heading="overview"] > .section-shell > .eyebrow,
+[data-heading="overview"] > .section-shell > h2 { text-align:center; }
+.navy-section { --chapter-accent:#edca7c; }
 .eyebrow {
   font:
     700 0.8125rem/1.6 "Playfair Display",
@@ -583,7 +598,7 @@ figcaption {
 }
 .direct-contract {
   padding: var(--section-space) 0;
-  background: #f2f6fc;
+  background: var(--surface-warm);
   border-top: 1px solid #d6e0e7;
   text-align: center;
 }
@@ -698,11 +713,10 @@ figcaption {
   margin: 0;
 }
 .teacher {
-  background: linear-gradient(110deg,#fff8e8 0%,#fffdf8 52%,#edf5fc 100%);
+  background: #fff;
   border-top: 5px solid #c6a65a;
 }
 .teacher .section-heading {
-  text-align: left;
   padding-bottom: 28px;
   border-bottom: 1px solid #d7c6a4;
 }
@@ -893,7 +907,6 @@ figcaption {
   line-height: 1.8;
 }
 .achievement { background:radial-gradient(ellipse at 90% 30%,#1c5674,transparent 65%),#0b233c; }
-.achievement .section-heading { text-align:left; }
 .achievement .section-lead { margin-left:0; text-align:left; }
 .case-layout {
   display: grid;
@@ -948,9 +961,6 @@ figcaption {
   gap: 64px;
   align-items: center;
 }
-.care-layout .section-heading {
-  text-align: left;
-}
 .care-layout > div > p {
   color: var(--muted);
 }
@@ -976,7 +986,7 @@ figcaption {
   border-radius: 16px;
 }
 .lesson-method {
-  background: linear-gradient(135deg,#edf5fc,#e1eef8 65%,#f9f2e5);
+  background: #fff;
   border-top: 1px solid #c8d5df;
   container-type:inline-size;
 }
@@ -1016,7 +1026,6 @@ figcaption {
 .lesson-steps p {
   color: var(--muted);
 }
-.lesson-method .section-heading { text-align:left; }
 @container (min-width: 50rem) and (max-width: 68rem) {
   .lesson-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
@@ -1024,31 +1033,32 @@ figcaption {
   .lesson-method .lesson-layout { grid-template-columns:minmax(0,1.65fr) minmax(0,1fr); align-items:start; }
   .lesson-steps { grid-template-columns:minmax(0,1fr); gap:24px; }
 }
-.voices { background:#fffdfa; }
-.voice-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 40px;
+/* Testimonials: text-first evidence, separate parent and student collections. */
+.voices {
+  background:radial-gradient(ellipse at 100% 0%,#25516e,transparent 65%),#0b233c;
+  color:#fff; --chapter-accent:#edca7c;
 }
-.voice-grid figure {
-  border-top: 3px solid #c4a250;
-  padding: clamp(20px,3vw,40px);
-  background:#f7eedc;
+.voices > .section-shell { container:voices / inline-size; }
+.voices .eyebrow { color:#edca7c; }
+.voices .section-lead, .voices > .section-shell > .fine-print { color:#d6e1ed; }
+.voice-group-title { margin:48px 0 24px; padding-bottom:16px; border-bottom:1px solid #829aaa; color:#f1d18b; }
+.voice-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:start; }
+.voice-grid figure { min-width:0; border-top:5px solid #c89c50; padding:clamp(24px,3vw,36px); background:#fffdf8; color:var(--ink); border-radius:4px 4px 16px 16px; }
+.voice-grid--students figure { border-color:#5296b3; background:#f0f6fa; }
+.voice-grid .voice-result { font:700 1.125rem/1.7 var(--sans); color:#775719; padding:10px 14px; background:#f4e7c9; margin-bottom:24px; }
+.voice-grid--students .voice-result { color:#174e70; background:#dcecf4; }
+.voice-grid blockquote { margin:0 0 24px; font-family:var(--serif); font-size:clamp(1.0625rem,1.7vw,1.3125rem); line-height:2; }
+.voice-grid figcaption { padding-top:16px; border-top:1px solid #c7d3dc; color:#53677b; }
+.voice-grid figcaption strong { display:block; color:var(--ink); font:700 1rem/1.8 var(--sans); }
+@container voices (min-width:40rem) {
+  .voice-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .voice-grid--students figure:last-child { grid-column:1/-1; }
 }
-.voice-grid figure:nth-child(2) { background:transparent; border-color:#276c81; }
-.voice-grid blockquote {
-  margin: 0 0 24px;
-  font-family: var(--serif);
-  font-size: clamp(1.0625rem, 1.7vw, 1.3125rem);
-  line-height: 2;
+@container voices (min-width:64rem) {
+  .voice-grid--students { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .voice-grid--students figure:last-child { grid-column:auto; }
 }
-.voice-grid figcaption {
-  padding-top: 16px;
-  border-top: 1px solid #e0e4e9;
-}
-.voice-grid strong {
-  color: var(--ink);
-}
+
 details {
   border-top: 1px solid #d8e0e7;
 }
@@ -1336,7 +1346,11 @@ html.text-enlarged {
 .price-terms {
   margin-top: 35px;
 }
-.counseling { background:linear-gradient(110deg,#fffdfa 55%,#edf4f8); container-type:inline-size; }
+.counseling { background:radial-gradient(ellipse at 95% 15%,#236170,transparent 65%),#102c45; color:#fff; --chapter-accent:#edca7c; container-type:inline-size; }
+.counseling .eyebrow { color:#edca7c; }
+.counseling .consultation-topics dt { color:#fff; }
+.counseling .consultation-topics dd { color:#dce8ee; }
+.counseling > .section-shell > div:first-child > p { color:#dce8ee; }
 @container(min-width:68rem) { .counseling .counseling-layout { grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr); } }
 .counseling-layout {
   display: grid;
@@ -1348,10 +1362,8 @@ html.text-enlarged {
   min-width: 0;
 }
 .counseling-layout > div:first-child { container: consultation / inline-size; }
-.counseling-layout .section-heading {
-  text-align: left;
-}
 .counseling-price {
+  color:var(--ink);
   padding:clamp(24px,4vw,48px);
   background:#f6ead3;
   border-radius:0;
@@ -1394,6 +1406,9 @@ html.text-enlarged {
 .counseling-price .primary-button {
   margin-top: 16px;
 }
+.faq { background:#fff; border-top:4px solid #ae8636; }
+.policy { background:var(--surface-blue); border-top:1px solid #b9cbd9; }
+.process { background:var(--surface-warm); }
 .faq details {
   background: transparent;
 }
@@ -1542,7 +1557,7 @@ footer small {
 .brand-facts dd { margin:0; }
 .brand-tags { display:flex; flex-wrap:wrap; gap:8px; list-style:none; margin:0 0 20px; padding:0; }
 .brand-tags li { border:1px solid #b8c8d5; padding:3px 12px; border-radius:30px; }
-.results-overview { background:linear-gradient(120deg,#fffdf7 60%,#edf4fb); text-align:center; }
+.results-overview { background:#fff; text-align:center; border-top:1px solid #d4bd88; }
 .results-overview h2 { margin-bottom:40px; }
 .results-types { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr)); gap:28px; margin:40px 0; }
 .results-types article { padding:32px 20px; border-top:3px solid #bbab7b; background:#fff; }
@@ -1570,7 +1585,7 @@ footer small {
   .journey-outcome > * { flex:0 0 100%; text-align:center; }
   .journey-outcome > b { transform:rotate(90deg); line-height:1; }
 }
-.care { background:linear-gradient(110deg,#fffdf7 40%,#e3f2e9); }
+.care { background:var(--surface-sage); border-top:5px solid #276953; --chapter-accent:#276953; }
 .care-notes .line-icon { color:#276953; margin-bottom:16px; }
 .case-transformations { grid-column:1/-1; }
 .case-transformations > h3 { text-align:center; margin-bottom:32px; }
@@ -1583,7 +1598,6 @@ footer small {
 .case-strip dd { margin:0; font-weight:700; }
 .case-strip dl > div:last-child { border-color:var(--case-tone); }
 .case-strip dl > div:last-child dd { color:var(--case-tone); font-size:clamp(1.5rem,3vw,2rem); }
-.voice-result { font-weight:700; color:#8a651a; font-size:1.25rem; }
 .pricing-number strong { display:block; color:#154777; font:700 clamp(2.5rem,5vw,4rem)/1.2 'Playfair Display',var(--serif); margin:20px 0 10px; }
 .pricing-number span { display:block; }
 .benefit-overview { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr)); gap:32px; margin:50px 0 20px; }
@@ -1604,9 +1618,9 @@ footer small {
 .cancel-deadline { font:700 3rem/1.4 'Playfair Display',serif; margin:20px 0; }
 .cancel-deadline small { display:block; font:700 1.125rem/1.8 var(--sans); }
 .cancel-comparison h3 { font:700 1.125rem/1.7 var(--sans); color:inherit; }
-.journal { background:#f6f0e3; container-type:inline-size; }
-.journal-heading { display:flex; flex-wrap:wrap; gap:24px; justify-content:space-between; align-items:end; margin-bottom:40px; }
-.journal-heading h2 { text-align:left; }
+.journal { background:var(--surface-warm); container-type:inline-size; }
+.journal-heading { display:flex; flex-direction:column; gap:16px; align-items:center; text-align:center; margin-bottom:40px; }
+.journal-heading h2 { text-align:center; }
 .journal-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:28px; }
 .journal-grid article:first-child { padding:clamp(24px,4vw,48px); background:#123754; color:#fff; border-color:#d6b977; }
 .journal-grid article:first-child h3 { font-size:clamp(1.5rem,2.5vw,2rem); }
@@ -1652,10 +1666,6 @@ footer small {
   .care-layout,
   .counseling-layout {
     grid-template-columns: minmax(0, 1fr);
-  }
-  .care-layout .section-heading,
-  .counseling-layout .section-heading {
-    text-align: center;
   }
   .support-list {
     grid-template-columns: minmax(0, 1fr);
@@ -1718,7 +1728,6 @@ footer small {
   .brand-grid,
   .case-layout,
   .lesson-layout,
-  .voice-grid,
   .estimate {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1930,6 +1939,7 @@ footer small {
     gap: 12px;
   }
   .counseling-price {
+  color:var(--ink);
     padding: 24px 20px;
   }
   .primary-button,
