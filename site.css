@@ -421,6 +421,11 @@ figcaption {
   text-align: center;
   margin-bottom: 38px;
 }
+.promises > .section-shell,
+.results-overview > .section-shell,
+#pricing > .section-shell {
+  container: three-items / inline-size;
+}
 .promise-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
@@ -471,6 +476,18 @@ figcaption {
   margin: 0;
   color: var(--muted);
   font-weight: 500;
+}
+/* Keep three related choices together when each has usable reading width.
+   rem thresholds let enlarged text retain the existing wider-card reflow. */
+@container three-items (min-width: 47rem) and (max-width: 60rem) {
+  .promises .promise-grid, .results-overview .results-types, #pricing .pricing-intro {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+  .promise-card { padding-inline: 18px; }
+  .promise-card h3 { font-size: var(--heading-size); }
+  .promise-card h3 > span { white-space: normal; }
+  #pricing .pricing-intro > div { padding-inline: 20px; }
 }
 .cta-strip {
   border: 1px solid #e7adc3;
@@ -1000,6 +1017,9 @@ figcaption {
   color: var(--muted);
 }
 .lesson-method .section-heading { text-align:left; }
+@container (min-width: 50rem) and (max-width: 68rem) {
+  .lesson-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 @container(min-width:68rem) {
   .lesson-method .lesson-layout { grid-template-columns:minmax(0,1.65fr) minmax(0,1fr); align-items:start; }
   .lesson-steps { grid-template-columns:minmax(0,1fr); gap:24px; }
@@ -1327,6 +1347,7 @@ html.text-enlarged {
 .counseling-layout > * {
   min-width: 0;
 }
+.counseling-layout > div:first-child { container: consultation / inline-size; }
 .counseling-layout .section-heading {
   text-align: left;
 }
@@ -1342,6 +1363,13 @@ html.text-enlarged {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
   gap: 20px 28px;
   margin: 28px 0;
+}
+/* Four topics form complete rows, never an accidental three-plus-one. */
+@container consultation (min-width: 26rem) {
+  .consultation-topics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@container consultation (min-width: 54rem) {
+  .consultation-topics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 .consultation-topics > div {
   min-width: 0;
