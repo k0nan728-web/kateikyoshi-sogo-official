@@ -2,12 +2,12 @@
   --navy: #071d38;
   --navy2: #0d3158;
   --gold: #cda33b;
-  --ivory: #fbf7ed;
+  --ivory: #fafbf8;
   --paper: #fffdfa;
-  --surface-warm: #faf4e8;
+  --surface-warm: #f8f9f6;
   --surface-sage: #dceee4;
   --surface-blue: #e0eaf3;
-  --chapter-accent: #ae8636;
+  --chapter-accent: #bdcbd4;
   --ink: #102d4c;
   --muted: #53677b;
   --rose: #c93668;
@@ -131,15 +131,15 @@ main > * {
   color: #fff;
 }
 .section-heading {
-  text-align: var(--heading-align, center);
+  text-align: center;
   margin-bottom: 36px;
 }
-/* Chapter hierarchy: overview headings centered; narrative headings follow text.
-   Alignment is semantic and remains stable when columns stack. */
-[data-heading="story"] { --heading-align:left; --heading-marker-margin:0; }
+/* Chapter entrances are centered; reading copy keeps its left alignment. */
+.section-heading > h2, .section-heading > .eyebrow { text-align:center; }
+.section-shell > .section-heading { grid-column:1 / -1; }
 .section-heading::after {
   content:""; display:block; width:64px; height:3px;
-  background:var(--chapter-accent); margin:24px var(--heading-marker-margin, auto) 0;
+  background:var(--chapter-accent); margin:24px auto 0;
 }
 [data-heading="story"] .section-lead { text-align:left; margin-left:0; }
 [data-heading="overview"] > .section-shell > .eyebrow,
@@ -150,7 +150,7 @@ main > * {
     700 0.8125rem/1.6 "Playfair Display",
     serif;
   letter-spacing: 0.15em;
-  color: #66501c;
+  color: #225570;
   margin: 0 0 16px;
 }
 .navy-section .eyebrow {
@@ -1047,7 +1047,7 @@ figcaption {
 .voice-grid--parents figure:first-child { background:#e6f1f4; border-color:#5697a6; }
 .voice-grid--parents figure:nth-child(4) { background:#fbf0f4; border-color:#a6486e; }
 .voice-grid--students figure { border-color:#5296b3; background:#f0f6fa; }
-.voice-grid .voice-result { font:700 1.125rem/1.7 var(--sans); color:#102d4c; padding:10px 14px; background:#eee5d4; margin-bottom:24px; }
+.voice-grid .voice-result { font:700 1.125rem/1.7 var(--sans); color:#102d4c; padding:10px 14px; background:#e4edf2; margin-bottom:24px; }
 .voice-grid--students .voice-result { color:#174e70; background:#dcecf4; }
 .voice-grid blockquote { margin:0 0 24px; font-family:var(--serif); font-size:clamp(1.0625rem,1.7vw,1.3125rem); line-height:2; }
 .voice-grid figcaption { padding-top:16px; border-top:1px solid #c7d3dc; color:#53677b; }
@@ -1084,7 +1084,7 @@ summary:after {
   right: 7px;
   top: 20px;
   font-weight: 400;
-  color: #66501c;
+  color: #225570;
 }
 details[open] > summary:after {
   content: "−";
@@ -1352,7 +1352,7 @@ html.text-enlarged {
 .counseling .eyebrow { color:#edca7c; }
 .counseling .consultation-topics dt { color:#fff; }
 .counseling .consultation-topics dd { color:#dce8ee; }
-.counseling > .section-shell > div:first-child > p { color:#dce8ee; }
+.counseling-copy > p { color:#dce8ee; }
 @container(min-width:68rem) { .counseling .counseling-layout { grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr); } }
 .counseling-layout {
   display: grid;
@@ -1363,11 +1363,11 @@ html.text-enlarged {
 .counseling-layout > * {
   min-width: 0;
 }
-.counseling-layout > div:first-child { container: consultation / inline-size; }
+.counseling-copy { container: consultation / inline-size; }
 .counseling-price {
   color:var(--ink);
   padding:clamp(24px,4vw,48px);
-  background:#f6ead3;
+  background:#f6f8f5;
   border-radius:0;
   border-top:4px solid #b59747;
   border-left:0;
@@ -1546,7 +1546,8 @@ footer small {
 }
 /* Visual components: one definition per component, fluid by available space. */
 .chapter-icon { width:3.5rem; height:3.5rem; display:block; margin:0 auto 24px; color:#225b78; }
-.faq .chapter-icon { color:#f0d18a; }
+.navy-section .chapter-icon, .voices .chapter-icon, .counseling .chapter-icon, .faq .chapter-icon, .contact .chapter-icon { color:#dcebf3; }
+.care .chapter-icon { color:#276953; }
 .topic-icon { width:2.5rem; height:2.5rem; display:block; margin-bottom:16px; color:currentColor; }
 .quote-mark { width:2.75rem; height:2rem; display:block; color:#2b6682; margin-bottom:18px; }
 .journal-grid .topic-icon { width:3.5rem; height:3.5rem; margin-bottom:24px; }
@@ -1559,7 +1560,7 @@ footer small {
 .line-icon { flex:none; display:block; width:3rem; height:3rem; max-width:100%; }
 .contract-route { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:clamp(12px,3vw,36px); margin:40px auto; text-align:center; container-type:inline-size; }
 .contract-route > span,.contract-route > strong { display:grid; justify-items:center; gap:10px; }
-.contract-route > strong { color:#b42d5c; padding:20px; border:1px solid #caa557; border-radius:50%; background:#fff9eb; }
+.contract-route > strong { color:#b42d5c; padding:20px; border:1px solid #caa557; border-radius:50%; background:#f5f9fb; }
 @container (max-width:34rem) {
   .contract-route > span,.contract-route > strong { flex:0 0 100%; box-sizing:border-box; display:flex; justify-content:center; align-items:center; gap:18px; }
   .contract-route > strong { border-radius:16px; padding:14px; }
@@ -1583,8 +1584,8 @@ footer small {
 .results-types article:first-child { background:#102e4b; color:#fff; border-color:#dec17e; }
 .results-types article:first-child > strong { color:#f1cf83; }
 .results-types article:first-child .result-examples { color:#dde9f4; }
-.results-types article:nth-child(2) { background:#f5ecd9; }
-.results-types article > strong { font:700 clamp(3.5rem,7vw,6rem)/1.2 'Playfair Display',serif; color:#916817; }
+.results-types article:nth-child(2) { background:#eaf2f7; }
+.results-types article > strong { font:700 clamp(3.5rem,7vw,6rem)/1.2 'Playfair Display',serif; color:#225570; }
 .results-types small { font:700 1.5rem var(--serif); }
 .result-examples { font-size:1rem; margin-top:20px; color:var(--muted); }
 @media(max-width:600px) {
@@ -1627,7 +1628,7 @@ footer small {
 .benefit-number { font:700 clamp(2rem,4vw,3.25rem)/1.4 'Playfair Display',var(--serif); margin:20px 0; }
 .benefit-number small { display:block; font:500 1rem/1.8 var(--sans); }
 .benefit-pair { display:grid; gap:24px; }
-.benefit-pair article { padding:24px; border-left:4px solid #b68c35; background:#f6eedb; }
+.benefit-pair article { padding:24px; border-left:4px solid #b68c35; background:#e8f1ed; }
 .benefit-pair article:last-child { background:#edf3f8; border-color:#31648b; }
 .cancel-comparison { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr)); gap:24px; margin:36px 0; }
 .cancel-comparison article { padding:clamp(22px,3vw,36px); border-top:4px solid currentColor; }
