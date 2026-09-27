@@ -1998,3 +1998,5 @@ footer small {
 @media(max-width:640px){.activity-grid,.course-intro-grid{grid-template-columns:1fr}.teacher-numbers{gap:.5rem}.teacher-numbers>div{padding:.8rem}.course-intro summary{padding:1rem;gap:.6rem}.course-intro .ux-icon{width:1.9rem;height:1.9rem}}
 .text-enlarged .activity-grid,.text-enlarged .course-intro-grid,.text-enlarged .success-grid,.text-enlarged .editorial-grid{grid-template-columns:1fr}
 @media(max-width:390px){.text-enlarged .teacher-numbers{grid-template-columns:1fr}.text-enlarged .course-intro summary{flex-wrap:wrap}.text-enlarged .course-intro summary>span{flex-basis:100%}}
+
+.activity-lesson{margin:0 0 1.2rem}.activity-lesson img{width:100%;height:auto;border-radius:6px}.activity-lesson figcaption{font-size:.75rem;color:var(--muted)}
