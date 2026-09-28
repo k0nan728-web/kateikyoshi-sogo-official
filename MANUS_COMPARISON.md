@@ -18,3 +18,9 @@
 写真根拠: 元の index-ROriAf5U.js の TeacherSection (src:Y4)、Y4=https://files.manuscdn.com/user_upload_by_module/session_file/310519663158697682/FmBzvHFBXWuqOkRv.jpeg。参考IMG_1672.jpegの本人写真と一致。画像の生成・加工なし。
 
 共通制約: 正式 / は変更しない。/new/ noindex。見出しは中央。下部固定CTA追加なし。既存の料金計算・メニュー・導線維持。主観的な「Manus以上」の最終評価はユーザーのiPad Safari実機レビューで判断。
+
+## 最終重点QA（2026-09-28）
+
+前回記録を引き継ぎ、未完了項目のみ確認。320 / 390 / 768 / 1024 / 1366px: ページ横overflow 0。文字200%: 同5幅で確認。768 / 1024は前回完了記録、1366は今回完了。320pxのbrand-facts局所3px overflowは修正後0。15コース絞り込み・details開閉は確認済み。新たなデザイン変更なし。
+
+公開状態: main d18452189779317a741e5fd187892f784e89a2fbを維持。最新候補はPageShare https://eager-sky-4140.hosted.pageshare.ai/new/ で確認可能。正式ドメイン /new/ 更新はmainのnew/配下差分反映が必要なため、最新のmain変更禁止指示により保留。iPad Safari実機確認はユーザーによる最終確認待ち。
