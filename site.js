@@ -120,3 +120,17 @@ estimateForm.addEventListener("input", updateEstimate);
 estimateForm.addEventListener("change", updateEstimate);
 estimateForm.addEventListener("submit", (e) => e.preventDefault());
 updateEstimate();
+
+// Keep all courses readable without JavaScript; progressively enhance discovery.
+const courseFilters = document.querySelectorAll('[data-course-filter]');
+const courseGroups = document.querySelectorAll('[data-course-group]');
+courseFilters.forEach(button => button.addEventListener('click', () => {
+  const choice = button.dataset.courseFilter;
+  courseFilters.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+  let visible = 0;
+  courseGroups.forEach(group => {
+    group.hidden = choice !== 'all' && group.dataset.courseGroup !== choice;
+    if (!group.hidden) visible += group.querySelectorAll('.course-intro').length;
+  });
+  document.getElementById('course-filter-status').textContent = `${visible}コースを表示しています`;
+}));
