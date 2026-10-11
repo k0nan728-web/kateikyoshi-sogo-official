@@ -1,0 +1,68 @@
+/* Official homepage monthly-fee estimate: illustration only.
+   Preserves all existing calculator controls, prices and JavaScript. */
+#estimate .estimate-explainer {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  align-items: flex-start;
+}
+#estimate .estimate-explainer > .eyebrow {
+  margin-bottom: 12px;
+}
+#estimate .estimate-explainer > p:not(.eyebrow) {
+  max-width: 34ch;
+  margin-top: 16px;
+  line-height: 1.9;
+}
+#estimate .estimate-tuition-illustration {
+  width: 100%;
+  min-width: 0;
+  max-width: 500px;
+  margin: auto auto 0;
+  padding: 12px 0 0;
+  text-align: center;
+}
+#estimate .estimate-tuition-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+#estimate .estimate-tuition-illustration figcaption {
+  margin: 4px 0 0;
+  padding: 0 12px;
+  font-size: clamp(12px, 1vw, 14px);
+  line-height: 1.8;
+  color: #566d80;
+  text-wrap: pretty;
+}
+#estimate > #estimate-form {
+  min-width: 0;
+}
+@media (max-width: 940px) {
+  #estimate {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+  #estimate .estimate-explainer {
+    align-items: center;
+    text-align: center;
+  }
+  #estimate .estimate-explainer > p:not(.eyebrow) {
+    max-width: 56ch;
+  }
+  #estimate .estimate-tuition-illustration {
+    width: min(100%, 420px);
+    margin: 0 auto;
+    padding: 2px 0 0;
+  }
+}
+@media (max-width: 600px) {
+  #estimate .estimate-tuition-illustration {
+    width: min(100%, 290px);
+  }
+  #estimate .estimate-tuition-illustration figcaption {
+    font-size: 12px;
+  }
+}
