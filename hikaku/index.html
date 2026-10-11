@@ -8,6 +8,117 @@
     <title>英検・文系大学受験のプロ家庭教師｜鈴木雄太の個人契約料金と他社比較</title>
     <script type="module" crossorigin src="/hikaku/assets/index-CE7Nw7x-.js"></script>
     <link rel="stylesheet" crossorigin href="/hikaku/assets/index-aNhtFZ3B.css">
+
+    <!-- Result cards adapt to the number of selected comparison services. -->
+    <style id="simulator-responsive-results-fix">
+      /* auto-fit collapses unused columns: no blank right-hand grid tracks. */
+      #simulator .simulator-results {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+        gap: clamp(12px, 1.8vw, 20px);
+      }
+      #simulator .simulator-results > .simulator-result {
+        min-width: 0;
+        padding: clamp(18px, 2vw, 28px);
+      }
+      #simulator .simulator-result h4 {
+        font-size: clamp(19px, 1.8vw, 23px);
+        line-height: 1.55;
+      }
+      #simulator .simulator-result .result-total small {
+        font-size: 14px;
+        line-height: 1.65;
+      }
+      #simulator .simulator-result .result-total strong {
+        font-size: clamp(27px, 2.5vw, 33px);
+        line-height: 1.35;
+      }
+      #simulator .simulator-result .result-category {
+        flex-wrap: wrap;
+        gap: 10px 16px;
+      }
+      #simulator .simulator-result .result-category span {
+        font-size: 12px;
+        line-height: 1.6;
+      }
+      #simulator .simulator-result .result-category small {
+        max-width: none;
+        line-height: 1.65;
+      }
+      #simulator .simulator-result .comparison-condition {
+        gap: 9px;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      #simulator .simulator-result .comparison-condition > strong {
+        font-size: 12px;
+        line-height: 1.6;
+        margin-bottom: 4px;
+      }
+      #simulator .simulator-result .comparison-condition span {
+        grid-template-columns: minmax(65px, 5.7em) minmax(0, 1fr);
+        gap: 12px;
+      }
+      #simulator .simulator-result .result-note {
+        font-size: 14px;
+        line-height: 1.85;
+      }
+      #simulator .simulator-result .simulator-source-link {
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      /* One result: use the whole row, with a readable two-panel layout. */
+      @media (min-width: 820px) {
+        #simulator .simulator-results > .simulator-result:only-child {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+          grid-template-areas:
+            "category conditions"
+            "title conditions"
+            "total conditions"
+            "breakdown conditions"
+            "note conditions"
+            "source conditions"
+            "consult consult";
+          column-gap: clamp(24px, 3vw, 40px);
+          align-items: start;
+          padding: clamp(24px, 3vw, 36px);
+        }
+        #simulator .simulator-result:only-child .result-category { grid-area: category; }
+        #simulator .simulator-result:only-child h4 { grid-area: title; }
+        #simulator .simulator-result:only-child .result-total { grid-area: total; }
+        #simulator .simulator-result:only-child .result-breakdown { grid-area: breakdown; }
+        #simulator .simulator-result:only-child .result-note { grid-area: note; }
+        #simulator .simulator-result:only-child .result-source-meta { grid-area: source; }
+        #simulator .simulator-result:only-child .simulator-consult-link { grid-area: consult; }
+        #simulator .simulator-result:only-child .comparison-condition {
+          grid-area: conditions;
+          align-self: stretch;
+          align-content: start;
+          margin: 0;
+          padding: clamp(16px, 2vw, 26px);
+          border: 1px solid #d4e5e3;
+          border-radius: 12px;
+          background: #f2f8f7;
+        }
+      }
+
+      /* Tablet and phone: full-width cards, without narrow side-by-side text. */
+      @media (max-width: 819px) {
+        #simulator .simulator-results > .simulator-result:only-child {
+          width: 100%;
+        }
+      }
+      @media (max-width: 480px) {
+        #simulator .simulator-results { grid-template-columns: minmax(0, 1fr); }
+        #simulator .simulator-results > .simulator-result { padding: 18px; }
+        #simulator .simulator-result .comparison-condition span {
+          grid-template-columns: minmax(63px, 5.5em) minmax(0, 1fr);
+          gap: 8px;
+        }
+        #simulator .simulator-result .result-total strong { font-size: 27px; }
+      }
+    </style>
   </head>
   <body>
     <script id="manus-runtime">window.__MANUS_HOST_DEV__ = false;
