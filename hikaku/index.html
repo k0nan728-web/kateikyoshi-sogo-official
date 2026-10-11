@@ -103,6 +103,13 @@
         }
       }
 
+      /* Avoid a lone final card leaving an empty column for 3/5 selected items. */
+      @media (min-width: 820px) {
+        #simulator .simulator-results > .simulator-result:last-child:nth-child(odd):not(:only-child) {
+          grid-column: 1 / -1;
+        }
+      }
+
       /* Tablet and phone: full-width cards, without narrow side-by-side text. */
       @media (max-width: 819px) {
         #simulator .simulator-results > .simulator-result:only-child {
