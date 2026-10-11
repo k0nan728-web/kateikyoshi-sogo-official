@@ -1,0 +1,67 @@
+/* Targeted homepage support section visual, 2026-10-12.
+   No other section, pricing, CTA, SEO or JS code is altered. */
+#support .support-planning-visual {
+  width: 100%;
+  max-width: 620px;
+  min-width: 0;
+  margin: 0;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+}
+#support .support-planning-visual img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 860/850;
+  object-fit: contain;
+}
+#support .support-planning-visual figcaption {
+  margin: 2px auto 0;
+  padding: 0 12px;
+  color: #c9dce9;
+  font-size: clamp(12px, .98vw, 14px);
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+#support .support-list {min-width: 0;}
+#support .support-intro {min-width: 0;}
+#support .support-intro .light-copy {max-width: 100%; line-height: 1.85;}
+@media (min-width: 901px) {
+  #support .section-shell.split-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
+    grid-template-areas: "heading heading" "visual list" "intro list";
+    column-gap: clamp(25px, 3.6vw, 54px);
+    row-gap: clamp(10px, 1.35vw, 20px);
+    align-items: center;
+  }
+  #support .section-heading {
+    grid-area: heading;
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto clamp(15px, 2vw, 28px);
+    justify-self: center;
+  }
+  #support .support-planning-visual {grid-area: visual;}
+  #support .support-intro {grid-area: intro; align-self: start;}
+  #support .support-list {grid-area: list; align-self: center;}
+}
+@media (max-width: 900px) {
+  #support .section-shell.split-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "heading" "visual" "intro" "list";
+    gap: clamp(14px, 3vw, 28px);
+  }
+  #support .section-heading {grid-area: heading; margin-bottom: 0;}
+  #support .support-planning-visual {grid-area: visual; max-width: min(100%, 540px);}
+  #support .support-intro {grid-area: intro; text-align: center;}
+  #support .support-list {grid-area: list; width: 100%;}
+}
+@media (max-width: 520px) {
+  #support .support-planning-visual {max-width: 100%;}
+  #support .support-planning-visual figcaption {font-size: 12px; padding: 0 4px;}
+  #support .section-shell.split-layout {gap: 17px;}
+}

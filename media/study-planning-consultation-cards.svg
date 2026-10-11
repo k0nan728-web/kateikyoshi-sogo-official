@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 850" width="860" height="850" role="img" aria-labelledby="asset-title asset-desc">
+<title id="asset-title">学習計画・面談カルテ・進捗チェック</title>
+<desc id="asset-desc">英単語、文法、長文、リスニング、ライティングの週間計画と、面談記録や学習進捗を3枚の資料として示したイメージ</desc>
+<defs>
+<filter id="paper-shadow" x="-30%" y="-30%" width="170%" height="180%"><feDropShadow dx="9" dy="14" stdDeviation="14" flood-color="#020e1c" flood-opacity=".48"/></filter>
+<linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffefa"/><stop offset="1" stop-color="#f8f5ee"/></linearGradient>
+<style>
+text{font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;fill:#132e50}
+.head{font-size:29px;font-weight:800;letter-spacing:.02em}
+.sub{font-size:13px;fill:#758490}
+.body{font-size:16px}
+.rowtitle{font-size:18px;font-weight:800}
+.rowcopy{font-size:14px;font-weight:500;fill:#37526b}
+.mini{font-size:16px;font-weight:800}
+</style>
+</defs>
+<g filter="url(#paper-shadow)" transform="rotate(5 598 348)">
+<rect x="417" y="75" width="360" height="575" rx="15" fill="url(#paper)" stroke="#e2d9c6" stroke-width="3"/>
+<circle cx="454" cy="128" r="16" fill="#102e50"/><path d="M433 158q20-28 42 0Z" fill="#102e50"/>
+<text x="489" y="143" class="head" >面談カルテ</text><text x="679" y="173" class="sub" >記入例</text><path d="M445 182H748" stroke="#c7a95b" stroke-width="1.8"/>
+<rect x="446" y="185" width="108" height="31" rx="5" fill="#f2e4bb"/><text x="458" y="207" class="mini" >目標級</text><text x="448" y="249" class="rowcopy" >英検準1級（目標）</text><path d="M444 265H746" stroke="#dbe5e8" stroke-width="1.8"/><rect x="446" y="282" width="108" height="31" rx="5" fill="#f2e4bb"/><text x="458" y="304" class="mini" >現在の課題</text><text x="448" y="346" class="rowcopy" >長文読解の速度と語彙力</text><path d="M444 362H746" stroke="#dbe5e8" stroke-width="1.8"/><rect x="446" y="379" width="108" height="31" rx="5" fill="#f2e4bb"/><text x="458" y="401" class="mini" >学習状況</text><text x="448" y="443" class="rowcopy" >学習習慣は継続中</text><path d="M444 459H746" stroke="#dbe5e8" stroke-width="1.8"/><rect x="446" y="476" width="108" height="31" rx="5" fill="#f2e4bb"/><text x="458" y="498" class="mini" >次回の方針</text><text x="448" y="540" class="rowcopy" >演習内容と復習を調整</text><path d="M444 556H746" stroke="#dbe5e8" stroke-width="1.8"/>
+</g>
+<g filter="url(#paper-shadow)" transform="rotate(-7 252 399)">
+<rect x="45" y="78" width="405" height="651" rx="15" fill="url(#paper)" stroke="#e2d9c6" stroke-width="3"/>
+<rect x="68" y="109" width="42" height="41" rx="9" fill="#143b68"/>
+<path d="M77 129h24m-16-10v20m12-20v20" stroke="#fff" stroke-width="3" fill="none"/>
+<text x="126" y="142" class="head" >今週の学習計画</text><text x="314" y="178" class="sub" >学習計画の一例</text>
+<path d="M70 191H417" stroke="#b99948" stroke-width="1.8"/>
+<rect x="68" y="204" width="355" height="27" rx="4" fill="#e8f0f4"/>
+<text x="82" y="224" class="sub" >科目</text><text x="182" y="224" class="sub" >学習内容</text><text x="369" y="224" class="sub" >確認</text>
+<path d="M66 275H423" stroke="#dbe5e8" stroke-width="1.8"/><text x="76" y="230" class="rowtitle" >英単語</text><text x="172" y="224" class="rowcopy" >単語帳と確認テスト</text><text x="172" y="249" class="rowcopy" >覚えた語句を復習</text><rect x="389" y="214" width="23" height="23" rx="5" fill="#b89642" stroke="#b89642" stroke-width="2"/><path d="m394 226 5 5 9-11" fill="none" stroke="#fff" stroke-width="2.7" stroke-linejoin="round" stroke-linecap="round"/><path d="M66 364H423" stroke="#dbe5e8" stroke-width="1.8"/><text x="76" y="319" class="rowtitle" >文法</text><text x="172" y="313" class="rowcopy" >関係詞の整理</text><text x="172" y="338" class="rowcopy" >練習問題に取り組む</text><rect x="389" y="303" width="23" height="23" rx="5" fill="#b89642" stroke="#b89642" stroke-width="2"/><path d="m394 315 5 5 9-11" fill="none" stroke="#fff" stroke-width="2.7" stroke-linejoin="round" stroke-linecap="round"/><path d="M66 453H423" stroke="#dbe5e8" stroke-width="1.8"/><text x="76" y="408" class="rowtitle" >長文</text><text x="172" y="402" class="rowcopy" >読解問題 2題</text><text x="172" y="427" class="rowcopy" >解き直しと要約練習</text><rect x="389" y="392" width="23" height="23" rx="5" fill="#b89642" stroke="#b89642" stroke-width="2"/><path d="m394 404 5 5 9-11" fill="none" stroke="#fff" stroke-width="2.7" stroke-linejoin="round" stroke-linecap="round"/><path d="M66 542H423" stroke="#dbe5e8" stroke-width="1.8"/><text x="76" y="497" class="rowtitle" >リスニング</text><text x="172" y="491" class="rowcopy" >音声演習 1セット</text><text x="172" y="516" class="rowcopy" >聞き取れない箇所を確認</text><rect x="389" y="481" width="23" height="23" rx="5" fill="#fff" stroke="#a5b5bf" stroke-width="2"/><path d="M66 631H423" stroke="#dbe5e8" stroke-width="1.8"/><text x="76" y="586" class="rowtitle" >ライティング</text><text x="172" y="580" class="rowcopy" >意見文の練習</text><text x="172" y="605" class="rowcopy" >添削をもとに書き直し</text><rect x="389" y="570" width="23" height="23" rx="5" fill="#fff" stroke="#a5b5bf" stroke-width="2"/>
+</g>
+<g filter="url(#paper-shadow)" transform="rotate(5 566 674)">
+<rect x="324" y="540" width="465" height="291" rx="15" fill="url(#paper)" stroke="#e2d9c6" stroke-width="3"/>
+<g fill="#bc9637"><rect x="354" y="584" width="9" height="16" rx="2"/><rect x="367" y="575" width="9" height="25" rx="2"/><rect x="380" y="568" width="9" height="32" rx="2"/></g>
+<text x="408" y="595" class="head" >進捗チェック</text><text x="690" y="596" class="sub" >記入例</text>
+<path d="M349 609H753" stroke="#c5a252" stroke-width="1.8"/>
+<rect x="360" y="603" width="23" height="23" rx="5" fill="#b89642" stroke="#b89642" stroke-width="2"/><path d="m365 615 5 5 9-11" fill="none" stroke="#fff" stroke-width="2.7" stroke-linejoin="round" stroke-linecap="round"/><text x="396" y="622" class="rowtitle" >宿題</text><text x="532" y="622" class="rowcopy" >確認済み</text><path d="M350 635H753" stroke="#dbe5e8" stroke-width="1.8"/><rect x="360" y="650" width="23" height="23" rx="5" fill="#b89642" stroke="#b89642" stroke-width="2"/><path d="m365 662 5 5 9-11" fill="none" stroke="#fff" stroke-width="2.7" stroke-linejoin="round" stroke-linecap="round"/><text x="396" y="669" class="rowtitle" >復習</text><text x="532" y="669" class="rowcopy" >継続中</text><path d="M350 682H753" stroke="#dbe5e8" stroke-width="1.8"/><rect x="360" y="697" width="23" height="23" rx="5" fill="#fff" stroke="#a5b5bf" stroke-width="2"/><text x="396" y="716" class="rowtitle" >保護者共有</text><text x="532" y="716" class="rowcopy" >学習状況を整理</text><path d="M350 729H753" stroke="#dbe5e8" stroke-width="1.8"/><rect x="360" y="744" width="23" height="23" rx="5" fill="#fff" stroke="#a5b5bf" stroke-width="2"/><text x="396" y="763" class="rowtitle" >次回確認</text><text x="532" y="763" class="rowcopy" >目標と課題を確認</text><path d="M350 776H753" stroke="#dbe5e8" stroke-width="1.8"/>
+</g>
+</svg>
