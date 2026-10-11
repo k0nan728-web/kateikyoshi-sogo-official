@@ -78,3 +78,99 @@
     gap: 8px;
   }
 }
+
+
+/* 20261011-natural-headings-v1 — semantic, content-aware Japanese typography.
+   Only typography and wrapping change; prices and calculator logic remain intact. */
+#top :is(h1,h2,h3,h4) {
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: normal;
+  line-break: strict;
+  text-wrap: pretty;
+}
+#top :is(.hero-lead,.market-fee-copy,.specialist-intro>p:last-child,
+         .simulator-heading>p,.policy-intro-copy,.comparison-conclusion-copy p) {
+  white-space: normal;
+  line-break: strict;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+/* Allow the heading to use the existing main content width rather than
+   balancing across an arbitrary 780–930px column. Keep key phrases together. */
+#top .hero-content h1.hero-fixed-heading {
+  width: 100%;
+  max-width: 1180px;
+  font-size: clamp(29px, 4vw, 56px);
+  line-height: 1.43;
+  letter-spacing: 0;
+  text-wrap: wrap;
+  text-align: left;
+}
+#top .hero-fixed-heading > span,
+#top .hero-fixed-heading > em {
+  display: block;
+  width: 100%;
+  white-space: normal;
+  text-wrap: wrap;
+  overflow-wrap: normal;
+}
+#top .hero-fixed-heading .hero-title-chunk {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+#top .hero-lead {
+  max-width: 1060px;
+  line-height: 1.9;
+}
+/* Benchmark title: wrap only between complete Japanese phrases. */
+#market-fees .market-fee-heading {max-width: min(100%, 1080px);}
+#market-fees .market-fee-heading .market-fixed-heading {
+  font-size: clamp(26px, 3.25vw, 44px);
+  line-height: 1.55;
+  letter-spacing: 0;
+  text-wrap: wrap;
+}
+#market-fees .market-fixed-heading > .market-title-chunk {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+/* The original nowrap rules also affected small-screen support headings. */
+#top :is(.comparison-mobile-card h3,.direct-fee-title h3,
+         .support-content h2,.policy-ask-heading,
+         .market-table-pullout h4,.provider-directory h3,
+         .tsushinsei-bridge h3,.support-school-evidence h4,
+         .direct-support-contrast h4) {white-space: normal;}
+#top .eyebrow {white-space: normal; flex-wrap: wrap; line-height: 1.4;}
+#top .market-fee-copy span {white-space: normal; display: inline;}
+@media (min-width: 901px) {
+  #top .hero-content {max-width: min(1180px, calc(100% - 48px));}
+}
+@media (max-width: 900px) {
+  #top .hero-content h1.hero-fixed-heading {
+    font-size: clamp(28px, 4.2vw, 42px);
+    line-height: 1.5;
+  }
+}
+@media (max-width: 560px) {
+  #top .hero-content h1.hero-fixed-heading {
+    font-size: clamp(25px, 6.9vw, 33px);
+    line-height: 1.55;
+    letter-spacing: 0;
+    text-align: center;
+    margin-inline: auto;
+  }
+  #top .hero-content .hero-lead {
+    max-width: 100%;
+    font-size: clamp(14px, 3.8vw, 16px);
+    line-height: 1.85;
+  }
+  #market-fees .market-fee-heading .market-fixed-heading {
+    font-size: clamp(24px, 6.25vw, 28px);
+    line-height: 1.6;
+  }
+}
