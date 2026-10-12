@@ -57,8 +57,8 @@ if(kind==="consult"){
  ${field("email","返信用メールアドレス",{required:true,type:"email",placeholder:"例：example@email.com",auto:"email"})}
  <div class="two">${field("phone","お電話番号",{type:"tel",auto:"tel",placeholder:"任意"})}
  ${dropdown("grade","お子様の学年",grades,{required:true})}</div>
- ${field("studentName","お子様のお名前・よみがな",{placeholder:"必要に応じてご入力ください"})}
- ${field("region","お住まいの都道府県・市区町村",{placeholder:"例：千葉県柏市",help:"オンライン指導の場合は未入力でも構いません。"})}
+ ${field("studentName","お子様（受講者）のお名前",{required:true,placeholder:"例：山田 太郎",help:"保護者のお名前とは別に、実際に授業を受ける方のお名前をご入力ください。"})}
+ ${field("region","お住まいの都道府県・市区町村",{required:true,placeholder:"例：千葉県柏市",help:"公立高校の入試制度や地域ごとの学習事情を確認するために使用します。町名・番地は不要です。"})}
  <div class="actions"><button type="button" class="btn primary" data-next>指導内容へ進む →</button></div></div>
  <div class="step-panel" data-step="1" hidden><h3 class="step-heading">ご希望の指導内容を教えてください</h3>
  ${dropdown("purpose","お申し込みの種類",applicationPurposes,{required:true})}
