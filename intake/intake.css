@@ -137,3 +137,13 @@ body[data-kind="apply"] .aside .small-note{margin-top:0}
  .terms-consent h4{font-size:17px}
 }
 @media(max-width:360px){.intro h1.apply-title{font-size:26px}.form-top h2.apply-form-title{font-size:20px}}
+
+/* Registration policy notices; keep meaningful lines readable on narrow devices. */
+.mode-confirmation .mode-caption{font-weight:700;margin:0 0 8px;color:var(--navy);font-size:16px}
+.mode-confirmation .notice{margin:0 0 18px;line-height:1.85}
+.trial-policy{margin:14px 0 18px;line-height:1.85}
+.trial-confirm{margin:14px 0 20px;padding:16px 17px;border-radius:12px;border:1.5px solid #badacb;background:#f0faf5}
+.trial-confirm[hidden]{display:none}
+.trial-confirm label{align-items:flex-start}
+.trial-confirm .small{display:block;margin-top:9px;line-height:1.75;font-weight:400}
+@media(max-width:600px){.trial-confirm{padding:15px 13px}.trial-policy,.mode-confirmation .notice{line-height:1.85}}
