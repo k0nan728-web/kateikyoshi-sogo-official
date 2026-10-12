@@ -26,6 +26,7 @@ const base = {
     {day:"",from:"",to:""},
   ],
   privacyAccepted: true,
+  siteTermsAccepted: true,
   token: "",
 };
 async function testPayload(fields) {
@@ -96,11 +97,22 @@ const invalidDay=await testPayload({
 });
 assert.equal(invalidDay.status,400);
 assert.match(invalidDay.body.error,/第1候補/);
+const absentConsent = await testPayload({...base,siteTermsAccepted:false});
+assert.equal(absentConsent.status,400);
+assert.match(absentConsent.body.error,/受講条件をご確認/);
+const missingConsent = {...base};
+delete missingConsent.siteTermsAccepted;
+const missingConsentResult = await testPayload(missingConsent);
+assert.equal(missingConsentResult.status,400);
+assert.match(missingConsentResult.body.error,/受講条件をご確認/);
+const textualConsent = await testPayload({...base,siteTermsAccepted:"on"});
+assert.equal(textualConsent.status,400);
+assert.match(textualConsent.body.error,/受講条件をご確認/);
 const complete = await testPayload(base);
 assert.equal(complete.status, 400);
 assert.match(complete.body.error, /認証を完了してください/); // Mandatory application fields passed validation.
 
-const consult = await testPayload({ ...base, kind: "consult", studentName: "", studentNameKana: "", grade: "", region: "", courses: [] });
+const consult = await testPayload({ ...base, kind: "consult", studentName: "", studentNameKana: "", grade: "", region: "", courses: [], siteTermsAccepted: false });
 assert.equal(consult.status, 400);
 assert.match(consult.body.error, /認証を完了してください/); // They remain optional for consultation.
 
@@ -113,4 +125,12 @@ assert.match(frontend,/第1候補のみ必須です/);
 assert.match(frontend,/候補が少ない場合は/);
 assert.match(frontend,/for\(let i=1;i<=4;i\+\+\)/);
 assert.ok(!frontend.includes('for(const button of form.querySelectorAll(\'[type="submit"]\'))button.disabled=true'),"Preview must not disable submit entirely");
-console.log("Application fields, four weekly start windows, and active preview fallback: all checks passed");
+assert.match(frontend,/name="siteTermsAccepted"/);
+assert.match(frontend,/公式サイト掲載内容を確認/);
+assert.match(frontend,/料金・キャンセル規定/);
+const applicationHtml = await readFile("apply/index.html","utf8");
+assert.match(applicationHtml,/<h1 class="apply-title"><span class="responsive-phrase">体験授業・通常授業の<\/span><span class="responsive-phrase">お申し込み<\/span><\/h1>/);
+const css = await readFile("intake/intake.css","utf8");
+assert.match(css,/\.apply-title \.responsive-phrase/);
+assert.match(css,/max-width:600px/);
+console.log("Application required fields, site-term consent, mobile heading, start windows and preview fallback: all checks passed");
