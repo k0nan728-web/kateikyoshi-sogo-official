@@ -131,7 +131,7 @@ function validatePanel(){
      showError("第"+i+"候補は、曜日・開始可能な最も早い時刻・最も遅い時刻をすべて入力してください。");
      [day,from,to].find(el=>!el.value)?.focus();return false;
     }
-    if(from.value>=to.value){
+    if(from.value>to.value){
      showError("第"+i+"候補の開始可能時間帯は、終了側の時刻を開始側より遅く設定してください。");
      to.focus();return false;
     }
@@ -157,10 +157,12 @@ function unavailable(){
  p.textContent="【プレビュー版】サイトからの自動送信は設定中です。入力後はメールアプリに送信内容を引き継げます（メールアプリ側で送信操作が必要です）。メールを使用できない場合は旧Googleフォームをご利用ください。";
  status.appendChild(p);
  const a=document.createElement("a");
- a.href=fallback;a.target="_blank";a.rel="noopener noreferrer";a.textContent="既存のGoogleフォームで申し込む →";
+ a.href=fallback;a.target="_blank";a.rel="noopener noreferrer";a.textContent=kind==="apply"?"既存のGoogleフォームで申し込む →":"既存のGoogleフォームで相談する →";
  status.append(a);
  const button=form.querySelector("#send-button");
  if(button)button.textContent=kind==="apply"?"メールアプリで申し込み内容を確認する →":"メールアプリで相談内容を確認する →";
+ const copy=document.getElementById("copy-action");
+ if(copy)copy.hidden=false;
 }
 function selectedSchedules(){
  if(kind!=="apply")return [];
@@ -289,12 +291,11 @@ copyFallback.id="copy-fallback";
 copyFallback.hidden=true;
 copyFallback.readOnly=true;
 copyFallback.setAttribute("aria-label","メール用の入力内容をコピー");
-copyFallback.style.cssText="display:block;width:100%;min-height:180px;margin-top:15px;";
+copyFallback.style.cssText="width:100%;min-height:180px;margin-top:15px;";
 const sendActions=form.querySelector("#send-button")?.closest(".actions");
 if(sendActions){sendActions.append(copyAction);sendActions.after(copyFallback)}
 copyAction.hidden=true;
-const originalUnavailable=unavailable;
-unavailable=function(){originalUnavailable();copyAction.hidden=false;};
+// Unconfigured preview: retain a usable mail-app draft and copy action.
 const honeypot=document.createElement("input");honeypot.name="website";honeypot.type="text";honeypot.autocomplete="off";honeypot.tabIndex=-1;honeypot.setAttribute("aria-hidden","true");honeypot.style.cssText="position:absolute;left:-9999px;opacity:0;height:0;width:0";form.appendChild(honeypot);
 if(kind==="apply"){
  const choices=form.querySelectorAll('[name="courses"]');
