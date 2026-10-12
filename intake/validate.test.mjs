@@ -78,6 +78,12 @@ const invertedWindow=await testPayload({
 });
 assert.equal(invertedWindow.status,400);
 assert.match(invertedWindow.body.error,/第1候補/);
+const exactStart=await testPayload({
+ ...base,
+ scheduleCandidates:[{day:"火曜日",from:"18:00",to:"18:00"},...base.scheduleCandidates.slice(1)]
+});
+assert.equal(exactStart.status,400);
+assert.match(exactStart.body.error,/認証を完了してください/); // Exact single start time is allowed.
 const firstOnly=await testPayload({
  ...base,
  scheduleCandidates: [base.scheduleCandidates[0],...Array.from({length:3},()=>({day:"",from:"",to:""}))]
@@ -103,4 +109,8 @@ for (const key of ["studentName", "studentNameKana", "grade", "region"]) {
   const line = frontend.split("\n").find(s => s.includes('"' + key + '"') && s.includes("required:true"));
   assert.ok(line, key + " must be marked required in application UI");
 }
-console.log("Application required fields (including furigana): all checks passed");
+assert.match(frontend,/第1候補のみ必須です/);
+assert.match(frontend,/候補が少ない場合は/);
+assert.match(frontend,/for\(let i=1;i<=4;i\+\+\)/);
+assert.ok(!frontend.includes('for(const button of form.querySelectorAll(\'[type="submit"]\'))button.disabled=true'),"Preview must not disable submit entirely");
+console.log("Application fields, four weekly start windows, and active preview fallback: all checks passed");
