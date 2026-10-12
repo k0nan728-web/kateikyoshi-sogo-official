@@ -19,6 +19,8 @@ const base = {
   grade: "中3",
   region: "千葉県柏市",
   courses: ["高校受験対策"],
+  purpose: "通常授業のお申し込み",
+  lessonMode: "オンライン指導",
   scheduleCandidates: [
     {day:"火曜日",from:"18:00",to:"20:00"},
     {day:"木曜日",from:"19:00",to:"21:00"},
@@ -51,6 +53,25 @@ for (const key of ["studentName", "studentNameKana", "grade", "region"]) {
   assert.equal(spaceResult.status, 400, key + " whitespace must fail");
   assert.match(spaceResult.body.error, /受講者のお名前・ふりがな・学年・お住まいの都道府県/);
 }
+// Only online instruction is available; in-person or undecided modes are rejected.
+for(const lessonMode of ["対面指導（地域・条件を要相談）","相談して決めたい",""]){
+ const r=await testPayload({...base,lessonMode});
+ assert.equal(r.status,400);
+ assert.match(r.body.error,/オンライン指導のみ/);
+}
+const absentKind=await testPayload({...base,purpose:""});
+assert.equal(absentKind.status,400);
+assert.match(absentKind.body.error,/お申し込みの種類/);
+// Trial students can take a trial only once, regardless of course or exam grade.
+const trialWithoutConfirmation=await testPayload({...base,purpose:"体験授業のお申し込み"});
+assert.equal(trialWithoutConfirmation.status,400);
+assert.match(trialWithoutConfirmation.body.error,/お一人1回限り/);
+const trialAsString=await testPayload({...base,purpose:"体験授業のお申し込み",trialOnceConfirmed:"on"});
+assert.equal(trialAsString.status,400);
+assert.match(trialAsString.body.error,/お一人1回限り/);
+const firstTrial=await testPayload({...base,purpose:"体験授業のお申し込み",trialOnceConfirmed:true});
+assert.equal(firstTrial.status,400);
+assert.match(firstTrial.body.error,/認証を完了してください/); // All required checks passed.
 // Schedule requirements: first weekly start window is mandatory.
 for (const field of ["day","from","to"]) {
  const result = await testPayload({
@@ -128,6 +149,12 @@ assert.ok(!frontend.includes('for(const button of form.querySelectorAll(\'[type=
 assert.match(frontend,/name="siteTermsAccepted"/);
 assert.match(frontend,/公式サイト掲載内容を確認/);
 assert.match(frontend,/キャンセル規定を見る/);
+assert.match(frontend,/name="trialOnceConfirmed"/);
+assert.match(frontend,/英検の級・教科・コース・申込窓口を変えても/);
+assert.match(frontend,/対面による家庭教師は現在受け付けておらず/);
+assert.ok(!frontend.includes('"対面指導（地域・条件を要相談）"'),"In-person application option must be removed");
+assert.ok(!frontend.includes('dropdown("lessonMode"'),"No lesson-mode dropdown should remain");
+
 const applicationHtml = await readFile("apply/index.html","utf8");
 assert.match(applicationHtml,/<h1 class="apply-title"><span class="responsive-phrase">体験授業・通常授業の<\/span><span class="responsive-phrase">お申し込み<\/span><\/h1>/);
 const css = await readFile("intake/intake.css","utf8");
