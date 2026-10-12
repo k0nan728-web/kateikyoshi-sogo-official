@@ -48,6 +48,17 @@ function scheduleSlot(i){
  </div></fieldset>`;
 }
 const consent=`<div class="consent"><label><input type="checkbox" name="privacyAccepted" required><span>個人情報の取り扱いに同意します。<span class="required">必須</span><br><span class="small">ご入力いただいた情報は、ご連絡・受講相談・授業準備に利用します。送信にはメール配信サービスを使用します。必要な範囲を超えて公開しません。</span></span></label></div>`;
+const serviceAgreement=`<section class="consent terms-consent" aria-labelledby="terms-title">
+ <h4 id="terms-title">お申し込み前の確認事項</h4>
+ <p class="terms-lead">公式サイトに掲載されている指導内容・料金・受講条件をご確認ください。各リンクは新しいタブで開きます。</p>
+ <ul class="terms-links">
+ <li><a href="https://kateikyoshi-sogo.com/#pricing" target="_blank" rel="noopener noreferrer">授業料金・受講条件を見る ↗</a></li>
+ <li><a href="https://kateikyoshi-sogo.com/#cancel-policy" target="_blank" rel="noopener noreferrer">キャンセル規定を見る ↗</a></li>
+ <li><a href="https://kateikyoshi-sogo.com/#process" target="_blank" rel="noopener noreferrer">受講開始までの流れを見る ↗</a></li>
+ </ul>
+ <label class="agreement-check"><input type="checkbox" name="siteTermsAccepted" value="on" required><span>上記の公式サイト掲載内容を確認し、申し込みに関する条件に同意します。<span class="required">必須</span></span></label>
+ <p class="terms-help">このフォームは受講希望の受付です。送信時点で授業日時や契約は確定しません。正式な条件は講師との確認後にご案内します。</p>
+ </section>`;
 const challenge='<div id="challenge" class="turnstile" aria-label="迷惑送信防止の認証"></div>';
 let step=0,configured=false,widgetId=null,widgetReady=false,turnstileLoading=false;
 if(kind==="consult"){
@@ -97,6 +108,7 @@ if(kind==="consult"){
  ${field("school","学校名",{placeholder:"任意。最初の段階では不要です。"})}
  ${dropdown("discovery","当方を知ったきっかけ",["当方のホームページ","Googleなどの検索サイト","Googleマップ","ジモティ","ストアカ","マナリンク","知り合いからのご紹介","その他"])}
  ${field("message","授業へのご要望・現在の学習状況",{required:true,multiline:true,placeholder:"例：英検2級合格に向けて、ライティングを重点的に指導してほしいです。"})}
+ ${serviceAgreement}
  ${consent}${challenge}
  <div class="actions"><button type="button" class="btn secondary" data-prev>← 戻る</button><button type="submit" class="btn primary" id="send-button">申し込み希望を送信する →</button></div>
  <p class="small">送信完了メールをお送りします。送信のみで契約・決済が発生することはありません。</p></div>`;
@@ -183,6 +195,7 @@ function payloadFromForm(token=""){
  payload.subjects=data.getAll("subjects");
  payload.scheduleCandidates=selectedSchedules();
  payload.privacyAccepted=data.get("privacyAccepted")==="on";
+ payload.siteTermsAccepted=kind==="apply" && data.get("siteTermsAccepted")==="on";
  payload.source=source;
  payload.token=token;
  payload.website=data.get("website")||"";
@@ -199,7 +212,10 @@ function buildMailBody(d){
  ["希望指導時間",d.duration],["指導形式",d.lessonMode],
  ["初回のご希望日時",d.firstDate],["オンラインツール",d.tool],
  ["学校名",d.school],["知ったきっかけ",d.discovery],
- ["ご相談内容・ご要望",d.message],["サイト",d.source],
+ ["ご相談内容・ご要望",d.message],
+ ["公式サイトの受講条件への同意",kind==="apply" && d.siteTermsAccepted?"同意済み":""],
+ ["個人情報の取り扱いへの同意",d.privacyAccepted?"同意済み":""],
+ ["サイト",d.source],
  ];
  if(kind==="apply")for(let i=0;i<d.scheduleCandidates.length;i++){
   const slot=d.scheduleCandidates[i];
