@@ -66,3 +66,124 @@
     font-size: 12px;
   }
 }
+
+
+/* Plain-language, step-by-step guide for the monthly tuition estimator. */
+#estimate .estimate-explainer .estimate-simple-lead {
+  max-width: 48ch;
+  margin: 12px 0 0;
+  color: #34536b;
+  font-size: clamp(14px, 1.12vw, 16px);
+  line-height: 1.9;
+  text-wrap: pretty;
+}
+#estimate .estimate-simple-lead > strong {
+  display: block;
+  color: #153f5c;
+  font-size: clamp(17px, 1.7vw, 21px);
+  line-height: 1.6;
+  margin-bottom: 5px;
+}
+#estimate .estimate-simple-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 9px;
+  width: 100%;
+  margin: 18px 0 0;
+  padding: 0;
+}
+#estimate .estimate-simple-steps li {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  border: 1px solid #d6e7ef;
+  border-radius: 11px;
+  background: #f2f8fb;
+  padding: 10px 13px;
+  text-align: left;
+}
+#estimate .estimate-step-number {
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #247586;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+}
+#estimate .estimate-simple-steps li strong {
+  display: block;
+  color: #163e5b;
+  font-size: clamp(14px, 1.15vw, 16px);
+  line-height: 1.5;
+}
+#estimate .estimate-simple-steps li small {
+  display: block;
+  color: #52697b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+#estimate .estimate-explainer .estimate-easy-example {
+  width: 100%;
+  max-width: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 11px;
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  background: #fffaed;
+  border: 1px solid #e8d7aa;
+  border-radius: 11px;
+  color: #3e5366;
+  font-size: 14px;
+  line-height: 1.85;
+  text-align: left;
+}
+#estimate .estimate-example-tag {
+  flex: none;
+  color: #715318;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+#estimate .estimate-easy-example strong {white-space: normal;}
+#estimate .estimate-easy-example .estimate-example-amount {
+  color: #825d13;
+  font-size: 16px;
+  white-space: nowrap;
+}
+#estimate #estimate-breakdown.estimate-friendly-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 5px;
+  align-items: baseline;
+  color: #35546b;
+  font-size: 14px;
+  line-height: 1.85;
+  white-space: normal;
+}
+#estimate #estimate-breakdown.estimate-friendly-breakdown span {
+  display: inline;
+  white-space: normal;
+}
+@media (max-width: 940px) {
+  #estimate .estimate-simple-steps {
+    max-width: 650px;
+  }
+  #estimate .estimate-explainer .estimate-simple-lead,
+  #estimate .estimate-explainer .estimate-easy-example {
+    max-width: 650px;
+  }
+}
+@media (max-width: 600px) {
+  #estimate .estimate-simple-steps {gap: 8px;}
+  #estimate .estimate-simple-steps li {padding: 10px 12px;}
+  #estimate .estimate-explainer .estimate-easy-example {font-size: 13px;}
+  #estimate .estimate-easy-example .estimate-example-amount {font-size: 15px;}
+}
