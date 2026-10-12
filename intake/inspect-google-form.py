@@ -10,7 +10,7 @@ try:
 except URLError as e:
     print("FETCH FAILED:",str(e)[:400])
     sys.exit(1)
-match=re.search(r"FB_PUBLIC_LOAD_DATA_\\s*=\\s*(\\[.*?\\]);",html,re.S)
+match=re.search(r"FB_PUBLIC_LOAD_DATA_\s*=\s*(\[.*?\]);",html,re.S)
 if not match:
     print("NO FORM METADATA. HTML TITLE:",re.findall("<title>(.*?)</title>",html,re.S)[:2])
     print("HTML LENGTH:",len(html))
