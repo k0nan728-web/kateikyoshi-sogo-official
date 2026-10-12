@@ -1,4 +1,4 @@
-import {chromium,expect} from "playwright";
+import {chromium} from "playwright";
 const site=process.env.APP_URL||"https://feature-intake-forms-2026101.kateikyoshi-sogo.pages.dev";
 const browser=await chromium.launch({headless:true});
 const failures=[];
