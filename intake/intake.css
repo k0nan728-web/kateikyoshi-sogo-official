@@ -81,3 +81,12 @@ footer a{color:#fff}
 @media(max-width:900px){.layout{grid-template-columns:1fr}.aside{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:start;padding:22px}.aside h2{grid-column:1/-1}.aside>p{grid-column:1/-1}.aside .small-note{grid-column:1/-1}.point{padding:12px;border-radius:10px;border:1px solid #ffffff35}.aside .point strong{font-size:15px}}
 @media(max-width:600px){.sitebar-inner{padding:13px 16px;min-height:72px}.back{font-size:12px}main{padding:23px 14px 48px}.intro{margin-bottom:20px}.switch{gap:8px}.switch a{font-size:14px;padding:13px 6px;line-height:1.5}.layout{gap:15px}.form-wrap{padding:21px 17px;border-radius:16px}.aside{grid-template-columns:1fr;padding:22px 18px;border-radius:16px;gap:0}.aside h2{font-size:21px}.aside .point{padding:12px 0;border:0;border-top:1px solid #ffffff38;border-radius:0}.form-top{gap:8px;flex-wrap:wrap}.options,.two{grid-template-columns:1fr}.steps li{font-size:11px}.actions .btn{flex:1}.btn{width:100%}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+
+/* The longer application is arranged vertically so the left side never becomes an empty column. */
+body[data-kind="apply"] .layout{grid-template-columns:minmax(0,1fr)}
+body[data-kind="apply"] .aside{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:16px;row-gap:12px;align-items:stretch}
+body[data-kind="apply"] .aside h2,body[data-kind="apply"] .aside>p{grid-column:1/-1;margin-bottom:0}
+body[data-kind="apply"] .aside .point{padding:15px;border:1px solid #ffffff42;border-radius:12px;background:#ffffff0a}
+body[data-kind="apply"] .aside .small-note{margin-top:0}
+@media(min-width:1050px){body[data-kind="apply"] .options{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:680px){body[data-kind="apply"] .aside{grid-template-columns:minmax(0,1fr)}body[data-kind="apply"] .aside .point{padding:12px;border-radius:10px}}
