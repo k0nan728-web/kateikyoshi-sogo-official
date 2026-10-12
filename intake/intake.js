@@ -152,9 +152,76 @@ function showError(message){
 }
 function unavailable(){
  status.hidden=false;
- status.textContent="現在、専用フォームの送信先を準備しています。お手数ですが、正式稼働まで既存のGoogleフォームからご連絡ください。";
- const a=document.createElement("a");a.href=fallback;a.target="_blank";a.rel="noopener noreferrer";a.textContent="既存のGoogleフォームを開く →";status.append(document.createElement("br"),a);
- for(const button of form.querySelectorAll('[type="submit"]'))button.disabled=true;
+ status.innerHTML="";
+ const p=document.createElement("p");
+ p.textContent="【プレビュー版】サイトからの自動送信は設定中です。入力後はメールアプリに送信内容を引き継げます（メールアプリ側で送信操作が必要です）。メールを使用できない場合は旧Googleフォームをご利用ください。";
+ status.appendChild(p);
+ const a=document.createElement("a");
+ a.href=fallback;a.target="_blank";a.rel="noopener noreferrer";a.textContent="既存のGoogleフォームで申し込む →";
+ status.append(a);
+ const button=form.querySelector("#send-button");
+ if(button)button.textContent=kind==="apply"?"メールアプリで申し込み内容を確認する →":"メールアプリで相談内容を確認する →";
+}
+function selectedSchedules(){
+ if(kind!=="apply")return [];
+ const selections=[];
+ for(let i=1;i<=4;i++){
+  const day=form.elements.namedItem("schedule"+i+"Day").value;
+  const from=form.elements.namedItem("schedule"+i+"From").value;
+  const to=form.elements.namedItem("schedule"+i+"To").value;
+  selections.push({day,from,to});
+ }
+ return selections;
+}
+function payloadFromForm(token=""){
+ const data=new FormData(form);
+ const payload=Object.fromEntries(data.entries());
+ payload.kind=kind;
+ payload.courses=data.getAll("courses");
+ payload.subjects=data.getAll("subjects");
+ payload.scheduleCandidates=selectedSchedules();
+ payload.privacyAccepted=data.get("privacyAccepted")==="on";
+ payload.source=source;
+ payload.token=token;
+ payload.website=data.get("website")||"";
+ return payload;
+}
+function buildMailBody(d){
+ const sections=[
+ ["お申し込みの種類",d.purpose],["保護者・ご本人のお名前",d.guardianName],
+ ["メールアドレス",d.email],["電話番号",d.phone],
+ ["受講者のお名前",d.studentName],["受講者のお名前のふりがな",d.studentNameKana],
+ ["学年",d.grade],["お住まいの都道府県・市区町村",d.region],
+ ["ご希望の講座",(d.courses||[]).join("、")],
+ ["ご希望の科目",(d.subjects||[]).join("、")],
+ ["希望指導時間",d.duration],["指導形式",d.lessonMode],
+ ["初回のご希望日時",d.firstDate],["オンラインツール",d.tool],
+ ["学校名",d.school],["知ったきっかけ",d.discovery],
+ ["ご相談内容・ご要望",d.message],["サイト",d.source],
+ ];
+ if(kind==="apply")for(let i=0;i<d.scheduleCandidates.length;i++){
+  const slot=d.scheduleCandidates[i];
+  if(slot.day && slot.from && slot.to)
+   sections.push(["希望時間帯 第"+(i+1)+"候補",slot.day+" "+slot.from+"〜"+slot.to+"の間に授業開始可能"]);
+ }
+ return "公式サイトのフォームで入力しました。ご確認をお願いいたします。\n"
+ +"※このメールはメールアプリからご自身で送信する必要があります。\n\n"
+ +sections.filter(([label,value])=>String(value||"").trim()).map(([label,value])=>label+"： "+String(value).trim()).join("\n");
+}
+async function copyMailBody(){
+ if(kind==="apply"){
+  for(let i=0;i<4;i++){setStep(i);if(!validatePanel())return}
+ }else if(!validatePanel())return;
+ const body=buildMailBody(payloadFromForm());
+ try{
+  if(!navigator.clipboard?.writeText)throw Error("Clipboard API unavailable");
+  await navigator.clipboard.writeText(body);
+  showError("入力内容をコピーしました。メールを作成して本文に貼り付け、送信してください。フォーム自体からは送信されていません。");
+ }catch{
+  const target=document.getElementById("copy-fallback");
+  if(target){target.value=body;target.hidden=false;target.focus();target.select()}
+  showError("自動コピーできませんでした。表示された入力内容を選択してコピーし、メールに貼り付けてください。");
+ }
 }
 async function initialize(){
  try{
@@ -184,19 +251,20 @@ function loadTurnstile(){
 }
 form.addEventListener("submit",async e=>{
  e.preventDefault();
- if(!configured){showError("現在は既存のGoogleフォームからお問い合わせください。");return}
- if(!validatePanel())return;
+ if(kind==="apply"){
+  for(let i=0;i<4;i++){if(step!==i)setStep(i);if(!validatePanel())return}
+ }else if(!validatePanel())return;
+ if(!configured){
+  const payload=payloadFromForm();
+  const body=buildMailBody(payload);
+  const mailto="mailto:info@kateikyoshi-sogo.com?subject="+encodeURIComponent(kind==="apply"?"【授業申込希望】公式フォームから":"【無料相談】公式フォームから")+"&body="+encodeURIComponent(body);
+  showError("メールアプリを開きます。メールアプリで「送信」を押すまで、申し込みは完了しません。開かない場合は入力内容をコピーして送信できます。");
+  location.href=mailto;
+  return;
+ }
  const token=widgetReady?window.turnstile.getResponse(widgetId):"";
  if(!token){showError("迷惑送信防止の認証を完了してください。");return}
- const data=new FormData(form);
- const payload=Object.fromEntries(data.entries());
- payload.kind=kind;
- payload.courses=data.getAll("courses");
- payload.subjects=data.getAll("subjects");
- payload.privacyAccepted=data.get("privacyAccepted")==="on";
- payload.source=source;
- payload.token=token;
- payload.website=data.get("website")||"";
+ const payload=payloadFromForm(token);
  const button=form.querySelector("#send-button");
  button.disabled=true;button.textContent="送信中…";error.hidden=true;
  try{
@@ -210,6 +278,23 @@ form.addEventListener("submit",async e=>{
   try{window.turnstile.reset(widgetId)}catch{}
  }finally{button.disabled=false;button.textContent=kind==="apply"?"申し込み希望を送信する →":"この内容で送信する →"}
 });
+const copyAction=document.createElement("button");
+copyAction.type="button";
+copyAction.className="btn secondary copy-action";
+copyAction.id="copy-action";
+copyAction.textContent="入力内容をコピーする";
+copyAction.addEventListener("click",copyMailBody);
+const copyFallback=document.createElement("textarea");
+copyFallback.id="copy-fallback";
+copyFallback.hidden=true;
+copyFallback.readOnly=true;
+copyFallback.setAttribute("aria-label","メール用の入力内容をコピー");
+copyFallback.style.cssText="display:block;width:100%;min-height:180px;margin-top:15px;";
+const sendActions=form.querySelector("#send-button")?.closest(".actions");
+if(sendActions){sendActions.append(copyAction);sendActions.after(copyFallback)}
+copyAction.hidden=true;
+const originalUnavailable=unavailable;
+unavailable=function(){originalUnavailable();copyAction.hidden=false;};
 const honeypot=document.createElement("input");honeypot.name="website";honeypot.type="text";honeypot.autocomplete="off";honeypot.tabIndex=-1;honeypot.setAttribute("aria-hidden","true");honeypot.style.cssText="position:absolute;left:-9999px;opacity:0;height:0;width:0";form.appendChild(honeypot);
 if(kind==="apply"){
  const choices=form.querySelectorAll('[name="courses"]');
