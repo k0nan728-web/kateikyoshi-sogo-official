@@ -127,7 +127,7 @@ assert.match(frontend,/for\(let i=1;i<=4;i\+\+\)/);
 assert.ok(!frontend.includes('for(const button of form.querySelectorAll(\'[type="submit"]\'))button.disabled=true'),"Preview must not disable submit entirely");
 assert.match(frontend,/name="siteTermsAccepted"/);
 assert.match(frontend,/公式サイト掲載内容を確認/);
-assert.match(frontend,/料金・キャンセル規定/);
+assert.match(frontend,/キャンセル規定を見る/);
 const applicationHtml = await readFile("apply/index.html","utf8");
 assert.match(applicationHtml,/<h1 class="apply-title"><span class="responsive-phrase">体験授業・通常授業の<\/span><span class="responsive-phrase">お申し込み<\/span><\/h1>/);
 const css = await readFile("intake/intake.css","utf8");
