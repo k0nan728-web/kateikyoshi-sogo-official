@@ -90,3 +90,21 @@ body[data-kind="apply"] .aside .point{padding:15px;border:1px solid #ffffff42;bo
 body[data-kind="apply"] .aside .small-note{margin-top:0}
 @media(min-width:1050px){body[data-kind="apply"] .options{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:680px){body[data-kind="apply"] .aside{grid-template-columns:minmax(0,1fr)}body[data-kind="apply"] .aside .point{padding:12px;border-radius:10px}}
+
+/* Application schedule slots: desktop/tablet three columns, mobile stack without overflow. */
+.schedule-section{margin:20px 0 26px}
+.schedule-section h4{margin:0 0 14px;font-size:clamp(17px,1.6vw,20px);line-height:1.55;color:var(--navy)}
+.schedule-note{margin:13px 0 21px;padding:15px 18px;border:1px solid #bbd8d0;border-left:5px solid #3d8a73;background:#f0f9f5;border-radius:10px;color:#234d42;font-size:14px;line-height:1.8}
+.schedule-card{margin:0 0 15px;border:1.5px solid #c7dbe4;border-radius:14px;background:#f9fcfd;min-width:0;padding:17px 18px 2px}
+.schedule-card:first-of-type{border-color:#6b9daa;background:#eef7fa}
+.schedule-card legend{font-size:16px;font-weight:800;color:var(--navy);padding:0 7px}
+.schedule-grid{display:grid;grid-template-columns:1.05fr 1fr 1fr;gap:13px;min-width:0}
+.schedule-grid .field{min-width:0;margin:0 0 17px}
+.schedule-grid .field label{display:block;font-size:13px;line-height:1.6;font-weight:700;color:#315267;margin-bottom:7px}
+.schedule-grid input[type=time]{width:100%;min-width:0;padding:12px 9px}
+.schedule-grid select{width:100%;min-width:0}
+.copy-action[hidden],#copy-fallback[hidden]{display:none!important}
+#copy-fallback{font-size:14px;border:1px solid #9ebbc6;border-radius:10px;line-height:1.65;padding:10px}
+@media(max-width:850px){.schedule-grid{grid-template-columns:1fr 1fr}.schedule-grid>.field:first-child{grid-column:1/-1}}
+@media(max-width:520px){.schedule-card{padding:14px 12px 0}.schedule-grid{gap:10px}.schedule-grid .field label{font-size:12px}.schedule-grid input[type=time]{font-size:15px;min-height:50px}}
+@media(max-width:350px){.schedule-grid{grid-template-columns:1fr}.schedule-grid>.field:first-child{grid-column:auto}}
