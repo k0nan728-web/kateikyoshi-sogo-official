@@ -21,6 +21,8 @@ jobs:
         run: node --check intake/intake.js
       - name: Check Cloudflare Worker JavaScript module syntax
         run: node --check --input-type=module < functions/api/intake.js
+      - name: Test required application fields and consultation exceptions
+        run: node intake/validate.test.mjs
       - name: Check HTML files and route targets
         run: |
           python - <<'PY'
