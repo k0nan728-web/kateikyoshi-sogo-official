@@ -73,7 +73,7 @@ if(kind==="consult"){
  ${field("message","ご相談内容",{required:true,multiline:true,placeholder:"例：中学2年生の英検対策を考えています。料金や週1回の授業について知りたいです。"})}
  ${consent}${challenge}
  <div class="actions"><button type="submit" class="btn primary" id="send-button">この内容で送信する →</button></div>
- <p class="small">送信後、控えメールをお送りします。契約や料金の請求は発生しません。</p>`;
+ <p class="small">受付方法によってはGoogleフォームでの最終送信が必要です。お問い合わせだけで契約や料金の請求は発生しません。</p>`;
 }else{
  fields.innerHTML=`
  <ol class="steps" aria-label="入力手順"><li class="active">1 ご連絡先</li><li>2 指導内容</li><li>3 日程・形式</li><li>4 ご要望・確認</li></ol>
@@ -111,7 +111,7 @@ if(kind==="consult"){
  ${serviceAgreement}
  ${consent}${challenge}
  <div class="actions"><button type="button" class="btn secondary" data-prev>← 戻る</button><button type="submit" class="btn primary" id="send-button">申し込み希望を送信する →</button></div>
- <p class="small">送信完了メールをお送りします。送信のみで契約・決済が発生することはありません。</p></div>`;
+ <p class="small">直接送信が利用できない場合は、Googleフォームの最終送信画面へ引き継ぎます。申し込み希望の送信だけで契約・決済は発生しません。</p></div>`;
 }
 const panels=[...form.querySelectorAll(".step-panel")];
 function setStep(next){
@@ -265,11 +265,11 @@ function legacyPrefillUrl(data){
  for(const v of selectedSubjects)add("102234408",v);
  if(["60分","90分","120分","150分","180分"].includes(data.duration))add("1137729539",data.duration);
  add("878164990",data.firstDate);
- const times=(data.scheduleCandidates||[]).filter(x=>x.day&&x.from&&x.to).map((x,i)=>"第"+(i+1)+"候補："+x.day+" "+x.from+"〜"+x.to+"の間に開始可能");
+ const times=(data.scheduleCandidates||[]).map((x,i)=>({...x,rank:i+1})).filter(x=>x.day&&x.from&&x.to).map(x=>"第"+x.rank+"候補："+x.day+" "+x.from+"〜"+x.to+"の間に開始可能");
  if(times.length)add("1103182725",times.join("／"));
  if(data.tool==="Zoom")add("568073567","Zoom（40分で再入室が必要）");
  if(data.tool==="Google Meet")add("568073567","Google meet（Googleアカウントが必要）");
- const details=buildMailBody(data);
+ const details="【申し込み条件の同意】"+(data.siteTermsAccepted?"確認済み":"未確認")+" ／ 【個人情報の取り扱い】"+(data.privacyAccepted?"同意済み":"未確認")+"\n"+buildMailBody(data);
  if(kind==="apply")add("1692327135",details.slice(0,1600));
  else add("1952735166",details.slice(0,1600));
  return fallback+(fallback.includes("?")?"&":"?")+params.toString();
