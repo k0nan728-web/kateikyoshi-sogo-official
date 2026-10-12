@@ -33,6 +33,20 @@ function dropdown(name,label,options,{required=false,help=""}={}){
 function checks(name,label,options,{required=false,help=""}={}){
  return `<fieldset class="field fieldset" data-group="${name}"><legend>${label}${required?'<span class="required">必須</span>':'<span class="optional">任意</span>'}</legend><div class="options">${options.map((x,i)=>`<label><input type="checkbox" name="${name}" value="${escapeHtml(x)}" id="${name}-${i}"><span>${escapeHtml(x)}</span></label>`).join("")}</div>${help?'<p class="help">'+help+'</p>':""}</fieldset>`;
 }
+const weekdays=["月曜日","火曜日","水曜日","木曜日","金曜日","土曜日","日曜日"];
+function scheduleSlot(i){
+ const required=i===1;
+ const mark=required?'<span class="required">必須</span>':'<span class="optional">任意</span>';
+ const id="schedule"+i;
+ const options=weekdays.map(day=>'<option value="'+day+'">'+day+'</option>').join("");
+ return `<fieldset class="schedule-card" data-schedule="${i}">
+ <legend><span>第${["","1","2","3","4"][i]}候補</span>${mark}</legend>
+ <div class="schedule-grid">
+ <div class="field"><label for="${id}Day">ご希望の曜日</label><select id="${id}Day" name="${id}Day" ${required?"required":""}><option value="">曜日を選択</option>${options}</select></div>
+ <div class="field"><label for="${id}From">何時から開始可能？</label><input type="time" id="${id}From" name="${id}From" step="900" ${required?"required":""}></div>
+ <div class="field"><label for="${id}To">何時までに開始可能？</label><input type="time" id="${id}To" name="${id}To" step="900" ${required?"required":""}></div>
+ </div></fieldset>`;
+}
 const consent=`<div class="consent"><label><input type="checkbox" name="privacyAccepted" required><span>個人情報の取り扱いに同意します。<span class="required">必須</span><br><span class="small">ご入力いただいた情報は、ご連絡・受講相談・授業準備に利用します。送信にはメール配信サービスを使用します。必要な範囲を超えて公開しません。</span></span></label></div>`;
 const challenge='<div id="challenge" class="turnstile" aria-label="迷惑送信防止の認証"></div>';
 let step=0,configured=false,widgetId=null,widgetReady=false,turnstileLoading=false;
@@ -70,7 +84,12 @@ if(kind==="consult"){
  ${dropdown("duration","1回あたりのご希望の時間",["60分","90分","120分","150分","180分","相談して決めたい"],{required:true})}
  ${dropdown("lessonMode","指導形式",["オンライン指導","対面指導（地域・条件を要相談）","相談して決めたい"],{required:true})}
  ${field("firstDate","初回のご希望日時",{placeholder:"例：11月第2週ごろ"})}
- ${field("schedule","希望の曜日・時間帯",{placeholder:"例：火曜か木曜の18時以降",help:"候補を複数いただけるとご案内がスムーズです。"})}
+ <div class="schedule-section">
+ <h4>毎週のご希望曜日と、授業を開始できる時間帯</h4>
+ <p class="notice"><strong>例：火曜日の18:00〜20:00の間に授業開始可能</strong><br>ここでの「20:00」は授業終了時刻ではなく、<strong>開始してもよい最も遅い時刻</strong>です。</p>
+ <p class="schedule-note">現在、すでに埋まっている指導枠も多くあります。<strong>候補が少ない場合は、ご希望に添えずお引き受けできない可能性が高くなります。</strong> 可能でしたら第2〜第4候補までご入力ください。第1候補のみ必須です。</p>
+ ${[1,2,3,4].map(scheduleSlot).join("")}
+ </div>
  ${dropdown("tool","ご希望のオンラインツール",["Google Meet","Zoom","その他","相談して決めたい"],{help:"ツールのご利用方法は授業開始前にご案内します。"})}
  <div class="actions"><button type="button" class="btn secondary" data-prev>← 戻る</button><button type="button" class="btn primary" data-next>ご要望の入力へ進む →</button></div></div>
  <div class="step-panel" data-step="3" hidden><h3 class="step-heading">最後に、ご要望をお聞かせください</h3>
@@ -100,6 +119,24 @@ function validatePanel(){
  }
  if(kind==="apply" && step===1 && !form.querySelector('[name="courses"]:checked')){
   showError("ご希望の講座を1つ以上選んでください。");form.querySelector('[name="courses"]')?.focus();return false;
+ }
+ if(kind==="apply" && step===2){
+  for(let i=1;i<=4;i++){
+   const day=form.elements.namedItem("schedule"+i+"Day");
+   const from=form.elements.namedItem("schedule"+i+"From");
+   const to=form.elements.namedItem("schedule"+i+"To");
+   const values=[day.value,from.value,to.value];
+   if(i===1 || values.some(Boolean)){
+    if(values.some(v=>!v)){
+     showError("第"+i+"候補は、曜日・開始可能な最も早い時刻・最も遅い時刻をすべて入力してください。");
+     [day,from,to].find(el=>!el.value)?.focus();return false;
+    }
+    if(from.value>=to.value){
+     showError("第"+i+"候補の開始可能時間帯は、終了側の時刻を開始側より遅く設定してください。");
+     to.focus();return false;
+    }
+   }
+  }
  }
  return true;
 }
