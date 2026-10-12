@@ -1,0 +1,18 @@
+name: Inspect existing public Google Form structure
+on:
+  push:
+    branches:
+      - feature/intake-forms-20261012
+    paths:
+      - 'intake/inspect-google-form.py'
+      - '.github/workflows/inspect-google-form.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect-form:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch publicly-visible form question schema (no responses)
+        run: python intake/inspect-google-form.py
