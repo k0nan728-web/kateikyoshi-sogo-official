@@ -26,9 +26,17 @@ for(const size of [{w:390,h:844},{w:1366,h:900}]){
  await page.getByRole("button",{name:"指導内容へ進む"}).click();
  await page.locator("#f-purpose").selectOption({label:"体験授業のお申し込み"});
  await page.locator('input[name="courses"]').first().check();
+ const trialCheck=page.locator('input[name="trialOnceConfirmed"]');
+ if(!await trialCheck.isVisible())throw Error("First-time trial acknowledgement is not shown");
+ await page.getByRole("button",{name:"日時・形式へ進む"}).click();
+ if(!await page.locator('[data-step="1"]').isVisible())throw Error("Trial acknowledgement was not required");
+ await trialCheck.check();
  await page.getByRole("button",{name:"日時・形式へ進む"}).click();
  await page.locator("#f-duration").selectOption({label:"60分"});
- await page.locator("#f-lessonMode").selectOption({label:"オンライン指導"});
+ const mode=await page.locator('input[name="lessonMode"]').inputValue();
+ if(mode!=="オンライン指導")throw Error("Lesson mode must be fixed to online instruction");
+ if(await page.locator("#f-lessonMode").count())throw Error("In-person/undecided selector is still present");
+ if(!(await page.locator('.mode-confirmation').innerText()).includes("再開するかどうかも未定"))throw Error("Reopening status not clarified");
  await page.locator("#schedule1Day").selectOption({label:"火曜日"});
  await page.locator("#schedule1From").fill("18:00");
  await page.locator("#schedule1To").fill("20:00");
