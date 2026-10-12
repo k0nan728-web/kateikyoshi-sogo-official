@@ -127,7 +127,17 @@ function setStep(next){
 function validatePanel(){
  const panel=kind==="apply"?panels[step]:form;
  for(const el of panel.querySelectorAll("[required]")){
-   if(!el.checkValidity()){el.reportValidity();el.focus();return false}
+   if(!el.checkValidity()){
+     const label=el.name==="siteTermsAccepted"?"公式サイト掲載の受講条件への同意":
+       el.name==="privacyAccepted"?"個人情報の取り扱いへの同意":
+       (el.closest(".field")?.querySelector("label")?.textContent?.trim()||
+       el.closest(".consent")?.querySelector("label")?.textContent?.trim()||
+       "必須項目");
+     showError("「"+label+"」を確認してください。未入力・未チェックの項目があります。");
+     el.focus();
+     el.reportValidity();
+     return false;
+   }
  }
  if(kind==="apply" && step===1 && !form.querySelector('[name="courses"]:checked')){
   showError("ご希望の講座を1つ以上選んでください。");form.querySelector('[name="courses"]')?.focus();return false;
