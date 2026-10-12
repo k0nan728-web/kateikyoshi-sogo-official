@@ -57,7 +57,7 @@ const serviceAgreement=`<section class="consent terms-consent" aria-labelledby="
  <li><a href="https://kateikyoshi-sogo.com/#process" target="_blank" rel="noopener noreferrer">受講開始までの流れを見る ↗</a></li>
  </ul>
  <label class="agreement-check"><input type="checkbox" name="siteTermsAccepted" value="on" required><span>上記の公式サイト掲載内容を確認し、申し込みに関する条件に同意します。<span class="required">必須</span></span></label>
- <p class="terms-help">このフォームは受講希望の受付です。送信時点で授業日時や契約は確定しません。正式な条件は講師との確認後にご案内します。</p>
+ <p class="terms-help"><strong>現在の指導形式はオンラインのみです。</strong> 体験授業は受講者お一人1回限りで、級・科目・コースを変えても再度体験できません。このフォームは受講希望の受付であり、送信だけで授業日時や契約は確定しません。正式な条件は講師との確認後にご案内します。</p>
  </section>`;
 const challenge='<div id="challenge" class="turnstile" aria-label="迷惑送信防止の認証"></div>';
 let step=0,configured=false,widgetId=null,widgetReady=false,turnstileLoading=false;
@@ -88,12 +88,14 @@ if(kind==="consult"){
  <div class="actions"><button type="button" class="btn primary" data-next>指導内容へ進む →</button></div></div>
  <div class="step-panel" data-step="1" hidden><h3 class="step-heading">ご希望の指導内容を教えてください</h3>
  ${dropdown("purpose","お申し込みの種類",applicationPurposes,{required:true})}
+ <p class="notice trial-policy"><strong>体験授業は受講者お一人につき1回限りです。</strong> 英検の級・教科・コース・申込窓口を変えても、2回目の体験授業はお受けできません。体験授業は有料です。料金・空き状況を確認してご案内します。</p>
+ <div class="consent trial-confirm" id="trial-confirm" hidden><label><input type="checkbox" name="trialOnceConfirmed" value="on"><span>今回の受講者は、鈴木雄太による体験授業をこれまで受けていません。<span class="required">必須</span><span class="small">過去に別コース・別の級で体験済みの場合は、通常授業のお申し込みまたは無料相談をご利用ください。</span></span></label></div>
  ${checks("courses","ご希望の講座・サポート（複数選択可）",courseOptions,{required:true,help:"まだ決めていない場合は「その他・相談して決めたい」をお選びください。医学的な診断内容などを入力する必要はありません。"})}
  ${checks("subjects","ご希望の指導科目（複数選択可）",subjectOptions,{help:"大学受験の専門指導は文系科目が中心です。数学・理科は学年や内容によって対応できない場合があります。"})}
  <div class="actions"><button type="button" class="btn secondary" data-prev>← 戻る</button><button type="button" class="btn primary" data-next>日時・形式へ進む →</button></div></div>
  <div class="step-panel" data-step="2" hidden><h3 class="step-heading">希望日時・授業形式を教えてください</h3>
  ${dropdown("duration","1回あたりのご希望の時間",["60分","90分","120分","150分","180分","相談して決めたい"],{required:true})}
- ${dropdown("lessonMode","指導形式",["オンライン指導","対面指導（地域・条件を要相談）","相談して決めたい"],{required:true})}
+ <div class="field mode-confirmation"><div class="mode-caption">指導形式</div><p class="notice"><strong>オンライン指導のみ受け付けています。</strong> 対面による家庭教師は現在受け付けておらず、再開するかどうかも未定です。</p><input type="hidden" name="lessonMode" value="オンライン指導"></div>
  ${field("firstDate","初回のご希望日時",{placeholder:"例：11月第2週ごろ"})}
  <div class="schedule-section">
  <h4>毎週のご希望曜日と、授業を開始できる時間帯</h4>
@@ -112,6 +114,17 @@ if(kind==="consult"){
  ${consent}${challenge}
  <div class="actions"><button type="button" class="btn secondary" data-prev>← 戻る</button><button type="submit" class="btn primary" id="send-button">申し込み希望を送信する →</button></div>
  <p class="small">直接送信が利用できない場合は、Googleフォームの最終送信画面へ引き継ぎます。申し込み希望の送信だけで契約・決済は発生しません。</p></div>`;
+}
+if(kind==="apply"){
+ const purpose=form.querySelector("#f-purpose"),trialBox=form.querySelector("#trial-confirm");
+ const trialCheck=trialBox?.querySelector('[name="trialOnceConfirmed"]');
+ const syncTrial=()=>{
+  const isTrial=purpose?.value==="体験授業のお申し込み";
+  if(trialBox)trialBox.hidden=!isTrial;
+  if(trialCheck){trialCheck.required=isTrial;if(!isTrial)trialCheck.checked=false;}
+ };
+ purpose?.addEventListener("change",syncTrial);
+ syncTrial();
 }
 const panels=[...form.querySelectorAll(".step-panel")];
 function setStep(next){
@@ -206,6 +219,7 @@ function payloadFromForm(token=""){
  payload.scheduleCandidates=selectedSchedules();
  payload.privacyAccepted=data.get("privacyAccepted")==="on";
  payload.siteTermsAccepted=kind==="apply" && data.get("siteTermsAccepted")==="on";
+ payload.trialOnceConfirmed=kind==="apply" && data.get("trialOnceConfirmed")==="on";
  payload.source=source;
  payload.token=token;
  payload.website=data.get("website")||"";
@@ -287,6 +301,7 @@ function buildMailBody(d){
  ["学校名",d.school],["知ったきっかけ",d.discovery],
  ["ご相談内容・ご要望",d.message],
  ["公式サイトの受講条件への同意",kind==="apply" && d.siteTermsAccepted?"同意済み":""],
+ ["体験授業は一人1回・別コースでも再体験不可の確認",d.purpose==="体験授業のお申し込み" && d.trialOnceConfirmed?"初めての体験であることを確認済み":""],
  ["個人情報の取り扱いへの同意",d.privacyAccepted?"同意済み":""],
  ["サイト",d.source],
  ];
