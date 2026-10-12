@@ -1,0 +1,49 @@
+name: Intake forms quality check
+on:
+  push:
+    branches: [feature/intake-forms-20261012]
+  pull_request:
+    paths:
+      - 'contact/**'
+      - 'apply/**'
+      - 'intake/**'
+      - 'functions/api/intake.js'
+      - '.github/workflows/intake-check.yml'
+jobs:
+  lint-intake:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check frontend JavaScript syntax
+        run: node --check intake/intake.js
+      - name: Check Cloudflare Worker JavaScript module syntax
+        run: node --check --input-type=module < functions/api/intake.js
+      - name: Test required application fields and consultation exceptions
+        run: node intake/validate.test.mjs
+      - name: Check HTML files and route targets
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          class Checker(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.links=[]
+              def handle_starttag(self,tag,attrs):
+                  if tag=='a':
+                      self.links.extend(v for k,v in attrs if k=='href')
+          for name in ['contact/index.html','apply/index.html']:
+              html=Path(name).read_text()
+              c=Checker()
+              c.feed(html)
+              assert '/contact/' in c.links and '/apply/' in c.links
+              assert '/intake/intake.js' in html
+              assert '/intake/intake.css' in html
+              assert '<form' in html and '<meta name="robots" content="noindex, nofollow">' in html
+              print(name,'OK')
+          assert Path('index.html').read_text().count('href="/contact/') >= 1
+          assert 'href="/apply/"' in Path('index.html').read_text()
+          PY
