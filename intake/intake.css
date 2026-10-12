@@ -108,3 +108,32 @@ body[data-kind="apply"] .aside .small-note{margin-top:0}
 @media(max-width:850px){.schedule-grid{grid-template-columns:1fr 1fr}.schedule-grid>.field:first-child{grid-column:1/-1}}
 @media(max-width:520px){.schedule-card{padding:14px 12px 0}.schedule-grid{gap:10px}.schedule-grid .field label{font-size:12px}.schedule-grid input[type=time]{font-size:15px;min-height:50px}}
 @media(max-width:350px){.schedule-grid{grid-template-columns:1fr}.schedule-grid>.field:first-child{grid-column:auto}}
+
+
+/* Readable heading groups: never split the key Japanese phrases at narrow widths. */
+.responsive-phrase{display:inline}
+.breadcrumb-short{display:none}
+.intro h1,.form-top h2,.switch a{overflow-wrap:normal;line-break:strict}
+.switch a{align-content:center}
+.terms-consent{background:#f2f8fb;border:1.5px solid #c4dbe8;padding:20px 21px}
+.terms-consent h4{margin:0 0 10px;color:var(--navy);font-size:18px;line-height:1.55}
+.terms-consent .terms-lead{color:#38556c;margin:0 0 13px;font-size:14px;line-height:1.85}
+.terms-links{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;padding:0;margin:0 0 21px}
+.terms-links li{min-width:0}
+.terms-links a{display:flex;align-items:center;justify-content:center;height:100%;min-height:52px;padding:10px 12px;border:1px solid #9fc0d0;border-radius:10px;background:#fff;color:#145d78;text-align:center;text-decoration:underline;text-underline-offset:4px;font-size:13px;font-weight:700;line-height:1.65}
+.terms-links a:hover{background:#e6f3f7}
+.terms-consent .agreement-check{padding:14px;background:#fff;border:1px solid #c3d5df;border-radius:10px;line-height:1.8;font-weight:700}
+.terms-consent .terms-help{font-size:13px;line-height:1.8;color:#50687b;margin:12px 0 0}
+@media(max-width:800px){.terms-links{grid-template-columns:1fr}.terms-links a{min-height:46px;text-align:left;justify-content:flex-start}}
+@media(max-width:600px){
+ .intro h1.apply-title .responsive-phrase,.form-top h2.apply-form-title .responsive-phrase,.switch .responsive-phrase{display:block}
+ .intro h1.apply-title .responsive-phrase+.responsive-phrase{margin-top:.08em}
+ .switch{grid-template-columns:minmax(0,1fr);gap:9px}
+ .switch a{padding:12px 13px;font-size:15px}
+ .form-top h2.apply-form-title{line-height:1.6}
+ .breadcrumb-full{display:none}
+ .breadcrumb-short{display:inline}
+ .terms-consent{padding:17px 14px}
+ .terms-consent h4{font-size:17px}
+}
+@media(max-width:360px){.intro h1.apply-title{font-size:26px}.form-top h2.apply-form-title{font-size:20px}}
