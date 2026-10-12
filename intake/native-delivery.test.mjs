@@ -18,7 +18,7 @@ const example={
  kind:"apply", guardianName:"フォーム動作確認用", email:"test@example.net",
  studentName:"試験太郎",studentNameKana:"しけんたろう",grade:"中3",
  region:"千葉県柏市",courses:["高校受験対策"],subjects:["英語"],
- duration:"60分",lessonMode:"オンライン指導",message:"通知検証（架空データ）",
+ duration:"60分",lessonMode:"オンライン指導",purpose:"通常授業のお申し込み",message:"通知検証（架空データ）",
  privacyAccepted:true,siteTermsAccepted:true,token:"fake-challenge-token",
  scheduleCandidates:[
   {day:"火曜日",from:"18:00",to:"20:00"},
@@ -54,6 +54,17 @@ try{
  assert.match(emails[0].text,/第3候補： 土曜日 10:00〜12:00/);
  assert.match(emails[0].text,/確認・同意済み/);
  assert.deepEqual(emails[1].to,[example.email]);
+ assert.match(emails[0].text,/オンライン指導のみ/);
+ emails=[];
+ const acceptedTrial=await api.onRequestPost({request:req({...example,purpose:"体験授業のお申し込み",trialOnceConfirmed:true}),env});
+ assert.equal(acceptedTrial.status,200);
+ assert.match(emails[0].text,/初回体験であると申告・確認済み/);
+ assert.equal(emails.length,2);
+ emails=[];
+ const rejectedTrial=await api.onRequestPost({request:req({...example,purpose:"体験授業のお申し込み",trialOnceConfirmed:false}),env});
+ assert.equal(rejectedTrial.status,400);
+ assert.equal(emails.length,0);
+ emails=[];
  emails=[];verifyEnabled=false;
  const rejected=await api.onRequestPost({request:req(example),env});
  assert.equal(rejected.status,400);
