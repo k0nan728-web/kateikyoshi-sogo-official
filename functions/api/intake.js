@@ -63,7 +63,7 @@ export async function onRequestPost({ request, env }) {
         return reply({ok:false,error:"希望の曜日・時間帯を確認してください。"},400);
       const day = limit(slot.day,20), from = limit(slot.from,10), to = limit(slot.to,10);
       if (i===0 || day || from || to) {
-        if (!weekdays.has(day) || !validTime(from) || !validTime(to) || from >= to)
+        if (!weekdays.has(day) || !validTime(from) || !validTime(to) || from > to)
           return reply({ok:false,error:"第"+(i+1)+"候補は、曜日と授業開始可能な時間帯（早い時刻〜遅い時刻）を正しく入力してください。"},400);
         scheduleCandidates.push({rank:i+1,day,from,to});
       }
