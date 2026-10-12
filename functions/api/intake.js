@@ -47,7 +47,7 @@ export async function onRequestPost({ request, env }) {
   if (d && d.website) return reply({ ok: true }); // honeypot; do not send
   const kind = d?.kind === "apply" ? "apply" : d?.kind === "consult" ? "consult" : null;
   const name = limit(d?.guardianName, 90), email = limit(d?.email, 254);
-  if (!kind || !name || !validEmail(email) || !d?.privacyAccepted)
+  if (!kind || !name || !validEmail(email) || d?.privacyAccepted !== true)
     return reply({ ok: false, error: "お名前・メールアドレス・個人情報の同意をご確認ください。" }, 400);
   if (kind === "apply" && (!limit(d?.studentName, 150) || !limit(d?.studentNameKana, 150) || !limit(d?.grade, 50) || !limit(d?.region, 150) || !Array.isArray(d?.courses) || !d.courses.length))
     return reply({ ok: false, error: "お申し込みには受講者のお名前・ふりがな・学年・お住まいの都道府県と市区町村・ご希望の指導内容が必要です。" }, 400);
