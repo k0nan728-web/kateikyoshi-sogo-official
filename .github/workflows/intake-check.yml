@@ -1,7 +1,7 @@
 name: Intake forms quality check
 on:
   push:
-    branches: [feature/intake-forms-20261012]
+    branches: [main, fix/intake-delivery-readiness-20261012]
   pull_request:
     paths:
       - 'contact/**'
@@ -23,6 +23,8 @@ jobs:
         run: node --check --input-type=module < functions/api/intake.js
       - name: Test required application fields and consultation exceptions
         run: node intake/validate.test.mjs
+      - name: Simulate successful email dispatch and failure responses
+        run: node intake/native-delivery.test.mjs
       - name: Check HTML files and route targets
         run: |
           python - <<'PY'
