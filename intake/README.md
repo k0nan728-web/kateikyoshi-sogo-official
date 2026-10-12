@@ -1,6 +1,6 @@
 # 公式サイト お問い合わせ・お申し込みフォーム導入手順
 
-ステータス: **実装済み / 送信機能の本番設定・実送信テスト待ち**。本ブランチを main に統合する前に、以下を完了する。送信検証前に旧 Google フォームのリンクを削除しない。
+ステータス: **公式フォームページと送信APIのコードは本番公開済み／メール配信・Turnstileの本番設定は未完了**。2026-10-12の本番API診断で `GET /api/intake` は HTTP 200 だが `available:false` と確認。独自フォーム内での送信は現在まだ動作しない。旧 Google フォームへの引き継ぎを維持し、送信設定と実受信テスト前に「直接送信できる」と案内しない。
 
 ## 構成
 
@@ -46,4 +46,29 @@ Cloudflare Pages の Settings → Environment variables / Secrets 等、実際�
 - 専門ブランドごとの CTA を `/contact/?brand=eiken` や `/apply/?brand=retry` に統一する。いきなり全サイトを改変せず、導線を個別確認する。
 - 個人情報の取扱いページを作成し、メール配信委託先・保有期間・連絡先を明記する。
 
-**Go / No-go:** バックエンドのキー設定と実送信テストが終わるまでは、PRをドラフトのまま保管し、main へは統合しない。
+## 完全独自送信を有効化するための残作業
+
+2026-10-12時点の公開API診断の確認結果:
+
+- `/apply/`: HTTP 200
+- `/contact/`: HTTP 200
+- `/api/intake`: HTTP 200（ただし `available:false`）
+- Turnstile公開サイトキー: **なし**
+- Googleフォームへの引き継ぎ: **あり**
+
+### アカウントで必要な設定（秘密値はGitHubやチャットに貼り付けない）
+
+1. Resendへログインして `kateikyoshi-sogo.com` の差出人ドメインを認証する。Resendで表示されるDNSレコードをCloudflare DNSに設定する際、**既存のメール受信設定（MXなど）は壊さない**。認証済みの `From` を用意する。
+2. Resend APIキーを生成し、Cloudflare Pagesの**本番（Production）**にSecret `RESEND_API_KEY` を登録する。通常の環境変数 `INTAKE_FROM_EMAIL` にResendで確認済みの送信元を設定する。
+3. CloudflareのTurnstileで本番サイト `kateikyoshi-sogo.com` と `www.kateikyoshi-sogo.com` を許可したウィジェットを作成し、サイトキー `TURNSTILE_SITE_KEY` とSecret `TURNSTILE_SECRET_KEY` をCloudflare Pagesの**本番（Production）**に設定する。プレビューテストも実施する場合はPreview環境用も設定する。
+4. Pagesの本番デプロイを再実行。 `GET https://kateikyoshi-sogo.com/api/intake` が `available:true` を返すことを確認。
+5. 申し込みフォームからユーザー本人管理のメールで体験授業／通常授業を試験送信し、`info@kateikyoshi-sogo.com` への通知と返信先、希望候補、第1〜第4候補、規約同意、お客様への自動返信を確認する。実受信の確認まではGoogleフォームの代替導線を残す。
+
+### 自動検証
+
+- `node intake/validate.test.mjs` — 必須項目、受講条件・個人情報同意、第1〜第4候補の検証。
+- `node intake/native-delivery.test.mjs` — **実送信はしない**。Turnstileを模擬し、講師通知・控え・エラー時の返答を仮想的に検証。
+- GitHub Actions `Check native form delivery readiness` — 個人情報を送らず、本番のGETと設定有無を確認。
+- 本番 `available:true` になってから、実機Safari・スマホの入力→送信→実メール到達テストを行う。
+
+**Go / No-go:** 本番APIが `available:true`、ドメイン認証と実メール到達が確認できるまでは、直接送信機能が有効になったとみなさない。個人情報の安全のため、秘密鍵のGitHubコミット・チャット送信は禁止。
