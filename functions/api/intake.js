@@ -52,7 +52,7 @@ export async function onRequestPost({ request, env }) {
   if (kind === "apply" && (!limit(d?.studentName, 150) || !limit(d?.studentNameKana, 150) || !limit(d?.grade, 50) || !limit(d?.region, 150) || !Array.isArray(d?.courses) || !d.courses.length))
     return reply({ ok: false, error: "お申し込みには受講者のお名前・ふりがな・学年・お住まいの都道府県と市区町村・ご希望の指導内容が必要です。" }, 400);
   const weekdays = new Set(["月曜日","火曜日","水曜日","木曜日","金曜日","土曜日","日曜日"]);
-  const validTime = t => /^([01]\\d|2[0-3]):[0-5]\\d$/.test(t);
+  const validTime = t => /^([01]\d|2[0-3]):[0-5]\d$/.test(t);
   const scheduleCandidates = [];
   if (kind === "apply") {
     if (!Array.isArray(d.scheduleCandidates) || d.scheduleCandidates.length !== 4)
