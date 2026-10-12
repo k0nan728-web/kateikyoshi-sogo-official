@@ -39,6 +39,7 @@ for(const size of [{w:390,h:844},{w:1366,h:900}]){
  await page.locator('input[name="privacyAccepted"]').check();
  await btn.click();
  if(await page.locator("#form-error").isHidden())throw Error("Missing site-terms agreement not caught");
+ if(!((await page.locator("#form-error").innerText()).includes("受講条件")))throw Error("Missing agreement error lacks explanatory field name");
  await page.locator('input[name="siteTermsAccepted"]').check();
  // The final submit falls back to an explicitly labeled Google Form handoff
  // when Cloudflare email variables have not yet been configured.
