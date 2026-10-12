@@ -51,6 +51,8 @@ export async function onRequestPost({ request, env }) {
     return reply({ ok: false, error: "お名前・メールアドレス・個人情報の同意をご確認ください。" }, 400);
   if (kind === "apply" && (!limit(d?.studentName, 150) || !limit(d?.studentNameKana, 150) || !limit(d?.grade, 50) || !limit(d?.region, 150) || !Array.isArray(d?.courses) || !d.courses.length))
     return reply({ ok: false, error: "お申し込みには受講者のお名前・ふりがな・学年・お住まいの都道府県と市区町村・ご希望の指導内容が必要です。" }, 400);
+  if (kind === "apply" && d?.siteTermsAccepted !== true)
+    return reply({ok:false,error:"公式サイトの受講条件をご確認のうえ、同意にチェックを入れてください。"},400);
   const weekdays = new Set(["月曜日","火曜日","水曜日","木曜日","金曜日","土曜日","日曜日"]);
   const validTime = t => /^([01]\d|2[0-3]):[0-5]\d$/.test(t);
   const scheduleCandidates = [];
@@ -86,6 +88,8 @@ export async function onRequestPost({ request, env }) {
   const fields = [
     ["種類", kind === "apply" ? "体験授業・通常授業のお申し込み" : "お問い合わせ・無料相談"],
     ["お申し込み内容", d.purpose],
+    ["公式サイト掲載の受講条件への同意",kind==="apply" && d.siteTermsAccepted === true ? "確認・同意済み（公式サイト：料金・キャンセル規定・受講の流れ）" : "対象外（無料相談）"],
+    ["個人情報の取り扱いへの同意", d.privacyAccepted === true ? "同意済み" : "未確認"],
     ["保護者・ご本人のお名前", name],
     ["返信先メールアドレス", email],
     ["電話番号", d.phone],
