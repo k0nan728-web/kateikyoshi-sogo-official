@@ -1,0 +1,21 @@
+name: Parent application browser smoke tests
+on:
+  push:
+    branches: [feature/intake-forms-20261012]
+    paths:
+      - 'intake/form-smoke.test.mjs'
+      - '.github/workflows/intake-browser-test.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Playwright and browser for UI test
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Exercise full application journey on Cloudflare preview
+        run: node intake/form-smoke.test.mjs
