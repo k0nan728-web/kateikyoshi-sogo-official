@@ -49,8 +49,8 @@ export async function onRequestPost({ request, env }) {
   const name = limit(d?.guardianName, 90), email = limit(d?.email, 254);
   if (!kind || !name || !validEmail(email) || !d?.privacyAccepted)
     return reply({ ok: false, error: "お名前・メールアドレス・個人情報の同意をご確認ください。" }, 400);
-  if (kind === "apply" && (!limit(d?.studentName, 150) || !limit(d?.grade, 50) || !limit(d?.region, 150) || !Array.isArray(d?.courses) || !d.courses.length))
-    return reply({ ok: false, error: "お申し込みには受講者のお名前・学年・お住まいの都道府県と市区町村・ご希望の指導内容が必要です。" }, 400);
+  if (kind === "apply" && (!limit(d?.studentName, 150) || !limit(d?.studentNameKana, 150) || !limit(d?.grade, 50) || !limit(d?.region, 150) || !Array.isArray(d?.courses) || !d.courses.length))
+    return reply({ ok: false, error: "お申し込みには受講者のお名前・ふりがな・学年・お住まいの都道府県と市区町村・ご希望の指導内容が必要です。" }, 400);
   if (!limit(d?.token, 2048)) return reply({ ok: false, error: "認証を完了してください。" }, 400);
   const verifyPayload = new FormData();
   verifyPayload.append("secret", env.TURNSTILE_SECRET_KEY);
@@ -72,6 +72,7 @@ export async function onRequestPost({ request, env }) {
     ["返信先メールアドレス", email],
     ["電話番号", d.phone],
     ["お子様（受講者）のお名前", d.studentName],
+    ["お子様（受講者）のお名前のふりがな", d.studentNameKana],
     ["学年", d.grade],
     ["お住まいの地域", d.region],
     ["学校名（任意）", d.school],
