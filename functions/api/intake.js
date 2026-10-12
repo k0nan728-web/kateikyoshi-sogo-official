@@ -51,6 +51,24 @@ export async function onRequestPost({ request, env }) {
     return reply({ ok: false, error: "お名前・メールアドレス・個人情報の同意をご確認ください。" }, 400);
   if (kind === "apply" && (!limit(d?.studentName, 150) || !limit(d?.studentNameKana, 150) || !limit(d?.grade, 50) || !limit(d?.region, 150) || !Array.isArray(d?.courses) || !d.courses.length))
     return reply({ ok: false, error: "お申し込みには受講者のお名前・ふりがな・学年・お住まいの都道府県と市区町村・ご希望の指導内容が必要です。" }, 400);
+  const weekdays = new Set(["月曜日","火曜日","水曜日","木曜日","金曜日","土曜日","日曜日"]);
+  const validTime = t => /^([01]\\d|2[0-3]):[0-5]\\d$/.test(t);
+  const scheduleCandidates = [];
+  if (kind === "apply") {
+    if (!Array.isArray(d.scheduleCandidates) || d.scheduleCandidates.length !== 4)
+      return reply({ok:false,error:"希望の曜日・開始可能時間帯を第1候補から入力してください。"},400);
+    for (let i = 0; i < 4; i++) {
+      const slot = d.scheduleCandidates[i];
+      if (!slot || typeof slot !== "object" || Array.isArray(slot))
+        return reply({ok:false,error:"希望の曜日・時間帯を確認してください。"},400);
+      const day = limit(slot.day,20), from = limit(slot.from,10), to = limit(slot.to,10);
+      if (i===0 || day || from || to) {
+        if (!weekdays.has(day) || !validTime(from) || !validTime(to) || from >= to)
+          return reply({ok:false,error:"第"+(i+1)+"候補は、曜日と授業開始可能な時間帯（早い時刻〜遅い時刻）を正しく入力してください。"},400);
+        scheduleCandidates.push({rank:i+1,day,from,to});
+      }
+    }
+  }
   if (!limit(d?.token, 2048)) return reply({ ok: false, error: "認証を完了してください。" }, 400);
   const verifyPayload = new FormData();
   verifyPayload.append("secret", env.TURNSTILE_SECRET_KEY);
@@ -81,7 +99,7 @@ export async function onRequestPost({ request, env }) {
     ["希望の科目", d.subjects],
     ["ご希望の指導時間", d.duration],
     ["希望の初回指導日時", d.firstDate],
-    ["希望の曜日・時間帯", d.schedule],
+    ["毎週の授業開始可能時間帯（第1〜第4候補）", scheduleCandidates.map(s => "第"+s.rank+"候補： "+s.day+" "+s.from+"〜"+s.to+"の間に授業開始可能")],
     ["オンラインツール", d.tool],
     ["指導形式", d.lessonMode],
     ["ご相談内容・ご要望", d.message],
