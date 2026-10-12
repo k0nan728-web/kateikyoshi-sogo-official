@@ -166,13 +166,13 @@ function unavailable(){
  status.hidden=false;
  status.innerHTML="";
  const p=document.createElement("p");
- p.textContent="【プレビュー版】サイトからの自動送信は設定中です。入力後はメールアプリに送信内容を引き継げます（メールアプリ側で送信操作が必要です）。メールを使用できない場合は旧Googleフォームをご利用ください。";
+ p.textContent="【送信先の準備中】この画面からの直接送信はまだ利用できません。入力内容を既存のGoogleフォームへ引き継ぎ、そちらで最終送信してください。既存フォームで追加の必須質問への回答が必要です。";
  status.appendChild(p);
  const a=document.createElement("a");
  a.href=fallback;a.target="_blank";a.rel="noopener noreferrer";a.textContent=kind==="apply"?"既存のGoogleフォームで申し込む →":"既存のGoogleフォームで相談する →";
  status.append(a);
  const button=form.querySelector("#send-button");
- if(button)button.textContent=kind==="apply"?"メールアプリで申し込み内容を確認する →":"メールアプリで相談内容を確認する →";
+ if(button)button.textContent="入力内容を引き継いでGoogleフォームへ進む →";
  const copy=document.getElementById("copy-action");
  if(copy)copy.hidden=false;
 }
@@ -200,6 +200,69 @@ function payloadFromForm(token=""){
  payload.token=token;
  payload.website=data.get("website")||"";
  return payload;
+}
+// Legacy Google Form prefill is the verified backup submission route until
+// the dedicated notification service is configured. Old form still requires
+// the visitor to complete its own mandatory school/gender questions.
+function legacyPrefillUrl(data){
+ const params=new URLSearchParams();
+ params.set("usp","pp_url");
+ const add=(id,value)=>{if(value!==null&&value!==undefined&&String(value).trim())params.append("entry."+id,String(value).trim())};
+ const choosePurpose=kind==="apply"
+   ? data.purpose
+   : ({"体験授業について相談":"体験授業のお問い合わせ",
+       "通常授業について相談":"通常授業のお問い合わせ",
+       "料金について相談":"料金のお問い合わせ",
+       "指導コースについて相談":"指導コースのお問い合わせ"}[data.purpose]||"指導コースのお問い合わせ");
+ const sourceMap={
+  "当方のホームページ":"当方のホームページ","Googleなどの検索サイト":"検索サイト",
+  "Googleマップ":"Google map","ジモティ":"ジモティ","ストアカ":"ストアカ",
+  "マナリンク":"マナリンク","知り合いからのご紹介":"知り合いからのご紹介"
+ };
+ const courseMap={
+  "大学受験対策（文系科目）":"大学受験対策",
+  "中学受験対策（英語・国語・社会）":"中学受験対策",
+  "不登校・通信制高校サポート":"不登校サポート",
+  "発達特性に配慮した学習支援":"発達障害サポート",
+  "宿題・提出物サポート":"宿題サポート",
+  "季節講習":"夏期講習・冬期講習・春期講習"
+ };
+ const allowedCourses=new Set([
+  "英検対策（準1級）","英検対策（2級）","英検対策（準2級プラス）",
+  "英検対策（準2級）","英検対策（3級）","英検対策（4級）","英検対策（5級）",
+  "大学受験対策","高校受験対策","中学受験対策","逆転合格対策",
+  "定期テスト対策","学校の補習","塾の補習","中高一貫校サポート",
+  "不登校サポート","発達障害サポート","宿題サポート",
+  "自習見守りサポート","学習相談・カウンセリング","夏期講習・冬期講習・春期講習"
+ ]);
+ const allowedSubjects=new Set([
+  "英語","国語","社会","数学","理科","現代文","古文","漢文",
+  "世界史探究","日本史探究","歴史総合","地理探究","地理総合",
+  "政治経済","倫理","公共",
+  "英検準1級対策","英検2級対策","英検準2級プラス対策","英検準2級対策",
+  "英検3級対策","英検4級対策","英検5級対策"
+ ]);
+ add("1564624791",choosePurpose);
+ add("69889553",sourceMap[data.discovery]||"当方のホームページ");
+ add("1230834699",[data.studentName,data.studentNameKana?"（"+data.studentNameKana+"）":""].filter(Boolean).join(""));
+ add("1329071149",data.guardianName);
+ add("112684098",data.region);
+ add("241826980",data.school);
+ add("177037440",data.grade);
+ const selectedCourses=(data.courses||[]).map(v=>courseMap[v]||v).filter(v=>allowedCourses.has(v));
+ for(const v of selectedCourses)add("1305738703",v);
+ const selectedSubjects=(data.subjects||[]).map(v=>v==="政治・経済"?"政治経済":v).filter(v=>allowedSubjects.has(v));
+ for(const v of selectedSubjects)add("102234408",v);
+ if(["60分","90分","120分","150分","180分"].includes(data.duration))add("1137729539",data.duration);
+ add("878164990",data.firstDate);
+ const times=(data.scheduleCandidates||[]).filter(x=>x.day&&x.from&&x.to).map((x,i)=>"第"+(i+1)+"候補："+x.day+" "+x.from+"〜"+x.to+"の間に開始可能");
+ if(times.length)add("1103182725",times.join("／"));
+ if(data.tool==="Zoom")add("568073567","Zoom（40分で再入室が必要）");
+ if(data.tool==="Google Meet")add("568073567","Google meet（Googleアカウントが必要）");
+ const details=buildMailBody(data);
+ if(kind==="apply")add("1692327135",details.slice(0,1600));
+ else add("1952735166",details.slice(0,1600));
+ return fallback+(fallback.includes("?")?"&":"?")+params.toString();
 }
 function buildMailBody(d){
  const sections=[
@@ -274,10 +337,15 @@ form.addEventListener("submit",async e=>{
  }else if(!validatePanel())return;
  if(!configured){
   const payload=payloadFromForm();
-  const body=buildMailBody(payload);
-  const mailto="mailto:info@kateikyoshi-sogo.com?subject="+encodeURIComponent(kind==="apply"?"【授業申込希望】公式フォームから":"【無料相談】公式フォームから")+"&body="+encodeURIComponent(body);
-  showError("メールアプリを開きます。メールアプリで「送信」を押すまで、申し込みは完了しません。開かない場合は入力内容をコピーして送信できます。");
-  location.href=mailto;
+  const prefill=legacyPrefillUrl(payload);
+  showError("既存のGoogleフォームを開きます。転記できない必須項目はGoogleフォーム側でご入力のうえ、最後に送信してください。この画面ではまだ申し込みは完了していません。");
+  const link=document.createElement("a");
+  link.href=prefill;
+  link.target="_blank";
+  link.rel="noopener noreferrer";
+  link.textContent="Googleフォームの最終送信画面を開く →";
+  error.append(document.createElement("br"),link);
+  window.open(prefill,"_blank","noopener,noreferrer");
   return;
  }
  const token=widgetReady?window.turnstile.getResponse(widgetId):"";
