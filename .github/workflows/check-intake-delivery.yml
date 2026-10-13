@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - fix/intake-delivery-readiness-20261012
+      - audit/intake-readiness-20261013
     paths:
       - '.github/workflows/check-intake-delivery.yml'
   workflow_dispatch:
