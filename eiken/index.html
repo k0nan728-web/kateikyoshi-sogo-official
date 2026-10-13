@@ -477,6 +477,32 @@ a:focus-visible { outline:3px solid #24b8b0; outline-offset:3px; }
  .section h2 { word-break:normal; overflow-wrap:anywhere; }
 }
 
+
+/* Native disclosure menu: available on phones and compact tablet headers. */
+.mobile-menu { display:none; }
+.mobile-menu summary { display:flex; align-items:center; justify-content:center; gap:.35rem; min-height:44px; padding:.5rem .6rem; border:1px solid #8bb4c4; border-radius:.6rem; color:#fff; font-size:.8rem; font-weight:800; cursor:pointer; list-style:none; }
+.mobile-menu summary::-webkit-details-marker { display:none; }
+.mobile-menu summary svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; flex:none; }
+.mobile-menu summary .menu-close-label { display:none; }
+.mobile-menu[open] summary .menu-open-label { display:none; }
+.mobile-menu[open] summary .menu-close-label { display:inline; }
+.mobile-menu[open] summary { background:#21636a; }
+.mobile-menu-panel { position:absolute; top:100%; left:0; right:0; max-height:calc(100vh - 84px); max-height:calc(100dvh - 84px); overflow-y:auto; overscroll-behavior:contain; padding:1rem max(15px,calc((100% - 1160px)/2)); border-top:1px solid #427085; border-bottom:4px solid #76bfb1; background:#092c4a; box-shadow:0 15px 28px #00152740; }
+.mobile-menu-heading { margin:0 0 .7rem; color:#c2eee4; font-size:.9rem; font-weight:800; }
+.mobile-menu-links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.5rem; }
+.mobile-menu-links a { display:flex; align-items:center; min-height:48px; padding:.7rem .65rem; border:1px solid #396078; border-radius:.5rem; color:#fff; background:#163e5c; font-size:.9rem; line-height:1.6; }
+.mobile-menu-links a:hover { background:#235768; }
+.mobile-menu-panel>.button { display:flex; width:100%; margin-top:.9rem; }
+@media(max-width:1100px) {
+ .nav-links,.nav>.nav-cta { display:none; }
+ .mobile-menu { display:block; flex:none; }
+ .nav { gap:.6rem; }
+}
+@media(max-width:355px) {
+ .mobile-menu summary { padding:.5rem .45rem; font-size:.75rem; }
+ .mobile-menu-links a { font-size:.85rem; padding:.65rem .5rem; }
+}
+
 </style>
 </head>
 <body>
@@ -486,7 +512,22 @@ a:focus-visible { outline:3px solid #24b8b0; outline-offset:3px; }
         <span class="brand-mark">E</span><span><span class="brand-name">英検合格ゼミナール</span><span class="brand-sub">EIKEN PASS SEMINAR</span></span>
       </a>
       <nav class="nav-links" aria-label="ページ内ナビゲーション"><a href="#levels">級別対策</a><a href="#system">指導の流れ</a><a href="#pricing">料金・体験</a><a href="#resources">講座・コラム</a><a href="/hikaku/?course=eiken&amp;months=6&amp;lessons=4#simulator">料金比較</a><a href="/">総合サイト</a></nav>
-      <a class="nav-cta" href="/contact/">無料相談</a>
+<details class="mobile-menu">
+        <summary><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span class="menu-open-label">メニュー</span><span class="menu-close-label">閉じる</span></summary>
+        <nav class="mobile-menu-panel" aria-label="スマートフォン用セクションメニュー">
+          <p class="mobile-menu-heading">見たい項目へ移動</p>
+          <div class="mobile-menu-links">
+            <a href="#concerns">01 お悩み別の対策</a><a href="#skills">02 4技能の授業</a>
+            <a href="#levels">03 級別対策</a><a href="#system">04 指導の流れ</a>
+            <a href="#teacher">05 担当講師</a><a href="#story">06 成長の実例</a>
+            <a href="#pricing">07 料金・体験</a><a href="#rules">08 受講前の確認</a>
+            <a href="#resources">09 講座・コラム</a><a href="#faq">10 よくあるご質問</a>
+            <a href="/hikaku/?course=eiken&amp;months=6&amp;lessons=4#simulator">他社との料金比較 ↗</a><a href="/">総合サイト ↗</a>
+          </div>
+          <a class="button button-primary" href="/contact/">無料で相談する</a>
+        </nav>
+      </details>
+            <a class="nav-cta" href="/contact/">無料相談</a>
     </div>
   </header>
   <main>
@@ -559,7 +600,7 @@ a:focus-visible { outline:3px solid #24b8b0; outline-offset:3px; }
     </div>
   </div>
 </section>
-    <section class="section story-section"><div class="container"><p class="eyebrow chapter-label"><span>06</span>成長の実例</p><h2><span class="heading-line">できなかったところから、</span><br><span class="heading-line">合格の先へ。</span></h2><p class="section-intro"><strong>アルファベットから、英検準1級・大学受験へ。</strong></p><article class="case"><div class="case-badge"><small>成長の実例</small><strong>1年10か月で<br>英検準1級合格</strong><span>その後、早稲田大学に現役合格</span></div><div><h3>一歩ずつ積み重ねた合格</h3><ol class="story-path"><li><span>START</span><strong>高1の冬、アルファベットから</strong></li><li><span>STEP UP</span><strong>3級 → 準2級 → 2級 → 準1級</strong></li><li><span>NEXT GOAL</span><strong>早稲田大学に現役合格</strong></li></ol><p class="case-note">※ 個人の実績であり、すべての方に同様の成果を保証するものではありません。</p></div></article></div></section>
+    <section class="section story-section" id="story"><div class="container"><p class="eyebrow chapter-label"><span>06</span>成長の実例</p><h2><span class="heading-line">できなかったところから、</span><br><span class="heading-line">合格の先へ。</span></h2><p class="section-intro"><strong>アルファベットから、英検準1級・大学受験へ。</strong></p><article class="case"><div class="case-badge"><small>成長の実例</small><strong>1年10か月で<br>英検準1級合格</strong><span>その後、早稲田大学に現役合格</span></div><div><h3>一歩ずつ積み重ねた合格</h3><ol class="story-path"><li><span>START</span><strong>高1の冬、アルファベットから</strong></li><li><span>STEP UP</span><strong>3級 → 準2級 → 2級 → 準1級</strong></li><li><span>NEXT GOAL</span><strong>早稲田大学に現役合格</strong></li></ol><p class="case-note">※ 個人の実績であり、すべての方に同様の成果を保証するものではありません。</p></div></article></div></section>
     
 <section class="section pricing-section" id="pricing">
   <div class="container">
@@ -633,5 +674,36 @@ a:focus-visible { outline:3px solid #24b8b0; outline-offset:3px; }
     <section id="contact" class="cta"><div class="container cta-grid"><div><p class="eyebrow">FREE CONSULTATION</p><h2><span class="heading-line">英検合格への進め方を、</span><br><span class="heading-line">まずは一緒に整理しませんか？</span></h2><p class="eiken-copy-flow"><strong>保護者の方だけでも、級・試験日が未定でも大丈夫。</strong><br>相談は無料。体験授業は有料・お一人1回限りです。</p></div><div class="cta-actions"><a class="button button-primary" href="/contact/">無料で相談する</a><a class="button button-outline" href="/apply/">体験授業・通常授業を申し込む</a><a class="button button-outline" href="/hikaku/?course=eiken&amp;months=6&amp;lessons=4#simulator">他社との料金を比較する</a></div></div></section>
   </main>
   <footer><div class="container"><div class="footer-row"><a class="footer-brand" href="/eiken/">英検合格ゼミナール</a><div class="footer-links"><a href="/">プロ家庭教師 鈴木雄太 総合サイト</a><a href="https://eiken-seminar.hatenablog.jp/" target="_blank" rel="noopener">旧ブログ</a><a href="mailto:info@kateikyoshi-sogo.com">お問い合わせ</a></div></div><p class="footer-copy">© 英検合格ゼミナール / プロ家庭教師 鈴木雄太. 英検は、公益財団法人 日本英語検定協会の登録商標です。</p></div></footer>
+<script>
+(() => {
+  const menu = document.querySelector('.mobile-menu');
+  const summary = menu.querySelector('summary');
+  menu.addEventListener('click', (event) => {
+    if (event.target.closest('a')) {
+      menu.open = false;
+      const href = event.target.closest('a').getAttribute('href');
+      if (href.startsWith('#')) {
+        const section = document.getElementById(href.slice(1));
+        const heading = section && section.querySelector('h2');
+        if (heading) {
+          heading.setAttribute('tabindex', '-1');
+          heading.focus({ preventScroll: true });
+        }
+      }
+    }
+  });
+  document.addEventListener('click', (event) => {
+    if (menu.open && !menu.contains(event.target)) menu.open = false;
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menu.open) {
+      menu.open = false;
+      summary.focus();
+    }
+  });
+  const compactHeader = window.matchMedia('(max-width:1100px)');
+  compactHeader.addEventListener('change', () => { menu.open = false; });
+})();
+</script>
 </body>
 </html>
