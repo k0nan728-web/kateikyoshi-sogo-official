@@ -1,0 +1,30 @@
+/* Compact headers: native, keyboard-accessible section navigation. */
+.section-jump-menu{display:none;flex:none}
+.section-jump-menu summary{display:flex;align-items:center;justify-content:center;gap:.35rem;min-height:44px;padding:.5rem .6rem;border:1px solid #92b9c8;border-radius:.6rem;background:#123e5b;color:#fff;font:800 .8rem/1.5 "Noto Sans JP",sans-serif;cursor:pointer;list-style:none}
+.section-jump-menu summary::-webkit-details-marker{display:none}
+.section-jump-menu summary svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;flex:none}
+.section-jump-menu .close-label{display:none}
+.section-jump-menu[open] .open-label{display:none}
+.section-jump-menu[open] .close-label{display:inline}
+.section-jump-menu summary:focus-visible,.section-jump-menu a:focus-visible{outline:3px solid #48cdb7;outline-offset:3px}
+nav.section-jump-panel{position:absolute;top:100%;left:0;right:0;display:block;max-height:calc(100vh - 84px);max-height:calc(100dvh - 84px);overflow-y:auto;overscroll-behavior:contain;margin:0;padding:1rem max(15px,calc((100% - 1120px)/2));border-top:1px solid #427085;border-bottom:4px solid #76bfb1;background:#092c4a;box-shadow:0 15px 28px #00152740}
+.section-jump-heading{margin:0 0 .7rem;color:#c2eee4;font-size:.9rem;font-weight:800}
+.section-jump-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}
+.section-jump-panel .section-jump-links a{display:flex;align-items:center;min-height:48px;padding:.7rem .65rem;border:1px solid #396078;border-radius:.5rem;color:#fff;background:#163e5c;font-size:.9rem;line-height:1.6;text-decoration:none}
+.section-jump-panel .section-jump-links a:hover{background:#235768}
+.section-jump-panel .section-jump-consult{display:flex;justify-content:center;align-items:center;min-height:48px;margin-top:.9rem;padding:.7rem;border-radius:.6rem;background:#f3cd76;color:#092c4a;font-size:.95rem;font-weight:800;text-decoration:none}
+@media(max-width:1100px){
+ .site-header .nav-links,.header .navlinks,.site-header .nav>.nav-cta,.header .nav>.navcta,.site-header .header-inner>nav,.site-header .header-inner>.header-cta{display:none}
+ .section-jump-menu{display:block}
+ .site-header .nav,.header .nav{gap:.6rem}
+ .site-header .header-inner{gap:.6rem}
+ .site-header .header-inner .brand-lockup strong{white-space:normal}
+}
+@media(max-width:355px){
+ .section-jump-menu summary{padding:.5rem .45rem;font-size:.75rem}
+ .section-jump-panel .section-jump-links a{font-size:.85rem;padding:.65rem .5rem}
+ .header .nav{gap:.4rem}
+ .header .brand{gap:6px;min-width:0}
+ .header .brand-name{font-size:.85rem}
+ .header .mark{width:28px;height:28px;flex:none}
+}
