@@ -391,8 +391,8 @@ a:focus-visible { outline:3px solid #24b8b0; outline-offset:3px; }
   .tuition-table tbody th { grid-column:1/-1; text-align:left; border:0; padding:0 0 .5rem; font-size:1.05rem; }
   .tuition-table tbody td { display:grid; gap:.1rem; justify-items:start; align-content:start; border-top:1px solid #dce4ec; border-bottom:0; padding:.55rem .2rem 0; text-align:left; font-size:clamp(.91rem,3.7vw,1.1rem); font-weight:800; }
   .tuition-table tbody td::before { display:block; color:#50677c; font-size:.72rem; font-weight:700; }
-  .tuition-table tbody td:nth-child(2)::before { content:"継続60分"; }
-  .tuition-table tbody td:nth-child(3)::before { content:"単発60分"; }
+  .tuition-table tbody td:nth-child(2)::before { content:"通常60分"; }
+  .tuition-table tbody td:nth-child(3)::before { content:"直前・少回数"; }
   .tuition-table tbody td:nth-child(4)::before { content:"初回体験"; }
 }
 @media(max-width:355px) {
@@ -619,7 +619,7 @@ a:focus-visible { outline:3px solid #24b8b0; outline-offset:3px; }
       <div class="tuition-table-wrap">
         <p class="tuition-caption">英検対策／60分あたり・税込（単位：円）</p>
         <table class="tuition-table">
-          <thead><tr><th scope="col">目標級</th><th scope="col">継続受講</th><th scope="col">単発・短期</th><th scope="col">初回体験</th></tr></thead>
+          <thead><tr><th scope="col">目標級</th><th scope="col">通常料金</th><th scope="col">直前・少回数</th><th scope="col">初回体験</th></tr></thead>
           <tbody>
             <tr><th scope="row">5級</th><td>4,000</td><td>5,200</td><td>2,000</td></tr>
             <tr><th scope="row">4級</th><td>4,500</td><td>5,850</td><td>2,250</td></tr>
@@ -630,14 +630,14 @@ a:focus-visible { outline:3px solid #24b8b0; outline-offset:3px; }
             <tr><th scope="row">準1級</th><td>7,000</td><td>9,100</td><td>3,500</td></tr>
           </tbody>
         </table>
-        <section class="tuition-conditions" aria-labelledby="tuition-conditions-title"><h3 id="tuition-conditions-title"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg>受講条件・注意点</h3><dl class="price-conditions"><div><dt>継続受講</dt><dd>原則、週1回60分以上<br>月4回以上・3ヶ月以上</dd></div><div><dt>単発・短期</dt><dd>継続料金の<strong>1.3倍</strong></dd></div><div><dt>初回体験</dt><dd>継続料金の<strong>半額</strong><span>お一人1回限り</span></dd></div></dl><p class="tuition-foot">総合公式サイトと同じ料金です。授業時間・回数はご相談ください。<a href="/#pricing">適用条件・個別加算の詳細 →</a></p></section>
+        <section class="tuition-conditions" aria-labelledby="tuition-conditions-title"><h3 id="tuition-conditions-title"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg>受講条件・注意点</h3><dl class="price-conditions"><div><dt>通常料金</dt><dd>試験まで30日以上<span>申込総回数4回以上</span></dd></div><div><dt>直前・少回数</dt><dd>試験まで30日未満<span>または申込総回数1〜3回</span><strong>通常料金の1.3倍</strong></dd></div><div><dt>初回体験</dt><dd>通常料金の<strong>半額</strong><span>お一人1回限り</span></dd></div></dl><p class="tuition-foot">回数は月ごとではなく、今回申し込む通常授業の総回数（体験を除く）です。30日前ちょうど・4回ちょうどは通常料金の対象です。試験日未定の場合は、申込確定前に対象試験日と料金を確認します。</p><h4>お支払い・途中終了について</h4><p class="tuition-foot">申込確定前に対象試験日・回数・単価・総額を確認し、授業料は事前にお支払いいただきます。受講中に試験が近づいても自動加算せず、途中終了による過去の授業料の再計算・差額請求は行いません。未受講分の精算は契約内容と適用法令に従います。</p><p class="tuition-foot">2026年10月17日以降の新規申込に適用。既存契約は変更しません。英検の通常料金に3ヶ月の最低契約期間はありません。</p><p class="tuition-foot">試験直前・少回数の料金は、申込時から適用します。初回体験は別枠です。<a href="/#eiken-fee-policy">適用条件・個別加算の詳細 →</a></p></section>
       </div>
       <aside class="pricing-summary">
         <span class="summary-tag">月額の目安</span>
         <p class="pricing-summary-heading">英検5級・60分を月4回なら</p>
         <p class="pricing-arithmetic">4,000円 × 月4回</p>
         <strong class="pricing-big">16,000<span>円／月</span></strong>
-        <p class="pricing-summary-note">継続受講・任意サポートなしの場合。教材費・個別加算・割引は含みません。</p>
+        <p class="pricing-summary-note">通常料金・任意サポートなしの場合。教材費・個別加算・割引は含みません。</p>
         <div class="pricing-perks">
           <p><strong>入会金・固定管理費</strong><span>0円</span></p>
           <p><strong>月額サポート</strong><span>希望者のみ 10,000円</span></p>
