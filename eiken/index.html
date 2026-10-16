@@ -434,9 +434,9 @@ a:focus-visible { outline:3px solid #24b8b0; outline-offset:3px; }
 .story-path li { display:grid; gap:.35rem; position:relative; border-left:4px solid #148074; padding:.4rem 0 .4rem 1rem; }
 .story-path span { font-size:.78rem; color:#416981; font-weight:800; letter-spacing:.06em; }
 .story-path strong { color:#123e5e; font-size:1.1rem; line-height:1.6; }
-.price-conditions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.65rem; margin:1.3rem 0 0; }
-.price-conditions>div { padding:.8rem; border-radius:.65rem; background:#edf5f4; }
-.price-conditions dt { font-weight:800; color:#0a655a; margin-bottom:.4rem; font-size:.9rem; }
+.price-conditions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.75rem; margin:1rem 0 0; }
+.price-conditions>div { padding:.85rem; border:1px solid #d8d3e7; border-radius:.65rem; background:#fff; }
+.price-conditions dt { font-weight:800; color:#574180; margin-bottom:.4rem; font-size:.9rem; }
 .price-conditions dd { margin:0; color:#28445b; font-size:.9rem; line-height:1.8; }
 .price-conditions dd strong { display:block; font-size:1.3rem; color:#0d3f59; }
 .price-conditions dd span { display:block; }
@@ -505,6 +505,12 @@ a:focus-visible { outline:3px solid #24b8b0; outline-offset:3px; }
 
 .story-detail-link { margin:1.5rem 0 0; text-align:center; }
 .story-detail-link .button { gap:.6rem; max-width:100%; min-height:52px; padding:.85rem 1.25rem; border:2px solid #14786e; color:#0b5f58; background:#fff; font-size:1rem; line-height:1.7; }
+
+.tuition-conditions { margin-top:2rem; padding:1.25rem; border:1px solid #d5cde8; border-top:5px solid #665397; border-radius:.8rem; background:#f1eef9; }
+.tuition-conditions h3 { display:flex; align-items:center; gap:.55rem; margin:0 0 1rem; color:#39295f; font-family:"Noto Sans JP",sans-serif; font-size:1.2rem; font-weight:900; line-height:1.6; }
+.tuition-conditions h3 svg { width:25px; height:25px; flex:none; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; }
+.tuition-conditions .tuition-foot { margin-top:1rem; padding-top:1rem; border-top:1px solid #ccc2e1; font-size:.9rem; }
+@media(max-width:600px) { .tuition-conditions { margin-top:2rem; padding:1rem .75rem; } .tuition-conditions h3 { font-size:1.1rem; } }
 </style>
 </head>
 <body>
@@ -624,7 +630,7 @@ a:focus-visible { outline:3px solid #24b8b0; outline-offset:3px; }
             <tr><th scope="row">準1級</th><td>7,000</td><td>9,100</td><td>3,500</td></tr>
           </tbody>
         </table>
-        <dl class="price-conditions"><div><dt>継続受講</dt><dd>原則、週1回60分以上<br>月4回以上・3ヶ月以上</dd></div><div><dt>単発・短期</dt><dd>継続料金の<strong>1.3倍</strong></dd></div><div><dt>初回体験</dt><dd>継続料金の<strong>半額</strong><span>お一人1回限り</span></dd></div></dl><p class="tuition-foot">総合公式サイトと同じ料金です。授業時間・回数はご相談ください。<a href="/#pricing">適用条件・個別加算の詳細 →</a></p>
+        <section class="tuition-conditions" aria-labelledby="tuition-conditions-title"><h3 id="tuition-conditions-title"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg>受講条件・注意点</h3><dl class="price-conditions"><div><dt>継続受講</dt><dd>原則、週1回60分以上<br>月4回以上・3ヶ月以上</dd></div><div><dt>単発・短期</dt><dd>継続料金の<strong>1.3倍</strong></dd></div><div><dt>初回体験</dt><dd>継続料金の<strong>半額</strong><span>お一人1回限り</span></dd></div></dl><p class="tuition-foot">総合公式サイトと同じ料金です。授業時間・回数はご相談ください。<a href="/#pricing">適用条件・個別加算の詳細 →</a></p></section>
       </div>
       <aside class="pricing-summary">
         <span class="summary-tag">月額の目安</span>
