@@ -52,12 +52,13 @@ const serviceAgreement=`<section class="consent terms-consent" aria-labelledby="
  <h4 id="terms-title">お申し込み前の確認事項</h4>
  <p class="terms-lead">公式サイトに掲載されている指導内容・料金・受講条件をご確認ください。各リンクは新しいタブで開きます。</p>
  <ul class="terms-links">
+ <li><a href="https://kateikyoshi-sogo.com/#eiken-fee-policy" target="_blank" rel="noopener noreferrer">英検の通常料金・直前／少回数の条件を見る ↗</a></li>
  <li><a href="https://kateikyoshi-sogo.com/#pricing" target="_blank" rel="noopener noreferrer">授業料金・受講条件を見る ↗</a></li>
  <li><a href="https://kateikyoshi-sogo.com/#cancel-policy" target="_blank" rel="noopener noreferrer">キャンセル規定を見る ↗</a></li>
  <li><a href="https://kateikyoshi-sogo.com/#process" target="_blank" rel="noopener noreferrer">受講開始までの流れを見る ↗</a></li>
  </ul>
  <label class="agreement-check"><input type="checkbox" name="siteTermsAccepted" value="on" required><span>上記の公式サイト掲載内容を確認し、申し込みに関する条件に同意します。<span class="required">必須</span></span></label>
- <p class="terms-help"><strong>現在の指導形式はオンラインのみです。</strong> 体験授業は受講者お一人1回限りで、級・科目・コースを変えても再度体験できません。このフォームは受講希望の受付であり、送信だけで授業日時や契約は確定しません。正式な条件は講師との確認後にご案内します。</p>
+ <p class="terms-help">英検：申込時点で対象試験まで30日未満、または申込総回数が4回未満（1〜3回）の場合は、通常料金の1.3倍です。対象試験まで30日以上あり、申込総回数が4回以上なら通常料金です。初回体験は通常料金の半額・一人1回。申込前に総額を確認して前払いとし、途中終了で過去の単価を引き上げません。</p><p class="terms-help"><strong>現在の指導形式はオンラインのみです。</strong> 体験授業は受講者お一人1回限りで、級・科目・コースを変えても再度体験できません。このフォームは受講希望の受付であり、送信だけで授業日時や契約は確定しません。正式な条件は講師との確認後にご案内します。</p>
  </section>`;
 const challenge='<div id="challenge" class="turnstile" aria-label="迷惑送信防止の認証"></div>';
 let step=0,configured=false,widgetId=null,widgetReady=false,turnstileLoading=false;
@@ -97,6 +98,9 @@ if(kind==="consult"){
  ${dropdown("duration","1回あたりのご希望の時間",["60分","90分","120分","150分","180分","相談して決めたい"],{required:true})}
  <div class="field mode-confirmation"><div class="mode-caption">指導形式</div><p class="notice"><strong>オンライン指導のみ受け付けています。</strong> 対面による家庭教師は現在受け付けておらず、再開するかどうかも未定です。</p><input type="hidden" name="lessonMode" value="オンライン指導"></div>
  ${field("firstDate","初回のご希望日時",{placeholder:"例：11月第2週ごろ"})}
+ <section class="notice"><h4>英検対策をご希望の方へ</h4><p>申込時点で対象試験まで30日未満、または申込総回数が4回未満（1〜3回）の場合は、通常料金の1.3倍です。回数は体験を除いた今回の申込総回数です。未定の場合は申込確定前に確認します。</p></section>
+ ${field("eikenExamDate","英検・対象試験日（一次／二次／S-CBTの今回対策する試験）",{type:"date",help:"日程が決まっている場合に入力してください。"})}
+ ${dropdown("eikenBooking","英検・今回申し込む通常授業の総回数",["1回","2回","3回","4回以上","未定・相談して決めたい"],{help:"月ごとの回数ではありません。体験授業は回数に含めません。"})}
  <div class="schedule-section">
  <h4>毎週のご希望曜日と、授業を開始できる時間帯</h4>
  <p class="notice"><strong>例：火曜日の18:00〜20:00の間に授業開始可能</strong><br>ここでの「20:00」は授業終了時刻ではなく、<strong>開始してもよい最も遅い時刻</strong>です。</p>
@@ -297,6 +301,7 @@ function buildMailBody(d){
  ["ご希望の講座",(d.courses||[]).join("、")],
  ["ご希望の科目",(d.subjects||[]).join("、")],
  ["希望指導時間",d.duration],["指導形式",d.lessonMode],
+ ["英検・対象試験日",d.eikenExamDate],["英検・申込総回数",d.eikenBooking],
  ["初回のご希望日時",d.firstDate],["オンラインツール",d.tool],
  ["学校名",d.school],["知ったきっかけ",d.discovery],
  ["ご相談内容・ご要望",d.message],
