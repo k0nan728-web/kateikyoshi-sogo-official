@@ -511,6 +511,69 @@ a:focus-visible { outline:3px solid #24b8b0; outline-offset:3px; }
 .tuition-conditions h3 svg { width:25px; height:25px; flex:none; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; }
 .tuition-conditions .tuition-foot { margin-top:1rem; padding-top:1rem; border-top:1px solid #ccc2e1; font-size:.9rem; }
 @media(max-width:600px) { .tuition-conditions { margin-top:2rem; padding:1rem .75rem; } .tuition-conditions h3 { font-size:1.1rem; } }
+
+/* Eiken fees: visual rate decision, concise key points, and payment flow. */
+.tuition-conditions { margin-top:1.65rem; padding:clamp(1rem,2.5vw,1.5rem); border:1px solid #bcded7; border-top:5px solid #15776a; border-radius:1rem; background:linear-gradient(140deg,#f3faf8,#fff 76%); }
+.tuition-conditions h3 { color:#173f43; margin-bottom:.4rem; }
+.fee-rule-intro { margin:0 0 1.2rem; color:#41556a; font-size:clamp(.86rem,1.5vw,.96rem); line-height:1.8; }
+.fee-rule-intro strong { color:#185b55; }
+.fee-rule-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; }
+.fee-rule-card { min-width:0; padding:1rem .9rem .9rem; border:1px solid; border-radius:.85rem; background:#fff; }
+.fee-rule-card--standard { border-color:#afd8c8; box-shadow:0 3px 0 #d8eee4; }
+.fee-rule-card--extra { border-color:#edc7d1; box-shadow:0 3px 0 #f8e3e8; }
+.fee-rule-card-top { display:flex; align-items:center; gap:.5rem; margin-bottom:.85rem; }
+.fee-rule-symbol { display:grid; place-items:center; flex:none; width:1.85rem; height:1.85rem; border-radius:50%; font-size:1rem; font-weight:900; background:#dff5e8; color:#0b6650; }
+.fee-rule-card--extra .fee-rule-symbol { background:#fce6ed; color:#a33455; }
+.tuition-conditions .fee-rule-card h4 { margin:0; font-size:1.05rem; font-weight:900; line-height:1.5; color:#153d45; }
+.fee-rule-criteria { display:grid; grid-template-rows:auto auto auto; justify-items:center; gap:.35rem; padding:.6rem .3rem; border-radius:.65rem; background:#f2f8f7; }
+.fee-rule-card--extra .fee-rule-criteria { background:#fff4f6; }
+.fee-rule-criteria p { margin:0; width:100%; font-size:clamp(.82rem,1.45vw,.94rem); line-height:1.6; text-align:center; color:#3d5667; }
+.fee-rule-criteria p strong { display:inline-block; margin-left:.2rem; color:#123f3b; font-size:clamp(.98rem,1.8vw,1.14rem); font-weight:900; }
+.fee-rule-card--extra .fee-rule-criteria p strong { color:#943b55; }
+.fee-rule-operator { padding:.05rem .8rem; border-radius:999px; color:#fff; background:#147e6f; font-size:.75rem; font-weight:900; line-height:1.65; }
+.fee-rule-card--extra .fee-rule-operator { background:#ae4867; }
+.fee-rule-rate { display:flex; flex-wrap:wrap; gap:.25rem; align-items:baseline; justify-content:center; min-height:2.8rem; margin:.65rem 0 0; font-size:.84rem; font-weight:700; color:#365264; text-align:center; }
+.fee-rule-rate strong { font-size:clamp(1.23rem,2.4vw,1.65rem); line-height:1.45; color:#096b5c; font-weight:900; }
+.fee-rule-card--extra .fee-rule-rate strong { color:#a53655; }
+.fee-trial-strip { display:flex; align-items:center; gap:.8rem; margin-top:1rem; padding:.85rem 1rem; background:#eff4fc; border:1px solid #d4e1f2; border-radius:.8rem; }
+.fee-trial-icon { display:grid; place-items:center; flex:none; width:2.2rem; height:2.2rem; border-radius:.65rem; background:#dae8ff; color:#235a91; font-size:1.1rem; }
+.fee-trial-strip strong,.fee-trial-strip span:not(.fee-trial-icon) { display:block; }
+.fee-trial-strip strong { color:#193e61; font-size:clamp(.89rem,1.65vw,1rem); line-height:1.5; }
+.fee-trial-strip div span { margin-top:.1rem; color:#526a7f; font-size:.79rem; line-height:1.65; }
+.fee-keypoints { margin-top:1.25rem; padding:1.1rem 1.2rem; border-radius:.85rem; background:#fff; border:1px solid #d8e5e5; }
+.tuition-conditions .fee-keypoints h4,.tuition-conditions .fee-process h4 { margin:0 0 .75rem; color:#193d51; font-size:1rem; line-height:1.55; font-weight:900; }
+.fee-keypoints ul { display:grid; gap:.6rem; list-style:none; margin:0; padding:0; }
+.fee-keypoints li { position:relative; padding-left:1.3rem; color:#3a5264; font-size:clamp(.82rem,1.4vw,.91rem); line-height:1.75; overflow-wrap:anywhere; }
+.fee-keypoints li::before { content:"✓"; position:absolute; left:0; top:.04em; color:#157967; font-weight:900; }
+.fee-keypoints li strong { color:#204d54; }
+.fee-process { margin-top:1.35rem; }
+.fee-process ol { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); counter-reset:fee-step; gap:.6rem; list-style:none; margin:0; padding:0; }
+.fee-process li { position:relative; min-width:0; counter-increment:fee-step; padding:.9rem .75rem .85rem; border-radius:.75rem; background:#fff; border:1px solid #d5e4e5; }
+.fee-process li::before { content:counter(fee-step); display:grid; place-items:center; width:1.7rem; height:1.7rem; margin-bottom:.5rem; border-radius:50%; background:#0f7065; color:#fff; font-size:.9rem; font-weight:900; }
+.fee-process li strong { display:block; color:#153b52; font-size:.87rem; line-height:1.55; }
+.fee-process li span { display:block; margin-top:.35rem; color:#526477; font-size:.78rem; line-height:1.7; overflow-wrap:anywhere; }
+.fee-rule-footer { display:grid; gap:.65rem; margin-top:1.25rem; padding-top:1rem; border-top:1px solid #d5e4e5; }
+.fee-rule-footer p { margin:0; }
+.fee-rule-footer > p:first-child { display:flex; flex-wrap:wrap; align-items:center; gap:.35rem .55rem; font-size:.85rem; line-height:1.7; color:#506478; }
+.fee-rule-footer > p:first-child strong { color:#183d51; font-weight:900; }
+.fee-date-label { padding:.13rem .55rem; border-radius:.3rem; background:#e2f1ed; color:#175e51; font-size:.77rem; font-weight:900; }
+.fee-rule-explainer { color:#526477; font-size:.78rem; line-height:1.7; }
+.fee-rule-detail { display:inline-flex; align-items:center; justify-content:space-between; gap:.5rem; width:fit-content; max-width:100%; padding:.65rem .85rem; border:1px solid #9cbdbd; border-radius:.5rem; color:#0d5b69; background:#fff; font-size:.84rem; font-weight:900; line-height:1.55; text-decoration:none; }
+.fee-rule-detail:hover,.fee-rule-detail:focus-visible { background:#e8f7f2; text-decoration:underline; text-underline-offset:3px; }
+@media(max-width:700px) {
+  .fee-rule-grid { grid-template-columns:1fr; }
+  .fee-process ol { grid-template-columns:1fr; gap:.5rem; }
+  .fee-process li { padding:.8rem .9rem .8rem 3.1rem; }
+  .fee-process li::before { position:absolute; top:.8rem; left:.8rem; margin:0; }
+}
+@media(max-width:400px) {
+  .tuition-conditions { padding:1rem .72rem; }
+  .fee-rule-card { padding:.85rem .7rem; }
+  .fee-keypoints { padding:1rem .85rem; }
+  .fee-trial-strip { padding:.8rem .7rem; }
+  .fee-rule-rate { min-height:auto; }
+}
+
 </style>
 </head>
 <body>
@@ -630,7 +693,56 @@ a:focus-visible { outline:3px solid #24b8b0; outline-offset:3px; }
             <tr><th scope="row">準1級</th><td>7,000</td><td>9,100</td><td>3,500</td></tr>
           </tbody>
         </table>
-        <section class="tuition-conditions" aria-labelledby="tuition-conditions-title"><h3 id="tuition-conditions-title"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg>受講条件・注意点</h3><dl class="price-conditions"><div><dt>通常料金</dt><dd>試験まで30日以上<span>申込総回数4回以上</span></dd></div><div><dt>直前・少回数</dt><dd>試験まで30日未満<span>または申込総回数1〜3回</span><strong>通常料金の1.3倍</strong></dd></div><div><dt>初回体験</dt><dd>通常料金の<strong>半額</strong><span>お一人1回限り</span></dd></div></dl><p class="tuition-foot">回数は月ごとではなく、今回申し込む通常授業の総回数（体験を除く）です。30日前ちょうど・4回ちょうどは通常料金の対象です。試験日未定の場合は、申込確定前に対象試験日と料金を確認します。</p><h4>お支払い・途中終了について</h4><p class="tuition-foot">申込確定前に対象試験日・回数・単価・総額を確認し、授業料は事前にお支払いいただきます。受講中に試験が近づいても自動加算せず、途中終了による過去の授業料の再計算・差額請求は行いません。未受講分の精算は契約内容と適用法令に従います。</p><p class="tuition-foot">2026年10月17日以降の新規申込に適用。既存契約は変更しません。英検の通常料金に3ヶ月の最低契約期間はありません。</p><p class="tuition-foot">試験直前・少回数の料金は、申込時から適用します。初回体験は別枠です。<a href="/#eiken-fee-policy">適用条件・個別加算の詳細 →</a></p></section>
+        <section class="tuition-conditions" aria-labelledby="tuition-conditions-title">
+          <h3 id="tuition-conditions-title"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg>料金の適用条件</h3>
+          <p class="fee-rule-intro">お申し込み時の<strong>試験までの日数</strong>と<strong>授業の申込総回数</strong>で決まります。</p>
+          <div class="fee-rule-grid" aria-label="英検の料金判定">
+            <article class="fee-rule-card fee-rule-card--standard">
+              <div class="fee-rule-card-top"><span class="fee-rule-symbol" aria-hidden="true">✓</span><h4>通常料金</h4></div>
+              <div class="fee-rule-criteria">
+                <p>試験まで <strong>30日以上</strong></p>
+                <span class="fee-rule-operator">かつ</span>
+                <p>申込総回数 <strong>4回以上</strong></p>
+              </div>
+              <p class="fee-rule-rate">通常の<strong>基本単価</strong></p>
+            </article>
+            <article class="fee-rule-card fee-rule-card--extra">
+              <div class="fee-rule-card-top"><span class="fee-rule-symbol" aria-hidden="true">!</span><h4>直前・少回数</h4></div>
+              <div class="fee-rule-criteria">
+                <p>試験まで <strong>30日未満</strong></p>
+                <span class="fee-rule-operator">または</span>
+                <p>申込総回数 <strong>1〜3回</strong></p>
+              </div>
+              <p class="fee-rule-rate">通常料金の <strong>1.3倍</strong></p>
+            </article>
+          </div>
+          <div class="fee-trial-strip">
+            <span class="fee-trial-icon" aria-hidden="true">★</span>
+            <div><strong>初回体験は通常料金の半額</strong><span>お一人1回限り・通常授業の回数には含みません</span></div>
+          </div>
+          <div class="fee-keypoints">
+            <h4>判定で押さえたい4つのポイント</h4>
+            <ul>
+              <li><strong>回数：</strong>月ごとではなく、今回申し込む通常授業の合計です。</li>
+              <li><strong>境界：</strong>30日前ちょうど・申込4回ちょうどは通常料金です。</li>
+              <li><strong>試験日未定：</strong>申込確定前に対象試験日と料金を確認します。</li>
+              <li><strong>契約期間：</strong>英検の通常料金に3ヶ月の最低契約期間はありません。</li>
+            </ul>
+          </div>
+          <div class="fee-process" aria-labelledby="fee-process-title">
+            <h4 id="fee-process-title">お申し込み・お支払いの流れ</h4>
+            <ol>
+              <li><strong>お申し込み前に確認</strong><span>試験日・申込回数・単価・総額を確認します。</span></li>
+              <li><strong>料金確定・事前お支払い</strong><span>直前・少回数の1.3倍は申込時から適用。授業料は事前払いです。</span></li>
+              <li><strong>受講中・途中終了</strong><span>試験日が近づいても自動加算なし。過去分の再計算・差額請求なし。未受講分は契約内容と適用法令に従い精算します。</span></li>
+            </ol>
+          </div>
+          <div class="fee-rule-footer">
+            <p><span class="fee-date-label">適用開始</span><strong>2026年10月17日以降の新規申込</strong><span>既存契約の条件は変更しません。</span></p>
+            <p class="fee-rule-explainer">※両方の加算条件に該当しても1.3倍は1回だけ。初回体験は別枠です。</p>
+            <a href="/#eiken-fee-policy" class="fee-rule-detail">適用条件・個別加算の詳細を確認 <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
       </div>
       <aside class="pricing-summary">
         <span class="summary-tag">月額の目安</span>
