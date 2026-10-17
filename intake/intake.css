@@ -147,3 +147,16 @@ body[data-kind="apply"] .aside .small-note{margin-top:0}
 .trial-confirm label{align-items:flex-start}
 .trial-confirm .small{display:block;margin-top:9px;line-height:1.75;font-weight:400}
 @media(max-width:600px){.trial-confirm{padding:15px 13px}.trial-policy,.mode-confirmation .notice{line-height:1.85}}
+
+/* Keep the live Google Form one tap away while native delivery is unavailable. */
+.fast-handoff{max-width:850px;margin:22px auto 0;padding:23px 25px 20px;text-align:left;background:#ecf6f4;border:1.5px solid #95c6b7;border-left:6px solid #2f795f;border-radius:16px;box-shadow:var(--shadow)}
+.fast-handoff .handoff-kicker{display:block;font-size:12px;font-weight:800;letter-spacing:.08em;color:#21624e}
+.intro .fast-handoff h2{font-size:clamp(20px,2.4vw,25px);line-height:1.5;color:var(--navy);margin:4px 0 5px}
+.intro .fast-handoff p{font-size:14px;line-height:1.75;color:#365669}
+.handoff-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 11px}
+.handoff-actions a{display:flex;align-items:center;justify-content:center;min-height:54px;padding:12px 14px;border-radius:11px;text-align:center;font-size:15px;font-weight:800;line-height:1.5;text-decoration:none}
+.handoff-actions .handoff-primary{background:#216a56;color:#fff}
+.handoff-actions .handoff-secondary{background:#fff;border:1.5px solid #89b9ae;color:#205842}
+.handoff-actions a:hover{filter:brightness(.94)}
+.handoff-actions.single{grid-template-columns:minmax(0,1fr)}
+@media(max-width:600px){.fast-handoff{padding:18px 16px}.handoff-actions{grid-template-columns:minmax(0,1fr)}}
