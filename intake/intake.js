@@ -74,7 +74,7 @@ if(kind==="consult"){
  ${field("message","ご相談内容",{required:true,multiline:true,placeholder:"例：中学2年生の英検対策を考えています。料金や週1回の授業について知りたいです。"})}
  ${consent}${challenge}
  <div class="actions"><button type="submit" class="btn primary" id="send-button">この内容で送信する →</button></div>
- <p class="small">受付方法によってはGoogleフォームでの最終送信が必要です。お問い合わせだけで契約や料金の請求は発生しません。</p>`;
+ <p class="small">お問い合わせだけで契約や料金の請求は発生しません。</p>`;
 }else{
  fields.innerHTML=`
  <ol class="steps" aria-label="入力手順"><li class="active">1 ご連絡先</li><li>2 指導内容</li><li>3 日程・形式</li><li>4 ご要望・確認</li></ol>
@@ -117,7 +117,7 @@ if(kind==="consult"){
  ${serviceAgreement}
  ${consent}${challenge}
  <div class="actions"><button type="button" class="btn secondary" data-prev>← 戻る</button><button type="submit" class="btn primary" id="send-button">申し込み希望を送信する →</button></div>
- <p class="small">直接送信が利用できない場合は、Googleフォームの最終送信画面へ引き継ぎます。申し込み希望の送信だけで契約・決済は発生しません。</p></div>`;
+ <p class="small">申し込み希望の送信だけで契約・決済は発生しません。</p></div>`;
 }
 if(kind==="apply"){
  const purpose=form.querySelector("#f-purpose"),trialBox=form.querySelector("#trial-confirm");
