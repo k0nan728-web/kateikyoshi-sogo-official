@@ -43,10 +43,11 @@ function scheduleSlot(i){
  <legend><span>第${["","1","2","3","4"][i]}候補</span>${mark}</legend>
  <div class="schedule-grid">
  <div class="field"><label for="${id}Day">ご希望の曜日</label><select id="${id}Day" name="${id}Day" ${required?"required":""}><option value="">曜日を選択</option>${options}</select></div>
- <div class="field"><label for="${id}From">何時から開始可能？</label><input type="time" id="${id}From" name="${id}From" step="900" ${required?"required":""}></div>
- <div class="field"><label for="${id}To">何時までに開始可能？</label><input type="time" id="${id}To" name="${id}To" step="900" ${required?"required":""}></div>
+ <div class="field"><label for="${id}From">何時から開始可能？</label><select id="${id}From" name="${id}From" ${required?"required":""}>${fiveMinuteOptions}</select></div>
+ <div class="field"><label for="${id}To">何時までに開始可能？</label><select id="${id}To" name="${id}To" ${required?"required":""}>${fiveMinuteOptions}</select></div>
  </div></fieldset>`;
 }
+const fiveMinuteOptions='<option value="">時刻を選択</option>'+Array.from({length:288},(_,i)=>{const time=String(Math.floor(i/12)).padStart(2,"0")+":"+String((i%12)*5).padStart(2,"0");return '<option value="'+time+'">'+time+'</option>';}).join("");
 const consent=`<div class="consent"><label><input type="checkbox" name="privacyAccepted" required><span>個人情報の取り扱いに同意します。<span class="required">必須</span><br><span class="small">ご入力いただいた情報は、ご連絡・受講相談・授業準備に利用します。送信にはメール配信サービスを使用します。必要な範囲を超えて公開しません。</span></span></label></div>`;
 const serviceAgreement=`<section class="consent terms-consent" aria-labelledby="terms-title">
  <h4 id="terms-title">お申し込み前の確認事項</h4>
@@ -390,7 +391,7 @@ form.addEventListener("submit",async e=>{
   form.hidden=true;document.querySelector(".form-top").hidden=true;
   success.hidden=false;success.scrollIntoView({block:"center"});
  }catch(err){
-  showError(err.message+" 送信できない場合は、ページ内の既存フォームをご利用ください。");
+  showError(err.message+" 送信できない場合は、info@kateikyoshi-sogo.com へメールでお問い合わせください。");
   try{window.turnstile.reset(widgetId)}catch{}
  }finally{button.disabled=false;button.textContent=kind==="apply"?"申し込み希望を送信する →":"この内容で送信する →"}
 });
