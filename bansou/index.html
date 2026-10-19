@@ -125,6 +125,41 @@
 html{scroll-padding-top:84px}
 </style>
 <link rel="stylesheet" href="/section-jump-menu.css">
+
+/* 2026 unified specialty-brand visual refresh: shared design language with /eiken/ */
+<style id="specialty-unified-refresh">
+:root{--special-accent:#279d91;--special-soft:#e5f8f3}
+html{scroll-padding-top:92px}
+body{overflow-wrap:anywhere}
+:is(.section,.hero,.cta){isolation:isolate}
+.section{padding-block:clamp(64px,7vw,96px)}
+.section:not(.hero):not(.cta){border-top:4px solid transparent;border-image:linear-gradient(90deg,var(--special-accent),#f5d88a,var(--special-accent)) 1}
+.section h2{line-height:1.45;letter-spacing:.015em;text-wrap:pretty}
+.section :is(p,li){line-height:1.9}
+.section :is(.card,.feature-card,.reason-card,.step,.case-card,.panel){height:auto;min-width:0}
+.section :is(.card,.feature-card,.reason-card,.step,.case-card){transition:transform .2s ease,box-shadow .2s ease}
+@media(hover:hover){.section :is(.card,.feature-card,.reason-card,.step,.case-card):hover{transform:translateY(-3px);box-shadow:0 14px 35px rgba(7,31,61,.12)}}
+:is(.section,.cta) :is(a.button,.button,.nav-cta){min-height:46px;display:inline-flex;align-items:center;justify-content:center;text-align:center}
+:is(a,button):focus-visible{outline:3px solid var(--special-accent);outline-offset:4px}
+img{max-width:100%;height:auto}
+.section :is(.eyebrow,.section-intro,.intro){text-wrap:pretty}
+.section :is(.container,.wrap){max-width:1160px}
+@media(min-width:769px){.section :is(.container,.wrap)>h2{max-width:980px;margin-inline:auto}.section :is(.container,.wrap)>.section-intro{max-width:820px}}
+@media(max-width:768px){
+ .section{padding-block:56px}
+ .section :is(.container,.wrap){width:calc(100% - 32px)}
+ .section h2{font-size:clamp(1.55rem,6vw,2.1rem)}
+ .section :is(p,li){font-size:max(.94rem,inherit)}
+ :is(.nav,.header .nav){min-height:64px}
+}
+@media(max-width:390px){
+ .section :is(.container,.wrap){width:calc(100% - 28px)}
+ :is(.brand-name,.brand){min-width:0}
+ .section h2{font-size:1.55rem}
+}
+@media(prefers-reduced-motion:reduce){.section :is(.card,.feature-card,.reason-card,.step,.case-card){transition:none}}
+</style>
+
 </head>
 <body>
   <header class="site-header">
