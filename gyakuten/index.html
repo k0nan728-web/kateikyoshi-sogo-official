@@ -175,6 +175,23 @@ img{max-width:100%;height:auto}
 <style id="gyakuten-final-visual-polish">
 .rev-study-art{display:block;width:100%;height:auto;max-height:270px;margin:0 0 24px;border-radius:18px;background:#eaf4ff}.rev-hero-points{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 24px}.rev-hero-points span{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;border:1px solid rgba(255,255,255,.35);border-radius:100px;background:rgba(255,255,255,.12);color:#fff;font-size:.86rem;font-weight:800}.rev-hero-points b{color:#f7d77c}.hero-visual{position:relative}.hero-photo{object-fit:cover}.rev-plan{overflow:hidden}.rev-course-cards .rev-card{transition:transform .2s ease,box-shadow .2s ease}.rev-course-cards .rev-card:hover{transform:translateY(-3px);box-shadow:0 20px 45px rgba(9,42,85,.15)}.rev-faq details[open]{border-color:#8bb6df;background:#f7fbff}.rev-faq summary:focus-visible{outline:3px solid #c59b3b;outline-offset:3px}.rev-roadmap-node{position:relative}.rev-roadmap-node:nth-child(1) .rev-roadmap-icon{color:#0d5394}.rev-roadmap-node:nth-child(3) .rev-roadmap-icon{color:#137e72}.rev-roadmap-node:nth-child(5) .rev-roadmap-icon{color:#ae6b1c}.rev-roadmap-node:nth-child(7) .rev-roadmap-icon{color:#8559a9}.rev-section:nth-of-type(odd):not(.rev-band){background:linear-gradient(180deg,#fff,#fafcff)}@media(max-width:700px){.rev-hero-points{gap:6px}.rev-hero-points span{font-size:.74rem;padding:7px 9px}.rev-study-art{max-height:none}}@media(prefers-reduced-motion:reduce){.rev-course-cards .rev-card{transition:none}}
 </style>
+<style id="gyakuten-case-mobile-overflow-fix">
+/* Mobile success-story: prevent grid min-content and no-wrap headings from widening the viewport. */
+#case .case,#case .case>*{min-width:0;max-width:100%;box-sizing:border-box}
+#case .case-badge{width:100%;min-width:0}
+#case .case-badge strong,#case .case h3,#case .case p{max-width:100%;overflow-wrap:anywhere;word-break:normal}
+#case .case .heading-line{white-space:normal!important;display:inline!important;max-width:100%}
+#case .case .gyakuten-copy-flow{text-align:left;overflow-wrap:anywhere;word-break:normal;line-break:strict}
+@media(max-width:900px){
+ #case .case{display:flex;flex-direction:column;gap:clamp(18px,4vw,28px);padding:clamp(18px,4vw,28px);margin-inline:0;width:100%}
+ #case .case-badge{padding:clamp(18px,4vw,28px)}
+ #case .case-badge strong{font-size:clamp(1.15rem,4.5vw,1.6rem);letter-spacing:0;line-height:1.6}
+ #case .case h3{font-size:clamp(1.12rem,4.6vw,1.5rem);line-height:1.6;letter-spacing:0}
+ #case .case p{font-size:clamp(.92rem,3.6vw,1rem);line-height:1.85}
+ #case .case h3 br,#case .case-badge strong br{display:none}
+}
+@media(max-width:390px){#case .case{padding:16px}#case .case-badge{padding:18px 12px}}
+</style>
 </head>
 <body>
   <header class="site-header">
