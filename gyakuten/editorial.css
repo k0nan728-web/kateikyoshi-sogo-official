@@ -75,3 +75,13 @@ p,li,summary,figcaption{line-break:strict;word-break:normal;text-wrap:pretty}
  .flow-item h3{font-size:16px}
  .flow-item p{font-size:13px}
 }
+
+/* Fill each line in reading order; move only the next complete phrase when needed. */
+body :is(h1,h2,h3,p,li,summary,figcaption,.button){text-wrap:wrap}
+
+@media(max-width:600px){
+ .need-grid{grid-template-columns:minmax(0,1fr);gap:22px}
+ .need{display:grid;grid-template-columns:30px minmax(0,1fr);gap:6px 14px;align-items:start}
+ .need-icon{grid-column:1;grid-row:1/3;margin:0}
+ .need h3,.need p{grid-column:2}.need h3{margin-bottom:4px}
+}
