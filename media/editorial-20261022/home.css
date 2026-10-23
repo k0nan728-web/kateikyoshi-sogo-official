@@ -131,3 +131,14 @@
 }
 @media(max-width:360px){.editorial-home .brand-companion{grid-template-columns:1fr}.editorial-home .brand-companion>.editorial-photo{grid-column:1;grid-row:1;width:100%;height:auto;max-height:none;aspect-ratio:1.8;object-position:center}.editorial-home .brand-companion .path-intro{grid-column:1;grid-row:2}.editorial-home .brand-companion .path-detail{grid-column:1;grid-row:3}.editorial-home .hero-subjects li{font-size:11px}.editorial-home .brand strong{font-size:16px}.editorial-home .process-list{grid-template-columns:1fr}.editorial-home .process-list>li:last-child{grid-column:auto}}
 @media(prefers-reduced-motion:reduce){.editorial-home *{scroll-behavior:auto;transition:none}}
+/* Flagship masthead: the real instructor becomes the first full-bleed visual. */
+@media(min-width:681px){
+.editorial-home .intro .hero-layout{width:100%;max-width:none;min-height:630px;display:block;padding:0;margin:0}
+.editorial-home .intro-panel{width:min(570px,46vw);margin-left:max(36px,calc((100vw - 1200px)/2));padding:70px 0 70px;position:relative;z-index:2}
+.editorial-home .editorial-hero-photo{position:absolute;inset:0 0 0 47%;height:100%;display:block;overflow:hidden;border-radius:0;box-shadow:none;background:#dbe8ee}
+.editorial-home .editorial-hero-photo img{display:block;width:100%;height:100%;max-height:none;aspect-ratio:auto;object-fit:cover;object-position:50% 33%;border-radius:0}
+.editorial-home .editorial-hero-photo::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#edf4f7 0%,#edf4f7bb 11%,transparent 38%);pointer-events:none}
+.editorial-home .hero-signature{z-index:2;left:auto;right:30px;bottom:26px;width:min(360px,55%);border-left:3px solid #ceb474}
+.editorial-home #hero-title{font-size:clamp(42px,4.5vw,64px)}
+}
+@media(min-width:681px) and (max-width:900px){.editorial-home .intro .hero-layout{min-height:560px}.editorial-home .intro-panel{width:50vw;margin-left:28px;padding:48px 0}.editorial-home .editorial-hero-photo{left:48%}.editorial-home #hero-title{font-size:clamp(35px,4.4vw,43px)}.editorial-home .hero-signature{right:12px;width:75%;padding:10px 12px}}
