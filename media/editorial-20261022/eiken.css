@@ -92,3 +92,11 @@
 .editorial-eiken .flow-item:after{display:none}
 .editorial-eiken .concern-aside,.editorial-eiken .concern-aside :is(h3,p,span){color:#244940}
 .editorial-eiken .system,.editorial-eiken .system :is(h2,.system-copy p){color:#244940}
+.editorial-eiken .system-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:30px;align-items:center}
+.editorial-eiken .system-copy{grid-column:1/-1;margin-bottom:0}
+.editorial-eiken .growth-visual{margin:0;background:#fff;border:1px solid #d8e3db;border-radius:4px}
+.editorial-eiken .growth-visual img{display:block;width:100%;height:auto;aspect-ratio:10/7;object-fit:contain}
+.editorial-eiken .growth-visual figcaption{padding:14px 18px;color:#36584c;font-size:14px;line-height:1.8}
+.editorial-eiken .system .flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:900px){.editorial-eiken .system-grid{grid-template-columns:1fr}.editorial-eiken .system-copy{grid-column:1}.editorial-eiken .growth-visual{width:min(600px,100%);margin:auto}}
+@media(max-width:540px){.editorial-eiken .system .flow{grid-template-columns:1fr}}
