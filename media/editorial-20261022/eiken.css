@@ -1,0 +1,94 @@
+/* English learning editorial: varied sections and individual skill photography. */
+.editorial-eiken{--navy:#143f43;--blue:#25756c;--gold:#ab7f35;background:#fff;color:#193b40}
+.editorial-eiken :is(h1,h2,h3,p,li,summary){text-wrap:wrap;word-break:normal;line-break:strict}
+.editorial-eiken .heading-line{display:inline}.editorial-eiken .heading-nowrap{white-space:normal}
+.editorial-eiken .container{width:min(1180px,calc(100% - 64px));max-width:none}
+.editorial-eiken .section{padding:70px 0}.editorial-eiken h2{font-size:clamp(27px,3vw,38px);line-height:1.65}
+.editorial-eiken .hero{background:linear-gradient(110deg,#edf5ee,#fbf8ed);padding:44px 0 50px}
+.editorial-eiken .hero-grid{grid-template-columns:1fr 1.1fr;gap:38px;align-items:center}
+.editorial-eiken .hero h1{font-size:clamp(36px,4vw,55px);line-height:1.5;color:#193d3c;letter-spacing:.015em}
+.editorial-eiken .hero h1 .accent{color:#247461}
+.editorial-eiken .hero-lead{font-size:18px;line-height:1.9}
+.editorial-eiken .hero-visual{min-height:0;aspect-ratio:auto;padding-bottom:22px}
+.editorial-eiken .hero-photo{height:auto;width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 30%;border-radius:4px 65px 4px 4px;box-shadow:14px 14px 0 #dae9dc}
+.editorial-eiken .hero-card{left:24px;right:24px;bottom:0;position:relative;margin-top:-18px;background:#174c48;color:white;border:0;border-radius:3px;max-width:calc(100% - 48px);padding:15px 22px;box-shadow:0 8px 20px #153e4820}
+.editorial-eiken .hero-card strong{font-size:20px;display:block;color:white}.editorial-eiken .hero-card strong br{display:none}
+.editorial-eiken .hero-card>span{color:#e6d599;font-size:11px}
+.editorial-eiken .hero-actions{display:flex;flex-wrap:wrap;gap:10px}
+.editorial-eiken .button-primary{background:#246d60;color:#fff;border-color:#246d60}
+.editorial-eiken .button-outline{border-color:#8ba99b;color:#214f46;background:white}
+.editorial-eiken .proof{background:#fff;border-bottom:1px solid #dce6df}
+.editorial-eiken .proof-num{color:#1f675a;font-family:Georgia,'Noto Serif JP',serif}
+.editorial-eiken .chapter-label{color:#417968}.editorial-eiken .chapter-label>span{background:#eaf0dd;color:#536448}
+.editorial-eiken .concerns{background:#faf8f2}
+.editorial-eiken .concern-aside{background:#e8f0e7;border-radius:4px 40px 4px 4px;border:0}
+.editorial-eiken .concern-aside img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:3px}
+.editorial-eiken .concern-list{gap:0}.editorial-eiken .concern-row{background:none;border:0;border-bottom:1px solid #d5e0d7;border-radius:0;box-shadow:none;padding:22px 10px}
+.editorial-eiken .concern-row>b{font-family:Georgia,serif;font-size:28px;color:#a27e3a;background:none}
+.editorial-eiken .skills-section{background:#fff}
+.editorial-eiken .skills-stage{display:block}.editorial-eiken .skills-stack{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.editorial-eiken .skill{display:block;padding:0 20px 24px;border:1px solid #dce4df;border-radius:4px;background:#fff;box-shadow:0 8px 20px #1c493b09}
+.editorial-eiken .skill>.editorial-photo{width:calc(100% + 40px);max-width:none;margin:0 -20px 20px;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:50% 25%;border-radius:4px 4px 0 0}
+.editorial-eiken .skill h3{font-family:'Noto Serif JP',serif;font-size:25px;text-align:left;margin:0 0 14px;color:#1d6355}
+.editorial-eiken .skill p{font-size:15px;line-height:1.9}.editorial-eiken .skill p strong{font-size:16px;line-height:1.8}
+.editorial-eiken .lesson-window{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px;margin:32px 0 0;padding:24px;background:#eef4ef;border:1px solid #d7e4da;border-radius:4px}
+.editorial-eiken .lesson-window img{width:100%;height:auto;aspect-ratio:1536/1010;object-fit:contain;border-radius:2px}
+.editorial-eiken .lesson-window figcaption{background:none;text-align:left;padding:15px;display:block}.editorial-eiken .lesson-window figcaption strong{font-size:23px;line-height:1.6;color:#1c4a42;display:block;margin-bottom:14px}
+.editorial-eiken .lesson-window figcaption span{font-size:16px;line-height:1.9;display:block}
+.editorial-eiken .levels-section{background:#194b47;color:#fff}
+.editorial-eiken .levels-section :is(h2,.chapter-label,.section-intro){color:#fff}
+.editorial-eiken .levels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.editorial-eiken .level{background:#fff;border:0;border-top:4px solid #bda66c;border-radius:4px;padding:23px;min-height:0;color:#234e45}
+.editorial-eiken .level b{font-family:'Noto Serif JP',serif;font-size:29px;color:#1e6656}
+.editorial-eiken .level span{font-size:15px;line-height:1.9;white-space:normal}.editorial-eiken .level:nth-child(n+5){background:#f4f0df}
+.editorial-eiken .system{background:#f5f4ec}.editorial-eiken .system-grid{display:block}
+.editorial-eiken .system-copy{text-align:center;margin-bottom:32px}
+.editorial-eiken .flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.editorial-eiken .flow-item{display:block;border:0;border-top:3px solid #ad934c;border-radius:0;background:white;padding:24px;box-shadow:0 7px 20px #23443b08}
+.editorial-eiken .flow-no{font-family:Georgia,serif;color:#9d7d36;font-size:38px;background:none;margin-bottom:16px;display:block;line-height:1}
+.editorial-eiken .flow-item h3{font-size:19px;line-height:1.7;margin:0 0 12px}.editorial-eiken .flow-item p{font-size:15px;line-height:1.9}
+.editorial-eiken .teacher-section{background:#e9f1ea}.editorial-eiken .teacher-stage{grid-template-columns:.8fr 1.2fr;gap:50px}
+.editorial-eiken .teacher-portrait img{height:auto;aspect-ratio:1;object-fit:contain;object-position:center top;border-radius:3px 40px 3px 3px}
+.editorial-eiken .teacher-copy h2{text-align:left}.editorial-eiken .teacher-recognition{background:#fff}
+.editorial-eiken .story-section{background:linear-gradient(130deg,#fffaf2,#f8f0e6)}
+.editorial-eiken .case{background:white;border:1px solid #ded4bd;border-radius:4px;box-shadow:0 10px 25px #77542b0a;gap:36px;padding:32px}
+.editorial-eiken .case-badge{background:#f8f2e4;border:0;border-radius:3px;color:#513e22;padding:24px}
+.editorial-eiken .editorial-certificate{display:block;width:100%;height:200px;object-fit:contain;margin:0 0 20px}
+.editorial-eiken .pricing-summary{background:#eaf2ec;border:1px solid #d4e0d6;border-radius:4px;padding:24px;position:static}
+.editorial-eiken .pricing-summary>.editorial-photo{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;margin:0 0 22px;border-radius:3px}
+.editorial-eiken .pricing-big{color:#286b55}.editorial-eiken .pricing-calc{background:#246d60;color:white}
+.editorial-eiken .resources-section{background:#f6f4ec}.editorial-eiken .resource-grid{gap:26px}
+.editorial-eiken .resource{display:flex;flex-direction:column;padding:0 28px 28px;border-radius:4px;border:1px solid #deded1;background:#fff}
+.editorial-eiken .resource>.editorial-photo{width:calc(100% + 56px);max-width:none;margin:0 -28px 24px;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:50% 38%}
+.editorial-eiken .resource h3{font-size:23px;white-space:normal;text-align:left;line-height:1.7}
+.editorial-eiken .resource>.text-link{margin-top:auto;padding-top:18px}
+.editorial-eiken .cta{background:#174a46;padding:60px 0;color:white}
+.editorial-eiken .cta-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px 42px;align-items:center}
+.editorial-eiken .cta-photo{grid-column:1;grid-row:1/3;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:50% 25%;border-radius:4px 40px 4px 4px}
+.editorial-eiken .cta-grid>div{grid-column:2}.editorial-eiken .cta h2{color:white;text-align:left;font-size:30px}.editorial-eiken .cta .eyebrow{color:#e5d59b}
+.editorial-eiken .cta-actions{display:flex;flex-wrap:wrap;gap:12px}.editorial-eiken .cta-actions .button-primary{background:#e6d6a7;color:#193e36}
+@media(max-width:1100px){.editorial-eiken .skills-stack{grid-template-columns:repeat(2,minmax(0,1fr))}.editorial-eiken .flow{grid-template-columns:repeat(2,minmax(0,1fr))}.editorial-eiken .levels{grid-template-columns:repeat(3,minmax(0,1fr))}.editorial-eiken .hero-grid{gap:26px}.editorial-eiken .hero h1{font-size:39px}}
+@media(max-width:760px){.editorial-eiken .container{width:calc(100% - 36px)}.editorial-eiken .section{padding:48px 0}.editorial-eiken .hero-grid{grid-template-columns:1fr}.editorial-eiken .hero h1{font-size:clamp(33px,7vw,44px)}.editorial-eiken .hero{padding:30px 0}.editorial-eiken .hero-visual{width:100%;max-width:none}.editorial-eiken .hero-photo{border-radius:4px 40px 4px 4px;box-shadow:8px 8px 0 #dae9dc}.editorial-eiken .hero-actions .button{font-size:14px}.editorial-eiken .lesson-window{grid-template-columns:1fr;padding:18px;gap:10px}.editorial-eiken .levels{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.editorial-eiken .level{padding:20px 16px}.editorial-eiken .teacher-stage{grid-template-columns:1fr;gap:28px}.editorial-eiken .teacher-portrait{max-width:420px;margin:auto}.editorial-eiken .case{padding:22px;gap:24px}.editorial-eiken .resource-grid{grid-template-columns:1fr}.editorial-eiken .cta-grid{grid-template-columns:1fr}.editorial-eiken .cta-photo,.editorial-eiken .cta-grid>div{grid-column:1;grid-row:auto}.editorial-eiken .cta h2{font-size:27px}}
+@media(max-width:540px){.editorial-eiken .skills-stack{grid-template-columns:1fr}.editorial-eiken .skill{padding:0 22px 24px}.editorial-eiken .skill>.editorial-photo{width:calc(100% + 44px);margin:0 -22px 20px}.editorial-eiken .skill h3{font-size:25px}.editorial-eiken .flow{grid-template-columns:1fr;gap:14px}.editorial-eiken .flow-item{display:grid;grid-template-columns:38px minmax(0,1fr);gap:14px;padding:22px 18px}.editorial-eiken .flow-no{font-size:30px}.editorial-eiken .flow-item h3{font-size:18px}.editorial-eiken .hero-card strong{font-size:17px}.editorial-eiken .hero-card{padding:13px 16px}.editorial-eiken .concern-row h3{font-size:18px}}
+.editorial-eiken .hero:before{display:none}.editorial-eiken .hero{color:#244940;overflow:visible}
+.editorial-eiken .hero-grid{display:grid;min-height:0;padding:0}.editorial-eiken .hero-photo{max-height:none;border:0}
+.editorial-eiken .hero-lead{color:#294e44}.editorial-eiken .hero-kicker{color:#4c6c44;border-color:#9cb69e;background:#fff8}
+.editorial-eiken .hero-tags li{color:#255746;background:#fff;border:1px solid #bed0bd}
+.editorial-eiken .hero h1 .editorial-phrase{display:inline-block;white-space:normal;max-width:100%}
+.editorial-eiken .hero-visual{width:100%;max-width:none}.editorial-eiken .hero-card{width:calc(100% - 48px);margin-left:0}
+.editorial-eiken .hero-actions .button{display:inline-block;align-content:center}
+@media(max-width:760px){
+.editorial-eiken .hero-copy{display:contents}.editorial-eiken .hero-grid{gap:18px}.editorial-eiken .hero-kicker{order:0;margin:0 auto}.editorial-eiken .hero h1{order:1;margin:0;font-size:32px}.editorial-eiken .hero-visual{order:2;padding-bottom:0;margin:0 0 8px}.editorial-eiken .hero-lead{order:3;margin:0}.editorial-eiken .hero-tags{order:4;margin:0}.editorial-eiken .hero-actions{order:5;justify-content:center}.editorial-eiken .hero-card{left:12px;max-width:calc(100% - 24px);width:calc(100% - 24px)}
+}
+.editorial-eiken .pricing-summary,.editorial-eiken .pricing-summary :is(p,strong,span){color:#234e43}
+.editorial-eiken .pricing-summary .pricing-calc{color:#fff}.editorial-eiken .pricing-perks p{border-color:#c3d5c6}
+.editorial-eiken .pricing-summary .summary-tag{background:#fff;color:#53603a}
+.editorial-eiken .teacher-section,.editorial-eiken .teacher-copy,.editorial-eiken .teacher-copy :is(h2,p,li,strong,span){color:#234e43}
+.editorial-eiken .teacher-copy .button-primary{color:white}.editorial-eiken .teacher-copy .teacher-sub-link{color:#255e50}
+.editorial-eiken .case-badge :is(small,strong,span){color:#574226}
+.editorial-eiken .editorial-phrase{display:inline-block;max-width:100%;white-space:normal}
+@media(max-width:540px){.editorial-eiken h2{font-size:26px}.editorial-eiken .cta h2{font-size:26px}}
+.editorial-eiken .flow-item,.editorial-eiken .flow-item :is(h3,p,.editorial-phrase){color:#244940}
+.editorial-eiken .flow-item:after{display:none}
+.editorial-eiken .concern-aside,.editorial-eiken .concern-aside :is(h3,p,span){color:#244940}
+.editorial-eiken .system,.editorial-eiken .system :is(h2,.system-copy p){color:#244940}
