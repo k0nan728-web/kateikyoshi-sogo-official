@@ -1,0 +1,33 @@
+/* Flyer-inspired testimonial treatment. Text and outcomes remain sourced from existing markup. */
+#voices{position:relative;overflow:clip;background:linear-gradient(155deg,#fff 0%,#f9fcfb 42%,#fff8f8 100%);}
+#voices .section-shell{position:relative;z-index:1}
+#voices .section-heading{position:relative;text-align:center;padding:clamp(28px,5vw,58px) clamp(12px,3vw,32px) 18px;border-radius:24px;background:radial-gradient(circle at 92% 15%,#e6f4eb 0 12%,transparent 32%),radial-gradient(circle at 8% 85%,#fff0e5 0 9%,transparent 32%),linear-gradient(115deg,#f5fbf7,#fff);}
+#voices .section-heading:before{content:"勉強が楽しくなった！";position:absolute;top:10px;left:2%;transform:rotate(-8deg);color:#197755;font-weight:800;font-size:clamp(11px,1.3vw,17px);letter-spacing:.06em}
+#voices .section-heading:after{content:"成長がうれしい！";position:absolute;top:12px;right:2%;transform:rotate(8deg);color:#ae4464;font-weight:800;font-size:clamp(11px,1.3vw,17px)}
+#voices .section-heading .eyebrow{display:table;margin:16px auto 18px;padding:7px 22px;border-radius:100px;background:#187b5b;color:white;font-weight:800}
+#voices .section-heading h2{font-size:clamp(29px,5.4vw,58px);line-height:1.45;color:#123951;text-shadow:0 2px 0 #fff}
+#voices .section-heading h2 .heading-phrase:last-child{background:linear-gradient(transparent 76%,#f9e8b8 76%);box-decoration-break:clone;-webkit-box-decoration-break:clone}
+#voices .section-lead{text-align:center;line-height:1.95;margin:24px auto 44px;max-width:720px}
+#voices .testimonial-group{display:flex;align-items:center;flex-wrap:wrap;gap:8px 18px;padding:0 0 12px;margin:28px 0 24px;border-bottom:2px solid #d4e6e4}
+#voices .testimonial-group span{font-size:clamp(23px,3vw,34px);font-weight:900;color:#123e55}
+#voices .testimonial-group span:before{content:"✦";display:inline-grid;place-items:center;width:42px;height:42px;margin-right:12px;border:2px solid #d6b369;border-radius:50%;color:#b18c43;font-size:24px;vertical-align:middle}
+#voices .testimonial-group small{font-size:clamp(13px,1.4vw,17px);color:#526d79}
+#voices .testimonials-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:stretch}
+#voices figure.testimonial{position:relative;display:flex;flex-direction:column;min-width:0;margin:0;padding:clamp(20px,3vw,32px);border:2px solid #f1d8d9;border-radius:23px;background:linear-gradient(145deg,#fffafa,#fff);box-shadow:0 12px 30px rgba(31,59,73,.065);overflow:visible}
+#voices figure.testimonial:nth-child(even){border-color:#cfe4f0;background:linear-gradient(145deg,#f2faff,#fff)}
+#voices figure.testimonial:nth-child(3n){border-color:#d6e9dd;background:linear-gradient(145deg,#f5fbf5,#fff)}
+#voices .testimonial-person{display:flex;align-items:center;gap:12px;margin:0 0 14px;color:#24495b}
+#voices .testimonial-person svg{flex:none;width:58px;height:58px;padding:12px;border-radius:50%;background:#f8e5e6;color:#a65c69}
+#voices figure.testimonial:nth-child(even) .testimonial-person svg{background:#deeffa;color:#3b779b}
+#voices .testimonial-person strong{display:block;font-size:clamp(18px,2vw,24px);font-weight:900;color:#123c53}
+#voices .testimonial-result{align-self:flex-start;display:inline-block;margin:3px 0 18px;padding:7px 13px;border-radius:9px;background:#e4f3e9;color:#126345;font-weight:900;font-size:clamp(15px,1.6vw,20px)}
+#voices .testimonial-excerpt{position:relative;margin:0 0 20px;padding:20px 18px;border-radius:20px;background:#fff1f2;color:#8d3750;font-weight:850;font-size:clamp(18px,2vw,25px);line-height:1.7;overflow-wrap:anywhere}
+#voices figure.testimonial:nth-child(even) .testimonial-excerpt{background:#e8f4fd;color:#205b7e}
+#voices figure.testimonial:nth-child(3n) .testimonial-excerpt{background:#eaf6eb;color:#21644e}
+#voices .testimonial-excerpt:before{content:"“";font-family:Georgia,serif;font-size:38px;line-height:.5;margin-right:5px;vertical-align:-.16em;opacity:.5}
+#voices .testimonial details{margin-top:auto;border-top:1px solid #cbdce2;padding-top:14px}
+#voices .testimonial summary{cursor:pointer;color:#174e6c;font-weight:800;min-height:44px;display:list-item;line-height:1.7}
+#voices .testimonial details[open] blockquote{margin:16px 0 0;padding:16px 18px;background:#fff;border-left:4px solid #b7d4df;border-radius:8px;color:#334e5c;line-height:1.9}
+#voices .testimonials-students{margin-top:clamp(36px,6vw,72px)}
+@media(max-width:760px){#voices .testimonials-layout{grid-template-columns:1fr;gap:16px}#voices .section-heading{padding:55px 12px 22px}#voices .section-heading:before{top:8px;left:3%}#voices .section-heading:after{top:28px;right:3%}#voices .testimonial-group{align-items:flex-start}#voices figure.testimonial{padding:20px 18px}#voices .testimonial-excerpt{padding:16px 14px}#voices .section-lead{margin-bottom:30px}}
+@media(max-width:360px){#voices .section-heading:before,#voices .section-heading:after{font-size:10px}#voices .section-heading h2{font-size:27px}#voices .testimonial-person svg{width:48px;height:48px}#voices .testimonial-group span:before{width:35px;height:35px;margin-right:7px}}
