@@ -1,0 +1,15 @@
+/* Shared across every public brand and its supporting pages. */
+:where(main,footer) :is(h1,h2,h3,h4,h5,p,li,dt,dd,figcaption,summary){
+  line-break:strict;
+  word-break:normal;
+}
+:where(main,footer) :is(p,li,dd,figcaption){text-wrap:pretty}
+/* Only set by measured fitting; retain the author's size everywhere else. */
+html body .ks-responsive-fit{font-size:var(--ks-responsive-font)!important}
+html body .ks-responsive-balance{text-wrap:balance!important}
+/* A hard break in prose must not leave only the sentence ending on a line. */
+html body p.ks-responsive-balance br{display:none}
+.copy-unit{display:inline-block;max-width:100%;white-space:normal}
+.editorial-home .path-question{display:inline-block;max-width:100%;text-wrap:balance}
+.editorial-eiken .pricing-perks p{flex-wrap:wrap;gap:4px 12px}
+.editorial-eiken .pricing-perks strong{white-space:nowrap}
