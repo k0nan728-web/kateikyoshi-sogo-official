@@ -1,0 +1,23 @@
+name: Tuition security integration
+on:
+  pull_request:
+    paths:
+      - 'functions/api/tuition/**'
+      - 'tuition-portal/**'
+      - '_headers'
+      - '.github/workflows/tuition-security.yml'
+permissions:
+  contents: read
+jobs:
+  tuition-security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test tuition-portal/security.test.mjs
+      - run: node --test intake/validate.test.mjs intake/native-delivery.test.mjs
