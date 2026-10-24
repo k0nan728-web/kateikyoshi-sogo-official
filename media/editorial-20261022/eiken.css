@@ -34,13 +34,16 @@
 .editorial-eiken .lesson-window{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px;margin:32px 0 0;padding:24px;background:#eef4ef;border:1px solid #d7e4da;border-radius:4px}
 .editorial-eiken .lesson-window img{width:100%;height:auto;aspect-ratio:1536/1010;object-fit:contain;border-radius:2px}
 .editorial-eiken .lesson-window figcaption{background:none;text-align:left;padding:15px;display:block}.editorial-eiken .lesson-window figcaption strong{font-size:23px;line-height:1.6;color:#1c4a42;display:block;margin-bottom:14px}
-.editorial-eiken .lesson-window figcaption span{font-size:16px;line-height:1.9;display:block}
+.editorial-eiken .lesson-window figcaption span{font-size:16px;line-height:1.9;display:block;color:#36584c}
 .editorial-eiken .levels-section{background:#194b47;color:#fff}
-.editorial-eiken .levels-section :is(h2,.chapter-label,.section-intro){color:#fff}
+.editorial-eiken .levels-section :is(h2,.section-intro){color:#fff}
+.editorial-eiken .levels-section .chapter-label{background:#f4f7ed;color:#194b47;border-color:#bdcfbd}
+.editorial-eiken .levels-section .chapter-label>span{background:#dce8cf;color:#294b36}
+.editorial-eiken .levels-section .section-intro strong{color:inherit}
 .editorial-eiken .levels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .editorial-eiken .level{background:#fff;border:0;border-top:4px solid #bda66c;border-radius:4px;padding:23px;min-height:0;color:#234e45}
 .editorial-eiken .level b{font-family:'Noto Serif JP',serif;font-size:29px;color:#1e6656}
-.editorial-eiken .level span{font-size:15px;line-height:1.9;white-space:normal}.editorial-eiken .level:nth-child(n+5){background:#f4f0df}
+.editorial-eiken .level span{color:#526574;font-size:15px;line-height:1.9;white-space:normal}.editorial-eiken .level:nth-child(n+5){background:#f4f0df}
 .editorial-eiken .system{background:#f5f4ec}.editorial-eiken .system-grid{display:block}
 .editorial-eiken .system-copy{text-align:center;margin-bottom:32px}
 .editorial-eiken .flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
@@ -100,3 +103,10 @@
 .editorial-eiken .system .flow{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:900px){.editorial-eiken .system-grid{grid-template-columns:1fr}.editorial-eiken .system-copy{grid-column:1}.editorial-eiken .growth-visual{width:min(600px,100%);margin:auto}}
 @media(max-width:540px){.editorial-eiken .system .flow{grid-template-columns:1fr}}
+
+/* Keep explanatory text legible on every section's own surface. */
+.editorial-eiken .skill p strong{color:#365650}
+.editorial-eiken .level .arrow{color:#855e19}
+.editorial-eiken .case-note{color:#536579}
+.editorial-eiken .rules-section .section-intro{color:#536579}
+.editorial-eiken .resource-tag{color:#76591d}
