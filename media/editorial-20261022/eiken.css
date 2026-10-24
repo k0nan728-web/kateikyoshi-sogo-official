@@ -52,9 +52,10 @@
 .editorial-eiken .flow-item h3{font-size:19px;line-height:1.7;margin:0 0 12px}.editorial-eiken .flow-item p{font-size:15px;line-height:1.9}
 .editorial-eiken .teacher-section{background:#e9f1ea}.editorial-eiken .teacher-stage{grid-template-columns:.8fr 1.2fr;gap:50px}
 .editorial-eiken .teacher-portrait img{height:auto;aspect-ratio:1;object-fit:contain;object-position:center top;border-radius:3px 40px 3px 3px}
-.editorial-eiken .teacher-copy h2{text-align:left}.editorial-eiken .teacher-recognition{background:#fff}
+.editorial-eiken .teacher-heading{text-align:center;margin-bottom:36px}.editorial-eiken .teacher-heading .chapter-label{margin-inline:auto}.editorial-eiken .teacher-heading h2{text-align:center;margin:0;line-height:1.6}.editorial-eiken .teacher-recognition{background:#fff}
 .editorial-eiken .story-section{background:linear-gradient(130deg,#fffaf2,#f8f0e6)}
 .editorial-eiken .case{background:white;border:1px solid #ded4bd;border-radius:4px;box-shadow:0 10px 25px #77542b0a;gap:36px;padding:32px}
+.editorial-eiken .case>*{min-width:0}
 .editorial-eiken .case-badge{background:#f8f2e4;border:0;border-radius:3px;color:#513e22;padding:24px}
 .editorial-eiken .editorial-certificate{display:block;width:100%;height:200px;object-fit:contain;margin:0 0 20px}
 .editorial-eiken .pricing-summary{background:#eaf2ec;border:1px solid #d4e0d6;border-radius:4px;padding:24px;position:static}

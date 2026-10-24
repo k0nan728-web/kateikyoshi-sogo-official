@@ -14,10 +14,14 @@
 .materials-books>p{line-height:1.9;font-size:15px}
 .book-shelf{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:24px}
 .book-example{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:#244450;min-width:0}
-.book-example>img{display:block;max-width:100%;width:100%;height:auto;aspect-ratio:3/4.4;object-fit:contain;filter:drop-shadow(4px 6px 5px #142b3a20);margin-bottom:10px;background:#fff}
+.book-cover{position:relative;display:grid;place-items:center;width:100%;aspect-ratio:3/4.2;margin-bottom:10px;background:#fff;overflow:hidden;flex:none}
+.book-cover>img{position:absolute;inset:0;display:block;width:100%;height:100%;max-width:none;object-fit:contain;filter:drop-shadow(3px 4px 4px #142b3a18)}
+/* The publisher's 480px square thumbnail contains the cover at y=36..445.
+   Crop only that embedded margin; keep the book's original proportions. */
+.book-cover--padded>img{position:absolute;inset:auto;left:50%;top:-8.54%;transform:translateX(-50%);height:117.073%;width:auto;max-width:none;max-height:none;object-fit:fill;filter:none}
 .book-example>small{font-size:14px;color:#46715e;line-height:1.6;font-weight:700}
 .book-example>strong{font-size:16px;line-height:1.8;font-weight:700}
-.book-example>span{font-size:14px;text-decoration:underline;line-height:1.8;color:#356e61;margin-top:auto}
+.book-example>span:not(.book-cover){font-size:14px;text-decoration:underline;line-height:1.8;color:#356e61;margin-top:auto}
 .book-example:focus-visible{outline:3px solid #376f62;outline-offset:5px}
 .editorial-home .promise-card>.document-image{aspect-ratio:10/7;object-fit:contain;background:#eef4f0}
 .editorial-home .editorial-hero-photo img{aspect-ratio:4/3;object-position:50% 18%}
@@ -26,4 +30,4 @@
 .editorial-eiken .resource>.material-disclosure{color:#4a6268;margin-top:12px}
 @media(min-width:1101px){.materials-documents{grid-template-columns:1fr 1fr;gap:20px}.materials-documents>.material-disclosure{grid-column:1/-1}.materials-layout{grid-template-columns:1.35fr 1fr}}
 @media(max-width:900px){.materials-layout{grid-template-columns:1fr;gap:28px}.materials-documents{grid-template-columns:1fr 1fr;gap:20px}.materials-documents>.material-disclosure{grid-column:1/-1}.materials-books{padding:28px}.book-shelf{max-width:620px;margin:24px auto 0}}
-@media(max-width:600px){.materials-showcase{padding:48px 0}.materials-documents{grid-template-columns:1fr;gap:20px}.materials-books{padding:22px}.book-shelf{gap:18px}.materials-books h3{font-size:25px}.book-example>strong{font-size:15px}.book-example>span{font-size:14px}.materials-heading h2{font-size:26px}.material-figure figcaption{padding:14px 18px;font-size:15px}}
+@media(max-width:600px){.materials-showcase{padding:48px 0}.materials-documents{grid-template-columns:1fr;gap:20px}.materials-books{padding:22px}.book-shelf{gap:18px}.materials-books h3{font-size:25px}.book-example>strong{font-size:15px}.book-example>span:not(.book-cover){font-size:14px}.materials-heading h2{font-size:26px}.material-figure figcaption{padding:14px 18px;font-size:15px}}
