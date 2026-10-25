@@ -2,7 +2,7 @@
 
 ## 現在の公開状態（2026-10-25）
 
-PR #6 の修正ブランチに保存。本番未公開。Cloudflare の Google ログインが拒否され、Pages・D1・秘密情報の設定は未実施。実メール・実 D1 上の E2E 確認を終えるまで main にマージしない。実際の保護者情報は未投入。
+PR #6 の修正ブランチに保存。本番の授業料機能は未公開。公式サイトの Pages プロジェクトに授業料専用 D1 `tuition-production`、管理者メール、認証・送信元の設定を用意し、`TUITION_ENABLED=false` のまま維持している。別の Pages プロジェクト `kateikyoshi-tuition-staging` に同ブランチをデプロイし、専用 D1 `tuition-staging` と環境変数・秘密情報を設定した。設定変更後のデプロイと実メール・実 D1 上の E2E 確認は未完了。確認が済むまで main にマージしない。実際の保護者情報は未投入。
 
 - UI `/tuition-portal/`、API `/api/tuition/*`。既存 `/api/intake`、公式サイト本文、既存フォームファイルは変更しない。
 - `_headers` は新規 `/tuition-portal/*` のみ追記。既存ルールはそのまま。
