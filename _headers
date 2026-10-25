@@ -14,4 +14,4 @@
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'none'; script-src 'sha256-vmdTP4cpCBfeBWt4hXZNE1UCa2oiiycyIVxSYmDwGFs='; style-src 'sha256-nklICN97+uugt7K3ch2/Ux02okDbUALTgSMRdupv+Cc='; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'none'; script-src 'sha256-fan30p+CG4X3xtsYu8sMoqW2OXvQAJxeC6zm0ukdvnY='; style-src 'sha256-fYitMyno5no680wWMCT/LGzqp4+zMt73B5SaXDmoUA8='; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'
