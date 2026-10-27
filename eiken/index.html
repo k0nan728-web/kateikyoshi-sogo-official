@@ -576,7 +576,13 @@ a:focus-visible { outline:3px solid #24b8b0; outline-offset:3px; }
 }
 
 </style>
-<link href="/media/editorial-20261022/eiken.css?v=20261024-teacher" rel="stylesheet"/><link href="/media/editorial-20261022/materials.css?v=20261024-covers" rel="stylesheet"/><link rel="stylesheet" href="/media/impact-20261023/hero.css?v=1"/><link rel="stylesheet" href="/responsive-copy.css?v=20261024"><script defer src="/responsive-copy.js?v=20261024"></script></head>
+<link href="/media/editorial-20261022/eiken.css?v=20261024-teacher" rel="stylesheet"/><link href="/media/editorial-20261022/materials.css?v=20261024-covers" rel="stylesheet"/><link rel="stylesheet" href="/media/impact-20261023/hero.css?v=1"/><link rel="stylesheet" href="/responsive-copy.css?v=20261024"><script defer src="/responsive-copy.js?v=20261024"></script><style>
+/* Teacher title and personal name: consistent spacing across devices */
+.teacher-name{display:flex;align-items:baseline;justify-content:center;flex-wrap:wrap;column-gap:.8em;row-gap:.3em;line-height:1.5}
+.teacher-name .teacher-name-role,.teacher-name strong{white-space:nowrap}
+.teacher-name strong{margin-left:0}
+@media(max-width:767px){.teacher-name{flex-direction:column;align-items:center;gap:.28em}.teacher-name strong{font-size:1.65rem}}
+</style></head>
 <body class="editorial-eiken">
 <header class="site-header">
 <div class="container nav">
@@ -661,7 +667,7 @@ a:focus-visible { outline:3px solid #24b8b0; outline-offset:3px; }
 <span>YOUR PERSONAL TEACHER</span>
 </div>
 <div class="teacher-copy">
-<p class="teacher-name">プロ家庭教師 <strong>鈴木雄太</strong></p><ul class="point-list"><li>初回相談から授業まで、本人が担当</li><li>毎回、同じ講師が学習を見守る</li><li>苦手や小さな変化に合わせて調整</li></ul>
+<p class="teacher-name"><span class="teacher-name-role">プロ家庭教師</span><strong>鈴木雄太</strong></p><ul class="point-list"><li>初回相談から授業まで、本人が担当</li><li>毎回、同じ講師が学習を見守る</li><li>苦手や小さな変化に合わせて調整</li></ul>
 <div class="teacher-highlights"><span>指導経験 <strong>20年超</strong></span><span>英検指導 <strong>300名以上</strong></span></div>
 <p class="teacher-recognition"><strong>トッププロ認定</strong><span>T社・Y社・R社での認定実績</span></p>
 <a class="button button-primary" href="/contact/">本人に無料相談する →</a>
