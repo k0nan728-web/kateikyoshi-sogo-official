@@ -36,4 +36,8 @@ Chromeの実ブラウザで、検証専用ページのiframe幅を操作し、�
 
 ## 再公開後
 
-GitHub mainへの反映後、本番の更新内容と主要画面幅・操作を再確認する。
+- 初回修正 d2208a5 の本番Cloudflare Pages配信成功を確認。トップ52幅、級別7ページ各5幅（320,390,768,1024,1920px）、目標級チェック63通りを本番で再確認。
+- 本番相談フォームで、認証ウィジェットが300px幅のため320px画面ではscrollWidth=332pxとなる追加不具合を発見。ローカルはAPI未設定で認証UIが出ないため、この問題は本番確認で検出。
+- Cloudflare公式のcompactサイズ（150px幅）を指定し、相談・申込フォームのJSバージョンを更新。全幅でcompact表示を維持することで、大画面から小画面への回転・リサイズ時も認証を再生成せずに収める。トークン検証や認証の設定は変更しない。
+- 追加修正の再公開後、本番の認証パネルを含めて横スクロールを再確認する。
+- 仕様出典：https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/widget-configurations/

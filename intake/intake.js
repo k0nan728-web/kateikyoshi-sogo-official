@@ -354,7 +354,7 @@ function loadTurnstile(){
  script.async=true;script.defer=true;
  script.onload=()=>{
   try{
-   widgetId=window.turnstile.render("#challenge",{sitekey:window.__intakeSiteKey,theme:"light"});
+   widgetId=window.turnstile.render("#challenge",{sitekey:window.__intakeSiteKey,theme:"light",size:"compact"});
    widgetReady=true;
   }catch{showError("認証画面を表示できません。ブラウザの設定をご確認ください。")}
  };
