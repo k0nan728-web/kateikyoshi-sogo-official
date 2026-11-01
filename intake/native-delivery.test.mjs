@@ -19,7 +19,7 @@ const example={
  studentName:"試験太郎",studentNameKana:"しけんたろう",grade:"中3",
  region:"千葉県柏市",courses:["高校受験対策"],subjects:["英語"],
  duration:"60分",lessonMode:"オンライン指導",purpose:"通常授業のお申し込み",message:"通知検証（架空データ）",
- privacyAccepted:true,siteTermsAccepted:true,token:"fake-challenge-token",
+ requestId:"6d1b3c40-534b-46c5-87d8-75fdca184dab",privacyAccepted:true,siteTermsAccepted:true,token:"fake-challenge-token",
  scheduleCandidates:[
   {day:"火曜日",from:"18:00",to:"20:00"},
   {day:"",from:"",to:""},{day:"土曜日",from:"10:00",to:"12:00"},
@@ -29,6 +29,8 @@ const example={
 let emails=[];
 let verifyEnabled=true;
 let emailSuccess=true;
+let confirmationSuccess=true;
+let emailHeaders=[];
 const previousFetch=globalThis.fetch;
 try{
  globalThis.fetch=async (url,init={})=>{
@@ -36,7 +38,8 @@ try{
   if(url==="https://api.resend.com/emails"){
    const body=JSON.parse(init.body);
    emails.push(body);
-   return emailSuccess?Response.json({id:"test-mail-id"}):Response.json({error:"simulated failure"},{status:502});
+   emailHeaders.push(init.headers);
+   return emailSuccess && (body.to[0]==="info@kateikyoshi-sogo.com" || confirmationSuccess)?Response.json({id:"test-mail-id"}):Response.json({error:"simulated failure"},{status:502});
   }
   throw Error("Unexpected outgoing request: "+url);
  };
@@ -44,7 +47,10 @@ try{
  assert.equal((await status.json()).available,true);
  const delivered=await api.onRequestPost({request:req(example),env});
  assert.equal(delivered.status,200);
- assert.deepEqual(await delivered.json(),{ok:true});
+ assert.deepEqual(await delivered.json(),{ok:true,confirmationSent:true});
+ assert.equal(emailHeaders[0]["Idempotency-Key"],"intake-notice/"+example.requestId);
+ assert.equal(emailHeaders[1]["Idempotency-Key"],"intake-confirmation/"+example.requestId);
+ assert.equal(emails[1].reply_to,"info@kateikyoshi-sogo.com");
  assert.equal(emails.length,2);
  assert.deepEqual(emails[0].to,["info@kateikyoshi-sogo.com"]);
  assert.equal(emails[0].reply_to,example.email);
@@ -65,6 +71,26 @@ try{
  assert.equal(rejectedTrial.status,400);
  assert.equal(emails.length,0);
  emails=[];
+ emails=[];confirmationSuccess=false;
+ const partial=await api.onRequestPost({request:req(example),env});
+ assert.equal(partial.status,200);
+ assert.deepEqual(await partial.json(),{ok:true,confirmationSent:false});
+ assert.equal(emails.length,2);
+ emails=[];confirmationSuccess=true;
+ const longMessage="あ".repeat(1997)+"末尾文";
+ const longAccepted=await api.onRequestPost({request:req({...example,message:longMessage}),env});
+ assert.equal(longAccepted.status,200);
+ assert.ok(emails[0].text.includes(longMessage),"All 2000 characters must reach the instructor");
+ emails=[];
+ for(const message of ["", "   ", "あ".repeat(2001)]){
+  const invalid=await api.onRequestPost({request:req({...example,message}),env});
+  assert.equal(invalid.status,400);
+  assert.equal(emails.length,0);
+ }
+ emails=[];
+ const malformedId=await api.onRequestPost({request:req({...example,requestId:"not-a-valid-request-id"}),env});
+ assert.equal(malformedId.status,400);
+ assert.equal(emails.length,0);
  emails=[];verifyEnabled=false;
  const rejected=await api.onRequestPost({request:req(example),env});
  assert.equal(rejected.status,400);

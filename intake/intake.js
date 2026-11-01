@@ -2,13 +2,13 @@
 const form=document.getElementById("intake-form");
 if(!form)return;
 const kind=document.body.dataset.kind==="apply"?"apply":"consult";
-const fallback="https://docs.google.com/forms/d/e/1FAIpQLSdS7FOxXb3MnoANiffjXAxZvVi4GBSIeHrVAZQ_wmkBNsz6NA/viewform";
 const fields=document.getElementById("form-fields");
 const status=document.getElementById("server-status");
 const error=document.getElementById("form-error");
 const success=document.getElementById("success");
 const sources={"eiken":"英検合格ゼミナール","gyakuten":"逆転合格ゼミナール","bansou":"進路伴走ゼミナール","retry":"Re:大学受験ゼミナール"};
-const sourceKey=new URLSearchParams(location.search).get("brand");
+const query=new URLSearchParams(location.search);
+const sourceKey=query.get("brand");
 const source=sources[sourceKey]||"総合公式サイト";
 const grades=["幼稚園","小1","小2","小3","小4","小5","小6","中1","中2","中3","高1","高2","高3","既卒","社会人","その他"];
 const purposes=["体験授業について相談","通常授業について相談","料金について相談","指導コースについて相談","その他のご相談"];
@@ -63,6 +63,7 @@ const serviceAgreement=`<section class="consent terms-consent" aria-labelledby="
  </section>`;
 const challenge='<div id="challenge" class="turnstile" aria-label="迷惑送信防止の認証"></div>';
 let step=0,configured=false,widgetId=null,widgetReady=false,turnstileLoading=false;
+let submissionSnapshot="",submissionId="";
 if(kind==="consult"){
  fields.innerHTML=`
  <p class="notice">迷っている段階でも大丈夫です。学校名や詳しい事情は、初回のお問い合わせでは不要です。</p>
@@ -185,8 +186,9 @@ form.addEventListener("click",e=>{
  if(next){if(validatePanel())setStep(Math.min(step+1,3))}
  if(prev)setStep(Math.max(step-1,0));
 });
-function showError(message){
+function showError(message,notice=false){
  error.textContent=message;
+ error.classList.toggle("is-info",notice);
  error.hidden=false;
  error.scrollIntoView({block:"nearest"});
 }
@@ -194,15 +196,15 @@ function unavailable(){
  status.hidden=false;
  status.innerHTML="";
  const p=document.createElement("p");
- p.textContent="【送信先の準備中】この画面からの直接送信はまだ利用できません。入力内容を既存のGoogleフォームへ引き継ぎ、そちらで最終送信してください。既存フォームで追加の必須質問への回答が必要です。";
+ p.textContent="現在フォームから直接送信できません。入力内容をコピーし、メールでお問い合わせください。コピーしただけでは送信されません。";
  status.appendChild(p);
  const a=document.createElement("a");
- a.href=fallback;a.target="_blank";a.rel="noopener noreferrer";a.textContent=kind==="apply"?"既存のGoogleフォームで申し込む →":"既存のGoogleフォームで相談する →";
+ a.href="mailto:info@kateikyoshi-sogo.com";a.textContent="メールアプリを開く →";
  status.append(a);
  const button=form.querySelector("#send-button");
- if(button)button.textContent="入力内容を引き継いでGoogleフォームへ進む →";
+ if(button)button.textContent="入力内容をコピーする（未送信）";
  const copy=document.getElementById("copy-action");
- if(copy)copy.hidden=false;
+ if(copy)copy.hidden=true;
 }
 function selectedSchedules(){
  if(kind!=="apply")return [];
@@ -229,69 +231,6 @@ function payloadFromForm(token=""){
  payload.token=token;
  payload.website=data.get("website")||"";
  return payload;
-}
-// Legacy Google Form prefill is the verified backup submission route until
-// the dedicated notification service is configured. Old form still requires
-// the visitor to complete its own mandatory school/gender questions.
-function legacyPrefillUrl(data){
- const params=new URLSearchParams();
- params.set("usp","pp_url");
- const add=(id,value)=>{if(value!==null&&value!==undefined&&String(value).trim())params.append("entry."+id,String(value).trim())};
- const choosePurpose=kind==="apply"
-   ? data.purpose
-   : ({"体験授業について相談":"体験授業のお問い合わせ",
-       "通常授業について相談":"通常授業のお問い合わせ",
-       "料金について相談":"料金のお問い合わせ",
-       "指導コースについて相談":"指導コースのお問い合わせ"}[data.purpose]||"指導コースのお問い合わせ");
- const sourceMap={
-  "当方のホームページ":"当方のホームページ","Googleなどの検索サイト":"検索サイト",
-  "Googleマップ":"Google map","ジモティ":"ジモティ","ストアカ":"ストアカ",
-  "マナリンク":"マナリンク","知り合いからのご紹介":"知り合いからのご紹介"
- };
- const courseMap={
-  "大学受験対策（文系科目）":"大学受験対策",
-  "中学受験対策（英語・国語・社会）":"中学受験対策",
-  "不登校・通信制高校サポート":"不登校サポート",
-  "発達特性に配慮した学習支援":"発達障害サポート",
-  "宿題・提出物サポート":"宿題サポート",
-  "季節講習":"夏期講習・冬期講習・春期講習"
- };
- const allowedCourses=new Set([
-  "英検対策（準1級）","英検対策（2級）","英検対策（準2級プラス）",
-  "英検対策（準2級）","英検対策（3級）","英検対策（4級）","英検対策（5級）",
-  "大学受験対策","高校受験対策","中学受験対策","逆転合格対策",
-  "定期テスト対策","学校の補習","塾の補習","中高一貫校サポート",
-  "不登校サポート","発達障害サポート","宿題サポート",
-  "自習見守りサポート","学習相談・カウンセリング","夏期講習・冬期講習・春期講習"
- ]);
- const allowedSubjects=new Set([
-  "英語","国語","社会","数学","理科","現代文","古文","漢文",
-  "世界史探究","日本史探究","歴史総合","地理探究","地理総合",
-  "政治経済","倫理","公共",
-  "英検準1級対策","英検2級対策","英検準2級プラス対策","英検準2級対策",
-  "英検3級対策","英検4級対策","英検5級対策"
- ]);
- add("1564624791",choosePurpose);
- add("69889553",sourceMap[data.discovery]||"当方のホームページ");
- add("1230834699",[data.studentName,data.studentNameKana?"（"+data.studentNameKana+"）":""].filter(Boolean).join(""));
- add("1329071149",data.guardianName);
- add("112684098",data.region);
- add("241826980",data.school);
- add("177037440",data.grade);
- const selectedCourses=(data.courses||[]).map(v=>courseMap[v]||v).filter(v=>allowedCourses.has(v));
- for(const v of selectedCourses)add("1305738703",v);
- const selectedSubjects=(data.subjects||[]).map(v=>v==="政治・経済"?"政治経済":v).filter(v=>allowedSubjects.has(v));
- for(const v of selectedSubjects)add("102234408",v);
- if(["60分","90分","120分","150分","180分"].includes(data.duration))add("1137729539",data.duration);
- add("878164990",data.firstDate);
- const times=(data.scheduleCandidates||[]).map((x,i)=>({...x,rank:i+1})).filter(x=>x.day&&x.from&&x.to).map(x=>"第"+x.rank+"候補："+x.day+" "+x.from+"〜"+x.to+"の間に開始可能");
- if(times.length)add("1103182725",times.join("／"));
- if(data.tool==="Zoom")add("568073567","Zoom（40分で再入室が必要）");
- if(data.tool==="Google Meet")add("568073567","Google meet（Googleアカウントが必要）");
- const details="【申し込み条件の同意】"+(data.siteTermsAccepted?"確認済み":"未確認")+" ／ 【個人情報の取り扱い】"+(data.privacyAccepted?"同意済み":"未確認")+"\n"+buildMailBody(data);
- if(kind==="apply")add("1692327135",details.slice(0,1600));
- else add("1952735166",details.slice(0,1600));
- return fallback+(fallback.includes("?")?"&":"?")+params.toString();
 }
 function buildMailBody(d){
  const sections=[
@@ -328,11 +267,11 @@ async function copyMailBody(){
  try{
   if(!navigator.clipboard?.writeText)throw Error("Clipboard API unavailable");
   await navigator.clipboard.writeText(body);
-  showError("入力内容をコピーしました。メールを作成して本文に貼り付け、送信してください。フォーム自体からは送信されていません。");
+  showError("入力内容をコピーしました。メールを作成して本文に貼り付け、送信してください。フォーム自体からは送信されていません。",true);
  }catch{
   const target=document.getElementById("copy-fallback");
   if(target){target.value=body;target.hidden=false;target.focus();target.select()}
-  showError("自動コピーできませんでした。表示された入力内容を選択してコピーし、メールに貼り付けてください。");
+  showError("自動コピーできませんでした。表示された入力内容を選択してコピーし、メールに貼り付けてください。",true);
  }
 }
 async function initialize(){
@@ -356,9 +295,9 @@ function loadTurnstile(){
   try{
    widgetId=window.turnstile.render("#challenge",{sitekey:window.__intakeSiteKey,theme:"light",size:"compact"});
    widgetReady=true;
-  }catch{showError("認証画面を表示できません。ブラウザの設定をご確認ください。")}
+  }catch{showError("認証画面を表示できません。ブラウザの設定をご確認ください。送信できない場合は入力内容をコピーし、メールでお問い合わせください。");copyAction.hidden=false;}
  };
- script.onerror=()=>showError("認証画面を読み込めません。再読み込みをお試しください。");
+ script.onerror=()=>{showError("認証画面を読み込めません。再読み込みするか、入力内容をコピーしてメールでお問い合わせください。");copyAction.hidden=false;};
  document.head.appendChild(script);
 }
 form.addEventListener("submit",async e=>{
@@ -367,31 +306,34 @@ form.addEventListener("submit",async e=>{
   for(let i=0;i<4;i++){if(step!==i)setStep(i);if(!validatePanel())return}
  }else if(!validatePanel())return;
  if(!configured){
-  const payload=payloadFromForm();
-  const prefill=legacyPrefillUrl(payload);
-  showError("既存のGoogleフォームを開きます。転記できない必須項目はGoogleフォーム側でご入力のうえ、最後に送信してください。この画面ではまだ申し込みは完了していません。");
-  const link=document.createElement("a");
-  link.href=prefill;
-  link.target="_blank";
-  link.rel="noopener noreferrer";
-  link.textContent="Googleフォームの最終送信画面を開く →";
-  error.append(document.createElement("br"),link);
-  window.open(prefill,"_blank","noopener,noreferrer");
+  await copyMailBody();
   return;
  }
  const token=widgetReady?window.turnstile.getResponse(widgetId):"";
- if(!token){showError("迷惑送信防止の認証を完了してください。");return}
+ if(!token){showError("迷惑送信防止の認証を完了してください。");copyAction.hidden=false;return}
  const payload=payloadFromForm(token);
+ const snapshot=JSON.stringify({...payload,token:""});
+ if(snapshot!==submissionSnapshot){submissionSnapshot=snapshot;submissionId=crypto.randomUUID();}
+ payload.requestId=submissionId;
  const button=form.querySelector("#send-button");
  button.disabled=true;button.textContent="送信中…";error.hidden=true;
  try{
-  const response=await fetch("/api/intake",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload),cache:"no-store"});
+  const response=await fetch("/api/intake",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload),cache:"no-store",signal:AbortSignal.timeout(35000)});
   const result=await response.json();
   if(!response.ok||!result.ok)throw new Error(result.error||"送信できませんでした。");
   form.hidden=true;document.querySelector(".form-top").hidden=true;
-  success.hidden=false;success.scrollIntoView({block:"center"});
+  const confirmation=success.querySelector('[data-confirmation-status]');
+  if(confirmation){
+   confirmation.textContent=result.confirmationSent===false
+    ? "講師への受付通知は完了していますが、自動返信メールは送信できませんでした。再送信は不要です。返信が届かない場合は、info@kateikyoshi-sogo.comへお問い合わせください。"
+    : "自動返信メールを送信しました。見当たらない場合は迷惑メールフォルダもご確認ください。";
+   confirmation.classList.toggle("confirmation-warning",result.confirmationSent===false);
+  }
+  success.hidden=false;success.setAttribute("tabindex","-1");success.focus({preventScroll:true});success.scrollIntoView({block:"center"});
  }catch(err){
-  showError(err.message+" 送信できない場合は、info@kateikyoshi-sogo.com へメールでお問い合わせください。");
+  const message=err.name==="TimeoutError"?"送信結果の確認に時間がかかっています。入力内容は残っています。":err.name==="TypeError"?"通信できませんでした。インターネット接続を確認し、再度お試しください。":err.message;
+  showError(message+" 送信できない場合は、入力内容をコピーし、info@kateikyoshi-sogo.com へメールでお問い合わせください。");
+  copyAction.hidden=false;
   try{window.turnstile.reset(widgetId)}catch{}
  }finally{button.disabled=false;button.textContent=kind==="apply"?"申し込み希望を送信する →":"この内容で送信する →"}
 });
@@ -410,14 +352,40 @@ copyFallback.style.cssText="width:100%;min-height:180px;margin-top:15px;";
 const sendActions=form.querySelector("#send-button")?.closest(".actions");
 if(sendActions){sendActions.append(copyAction);sendActions.after(copyFallback)}
 copyAction.hidden=true;
-// Unconfigured preview: retain a usable mail-app draft and copy action.
+// No personal input is stored outside this page; mail fallback requires an explicit copy action.
 const honeypot=document.createElement("input");honeypot.name="website";honeypot.type="text";honeypot.autocomplete="off";honeypot.tabIndex=-1;honeypot.setAttribute("aria-hidden","true");honeypot.style.cssText="position:absolute;left:-9999px;opacity:0;height:0;width:0";form.appendChild(honeypot);
-if(kind==="apply"){
- const choices=form.querySelectorAll('[name="courses"]');
- if(sourceKey==="eiken")choices[0]?.click();
- if(sourceKey==="gyakuten")choices[10]?.click();
- if(sourceKey==="bansou")choices[15]?.click();
- if(sourceKey==="retry")choices[7]?.click();
+// Carry only allowlisted learning choices from specialist pages. No names or emails in URLs.
+const sourceRoutes={eiken:"/eiken/",gyakuten:"/gyakuten/",bansou:"/bansou/",retry:"/retry/"};
+const eikenGrades=["5級","4級","3級","準2級","準2級プラス","2級","準1級"];
+const eikenGrade=eikenGrades.includes(query.get("eikenGrade"))?query.get("eikenGrade"):"";
+if(sources[sourceKey]){
+ const back=document.querySelector(".sitebar .back");
+ if(back){back.href=sourceRoutes[sourceKey];back.textContent="← "+sources[sourceKey]+"へ戻る";}
+ const successBack=success.querySelector("a");
+ if(successBack){successBack.href=sourceRoutes[sourceKey];successBack.textContent=sources[sourceKey]+"へ戻る →";}
+ document.querySelectorAll(".switch a").forEach(link=>{
+  const url=new URL(link.getAttribute("href"),location.origin);url.searchParams.set("brand",sourceKey);
+  if(sourceKey==="eiken"&&eikenGrade)url.searchParams.set("eikenGrade",eikenGrade);
+  ["focus","period"].forEach(key=>{const val=query.get(key);if((key==="focus"?["basic","reading","writing"]:["short","medium","long"]).includes(val))url.searchParams.set(key,val);});
+  link.href=url.pathname+url.search;
+ });
+}
+if(sourceKey==="eiken"){
+ if(kind==="apply"&&eikenGrade){
+  const choice=[...form.querySelectorAll('[name="courses"]')].find(el=>el.value==="英検対策（"+eikenGrade+"）");
+  if(choice)choice.checked=true;
+ }
+ if(kind==="consult"&&eikenGrade){
+  const beginner=["5級","4級"].includes(eikenGrade);
+  const focus={basic:"単語・基本文法",reading:"長文・読解",writing:beginner?"スピーキング（希望者）":"英作文・面接"}[query.get("focus")];
+  const period={short:"1か月未満",medium:"1〜3か月",long:"3か月以上"}[query.get("period")];
+  form.elements.namedItem("purpose").value="指導コースについて相談";
+  form.elements.namedItem("message").value=["【英検対策の相談】","目標級："+eikenGrade,focus?"今の課題："+focus:"",period?"受検まで："+period:"","","現在の状況・ご相談内容："].filter((line,i)=>line||i>=4).join("\n");
+ }
+}else if(kind==="apply"){
+ const defaults={gyakuten:"逆転合格対策",bansou:"不登校・通信制高校サポート",retry:"大学受験対策（文系科目）"};
+ const choice=[...form.querySelectorAll('[name="courses"]')].find(el=>el.value===defaults[sourceKey]);
+ if(choice)choice.checked=true;
 }
 initialize();
 })();

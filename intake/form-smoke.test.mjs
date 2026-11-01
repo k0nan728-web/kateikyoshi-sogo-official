@@ -38,8 +38,8 @@ for(const size of [{w:390,h:844},{w:1366,h:900}]){
  if(await page.locator("#f-lessonMode").count())throw Error("In-person/undecided selector is still present");
  if(!(await page.locator('.mode-confirmation').innerText()).includes("再開するかどうかも未定"))throw Error("Reopening status not clarified");
  await page.locator("#schedule1Day").selectOption({label:"火曜日"});
- await page.locator("#schedule1From").fill("18:00");
- await page.locator("#schedule1To").fill("20:00");
+ await page.locator("#schedule1From").selectOption("18:00");
+ await page.locator("#schedule1To").selectOption("20:00");
  await page.getByRole("button",{name:"ご要望の入力へ進む"}).click();
  await page.locator("#f-message").fill("英語の体験授業を希望しています。");
  // Both consents are mandatory; missing terms must not reach next screen.
@@ -49,17 +49,14 @@ for(const size of [{w:390,h:844},{w:1366,h:900}]){
  if(await page.locator("#form-error").isHidden())throw Error("Missing site-terms agreement not caught");
  if(!((await page.locator("#form-error").innerText()).includes("受講条件")))throw Error("Missing agreement error lacks explanatory field name");
  await page.locator('input[name="siteTermsAccepted"]').check();
- // The final submit falls back to an explicitly labeled Google Form handoff
- // when Cloudflare email variables have not yet been configured.
+ // In an unconfigured preview, keep input available for an explicit mail fallback.
+ // Never submit to a live configured backend from an unattended smoke test.
  const label=await btn.innerText();
- if(label.includes("Googleフォーム")){
-  const popupPromise=page.waitForEvent("popup",{timeout:10000});
+ if(label.includes("コピー")){
   await btn.click();
-  const popup=await popupPromise;
-  const target=popup.url();
-  if(!target.includes("docs.google.com/forms/d/e/"))throw Error("Wrong fallback destination: "+target);
-  if(!target.includes("entry.1564624791="))throw Error("Prefill did not carry purpose");
-  await popup.close();
+  const error=await page.locator("#form-error").innerText();
+  if(!error.includes("コピー"))throw Error("Mail fallback did not keep input available");
+  if(await page.locator('a[href*="docs.google.com/forms/"]').count())throw Error("Legacy handoff must not appear");
  }else{
   console.log("Backend is configured, skipping live submission to avoid creating a fake inquiry.");
  }

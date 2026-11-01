@@ -2,8 +2,8 @@
 // Required Pages environment secrets: RESEND_API_KEY, INTAKE_FROM_EMAIL,
 // TURNSTILE_SECRET_KEY, TURNSTILE_SITE_KEY.
 // Do not enable as the primary contact path until these are configured and tested.
-const FALLBACK = "https://docs.google.com/forms/d/e/1FAIpQLSdS7FOxXb3MnoANiffjXAxZvVi4GBSIeHrVAZQ_wmkBNsz6NA/viewform";
 const DESTINATION = "info@kateikyoshi-sogo.com";
+const FALLBACK = "mailto:" + DESTINATION;
 const headers = {
   "Content-Type": "application/json; charset=utf-8",
   "Cache-Control": "no-store",
@@ -12,7 +12,7 @@ const headers = {
 const reply = (payload, status = 200) =>
   new Response(JSON.stringify(payload), { status, headers });
 const limit = (value, max = 500) => String(value ?? "").trim().slice(0, max);
-const line = (label, value) => label + ": " + (Array.isArray(value) ? value.map(v => limit(v, 120)).join("、") : limit(value, 1200) || "—");
+const line = (label, value) => label + ": " + (Array.isArray(value) ? value.map(v => limit(v, 120)).join("、") : limit(value, 2000) || "—");
 const validEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254;
 const configured = env => Boolean(
   env.RESEND_API_KEY && env.INTAKE_FROM_EMAIL &&
@@ -26,7 +26,7 @@ export async function onRequestGet({ env }) {
   });
 }
 export async function onRequestPost({ request, env }) {
-  if (!configured(env)) return reply({ ok: false, error: "受付の準備中です。既存のフォームをご利用ください。", fallbackUrl: FALLBACK }, 503);
+  if (!configured(env)) return reply({ ok: false, error: "現在フォームから送信できません。入力内容をコピーしてメールでお問い合わせください。", fallbackUrl: FALLBACK }, 503);
   const origin = request.headers.get("Origin");
   if (origin) {
     let hostname;
@@ -49,6 +49,11 @@ export async function onRequestPost({ request, env }) {
   const name = limit(d?.guardianName, 90), email = limit(d?.email, 254);
   if (!kind || !name || !validEmail(email) || d?.privacyAccepted !== true)
     return reply({ ok: false, error: "お名前・メールアドレス・個人情報の同意をご確認ください。" }, 400);
+  if (typeof d.message !== "string" || !d.message.trim() || d.message.length > 2000)
+    return reply({ ok: false, error: "ご相談内容・ご要望を2000文字以内で入力してください。" }, 400);
+  if (d.requestId !== undefined && !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(d.requestId))
+    return reply({ ok: false, error: "送信情報を確認できません。ページを更新して再度お試しください。" }, 400);
+  const requestId = d.requestId || crypto.randomUUID();
   if (kind === "apply" && (!limit(d?.studentName, 150) || !limit(d?.studentNameKana, 150) || !limit(d?.grade, 50) || !limit(d?.region, 150) || !Array.isArray(d?.courses) || !d.courses.length))
     return reply({ ok: false, error: "お申し込みには受講者のお名前・ふりがな・学年・お住まいの都道府県と市区町村・ご希望の指導内容が必要です。" }, 400);
   if (kind === "apply" && d?.siteTermsAccepted !== true)
@@ -86,7 +91,7 @@ export async function onRequestPost({ request, env }) {
   let challenge;
   try {
     const verify = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-      method: "POST", body: verifyPayload,
+      method: "POST", body: verifyPayload, signal: AbortSignal.timeout(10000),
     });
     challenge = await verify.json();
   } catch { return reply({ ok: false, error: "認証を確認できません。時間をおいて再度お試しください。" }, 503); }
@@ -133,7 +138,9 @@ export async function onRequestPost({ request, env }) {
       headers: {
         Authorization: "Bearer " + env.RESEND_API_KEY,
         "Content-Type": "application/json",
+        "Idempotency-Key": "intake-notice/" + requestId,
       },
+      signal: AbortSignal.timeout(10000),
       body: JSON.stringify({
         from: env.INTAKE_FROM_EMAIL,
         to: [DESTINATION],
@@ -142,23 +149,27 @@ export async function onRequestPost({ request, env }) {
         text: plain,
       }),
     });
-  } catch { return reply({ ok: false, error: "送信できませんでした。既存のフォームをご利用ください。", fallbackUrl: FALLBACK }, 502); }
+  } catch { return reply({ ok: false, error: "送信結果を確認できませんでした。入力内容は残っています。認証をやり直して再度送信するか、メールでお問い合わせください。", fallbackUrl: FALLBACK }, 502); }
   if (!outgoing.ok) {
     // Deliberately avoid logging the payload or email address.
-    return reply({ ok: false, error: "送信できませんでした。既存のフォームをご利用ください。", fallbackUrl: FALLBACK }, 502);
+    return reply({ ok: false, error: "送信できませんでした。入力内容をコピーしてメールでお問い合わせください。", fallbackUrl: FALLBACK }, 502);
   }
   // Auto-reply is best effort; successful instructor notification is the success condition.
+  let confirmationSent = false;
   try {
-    await fetch("https://api.resend.com/emails", {
+    const confirmation = await fetch("https://api.resend.com/emails", {
       method: "POST",
-      headers: { Authorization: "Bearer " + env.RESEND_API_KEY, "Content-Type": "application/json" },
+      headers: { Authorization: "Bearer " + env.RESEND_API_KEY, "Content-Type": "application/json", "Idempotency-Key": "intake-confirmation/" + requestId },
+      signal: AbortSignal.timeout(10000),
       body: JSON.stringify({
         from: env.INTAKE_FROM_EMAIL,
         to: [email],
-        subject: "【鈴木雄太のオンライン指導】お問い合わせを受け付けました",
+        subject: kind === "apply" ? "【鈴木雄太のオンライン指導】お申し込み希望を受け付けました" : "【鈴木雄太のオンライン指導】お問い合わせを受け付けました",
+        reply_to: DESTINATION,
         text: name + " 様\n\nフォームからのご連絡を受け付けました。\n内容を確認し、順次ご返信いたします。\n※このメールは自動送信です。まだ授業日程や契約は確定していません。\n\nプロ家庭教師 鈴木雄太\n" + DESTINATION,
       }),
     });
+    confirmationSent = confirmation.ok;
   } catch {}
-  return reply({ ok: true });
+  return reply({ ok: true, confirmationSent });
 }

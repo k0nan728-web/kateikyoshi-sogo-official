@@ -12,6 +12,7 @@ const env = {
 };
 const base = {
   kind: "apply",
+  message: "受講のご相談（試験データ）",
   guardianName: "山田 花子",
   email: "test@example.net",
   studentName: "山田 太郎",

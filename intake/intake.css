@@ -160,3 +160,10 @@ body[data-kind="apply"] .aside .small-note{margin-top:0}
 .handoff-actions a:hover{filter:brightness(.94)}
 .handoff-actions.single{grid-template-columns:minmax(0,1fr)}
 @media(max-width:600px){.fast-handoff{padding:18px 16px}.handoff-actions{grid-template-columns:minmax(0,1fr)}}
+
+/* Completion and fallback status remain readable on narrow screens. */
+.confirmation-warning{padding:14px;border:2px solid #b38326;border-radius:10px;background:#fff8e7;color:#4f3815;line-height:1.8}
+.sitebar .back{max-width:46%;min-width:0;white-space:normal;text-wrap:balance;text-align:right}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.error.is-info{color:#1b5c49;background:#eef8f3;border-color:#83b8a3}
