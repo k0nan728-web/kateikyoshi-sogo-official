@@ -387,5 +387,19 @@ if(sourceKey==="eiken"){
  const choice=[...form.querySelectorAll('[name="courses"]')].find(el=>el.value===defaults[sourceKey]);
  if(choice)choice.checked=true;
 }
+// Comparison calculator handoff: accept only known choices, never arbitrary text or prices.
+if(kind==="consult"&&query.get("from")==="hikaku"){
+ const courses={eiken:"英検対策",university:"大学受験対策",futoukou:"不登校支援",tsushinsei:"通信制高校サポート",hattatsu:"発達特性支援",sougoutype:"総合型選抜・推薦対策",koukokuninteishiken:"高卒認定試験対策",highschool:"高校受験対策",juniorhigh:"中学受験対策",periodic:"定期テスト対策",hokyuu:"学校補習",sakanobori:"さかのぼり学習",chukouikkan:"中高一貫校サポート",gakushuusoudan:"学習相談・保護者カウンセリング",shukichuu:"短期集中・試験直前対策"};
+ const lookup=(choices,key)=>Object.prototype.hasOwnProperty.call(choices,key)?choices[key]:"";
+ const course=lookup(courses,query.get("course"));
+ const known=(key,values)=>values.includes(query.get(key))?query.get(key):"";
+ const minutes=known("minutes",["30","60","90","120"]),months=known("months",["1","3","6","9","12"]),lessons=known("lessons",["1","2","3","4","6","8"]);
+ const tiers={foundation:"基礎固め・学校補習",standard:"標準〜中堅私大",competitive:"難関私大・国公立",top:"早慶上理・難関国公立"};
+ const variants={elem:"小学生・基礎レベル",junior:"中学生・基礎レベル",high:"高校生・基礎レベル",basic:"基礎・標準対策",exam:"受験対策",j12:"中1・中2",j3h1:"中3・高1",h23:"高2・高3",documents:"書類・面接対策",comprehensive:"総合対策",upper:"上位校",difficult:"難関校",top:"超難関校"};
+ if(course){
+  form.elements.namedItem("purpose").value="料金について相談";
+  form.elements.namedItem("message").value=["【料金比較ページからの相談】","指導コース："+course,query.get("course")==="eiken"&&eikenGrade?"目標級："+eikenGrade:"",query.get("course")==="university"&&lookup(tiers,query.get("level"))?"対策："+lookup(tiers,query.get("level")):"",query.get("course")!=="eiken"&&query.get("course")!=="university"&&lookup(variants,query.get("variant"))?"区分："+lookup(variants,query.get("variant")):"",minutes?"1回："+minutes+"分":"",lessons?"回数：月"+lessons+"回":"",months?"試算期間："+months+"か月":"",query.get("course")==="eiken"?"試験まで："+(query.get("exam")==="near"?"30日未満（試験までの1か月分を試算）":"30日以上"):"","伴走サポート："+(query.get("support")==="yes"?"希望あり（月額10,000円）":"希望なし"),"※試算は目安です。正式な料金・回数・対応内容の確認を希望します。"].filter(Boolean).join("\n")+"\n\n現在の状況・ご相談内容：";
+ }
+}
 initialize();
 })();
