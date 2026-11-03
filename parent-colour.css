@@ -132,6 +132,10 @@ body.parent-colour .termination-formula>div:nth-of-type(2){background:#fff1cd}
 body.parent-colour .termination-formula>div:nth-of-type(3){background:#e9f4e8}
 body.parent-colour .termination-cutoff article{border-radius:12px;border-left-color:#329878}
 body.parent-colour .termination-cutoff article:last-child{border-left-color:#c25d83;background:#fff8fa}
+/* Keep payment content away from the viewport edge even when a brand's section reset removes gutters. */
+body.parent-colour #payment-methods{padding-inline:clamp(18px,4vw,32px)}
+body.parent-colour #payment-methods .embedded-payment__inner{width:100%;max-width:1080px;min-width:0;margin-inline:auto}
+body.parent-colour #payment-methods-title{text-wrap:balance;overflow-wrap:anywhere}
 body.parent-colour .embedded-payment__banks li:nth-child(3n+1){background:#fff;border-left:4px solid #649ac5}
 body.parent-colour .embedded-payment__banks li:nth-child(3n+2){background:#fff;border-left:4px solid #c1809d}
 body.parent-colour .embedded-payment__banks li:nth-child(3n+3){background:#fff;border-left:4px solid #6ca68a}
