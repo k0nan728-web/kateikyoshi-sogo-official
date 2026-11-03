@@ -56,6 +56,7 @@ const serviceAgreement=`<section class="consent terms-consent" aria-labelledby="
  <li><a href="https://kateikyoshi-sogo.com/#eiken-fee-policy" target="_blank" rel="noopener noreferrer">英検の通常料金・直前／少回数の条件を見る ↗</a></li>
  <li><a href="https://kateikyoshi-sogo.com/#pricing" target="_blank" rel="noopener noreferrer">授業料金・受講条件を見る ↗</a></li>
  <li><a href="https://kateikyoshi-sogo.com/#cancel-policy" target="_blank" rel="noopener noreferrer">キャンセル規定を見る ↗</a></li>
+ <li><a href="https://kateikyoshi-sogo.com/#termination-policy" target="_blank" rel="noopener noreferrer">中途解約・返金条件を見る ↗</a></li>
  <li><a href="https://kateikyoshi-sogo.com/#process" target="_blank" rel="noopener noreferrer">受講開始までの流れを見る ↗</a></li>
  </ul>
  <label class="agreement-check"><input type="checkbox" name="siteTermsAccepted" value="on" required><span>上記の公式サイト掲載内容を確認し、申し込みに関する条件に同意します。<span class="required">必須</span></span></label>

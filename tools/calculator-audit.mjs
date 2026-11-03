@@ -7,7 +7,7 @@ try {
 for(const [engine,type] of Object.entries({chromium,webkit})){
  const browser=await type.launch();launched.push(browser);const page=await browser.newPage({viewport:{width:390,height:844}});
  await page.goto(base+'/');
- async function homeTotal(expected,name){assert.equal(await page.locator('#estimate-amount').innerText(),expected);results.push({engine,name,total:expected});}
+ async function homeTotal(expected,name){await page.locator('#estimate-amount').scrollIntoViewIfNeeded();assert.equal(await page.locator('#estimate-amount').innerText(),expected);results.push({engine,name,total:expected});}
  await homeTotal('16,000円','home 5級60分月4回');
  await page.locator('#estimate-eiken-timing').selectOption('urgent');await homeTotal('20,800円','home 直前1.3倍');
  await page.locator('#estimate-eiken-booking').selectOption('3');await homeTotal('15,600円','home 直前かつ少回数は1.3倍のみ');
