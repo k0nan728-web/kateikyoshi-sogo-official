@@ -1,0 +1,311 @@
+{
+  "implementation": "76df5a7874b4e1519aa11dca04f939f90b09a462",
+  "pull_request": 11,
+  "design_marker": "2026-11-03-colour",
+  "verified_head": "3aaac9f81779c558163c7433e2671d1386a066d8",
+  "ci_run": 41648279235,
+  "widths": [
+    320,
+    390,
+    768,
+    1024,
+    1366,
+    1920
+  ],
+  "engines": [
+    "chromium",
+    "webkit"
+  ],
+  "viewport_cases": 60,
+  "axe_runs": 10,
+  "axe_violations": 0,
+  "javascript_errors": 0,
+  "horizontal_overflow": 0,
+  "form_cases": 6,
+  "calculator_cases": 36,
+  "lab_after": [
+    {
+      "route": "/",
+      "scores": {
+        "performance": 83,
+        "accessibility": 94,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 3752.2182000000007,
+      "cls": 0,
+      "tbt": 0
+    },
+    {
+      "route": "/eiken/",
+      "scores": {
+        "performance": 95,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 2554.0860000000002,
+      "cls": 0,
+      "tbt": 0
+    },
+    {
+      "route": "/gyakuten/",
+      "scores": {
+        "performance": 96,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 2703.559,
+      "cls": 0,
+      "tbt": 0
+    },
+    {
+      "route": "/bansou/",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 2102.1441,
+      "cls": 0,
+      "tbt": 0
+    },
+    {
+      "route": "/retry/",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 2105.35545,
+      "cls": 0,
+      "tbt": 0
+    }
+  ],
+  "text_preservation": "9 pages unchanged except free consultation CTA wording/added CTA in bansou",
+  "billing_policy": "six disclosures exact match",
+  "termination_policy": "five disclosures exact match",
+  "limitations": [
+    "No physical iPhone Safari test",
+    "No real-user Core Web Vitals verification",
+    "Application submissions use isolated mocks; previous live contact delivery test retained"
+  ],
+  "production": {
+    "cloudflare_check": "Cloudflare Pages: kateikyoshi-sogo success",
+    "ci_run": 41649639617,
+    "smoke": {
+      "checkedAt": "2026-11-03T14:01:55.452Z",
+      "results": [
+        {
+          "path": "/",
+          "status": 200,
+          "protectedEmailLinksValid": true,
+          "colourDesign": true,
+          "billingPolicy": true,
+          "canonicalPresent": true,
+          "newAssets": true,
+          "oldGoogleForm": false
+        },
+        {
+          "path": "/eiken/",
+          "status": 200,
+          "protectedEmailLinksValid": true,
+          "colourDesign": true,
+          "billingPolicy": true,
+          "canonicalPresent": true,
+          "newAssets": true,
+          "oldGoogleForm": false
+        },
+        {
+          "path": "/gyakuten/",
+          "status": 200,
+          "protectedEmailLinksValid": true,
+          "colourDesign": true,
+          "billingPolicy": true,
+          "canonicalPresent": true,
+          "newAssets": true,
+          "oldGoogleForm": false
+        },
+        {
+          "path": "/bansou/",
+          "status": 200,
+          "protectedEmailLinksValid": true,
+          "colourDesign": true,
+          "billingPolicy": true,
+          "canonicalPresent": true,
+          "newAssets": true,
+          "oldGoogleForm": false
+        },
+        {
+          "path": "/retry/",
+          "status": 200,
+          "protectedEmailLinksValid": true,
+          "colourDesign": true,
+          "billingPolicy": true,
+          "canonicalPresent": true,
+          "newAssets": true,
+          "oldGoogleForm": false
+        },
+        {
+          "path": "/contact/",
+          "status": 200
+        },
+        {
+          "path": "/apply/",
+          "status": 200
+        },
+        {
+          "path": "/hikaku/",
+          "status": 200
+        },
+        {
+          "path": "/payment/",
+          "status": 200
+        },
+        {
+          "path": "/robots.txt",
+          "status": 200
+        },
+        {
+          "path": "/sitemap.xml",
+          "status": 200
+        },
+        {
+          "path": "/eiken/",
+          "status": 200
+        },
+        {
+          "path": "/gyakuten/",
+          "status": 200
+        },
+        {
+          "path": "/bansou/",
+          "status": 200
+        },
+        {
+          "path": "/retry/",
+          "status": 200
+        },
+        {
+          "path": "/blog/",
+          "status": 200
+        },
+        {
+          "path": "/eiken/levels/grade-5.html",
+          "status": 200
+        },
+        {
+          "path": "/eiken/levels/grade-4.html",
+          "status": 200
+        },
+        {
+          "path": "/eiken/levels/grade-3.html",
+          "status": 200
+        },
+        {
+          "path": "/eiken/levels/grade-p2.html",
+          "status": 200
+        },
+        {
+          "path": "/eiken/levels/grade-p2plus.html",
+          "status": 200
+        },
+        {
+          "path": "/eiken/levels/grade-2.html",
+          "status": 200
+        },
+        {
+          "path": "/eiken/levels/grade-p1.html",
+          "status": 200
+        },
+        {
+          "path": "/api/intake",
+          "status": 200,
+          "available": true,
+          "publicSiteKeyPresent": true
+        },
+        {
+          "path": "/__audit_missing_page_20261103__",
+          "status": 404,
+          "custom404": true
+        }
+      ],
+      "failed": []
+    },
+    "live_browser": {
+      "all_five_design_markers": true,
+      "annotated_sections_painted": 62,
+      "horizontal_overflow": false,
+      "brand_consult_links": true
+    },
+    "mobile_lighthouse": [
+      {
+        "route": "/",
+        "scores": {
+          "performance": 88,
+          "accessibility": 94,
+          "best-practices": 100,
+          "seo": 92
+        },
+        "lcp": 2998.2619999999997,
+        "cls": 0,
+        "tbt": 192
+      },
+      {
+        "route": "/eiken/",
+        "scores": {
+          "performance": 97,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 92
+        },
+        "lcp": 2221.8478499999997,
+        "cls": 0,
+        "tbt": 0
+      },
+      {
+        "route": "/gyakuten/",
+        "scores": {
+          "performance": 98,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 92
+        },
+        "lcp": 2356.5122,
+        "cls": 0,
+        "tbt": 0
+      },
+      {
+        "route": "/bansou/",
+        "scores": {
+          "performance": 98,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 92
+        },
+        "lcp": 2224.62195,
+        "cls": 0,
+        "tbt": 0
+      },
+      {
+        "route": "/retry/",
+        "scores": {
+          "performance": 98,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 92
+        },
+        "lcp": 2219.41695,
+        "cls": 0,
+        "tbt": 0
+      }
+    ],
+    "lighthouse_findings": {
+      "robots": "Cloudflare-added Content-Signal directive not understood by Lighthouse 12.8.2; reported SEO 92, not 100. Preserved site policy.",
+      "home_accessibility": "Raw Lighthouse score 94. Offscreen content-visibility overlaps in snapshot; full-materialized axe 0 violations on both engines. No claim of complete conformance."
+    }
+  }
+}
