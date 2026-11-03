@@ -2,7 +2,7 @@ name: Verify five production sites after deployment
 on:
   push:
     branches: [main]
-    paths: ['index.html', 'eiken/**', 'gyakuten/**', 'bansou/**', 'retry/**', 'hikaku/**', 'parent-guide.css', 'responsive-copy.js', '404.html', 'robots.txt']
+    paths: ['index.html', 'eiken/**', 'gyakuten/**', 'bansou/**', 'retry/**', 'hikaku/**', 'parent-guide.css', 'responsive-copy.js', '404.html', 'robots.txt', 'docs/audit-20261103/production-smoke.mjs', '.github/workflows/five-site-production.yml']
   workflow_dispatch:
 permissions:
   contents: read
