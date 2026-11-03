@@ -35,7 +35,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    await writeFile(`${out}/matrix.json`,JSON.stringify(results,null,2));
    // Materialize off-screen sections only for the full-page visual record.
    // Overflow, links, images and menu behavior above are measured with production styles.
-   const visualStyle=await page.addStyleTag({content:'main>section{content-visibility:visible;contain-intrinsic-size:none}'});
+   const visualStyle=await page.addStyleTag({content:'html body main>section:nth-of-type(n+3){content-visibility:visible;contain-intrinsic-size:none}'});
    const height=await page.evaluate(()=>document.documentElement.scrollHeight);
    await page.screenshot({path:`${out}/${engine}-${name}-${width}.png`,fullPage:[390,1366].includes(width)&&(engine==='chromium'||height<32000)});
    if(engine==='webkit'&&width===390&&height>=32000){
@@ -63,9 +63,16 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    }
   }
   await page.setViewportSize({width:390,height:844});
+  const a11yVisualStyle=await page.addStyleTag({content:'html body main>section:nth-of-type(n+3){content-visibility:visible;contain-intrinsic-size:none}'});
   const a11y=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze().catch(error=>({violations:[],error:error.stack}));
   await writeFile(`${out}/${engine}-${name}-axe.json`,JSON.stringify(a11y,null,2));
   results.push({engine,route,a11yError:a11y.error,a11y:a11y.violations.map(v=>({id:v.id,impact:v.impact,help:v.help,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}))});
+  await a11yVisualStyle.evaluate(el=>el.remove());
+  await page.goto(base+route+'#pricing',{waitUntil:'load'});
+  await page.evaluate(()=>document.fonts.ready);
+  await page.waitForTimeout(500);
+  const anchorTop=await page.locator('#pricing').evaluate(el=>el.getBoundingClientRect().top);
+  if(anchorTop<0||anchorTop>300)results.push({engine,route,failure:'Pricing deep link alignment',anchorTop});
   await context.close();
  }
  await browser.close();
@@ -73,6 +80,6 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
 } catch(error) { await writeFile(`${out}/error.txt`,error.stack||String(error));results.push({failure:String(error)}); }
 for(const browser of launched)await browser.close().catch(()=>{});
 await writeFile(`${out}/matrix.json`,JSON.stringify(results,null,2));
-const fail=results.filter(r=>r.failure||r.a11yError||r.scrollWidth>r.width||r.badAnchors?.length||r.duplicateIds?.length||r.badImages?.length||r.errors?.length||r.h1!==undefined&&r.h1!==1||r.schemas?.includes(false));
+const fail=results.filter(r=>r.failure||r.a11yError||r.a11y?.some(v=>['critical','serious'].includes(v.impact))||r.scrollWidth>r.width||r.badAnchors?.length||r.duplicateIds?.length||r.badImages?.length||r.errors?.length||r.h1!==undefined&&r.h1!==1||r.schemas?.includes(false));
 console.log(JSON.stringify({checks:results.length,failures:fail},null,2));
 if(fail.length)process.exitCode=1;

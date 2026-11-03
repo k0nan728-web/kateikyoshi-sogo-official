@@ -73,5 +73,15 @@
   document.fonts?.ready.then(refresh);document.fonts?.addEventListener('loadingdone',refresh);
   document.addEventListener('toggle',refresh,true);
  }
+ // Materializing a deep link can change preceding off-screen section heights.
+ // Align once after initial layout, and never interrupt a visitor's own input.
+ const initialHash=location.hash;let visitorInput=false;
+ for(const event of ['wheel','touchstart','pointerdown','keydown'])window.addEventListener(event,()=>{visitorInput=true;},{once:true,passive:true});
+ const loaded=document.readyState==='complete'?Promise.resolve():new Promise(resolve=>window.addEventListener('load',resolve,{once:true}));
+ Promise.all([loaded,document.fonts?.ready]).then(()=>requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(visitorInput||!initialHash||location.hash!==initialHash)return;
+  let target;try{target=document.getElementById(decodeURIComponent(initialHash.slice(1)));}catch{return;}
+  target?.scrollIntoView({block:'start',behavior:'instant'});
+ })));
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
 })();
