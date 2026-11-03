@@ -1,0 +1,116 @@
+{
+  "source_commit": "688c7195d5c53c666816b7b8b346ae34170ac81a",
+  "smoke_commit": "53cb5b5175055f4412eac00d8f06b8511aee04f2",
+  "proposal_run": 41655399339,
+  "production_run": 41656705448,
+  "widths": [
+    320,
+    390,
+    414,
+    768,
+    1024,
+    1366,
+    1920
+  ],
+  "engines": [
+    "chromium",
+    "webkit"
+  ],
+  "viewport_cases": 70,
+  "axe_runs": 10,
+  "axe_violations": 0,
+  "javascript_errors": 0,
+  "horizontal_overflows": 0,
+  "payment_gutters_414": [
+    {
+      "engine": "chromium",
+      "route": "/",
+      "left": 18,
+      "right": 18
+    },
+    {
+      "engine": "chromium",
+      "route": "/eiken/",
+      "left": 18,
+      "right": 18
+    },
+    {
+      "engine": "chromium",
+      "route": "/gyakuten/",
+      "left": 18,
+      "right": 18
+    },
+    {
+      "engine": "chromium",
+      "route": "/bansou/",
+      "left": 18,
+      "right": 18
+    },
+    {
+      "engine": "chromium",
+      "route": "/retry/",
+      "left": 18,
+      "right": 18
+    },
+    {
+      "engine": "webkit",
+      "route": "/",
+      "left": 18,
+      "right": 18
+    },
+    {
+      "engine": "webkit",
+      "route": "/eiken/",
+      "left": 18,
+      "right": 18
+    },
+    {
+      "engine": "webkit",
+      "route": "/gyakuten/",
+      "left": 18,
+      "right": 18
+    },
+    {
+      "engine": "webkit",
+      "route": "/bansou/",
+      "left": 18,
+      "right": 18
+    },
+    {
+      "engine": "webkit",
+      "route": "/retry/",
+      "left": 18,
+      "right": 18
+    }
+  ],
+  "form_cases": 6,
+  "calculator_cases": 36,
+  "production": {
+    "checkedAt": "2026-11-03T14:47:29.685Z",
+    "checks": 25,
+    "failures": [],
+    "five_gutter_assets": [
+      {
+        "route": "/",
+        "present": true
+      },
+      {
+        "route": "/eiken/",
+        "present": true
+      },
+      {
+        "route": "/gyakuten/",
+        "present": true
+      },
+      {
+        "route": "/bansou/",
+        "present": true
+      },
+      {
+        "route": "/retry/",
+        "present": true
+      }
+    ]
+  },
+  "limitation": "The owner’s physical iPhone XS Max has not been rechecked after the fix."
+}

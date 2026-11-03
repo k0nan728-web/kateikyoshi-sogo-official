@@ -1,5 +1,7 @@
 # 5サイト総合監査・改善記録（2026-11-03）
 
+iPhone XS Maxで報告された余白の追加修正：[支払い案内の余白と公開後検証](iphone-payment-gutters.md)。414pxを含む7幅・70表示ケースと左右余白の検査を追加した。
+
 最終の配色刷新・本番再検証：[保護者目線の配色改善記録](colour-refresh.md)。PR #11、5サイト全62セクションの配色、60表示ケース・10回axe・フォーム6ケース・計算36ケース・本番25項目の結果を追記しました。
 
 対象：公式、英検、逆転合格、進路伴走、Re:大学受験。改善前は main `21a43719accc84e8c5fd33dcf234ae523258d2a0`。PR: https://github.com/k0nan728-web/kateikyoshi-sogo-official/pull/8 ・ https://github.com/k0nan728-web/kateikyoshi-sogo-official/pull/9
