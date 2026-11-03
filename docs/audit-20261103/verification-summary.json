@@ -1,0 +1,2942 @@
+{
+  "validated_code_commit": "6c606ce764043ba0e1955fdcfcf7d585659e5793",
+  "regression_run": 41604434346,
+  "regression_conclusion": "success",
+  "viewport_checks": 60,
+  "axe_runs": 10,
+  "axe_violations": 0,
+  "form_cases": [
+    {
+      "engine": "chromium",
+      "kind": "consult",
+      "result": "pass",
+      "checks": [
+        "required consents",
+        "input retention on delivery failure",
+        "idempotent retry",
+        "completion UI",
+        "no actual email sent"
+      ]
+    },
+    {
+      "engine": "chromium",
+      "kind": "trial",
+      "result": "pass",
+      "checks": [
+        "required consents",
+        "input retention on delivery failure",
+        "idempotent retry",
+        "completion UI",
+        "no actual email sent"
+      ]
+    },
+    {
+      "engine": "chromium",
+      "kind": "normal",
+      "result": "pass",
+      "checks": [
+        "required consents",
+        "input retention on delivery failure",
+        "idempotent retry",
+        "completion UI",
+        "no actual email sent"
+      ]
+    },
+    {
+      "engine": "webkit",
+      "kind": "consult",
+      "result": "pass",
+      "checks": [
+        "required consents",
+        "input retention on delivery failure",
+        "idempotent retry",
+        "completion UI",
+        "no actual email sent"
+      ]
+    },
+    {
+      "engine": "webkit",
+      "kind": "trial",
+      "result": "pass",
+      "checks": [
+        "required consents",
+        "input retention on delivery failure",
+        "idempotent retry",
+        "completion UI",
+        "no actual email sent"
+      ]
+    },
+    {
+      "engine": "webkit",
+      "kind": "normal",
+      "result": "pass",
+      "checks": [
+        "required consents",
+        "input retention on delivery failure",
+        "idempotent retry",
+        "completion UI",
+        "no actual email sent"
+      ]
+    }
+  ],
+  "calculator_cases": [
+    {
+      "engine": "chromium",
+      "name": "home 5級60分月4回",
+      "total": "16,000円"
+    },
+    {
+      "engine": "chromium",
+      "name": "home 直前1.3倍",
+      "total": "20,800円"
+    },
+    {
+      "engine": "chromium",
+      "name": "home 直前かつ少回数は1.3倍のみ",
+      "total": "15,600円"
+    },
+    {
+      "engine": "chromium",
+      "name": "home 少回数1.3倍",
+      "total": "15,600円"
+    },
+    {
+      "engine": "chromium",
+      "name": "home 境界4回通常",
+      "total": "16,000円"
+    },
+    {
+      "engine": "chromium",
+      "name": "home 大学受験120分月6回",
+      "total": "84,000円"
+    },
+    {
+      "engine": "chromium",
+      "name": "5級60分月4回6か月",
+      "total": "96,000円"
+    },
+    {
+      "engine": "chromium",
+      "name": "2級90分月4回6か月",
+      "total": "234,000円"
+    },
+    {
+      "engine": "chromium",
+      "name": "2級90分月4回6か月＋サポート",
+      "total": "294,000円"
+    },
+    {
+      "engine": "chromium",
+      "name": "大学受験7000円120分月6回9か月",
+      "total": "756,000円"
+    },
+    {
+      "engine": "chromium",
+      "name": "月3回×3か月＝総9回は通常",
+      "total": "36,000円"
+    },
+    {
+      "engine": "chromium",
+      "name": "総3回は1.3倍",
+      "total": "15,600円"
+    },
+    {
+      "engine": "chromium",
+      "name": "総4回ちょうどは通常",
+      "total": "16,000円"
+    },
+    {
+      "engine": "chromium",
+      "name": "直前30日未満の1か月分",
+      "total": "20,800円"
+    },
+    {
+      "engine": "chromium",
+      "name": "任意サポートは割増対象外",
+      "total": "30,800円"
+    },
+    {
+      "engine": "webkit",
+      "name": "home 5級60分月4回",
+      "total": "16,000円"
+    },
+    {
+      "engine": "webkit",
+      "name": "home 直前1.3倍",
+      "total": "20,800円"
+    },
+    {
+      "engine": "webkit",
+      "name": "home 直前かつ少回数は1.3倍のみ",
+      "total": "15,600円"
+    },
+    {
+      "engine": "webkit",
+      "name": "home 少回数1.3倍",
+      "total": "15,600円"
+    },
+    {
+      "engine": "webkit",
+      "name": "home 境界4回通常",
+      "total": "16,000円"
+    },
+    {
+      "engine": "webkit",
+      "name": "home 大学受験120分月6回",
+      "total": "84,000円"
+    },
+    {
+      "engine": "webkit",
+      "name": "5級60分月4回6か月",
+      "total": "96,000円"
+    },
+    {
+      "engine": "webkit",
+      "name": "2級90分月4回6か月",
+      "total": "234,000円"
+    },
+    {
+      "engine": "webkit",
+      "name": "2級90分月4回6か月＋サポート",
+      "total": "294,000円"
+    },
+    {
+      "engine": "webkit",
+      "name": "大学受験7000円120分月6回9か月",
+      "total": "756,000円"
+    },
+    {
+      "engine": "webkit",
+      "name": "月3回×3か月＝総9回は通常",
+      "total": "36,000円"
+    },
+    {
+      "engine": "webkit",
+      "name": "総3回は1.3倍",
+      "total": "15,600円"
+    },
+    {
+      "engine": "webkit",
+      "name": "総4回ちょうどは通常",
+      "total": "16,000円"
+    },
+    {
+      "engine": "webkit",
+      "name": "直前30日未満の1か月分",
+      "total": "20,800円"
+    },
+    {
+      "engine": "webkit",
+      "name": "任意サポートは割増対象外",
+      "total": "30,800円"
+    }
+  ],
+  "responsive_and_axe": [
+    {
+      "engine": "chromium",
+      "route": "/",
+      "width": 320,
+      "errors": [],
+      "scrollWidth": 320,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/",
+      "width": 390,
+      "errors": [],
+      "scrollWidth": 390,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [
+        {
+          "tag": "IMG",
+          "class": "",
+          "text": ""
+        }
+      ],
+      "canonical": "https://kateikyoshi-sogo.com/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/",
+      "width": 768,
+      "errors": [],
+      "scrollWidth": 768,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [
+        {
+          "tag": "IMG",
+          "class": "",
+          "text": ""
+        }
+      ],
+      "canonical": "https://kateikyoshi-sogo.com/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/",
+      "width": 1024,
+      "errors": [],
+      "scrollWidth": 1024,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/",
+      "width": 1366,
+      "errors": [],
+      "scrollWidth": 1366,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/",
+      "width": 1920,
+      "errors": [],
+      "scrollWidth": 1920,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/",
+      "a11y": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/eiken/",
+      "width": 320,
+      "errors": [],
+      "scrollWidth": 320,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/eiken/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/eiken/",
+      "width": 390,
+      "errors": [],
+      "scrollWidth": 390,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [
+        {
+          "tag": "IMG",
+          "class": "",
+          "text": ""
+        }
+      ],
+      "canonical": "https://kateikyoshi-sogo.com/eiken/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/eiken/",
+      "width": 768,
+      "errors": [],
+      "scrollWidth": 768,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [
+        {
+          "tag": "IMG",
+          "class": "",
+          "text": ""
+        }
+      ],
+      "canonical": "https://kateikyoshi-sogo.com/eiken/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/eiken/",
+      "width": 1024,
+      "errors": [],
+      "scrollWidth": 1024,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/eiken/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/eiken/",
+      "width": 1366,
+      "errors": [],
+      "scrollWidth": 1366,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/eiken/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/eiken/",
+      "width": 1920,
+      "errors": [],
+      "scrollWidth": 1920,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/eiken/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/eiken/",
+      "a11y": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/gyakuten/",
+      "width": 320,
+      "errors": [],
+      "scrollWidth": 320,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/gyakuten/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/gyakuten/",
+      "width": 390,
+      "errors": [],
+      "scrollWidth": 390,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/gyakuten/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/gyakuten/",
+      "width": 768,
+      "errors": [],
+      "scrollWidth": 768,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/gyakuten/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/gyakuten/",
+      "width": 1024,
+      "errors": [],
+      "scrollWidth": 1024,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/gyakuten/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/gyakuten/",
+      "width": 1366,
+      "errors": [],
+      "scrollWidth": 1366,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/gyakuten/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/gyakuten/",
+      "width": 1920,
+      "errors": [],
+      "scrollWidth": 1920,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/gyakuten/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/gyakuten/",
+      "a11y": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/bansou/",
+      "width": 320,
+      "errors": [],
+      "scrollWidth": 320,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/bansou/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/bansou/",
+      "width": 390,
+      "errors": [],
+      "scrollWidth": 390,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/bansou/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/bansou/",
+      "width": 768,
+      "errors": [],
+      "scrollWidth": 768,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/bansou/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/bansou/",
+      "width": 1024,
+      "errors": [],
+      "scrollWidth": 1024,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/bansou/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/bansou/",
+      "width": 1366,
+      "errors": [],
+      "scrollWidth": 1366,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/bansou/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/bansou/",
+      "width": 1920,
+      "errors": [],
+      "scrollWidth": 1920,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/bansou/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/bansou/",
+      "a11y": []
+    },
+    {
+      "engine": "chromium",
+      "route": "/retry/",
+      "width": 320,
+      "errors": [],
+      "scrollWidth": 320,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/retry/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/retry/",
+      "width": 390,
+      "errors": [],
+      "scrollWidth": 390,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/retry/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/retry/",
+      "width": 768,
+      "errors": [],
+      "scrollWidth": 768,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/retry/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/retry/",
+      "width": 1024,
+      "errors": [],
+      "scrollWidth": 1024,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/retry/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/retry/",
+      "width": 1366,
+      "errors": [],
+      "scrollWidth": 1366,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/retry/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/retry/",
+      "width": 1920,
+      "errors": [],
+      "scrollWidth": 1920,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/retry/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "chromium",
+      "route": "/retry/",
+      "a11y": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/",
+      "width": 320,
+      "errors": [],
+      "scrollWidth": 320,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/",
+      "width": 390,
+      "errors": [],
+      "scrollWidth": 390,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [
+        {
+          "tag": "IMG",
+          "class": "",
+          "text": ""
+        }
+      ],
+      "canonical": "https://kateikyoshi-sogo.com/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/",
+      "width": 768,
+      "errors": [],
+      "scrollWidth": 768,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [
+        {
+          "tag": "IMG",
+          "class": "",
+          "text": ""
+        }
+      ],
+      "canonical": "https://kateikyoshi-sogo.com/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/",
+      "width": 1024,
+      "errors": [],
+      "scrollWidth": 1024,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/",
+      "width": 1366,
+      "errors": [],
+      "scrollWidth": 1366,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/",
+      "width": 1920,
+      "errors": [],
+      "scrollWidth": 1920,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/",
+      "a11y": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/eiken/",
+      "width": 320,
+      "errors": [],
+      "scrollWidth": 320,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/eiken/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/eiken/",
+      "width": 390,
+      "errors": [],
+      "scrollWidth": 390,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/eiken/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/eiken/",
+      "width": 768,
+      "errors": [],
+      "scrollWidth": 768,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/eiken/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/eiken/",
+      "width": 1024,
+      "errors": [],
+      "scrollWidth": 1024,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/eiken/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/eiken/",
+      "width": 1366,
+      "errors": [],
+      "scrollWidth": 1366,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/eiken/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/eiken/",
+      "width": 1920,
+      "errors": [],
+      "scrollWidth": 1920,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/eiken/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/eiken/",
+      "a11y": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/gyakuten/",
+      "width": 320,
+      "errors": [],
+      "scrollWidth": 320,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/gyakuten/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/gyakuten/",
+      "width": 390,
+      "errors": [],
+      "scrollWidth": 390,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/gyakuten/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/gyakuten/",
+      "width": 768,
+      "errors": [],
+      "scrollWidth": 768,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/gyakuten/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/gyakuten/",
+      "width": 1024,
+      "errors": [],
+      "scrollWidth": 1024,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/gyakuten/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/gyakuten/",
+      "width": 1366,
+      "errors": [],
+      "scrollWidth": 1366,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/gyakuten/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/gyakuten/",
+      "width": 1920,
+      "errors": [],
+      "scrollWidth": 1920,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/gyakuten/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/gyakuten/",
+      "a11y": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/bansou/",
+      "width": 320,
+      "errors": [],
+      "scrollWidth": 320,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/bansou/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/bansou/",
+      "width": 390,
+      "errors": [],
+      "scrollWidth": 390,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/bansou/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/bansou/",
+      "width": 768,
+      "errors": [],
+      "scrollWidth": 768,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/bansou/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/bansou/",
+      "width": 1024,
+      "errors": [],
+      "scrollWidth": 1024,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/bansou/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/bansou/",
+      "width": 1366,
+      "errors": [],
+      "scrollWidth": 1366,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/bansou/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/bansou/",
+      "width": 1920,
+      "errors": [],
+      "scrollWidth": 1920,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/bansou/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/bansou/",
+      "a11y": []
+    },
+    {
+      "engine": "webkit",
+      "route": "/retry/",
+      "width": 320,
+      "errors": [],
+      "scrollWidth": 320,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/retry/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/retry/",
+      "width": 390,
+      "errors": [],
+      "scrollWidth": 390,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/retry/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/retry/",
+      "width": 768,
+      "errors": [],
+      "scrollWidth": 768,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/retry/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/retry/",
+      "width": 1024,
+      "errors": [],
+      "scrollWidth": 1024,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/retry/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/retry/",
+      "width": 1366,
+      "errors": [],
+      "scrollWidth": 1366,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/retry/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/retry/",
+      "width": 1920,
+      "errors": [],
+      "scrollWidth": 1920,
+      "badAnchors": [],
+      "duplicateIds": [],
+      "badImages": [],
+      "overflow": [],
+      "canonical": "https://kateikyoshi-sogo.com/retry/",
+      "h1": 1,
+      "schemas": [
+        true
+      ]
+    },
+    {
+      "engine": "webkit",
+      "route": "/retry/",
+      "a11y": []
+    }
+  ],
+  "mobile_lab": [
+    {
+      "phase": "before",
+      "route": "/",
+      "scores": {
+        "performance": 35,
+        "accessibility": 97,
+        "best-practices": 96,
+        "seo": 100
+      },
+      "lcp": 11188.662599999994,
+      "cls": 0,
+      "tbt": 3534.6890000000008,
+      "failed": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "displayValue": "4.0 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "displayValue": "11.2 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "displayValue": "4.2 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "displayValue": "3,530 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "displayValue": "1,840 ms"
+        },
+        {
+          "id": "errors-in-console",
+          "title": "Browser errors were logged to the console"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "displayValue": "11.2 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "displayValue": "13.2 s"
+        },
+        {
+          "id": "bootup-time",
+          "title": "Reduce JavaScript execution time",
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "largest-contentful-paint-element",
+          "title": "Largest Contentful Paint element",
+          "displayValue": "11,190 ms"
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio."
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names."
+        },
+        {
+          "id": "uses-long-cache-ttl",
+          "title": "Serve static assets with an efficient cache policy",
+          "displayValue": "13 resources found"
+        },
+        {
+          "id": "total-byte-weight",
+          "title": "Avoid enormous network payloads",
+          "displayValue": "Total size was 4,444 KiB"
+        },
+        {
+          "id": "render-blocking-resources",
+          "title": "Eliminate render-blocking resources",
+          "displayValue": "Est savings of 0 ms"
+        },
+        {
+          "id": "unminified-css",
+          "title": "Minify CSS",
+          "displayValue": "Est savings of 25 KiB"
+        },
+        {
+          "id": "unused-css-rules",
+          "title": "Reduce unused CSS",
+          "displayValue": "Est savings of 264 KiB"
+        },
+        {
+          "id": "modern-image-formats",
+          "title": "Serve images in next-gen formats",
+          "displayValue": "Est savings of 1,281 KiB"
+        },
+        {
+          "id": "uses-text-compression",
+          "title": "Enable text compression",
+          "displayValue": "Est savings of 247 KiB"
+        },
+        {
+          "id": "uses-responsive-images",
+          "title": "Properly size images",
+          "displayValue": "Est savings of 1,383 KiB"
+        },
+        {
+          "id": "dom-size",
+          "title": "Avoid an excessive DOM size",
+          "displayValue": "2,993 elements"
+        },
+        {
+          "id": "cache-insight",
+          "title": "Use efficient cache lifetimes",
+          "displayValue": "Est savings of 1,637 KiB"
+        },
+        {
+          "id": "document-latency-insight",
+          "title": "Document request latency",
+          "displayValue": "Est savings of 106 KiB"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "displayValue": "Est savings of 1,394 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render blocking requests",
+          "displayValue": "Est savings of 530 ms"
+        }
+      ]
+    },
+    {
+      "phase": "before",
+      "route": "/eiken/",
+      "scores": {
+        "performance": 49,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 4521.6383000000005,
+      "cls": 0,
+      "tbt": 1969.3935000000001,
+      "failed": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "displayValue": "3.4 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "displayValue": "4.5 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "displayValue": "3.7 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "displayValue": "1,970 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "displayValue": "1,340 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "displayValue": "5.5 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "displayValue": "9.2 s"
+        },
+        {
+          "id": "largest-contentful-paint-element",
+          "title": "Largest Contentful Paint element",
+          "displayValue": "4,520 ms"
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names."
+        },
+        {
+          "id": "uses-long-cache-ttl",
+          "title": "Serve static assets with an efficient cache policy",
+          "displayValue": "7 resources found"
+        },
+        {
+          "id": "render-blocking-resources",
+          "title": "Eliminate render-blocking resources",
+          "displayValue": "Est savings of 20 ms"
+        },
+        {
+          "id": "unminified-css",
+          "title": "Minify CSS",
+          "displayValue": "Est savings of 33 KiB"
+        },
+        {
+          "id": "unused-css-rules",
+          "title": "Reduce unused CSS",
+          "displayValue": "Est savings of 267 KiB"
+        },
+        {
+          "id": "modern-image-formats",
+          "title": "Serve images in next-gen formats",
+          "displayValue": "Est savings of 124 KiB"
+        },
+        {
+          "id": "uses-optimized-images",
+          "title": "Efficiently encode images",
+          "displayValue": "Est savings of 8 KiB"
+        },
+        {
+          "id": "uses-text-compression",
+          "title": "Enable text compression",
+          "displayValue": "Est savings of 94 KiB"
+        },
+        {
+          "id": "uses-responsive-images",
+          "title": "Properly size images",
+          "displayValue": "Est savings of 264 KiB"
+        },
+        {
+          "id": "cache-insight",
+          "title": "Use efficient cache lifetimes",
+          "displayValue": "Est savings of 306 KiB"
+        },
+        {
+          "id": "document-latency-insight",
+          "title": "Document request latency",
+          "displayValue": "Est savings of 67 KiB"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "displayValue": "Est savings of 259 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render blocking requests",
+          "displayValue": "Est savings of 170 ms"
+        }
+      ]
+    },
+    {
+      "phase": "before",
+      "route": "/gyakuten/",
+      "scores": {
+        "performance": 86,
+        "accessibility": 96,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 3599.339025,
+      "cls": 0.0011393283722633916,
+      "tbt": 26.26319999999987,
+      "failed": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "displayValue": "2.8 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "displayValue": "3.6 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "displayValue": "2.8 s"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "displayValue": "230 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "displayValue": "3.6 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "displayValue": "4.2 s"
+        },
+        {
+          "id": "largest-contentful-paint-element",
+          "title": "Largest Contentful Paint element",
+          "displayValue": "3,600 ms"
+        },
+        {
+          "id": "aria-allowed-role",
+          "title": "Uses ARIA roles on incompatible elements"
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio."
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names."
+        },
+        {
+          "id": "uses-long-cache-ttl",
+          "title": "Serve static assets with an efficient cache policy",
+          "displayValue": "6 resources found"
+        },
+        {
+          "id": "render-blocking-resources",
+          "title": "Eliminate render-blocking resources",
+          "displayValue": "Est savings of 780 ms"
+        },
+        {
+          "id": "unminified-css",
+          "title": "Minify CSS",
+          "displayValue": "Est savings of 21 KiB"
+        },
+        {
+          "id": "unused-css-rules",
+          "title": "Reduce unused CSS",
+          "displayValue": "Est savings of 208 KiB"
+        },
+        {
+          "id": "uses-text-compression",
+          "title": "Enable text compression",
+          "displayValue": "Est savings of 63 KiB"
+        },
+        {
+          "id": "uses-responsive-images",
+          "title": "Properly size images",
+          "displayValue": "Est savings of 210 KiB"
+        },
+        {
+          "id": "dom-size",
+          "title": "Avoid an excessive DOM size",
+          "displayValue": "846 elements"
+        },
+        {
+          "id": "cache-insight",
+          "title": "Use efficient cache lifetimes",
+          "displayValue": "Est savings of 260 KiB"
+        },
+        {
+          "id": "document-latency-insight",
+          "title": "Document request latency",
+          "displayValue": "Est savings of 35 KiB"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "displayValue": "Est savings of 206 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render blocking requests",
+          "displayValue": "Est savings of 930 ms"
+        }
+      ]
+    },
+    {
+      "phase": "before",
+      "route": "/bansou/",
+      "scores": {
+        "performance": 73,
+        "accessibility": 95,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 4641.184831521862,
+      "cls": 0.000977266440707324,
+      "tbt": 0,
+      "failed": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "displayValue": "4.3 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "displayValue": "4.6 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "displayValue": "4.3 s"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "displayValue": "4.6 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "displayValue": "2.6 s"
+        },
+        {
+          "id": "largest-contentful-paint-element",
+          "title": "Largest Contentful Paint element",
+          "displayValue": "4,640 ms"
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio."
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "title": "Elements with visible text labels do not have matching accessible names."
+        },
+        {
+          "id": "uses-long-cache-ttl",
+          "title": "Serve static assets with an efficient cache policy",
+          "displayValue": "6 resources found"
+        },
+        {
+          "id": "render-blocking-resources",
+          "title": "Eliminate render-blocking resources",
+          "displayValue": "Est savings of 2,540 ms"
+        },
+        {
+          "id": "unminified-css",
+          "title": "Minify CSS",
+          "displayValue": "Est savings of 21 KiB"
+        },
+        {
+          "id": "unused-css-rules",
+          "title": "Reduce unused CSS",
+          "displayValue": "Est savings of 208 KiB"
+        },
+        {
+          "id": "uses-text-compression",
+          "title": "Enable text compression",
+          "displayValue": "Est savings of 32 KiB"
+        },
+        {
+          "id": "uses-responsive-images",
+          "title": "Properly size images",
+          "displayValue": "Est savings of 73 KiB"
+        },
+        {
+          "id": "cache-insight",
+          "title": "Use efficient cache lifetimes",
+          "displayValue": "Est savings of 98 KiB"
+        },
+        {
+          "id": "document-latency-insight",
+          "title": "Document request latency",
+          "displayValue": "Est savings of 23 KiB"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "displayValue": "Est savings of 58 KiB"
+        },
+        {
+          "id": "lcp-discovery-insight",
+          "title": "LCP request discovery"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render blocking requests",
+          "displayValue": "Est savings of 2,540 ms"
+        }
+      ]
+    },
+    {
+      "phase": "before",
+      "route": "/retry/",
+      "scores": {
+        "performance": 76,
+        "accessibility": 95,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 4318.199777097437,
+      "cls": 0.012964731351209081,
+      "tbt": 0,
+      "failed": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "displayValue": "4.0 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "displayValue": "4.3 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "displayValue": "4.0 s"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "displayValue": "4.3 s"
+        },
+        {
+          "id": "mainthread-work-breakdown",
+          "title": "Minimize main-thread work",
+          "displayValue": "2.8 s"
+        },
+        {
+          "id": "largest-contentful-paint-element",
+          "title": "Largest Contentful Paint element",
+          "displayValue": "4,320 ms"
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio."
+        },
+        {
+          "id": "uses-long-cache-ttl",
+          "title": "Serve static assets with an efficient cache policy",
+          "displayValue": "6 resources found"
+        },
+        {
+          "id": "render-blocking-resources",
+          "title": "Eliminate render-blocking resources",
+          "displayValue": "Est savings of 2,700 ms"
+        },
+        {
+          "id": "unminified-css",
+          "title": "Minify CSS",
+          "displayValue": "Est savings of 28 KiB"
+        },
+        {
+          "id": "unused-css-rules",
+          "title": "Reduce unused CSS",
+          "displayValue": "Est savings of 267 KiB"
+        },
+        {
+          "id": "uses-text-compression",
+          "title": "Enable text compression",
+          "displayValue": "Est savings of 27 KiB"
+        },
+        {
+          "id": "uses-responsive-images",
+          "title": "Properly size images",
+          "displayValue": "Est savings of 67 KiB"
+        },
+        {
+          "id": "cache-insight",
+          "title": "Use efficient cache lifetimes",
+          "displayValue": "Est savings of 91 KiB"
+        },
+        {
+          "id": "document-latency-insight",
+          "title": "Document request latency",
+          "displayValue": "Est savings of 18 KiB"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "displayValue": "Est savings of 53 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render blocking requests",
+          "displayValue": "Est savings of 2,700 ms"
+        }
+      ]
+    },
+    {
+      "phase": "after",
+      "route": "/",
+      "scores": {
+        "performance": 86,
+        "accessibility": 94,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 3453.571506883237,
+      "cls": 0,
+      "tbt": 0,
+      "failed": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "displayValue": "2.9 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "displayValue": "3.5 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "displayValue": "2.9 s"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "displayValue": "3.5 s"
+        },
+        {
+          "id": "largest-contentful-paint-element",
+          "title": "Largest Contentful Paint element",
+          "displayValue": "3,450 ms"
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio."
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing."
+        },
+        {
+          "id": "uses-long-cache-ttl",
+          "title": "Serve static assets with an efficient cache policy",
+          "displayValue": "14 resources found"
+        },
+        {
+          "id": "render-blocking-resources",
+          "title": "Eliminate render-blocking resources",
+          "displayValue": "Est savings of 1,040 ms"
+        },
+        {
+          "id": "unused-css-rules",
+          "title": "Reduce unused CSS",
+          "displayValue": "Est savings of 106 KiB"
+        },
+        {
+          "id": "uses-text-compression",
+          "title": "Enable text compression",
+          "displayValue": "Est savings of 258 KiB"
+        },
+        {
+          "id": "uses-responsive-images",
+          "title": "Properly size images",
+          "displayValue": "Est savings of 135 KiB"
+        },
+        {
+          "id": "dom-size",
+          "title": "Avoid an excessive DOM size",
+          "displayValue": "3,039 elements"
+        },
+        {
+          "id": "cache-insight",
+          "title": "Use efficient cache lifetimes",
+          "displayValue": "Est savings of 328 KiB"
+        },
+        {
+          "id": "document-latency-insight",
+          "title": "Document request latency",
+          "displayValue": "Est savings of 108 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "displayValue": "Est savings of 74 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render blocking requests",
+          "displayValue": "Est savings of 1,340 ms"
+        }
+      ]
+    },
+    {
+      "phase": "after",
+      "route": "/eiken/",
+      "scores": {
+        "performance": 96,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 2551.409,
+      "cls": 0,
+      "tbt": 0,
+      "failed": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "displayValue": "1.8 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "displayValue": "2.6 s"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "displayValue": "2.6 s"
+        },
+        {
+          "id": "largest-contentful-paint-element",
+          "title": "Largest Contentful Paint element",
+          "displayValue": "2,550 ms"
+        },
+        {
+          "id": "uses-long-cache-ttl",
+          "title": "Serve static assets with an efficient cache policy",
+          "displayValue": "8 resources found"
+        },
+        {
+          "id": "render-blocking-resources",
+          "title": "Eliminate render-blocking resources",
+          "displayValue": "Est savings of 440 ms"
+        },
+        {
+          "id": "unminified-css",
+          "title": "Minify CSS",
+          "displayValue": "Est savings of 6 KiB"
+        },
+        {
+          "id": "unused-css-rules",
+          "title": "Reduce unused CSS",
+          "displayValue": "Est savings of 45 KiB"
+        },
+        {
+          "id": "modern-image-formats",
+          "title": "Serve images in next-gen formats",
+          "displayValue": "Est savings of 124 KiB"
+        },
+        {
+          "id": "uses-optimized-images",
+          "title": "Efficiently encode images",
+          "displayValue": "Est savings of 8 KiB"
+        },
+        {
+          "id": "uses-text-compression",
+          "title": "Enable text compression",
+          "displayValue": "Est savings of 105 KiB"
+        },
+        {
+          "id": "uses-responsive-images",
+          "title": "Properly size images",
+          "displayValue": "Est savings of 264 KiB"
+        },
+        {
+          "id": "dom-size",
+          "title": "Avoid an excessive DOM size",
+          "displayValue": "823 elements"
+        },
+        {
+          "id": "cache-insight",
+          "title": "Use efficient cache lifetimes",
+          "displayValue": "Est savings of 318 KiB"
+        },
+        {
+          "id": "document-latency-insight",
+          "title": "Document request latency",
+          "displayValue": "Est savings of 69 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "displayValue": "Est savings of 259 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render blocking requests",
+          "displayValue": "Est savings of 440 ms"
+        }
+      ]
+    },
+    {
+      "phase": "after",
+      "route": "/gyakuten/",
+      "scores": {
+        "performance": 97,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 2478.8239999999996,
+      "cls": 0,
+      "tbt": 0,
+      "failed": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "displayValue": "2.5 s"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "displayValue": "2.5 s"
+        },
+        {
+          "id": "uses-long-cache-ttl",
+          "title": "Serve static assets with an efficient cache policy",
+          "displayValue": "8 resources found"
+        },
+        {
+          "id": "render-blocking-resources",
+          "title": "Eliminate render-blocking resources",
+          "displayValue": "Est savings of 330 ms"
+        },
+        {
+          "id": "unused-css-rules",
+          "title": "Reduce unused CSS",
+          "displayValue": "Est savings of 30 KiB"
+        },
+        {
+          "id": "uses-text-compression",
+          "title": "Enable text compression",
+          "displayValue": "Est savings of 74 KiB"
+        },
+        {
+          "id": "uses-responsive-images",
+          "title": "Properly size images",
+          "displayValue": "Est savings of 210 KiB"
+        },
+        {
+          "id": "dom-size",
+          "title": "Avoid an excessive DOM size",
+          "displayValue": "892 elements"
+        },
+        {
+          "id": "cache-insight",
+          "title": "Use efficient cache lifetimes",
+          "displayValue": "Est savings of 274 KiB"
+        },
+        {
+          "id": "document-latency-insight",
+          "title": "Document request latency",
+          "displayValue": "Est savings of 38 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "displayValue": "Est savings of 206 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render blocking requests",
+          "displayValue": "Est savings of 330 ms"
+        }
+      ]
+    },
+    {
+      "phase": "after",
+      "route": "/bansou/",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 1951.5216999999998,
+      "cls": 0,
+      "tbt": 0,
+      "failed": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "displayValue": "2.0 s"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "displayValue": "2.0 s"
+        },
+        {
+          "id": "uses-long-cache-ttl",
+          "title": "Serve static assets with an efficient cache policy",
+          "displayValue": "7 resources found"
+        },
+        {
+          "id": "render-blocking-resources",
+          "title": "Eliminate render-blocking resources",
+          "displayValue": "Est savings of 350 ms"
+        },
+        {
+          "id": "unused-css-rules",
+          "title": "Reduce unused CSS",
+          "displayValue": "Est savings of 13 KiB"
+        },
+        {
+          "id": "uses-text-compression",
+          "title": "Enable text compression",
+          "displayValue": "Est savings of 54 KiB"
+        },
+        {
+          "id": "uses-responsive-images",
+          "title": "Properly size images",
+          "displayValue": "Est savings of 73 KiB"
+        },
+        {
+          "id": "cache-insight",
+          "title": "Use efficient cache lifetimes",
+          "displayValue": "Est savings of 110 KiB"
+        },
+        {
+          "id": "document-latency-insight",
+          "title": "Document request latency",
+          "displayValue": "Est savings of 35 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "displayValue": "Est savings of 58 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render blocking requests",
+          "displayValue": "Est savings of 350 ms"
+        }
+      ]
+    },
+    {
+      "phase": "after",
+      "route": "/retry/",
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 1955.3732,
+      "cls": 0,
+      "tbt": 0,
+      "failed": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "displayValue": "2.0 s"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "displayValue": "2.0 s"
+        },
+        {
+          "id": "uses-long-cache-ttl",
+          "title": "Serve static assets with an efficient cache policy",
+          "displayValue": "7 resources found"
+        },
+        {
+          "id": "render-blocking-resources",
+          "title": "Eliminate render-blocking resources",
+          "displayValue": "Est savings of 360 ms"
+        },
+        {
+          "id": "unused-css-rules",
+          "title": "Reduce unused CSS",
+          "displayValue": "Est savings of 14 KiB"
+        },
+        {
+          "id": "uses-text-compression",
+          "title": "Enable text compression",
+          "displayValue": "Est savings of 47 KiB"
+        },
+        {
+          "id": "uses-responsive-images",
+          "title": "Properly size images",
+          "displayValue": "Est savings of 67 KiB"
+        },
+        {
+          "id": "cache-insight",
+          "title": "Use efficient cache lifetimes",
+          "displayValue": "Est savings of 103 KiB"
+        },
+        {
+          "id": "document-latency-insight",
+          "title": "Document request latency",
+          "displayValue": "Est savings of 30 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "displayValue": "Est savings of 53 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render blocking requests",
+          "displayValue": "Est savings of 360 ms"
+        }
+      ]
+    }
+  ],
+  "production_workflow": 41604169496,
+  "production_smoke": {
+    "checkedAt": "2026-11-03T08:33:42.114Z",
+    "results": [
+      {
+        "path": "/",
+        "status": 200,
+        "protectedEmailLinksValid": true,
+        "canonicalPresent": true,
+        "newAssets": true,
+        "oldGoogleForm": false
+      },
+      {
+        "path": "/eiken/",
+        "status": 200,
+        "protectedEmailLinksValid": true,
+        "canonicalPresent": true,
+        "newAssets": true,
+        "oldGoogleForm": false
+      },
+      {
+        "path": "/gyakuten/",
+        "status": 200,
+        "protectedEmailLinksValid": true,
+        "canonicalPresent": true,
+        "newAssets": true,
+        "oldGoogleForm": false
+      },
+      {
+        "path": "/bansou/",
+        "status": 200,
+        "protectedEmailLinksValid": true,
+        "canonicalPresent": true,
+        "newAssets": true,
+        "oldGoogleForm": false
+      },
+      {
+        "path": "/retry/",
+        "status": 200,
+        "protectedEmailLinksValid": true,
+        "canonicalPresent": true,
+        "newAssets": true,
+        "oldGoogleForm": false
+      },
+      {
+        "path": "/contact/",
+        "status": 200
+      },
+      {
+        "path": "/apply/",
+        "status": 200
+      },
+      {
+        "path": "/hikaku/",
+        "status": 200
+      },
+      {
+        "path": "/robots.txt",
+        "status": 200
+      },
+      {
+        "path": "/sitemap.xml",
+        "status": 200
+      },
+      {
+        "path": "/eiken/",
+        "status": 200
+      },
+      {
+        "path": "/gyakuten/",
+        "status": 200
+      },
+      {
+        "path": "/bansou/",
+        "status": 200
+      },
+      {
+        "path": "/retry/",
+        "status": 200
+      },
+      {
+        "path": "/blog/",
+        "status": 200
+      },
+      {
+        "path": "/eiken/levels/grade-5.html",
+        "status": 200
+      },
+      {
+        "path": "/eiken/levels/grade-4.html",
+        "status": 200
+      },
+      {
+        "path": "/eiken/levels/grade-3.html",
+        "status": 200
+      },
+      {
+        "path": "/eiken/levels/grade-p2.html",
+        "status": 200
+      },
+      {
+        "path": "/eiken/levels/grade-p2plus.html",
+        "status": 200
+      },
+      {
+        "path": "/eiken/levels/grade-2.html",
+        "status": 200
+      },
+      {
+        "path": "/eiken/levels/grade-p1.html",
+        "status": 200
+      },
+      {
+        "path": "/api/intake",
+        "status": 200,
+        "available": true,
+        "publicSiteKeyPresent": true
+      },
+      {
+        "path": "/__audit_missing_page_20261103__",
+        "status": 404,
+        "custom404": true
+      }
+    ],
+    "failed": []
+  },
+  "production_mobile_lab": [
+    {
+      "phase": "production",
+      "route": "/",
+      "scores": {
+        "performance": 93,
+        "accessibility": 94,
+        "best-practices": 100,
+        "seo": 92
+      },
+      "lcp": 2596.258,
+      "cls": 0,
+      "tbt": 181,
+      "failed": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "displayValue": "2.0 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "displayValue": "2.6 s"
+        },
+        {
+          "id": "speed-index",
+          "title": "Speed Index",
+          "displayValue": "2.0 s"
+        },
+        {
+          "id": "total-blocking-time",
+          "title": "Total Blocking Time",
+          "displayValue": "180 ms"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "displayValue": "230 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "displayValue": "2.6 s"
+        },
+        {
+          "id": "largest-contentful-paint-element",
+          "title": "Largest Contentful Paint element",
+          "displayValue": "2,600 ms"
+        },
+        {
+          "id": "color-contrast",
+          "title": "Background and foreground colors do not have a sufficient contrast ratio."
+        },
+        {
+          "id": "target-size",
+          "title": "Touch targets do not have sufficient size or spacing."
+        },
+        {
+          "id": "uses-long-cache-ttl",
+          "title": "Serve static assets with an efficient cache policy",
+          "displayValue": "2 resources found"
+        },
+        {
+          "id": "render-blocking-resources",
+          "title": "Eliminate render-blocking resources",
+          "displayValue": "Est savings of 420 ms"
+        },
+        {
+          "id": "unused-css-rules",
+          "title": "Reduce unused CSS",
+          "displayValue": "Est savings of 18 KiB"
+        },
+        {
+          "id": "uses-responsive-images",
+          "title": "Properly size images",
+          "displayValue": "Est savings of 135 KiB"
+        },
+        {
+          "id": "legacy-javascript",
+          "title": "Avoid serving legacy JavaScript to modern browsers",
+          "displayValue": "Est savings of 10 KiB"
+        },
+        {
+          "id": "dom-size",
+          "title": "Avoid an excessive DOM size",
+          "displayValue": "3,040 elements"
+        },
+        {
+          "id": "robots-txt",
+          "title": "robots.txt is not valid",
+          "displayValue": "1 error found"
+        },
+        {
+          "id": "cache-insight",
+          "title": "Use efficient cache lifetimes",
+          "displayValue": "Est savings of 4 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "displayValue": "Est savings of 74 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "displayValue": "Est savings of 10 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render blocking requests",
+          "displayValue": "Est savings of 590 ms"
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "route": "/eiken/",
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 92
+      },
+      "lcp": 2160.4818999999998,
+      "cls": 0,
+      "tbt": 12,
+      "failed": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "displayValue": "2.2 s"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "displayValue": "2.2 s"
+        },
+        {
+          "id": "uses-long-cache-ttl",
+          "title": "Serve static assets with an efficient cache policy",
+          "displayValue": "2 resources found"
+        },
+        {
+          "id": "render-blocking-resources",
+          "title": "Eliminate render-blocking resources",
+          "displayValue": "Est savings of 270 ms"
+        },
+        {
+          "id": "modern-image-formats",
+          "title": "Serve images in next-gen formats",
+          "displayValue": "Est savings of 124 KiB"
+        },
+        {
+          "id": "uses-optimized-images",
+          "title": "Efficiently encode images",
+          "displayValue": "Est savings of 8 KiB"
+        },
+        {
+          "id": "uses-responsive-images",
+          "title": "Properly size images",
+          "displayValue": "Est savings of 264 KiB"
+        },
+        {
+          "id": "legacy-javascript",
+          "title": "Avoid serving legacy JavaScript to modern browsers",
+          "displayValue": "Est savings of 10 KiB"
+        },
+        {
+          "id": "dom-size",
+          "title": "Avoid an excessive DOM size",
+          "displayValue": "824 elements"
+        },
+        {
+          "id": "robots-txt",
+          "title": "robots.txt is not valid",
+          "displayValue": "1 error found"
+        },
+        {
+          "id": "cache-insight",
+          "title": "Use efficient cache lifetimes",
+          "displayValue": "Est savings of 4 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "displayValue": "Est savings of 259 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "displayValue": "Est savings of 10 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render blocking requests",
+          "displayValue": "Est savings of 270 ms"
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "route": "/gyakuten/",
+      "scores": {
+        "performance": 96,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 92
+      },
+      "lcp": 2616.8393499999997,
+      "cls": 0,
+      "tbt": 33,
+      "failed": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "displayValue": "2.6 s"
+        },
+        {
+          "id": "max-potential-fid",
+          "title": "Max Potential First Input Delay",
+          "displayValue": "80 ms"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "displayValue": "2.6 s"
+        },
+        {
+          "id": "largest-contentful-paint-element",
+          "title": "Largest Contentful Paint element",
+          "displayValue": "2,620 ms"
+        },
+        {
+          "id": "uses-long-cache-ttl",
+          "title": "Serve static assets with an efficient cache policy",
+          "displayValue": "2 resources found"
+        },
+        {
+          "id": "render-blocking-resources",
+          "title": "Eliminate render-blocking resources",
+          "displayValue": "Est savings of 330 ms"
+        },
+        {
+          "id": "uses-responsive-images",
+          "title": "Properly size images",
+          "displayValue": "Est savings of 210 KiB"
+        },
+        {
+          "id": "legacy-javascript",
+          "title": "Avoid serving legacy JavaScript to modern browsers",
+          "displayValue": "Est savings of 10 KiB"
+        },
+        {
+          "id": "dom-size",
+          "title": "Avoid an excessive DOM size",
+          "displayValue": "893 elements"
+        },
+        {
+          "id": "robots-txt",
+          "title": "robots.txt is not valid",
+          "displayValue": "1 error found"
+        },
+        {
+          "id": "cache-insight",
+          "title": "Use efficient cache lifetimes",
+          "displayValue": "Est savings of 4 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "displayValue": "Est savings of 206 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render blocking requests",
+          "displayValue": "Est savings of 330 ms"
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "route": "/bansou/",
+      "scores": {
+        "performance": 97,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 92
+      },
+      "lcp": 2466.3944,
+      "cls": 0,
+      "tbt": 0,
+      "failed": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "displayValue": "2.5 s"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "displayValue": "2.5 s"
+        },
+        {
+          "id": "uses-long-cache-ttl",
+          "title": "Serve static assets with an efficient cache policy",
+          "displayValue": "1 resource found"
+        },
+        {
+          "id": "render-blocking-resources",
+          "title": "Eliminate render-blocking resources",
+          "displayValue": "Est savings of 340 ms"
+        },
+        {
+          "id": "uses-responsive-images",
+          "title": "Properly size images",
+          "displayValue": "Est savings of 73 KiB"
+        },
+        {
+          "id": "legacy-javascript",
+          "title": "Avoid serving legacy JavaScript to modern browsers",
+          "displayValue": "Est savings of 10 KiB"
+        },
+        {
+          "id": "robots-txt",
+          "title": "robots.txt is not valid",
+          "displayValue": "1 error found"
+        },
+        {
+          "id": "cache-insight",
+          "title": "Use efficient cache lifetimes",
+          "displayValue": "Est savings of 4 KiB"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "displayValue": "Est savings of 58 KiB"
+        },
+        {
+          "id": "legacy-javascript-insight",
+          "title": "Legacy JavaScript",
+          "displayValue": "Est savings of 10 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render blocking requests",
+          "displayValue": "Est savings of 340 ms"
+        }
+      ]
+    },
+    {
+      "phase": "production",
+      "route": "/retry/",
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 92
+      },
+      "lcp": 2320.342,
+      "cls": 0,
+      "tbt": 0,
+      "failed": [
+        {
+          "id": "first-contentful-paint",
+          "title": "First Contentful Paint",
+          "displayValue": "1.4 s"
+        },
+        {
+          "id": "largest-contentful-paint",
+          "title": "Largest Contentful Paint",
+          "displayValue": "2.3 s"
+        },
+        {
+          "id": "interactive",
+          "title": "Time to Interactive",
+          "displayValue": "2.3 s"
+        },
+        {
+          "id": "uses-long-cache-ttl",
+          "title": "Serve static assets with an efficient cache policy",
+          "displayValue": "1 resource found"
+        },
+        {
+          "id": "render-blocking-resources",
+          "title": "Eliminate render-blocking resources",
+          "displayValue": "Est savings of 370 ms"
+        },
+        {
+          "id": "uses-responsive-images",
+          "title": "Properly size images",
+          "displayValue": "Est savings of 67 KiB"
+        },
+        {
+          "id": "legacy-javascript",
+          "title": "Avoid serving legacy JavaScript to modern browsers",
+          "displayValue": "Est savings of 10 KiB"
+        },
+        {
+          "id": "robots-txt",
+          "title": "robots.txt is not valid",
+          "displayValue": "1 error found"
+        },
+        {
+          "id": "cache-insight",
+          "title": "Use efficient cache lifetimes",
+          "displayValue": "Est savings of 4 KiB"
+        },
+        {
+          "id": "forced-reflow-insight",
+          "title": "Forced reflow"
+        },
+        {
+          "id": "image-delivery-insight",
+          "title": "Improve image delivery",
+          "displayValue": "Est savings of 53 KiB"
+        },
+        {
+          "id": "network-dependency-tree-insight",
+          "title": "Network dependency tree"
+        },
+        {
+          "id": "render-blocking-insight",
+          "title": "Render blocking requests",
+          "displayValue": "Est savings of 370 ms"
+        }
+      ]
+    }
+  ],
+  "unverified": [
+    "real iPhone Safari",
+    "live CAPTCHA + email submission",
+    "field Core Web Vitals",
+    "formal contract and fee legal review"
+  ]
+}
