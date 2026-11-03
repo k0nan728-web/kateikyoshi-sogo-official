@@ -23,6 +23,7 @@ jobs:
       - name: Existing form and billing regression tests
         run: |
           node tools/termination-policy.mjs --check
+          node tools/billing-policy.mjs --check
           node intake/validate.test.mjs
           node intake/native-delivery.test.mjs
           node --test tuition-portal/security.test.mjs
