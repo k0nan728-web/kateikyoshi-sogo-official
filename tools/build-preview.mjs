@@ -1,7 +1,7 @@
 import {cp,mkdir,readdir,rm} from 'node:fs/promises';
 import path from 'node:path';
 const root=process.cwd(),dist=path.join(root,'dist');
-await rm(dist,{recursive:true,force:true});await mkdir(dist);
+await mkdir(dist,{recursive:true});
 for(const entry of await readdir(root,{withFileTypes:true})){
  if(entry.name.startsWith('.')||['dist','tools','docs','functions'].includes(entry.name))continue;
  if(entry.isFile()&&!/\.(html|css|js|json|xml|svg|png|jpg|jpeg|avif|webp|mp4)$/i.test(entry.name)&&entry.name!=='_headers')continue;

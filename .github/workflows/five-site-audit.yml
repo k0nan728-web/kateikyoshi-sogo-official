@@ -1,7 +1,5 @@
 name: Five site responsive and accessibility audit
 on:
-  push:
-    branches: [audit/five-sites-20261103]
   pull_request:
     paths: ['index.html', 'eiken/**', 'gyakuten/**', 'bansou/**', 'retry/**', 'parent-guide.css', 'tools/**']
   workflow_dispatch:

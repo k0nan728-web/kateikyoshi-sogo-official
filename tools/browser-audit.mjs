@@ -5,6 +5,7 @@ const base=process.env.APP_URL||'http://127.0.0.1:4173';
 const out=process.env.AUDIT_OUT||'audit-results';await mkdir(out,{recursive:true});
 const paths=['/','/eiken/','/gyakuten/','/bansou/','/retry/'];
 const widths=[320,390,768,1024,1366,1920],results=[];
+try {
 for(const [engine,type] of Object.entries({chromium,webkit})){
  const browser=await type.launch();
  for(const route of paths){
@@ -46,14 +47,15 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    }
   }
   await page.setViewportSize({width:390,height:844});
-  const a11y=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze();
+  const a11y=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze().catch(error=>({violations:[],error:error.stack}));
   await writeFile(`${out}/${engine}-${name}-axe.json`,JSON.stringify(a11y,null,2));
-  results.push({engine,route,a11y:a11y.violations.map(v=>({id:v.id,impact:v.impact,help:v.help,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}))});
+  results.push({engine,route,a11yError:a11y.error,a11y:a11y.violations.map(v=>({id:v.id,impact:v.impact,help:v.help,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}))});
   await page.close();
  }
  await browser.close();
 }
+} catch(error) { await writeFile(`${out}/error.txt`,error.stack||String(error));results.push({failure:String(error)}); }
 await writeFile(`${out}/matrix.json`,JSON.stringify(results,null,2));
-const fail=results.filter(r=>r.failure||r.scrollWidth>r.width||r.badAnchors?.length||r.duplicateIds?.length||r.badImages?.length||r.errors?.length||r.h1!==undefined&&r.h1!==1||r.schemas?.includes(false));
+const fail=results.filter(r=>r.failure||r.a11yError||r.scrollWidth>r.width||r.badAnchors?.length||r.duplicateIds?.length||r.badImages?.length||r.errors?.length||r.h1!==undefined&&r.h1!==1||r.schemas?.includes(false));
 console.log(JSON.stringify({checks:results.length,failures:fail},null,2));
 if(fail.length)process.exitCode=1;
