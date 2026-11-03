@@ -51,9 +51,11 @@ const fiveMinuteOptions='<option value="">時刻を選択</option>'+Array.from({
 const consent=`<div class="consent"><label><input type="checkbox" name="privacyAccepted" required><span>個人情報の取り扱いに同意します。<span class="required">必須</span><br><span class="small">ご入力いただいた情報は、ご連絡・受講相談・授業準備に利用します。送信にはメール配信サービスを使用します。必要な範囲を超えて公開しません。</span></span></label></div>`;
 const serviceAgreement=`<section class="consent terms-consent" aria-labelledby="terms-title">
  <h4 id="terms-title">お申し込み前の確認事項</h4>
+ <p class="notice"><strong>継続受講は原則として月謝制です。</strong>月途中から開始する当月のみ回数制を利用できます。試験前・長期休み・追加受講・5週目の受講は、月謝制と回数制を併用できます。回数・適用単価・合計を受講前に確認します。</p>
  <p class="terms-lead">公式サイトに掲載されている指導内容・料金・受講条件をご確認ください。各リンクは新しいタブで開きます。</p>
  <ul class="terms-links">
  <li><a href="https://kateikyoshi-sogo.com/#eiken-fee-policy" target="_blank" rel="noopener noreferrer">英検の通常料金・直前／少回数の条件を見る ↗</a></li>
+ <li><a href="https://kateikyoshi-sogo.com/#billing-plan" target="_blank" rel="noopener noreferrer">月謝制・月途中の開始・追加受講の制度を見る ↗</a></li>
  <li><a href="https://kateikyoshi-sogo.com/#pricing" target="_blank" rel="noopener noreferrer">授業料金・受講条件を見る ↗</a></li>
  <li><a href="https://kateikyoshi-sogo.com/#cancel-policy" target="_blank" rel="noopener noreferrer">キャンセル規定を見る ↗</a></li>
  <li><a href="https://kateikyoshi-sogo.com/#termination-policy" target="_blank" rel="noopener noreferrer">中途解約・返金条件を見る ↗</a></li>
@@ -394,8 +396,8 @@ if(kind==="consult"&&query.get("from")==="hikaku"){
  const lookup=(choices,key)=>Object.prototype.hasOwnProperty.call(choices,key)?choices[key]:"";
  const course=lookup(courses,query.get("course"));
  const known=(key,values)=>values.includes(query.get(key))?query.get(key):"";
- const minutes=known("minutes",["30","60","90","120"]),months=known("months",["1","3","6","9","12"]),lessons=known("lessons",["1","2","3","4","6","8"]);
- const tiers={foundation:"基礎固め・学校補習",standard:"標準〜中堅私大",competitive:"難関私大・国公立",top:"早慶上理・難関国公立"};
+ const minutes=known("minutes",["30","60","90","120"]),months=known("months",["1","3","6","9","12"]),lessons=known("lessons",["1","2","3","4","5","6","8"]);
+ const tiers={foundation:"地方国公立・中堅私大（〜55）",standard:"上位国公立・難関私大（56〜62）",competitive:"最難関国公立・超難関私大（63〜68）",top:"最高難度（69以上）"};
  const variants={elem:"小学生・基礎レベル",junior:"中学生・基礎レベル",high:"高校生・基礎レベル",basic:"基礎・標準対策",exam:"受験対策",j12:"中1・中2",j3h1:"中3・高1",h23:"高2・高3",documents:"書類・面接対策",comprehensive:"総合対策",upper:"上位校",difficult:"難関校",top:"超難関校"};
  if(course){
   form.elements.namedItem("purpose").value="料金について相談";

@@ -9,6 +9,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
  await page.goto(base+'/#estimate');
  async function homeTotal(expected,name){await page.locator('#estimate-amount').scrollIntoViewIfNeeded();await page.waitForFunction(expected=>document.querySelector('#estimate-amount').innerText===expected,expected);assert.equal(await page.locator('#estimate-amount').innerText(),expected);results.push({engine,name,total:expected});}
  await homeTotal('16,000円','home 5級60分月4回');
+ await page.locator('#estimate-count').selectOption('5');await homeTotal('20,000円','home 5週目を含む月5回');await page.locator('#estimate-count').selectOption('4');
  await page.locator('#estimate-eiken-timing').selectOption('urgent');await homeTotal('20,800円','home 直前1.3倍');
  await page.locator('#estimate-eiken-booking').selectOption('3');await homeTotal('15,600円','home 直前かつ少回数は1.3倍のみ');
  await page.locator('#estimate-eiken-timing').selectOption('normal');await homeTotal('15,600円','home 少回数1.3倍');
@@ -19,6 +20,8 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
  const select=(name,value)=>page.getByRole('combobox',{name,exact:true}).selectOption(value);
  const total=async(expected,name)=>{assert.equal(await page.locator('.quote-total').innerText(),expected);results.push({engine,name,total:expected});};
  await select('目標の級','5');await total('96,000円','5級60分月4回6か月');
+ assert.match(await page.locator('#simulator').innerText(),/原則は月謝制/);
+ await select('試算する期間','1');await select('月の授業回数','5');await total('20,000円','5級60分5週目を含む月5回');await select('月の授業回数','4');await select('試算する期間','6');
  await select('目標の級','2');await select('1回の授業時間','90');await total('234,000円','2級90分月4回6か月');
  await page.getByRole('checkbox').check();await total('294,000円','2級90分月4回6か月＋サポート');await page.getByRole('checkbox').uncheck();
  await select('指導コース','university');
@@ -30,6 +33,10 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
  await select('月の授業回数','4');await total('16,000円','総4回ちょうどは通常');
  await select('申込時点で、対象試験まで','near');await total('20,800円','直前30日未満の1か月分');
  await page.getByRole('checkbox').check();await total('30,800円','任意サポートは割増対象外');
+ await page.goto(base+'/contact/?from=hikaku&course=university&level=standard&lessons=5&minutes=60&months=1');
+ const inquiry=await page.locator('#f-message').inputValue();
+ assert.match(inquiry,/回数：月5回/);assert.match(inquiry,/上位国公立・難関私大/);
+ results.push({engine,name:'月5回と大学区分の相談引継ぎ',result:'pass'});
  await browser.close();
 }
 } catch(error) { await writeFile('audit-results/calculator-error.txt',error.stack||String(error));process.exitCode=1; }
