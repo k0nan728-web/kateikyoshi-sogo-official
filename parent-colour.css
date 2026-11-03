@@ -122,7 +122,7 @@ body.parent-colour :is(.guide-details,.course-price){border-color:#b9ccd9;backgr
 body.parent-colour #estimate .estimate-total{background:#e6f6ed;color:#145b46;border-color:#98cbb2}
 body.parent-colour #estimate .estimate-total :is(span,small){color:#145b46}
 /* Questions feel approachable; full terms remain restrained and readable. */
-body.parent-colour :is(.guide-faq,#faq) details{background:#fff;border:1px solid #b1c9da;border-radius:12px;margin-bottom:12px;box-shadow:0 4px 0 #17364c06;overflow:hidden}
+body.parent-colour :is(.guide-faq,#faq) details{background:#fff;border:1px solid #b1c9da;border-radius:12px;margin-bottom:12px;box-shadow:0 4px 0 #17364c06}
 body.parent-colour :is(.guide-faq,#faq) details:nth-of-type(2n){border-left:4px solid #bf6a8c}
 body.parent-colour :is(.guide-faq,#faq) details:nth-of-type(2n+1){border-left:4px solid #5793bd}
 body.parent-colour :is(.guide-faq,#faq) summary{color:#173b56;padding:18px 20px;line-height:1.8}
@@ -160,3 +160,9 @@ body.parent-colour[data-parent-brand=intake] .agreement-links{background:#f7f0ff
 body.parent-colour #termination-policy{background:linear-gradient(125deg,#eee8ff,#faf6ff);border-top:3px solid #9783bd}body.parent-colour[data-parent-brand=retry] #termination-policy{background:linear-gradient(125deg,#ffe9f0,#fff9fc)}
 
 body.parent-colour[data-parent-brand=compare] .button.primary{background:#b13758;color:#fff;border-color:#b13758;border-radius:12px}body.parent-colour[data-parent-brand=compare] .button.secondary{background:#e4f3ec;color:#155948;border-color:#a9cbbd}
+
+/* Two-layer keyboard focus stays visible on both light and navy panels. */
+body.parent-colour :is(a,button,summary,select,input,textarea):focus-visible{outline:3px solid #245eb3;outline-offset:3px;box-shadow:0 0 0 3px #fff,0 0 0 6px #245eb3}
+body.parent-colour[data-parent-brand=gyakuten] .teacher-layout .teacher-photo figcaption{background:#45478c;color:#fff}
+/* Nested navy fee panels retain their own light eyebrow labels. */
+body.parent-colour #pricing :is(.monthly-example,.optional-support) .eyebrow{color:#d4eee4}
