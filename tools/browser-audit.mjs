@@ -4,7 +4,7 @@ import {mkdir,writeFile} from 'node:fs/promises';
 const base=process.env.APP_URL||'http://127.0.0.1:4173';
 const out=process.env.AUDIT_OUT||'audit-results';await mkdir(out,{recursive:true});
 const paths=['/','/eiken/','/gyakuten/','/bansou/','/retry/'];
-const widths=[320,390,768,1024,1366,1920],results=[];
+const widths=[320,390,414,768,1024,1366,1920],results=[];
 const launched=[];
 try {
 for(const [engine,type] of Object.entries({chromium,webkit})){
@@ -22,6 +22,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    await page.evaluate(async()=>{for(let y=0;y<document.body.scrollHeight;y+=700){scrollTo(0,y);await new Promise(r=>setTimeout(r,20));}scrollTo(0,0);});
    await page.waitForTimeout(200);
    const state=await page.evaluate(()=>({
+    paymentGutter:(()=>{const r=document.querySelector('#payment-methods .embedded-payment__inner')?.getBoundingClientRect();return r?{left:r.left,right:innerWidth-r.right}:null})(),
     width:innerWidth,scrollWidth:document.documentElement.scrollWidth,
     badAnchors:[...document.querySelectorAll('a[href^="#"]')].map(x=>x.getAttribute('href')).filter(x=>x.length>1&&!document.getElementById(decodeURIComponent(x.slice(1)))),
     duplicateIds:[...document.querySelectorAll('[id]')].map(x=>x.id).filter((x,i,a)=>a.indexOf(x)!==i),
@@ -44,6 +45,11 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
      await sections.nth(i).scrollIntoViewIfNeeded();
      await page.screenshot({path:`${out}/${engine}-${name}-section-${i}.png`});
     }
+    await page.evaluate(()=>scrollTo(0,0));
+   }
+   if(width===414){
+    await page.locator('#payment-methods').scrollIntoViewIfNeeded();
+    await page.screenshot({path:`${out}/${engine}-${name}-payment-414.png`});
     await page.evaluate(()=>scrollTo(0,0));
    }
    await visualStyle.evaluate(el=>el.remove());
@@ -80,6 +86,6 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
 } catch(error) { await writeFile(`${out}/error.txt`,error.stack||String(error));results.push({failure:String(error)}); }
 for(const browser of launched)await browser.close().catch(()=>{});
 await writeFile(`${out}/matrix.json`,JSON.stringify(results,null,2));
-const fail=results.filter(r=>r.failure||r.a11yError||r.a11y?.some(v=>['critical','serious'].includes(v.impact))||r.scrollWidth>r.width||r.badAnchors?.length||r.duplicateIds?.length||r.badImages?.length||r.errors?.length||r.h1!==undefined&&r.h1!==1||r.schemas?.includes(false));
+const fail=results.filter(r=>r.failure||r.a11yError||r.a11y?.some(v=>['critical','serious'].includes(v.impact))||r.scrollWidth>r.width||r.width<600&&(!r.paymentGutter||Math.min(r.paymentGutter.left,r.paymentGutter.right)<16)||r.badAnchors?.length||r.duplicateIds?.length||r.badImages?.length||r.errors?.length||r.h1!==undefined&&r.h1!==1||r.schemas?.includes(false));
 console.log(JSON.stringify({checks:results.length,failures:fail},null,2));
 if(fail.length)process.exitCode=1;
