@@ -4,14 +4,14 @@ body.parent-colour[data-parent-brand=eiken]{--pc-primary:#1558a5;--pc-action:#08
 body.parent-colour[data-parent-brand=gyakuten]{--pc-primary:#354aa5;--pc-action:#254eab;--pc-mint:#e8f5d9;--pc-lilac:#e8eaff}
 body.parent-colour[data-parent-brand=bansou]{--pc-primary:#087568;--pc-action:#086d61;--pc-pink:#ffe9f0;--pc-mint:#daf3e8}
 body.parent-colour[data-parent-brand=retry]{--pc-primary:#623e98;--pc-action:#67409d;--pc-lilac:#eee4ff;--pc-sky:#e4f0ff}
-body.parent-colour[data-parent-tone],body.parent-colour section[data-parent-tone]{background-color:var(--pc-paper)}
-body.parent-colour section[data-parent-tone=sky]{background:radial-gradient(ellipse at 100% 0,#ffffffbd,transparent 55%),var(--pc-sky)}
-body.parent-colour section[data-parent-tone=mint]{background:radial-gradient(ellipse at 0 0,#ffffffbb,transparent 55%),var(--pc-mint)}
-body.parent-colour section[data-parent-tone=rose]{background:radial-gradient(ellipse at 100% 100%,#ffffffc7,transparent 55%),var(--pc-pink)}
-body.parent-colour section[data-parent-tone=lilac]{background:radial-gradient(ellipse at 0 100%,#ffffffc7,transparent 55%),var(--pc-lilac)}
-body.parent-colour section[data-parent-tone=lemon]{background:radial-gradient(ellipse at 100% 0,#ffffffc7,transparent 55%),var(--pc-lemon)}
-body.parent-colour section[data-parent-tone=paper]{background:linear-gradient(125deg,#fffdf5,#fff5da 70%,#f4ecff)}
-body.parent-colour section[data-parent-tone]{border-top:1px solid #ffffff;scroll-margin-top:110px}
+body.parent-colour :is(#main,#main-content) section[data-parent-tone]{background-color:var(--pc-paper)}
+body.parent-colour :is(#main,#main-content) section[data-parent-tone=sky]{background:radial-gradient(ellipse at 100% 0,#ffffffbd,transparent 55%),var(--pc-sky)}
+body.parent-colour :is(#main,#main-content) section[data-parent-tone=mint]{background:radial-gradient(ellipse at 0 0,#ffffffbb,transparent 55%),var(--pc-mint)}
+body.parent-colour :is(#main,#main-content) section[data-parent-tone=rose]{background:radial-gradient(ellipse at 100% 100%,#ffffffc7,transparent 55%),var(--pc-pink)}
+body.parent-colour :is(#main,#main-content) section[data-parent-tone=lilac]{background:radial-gradient(ellipse at 0 100%,#ffffffc7,transparent 55%),var(--pc-lilac)}
+body.parent-colour :is(#main,#main-content) section[data-parent-tone=lemon]{background:radial-gradient(ellipse at 100% 0,#ffffffc7,transparent 55%),var(--pc-lemon)}
+body.parent-colour :is(#main,#main-content) section[data-parent-tone=paper]{background:linear-gradient(125deg,#fffdf5,#fff5da 70%,#f4ecff)}
+body.parent-colour :is(#main,#main-content) section[data-parent-tone]{border-top:1px solid #ffffff;scroll-margin-top:110px}
 body.parent-colour [data-parent-tone] :is(.section-heading h2,.teacher-heading h2,h2.bansou-section-title){color:var(--pc-ink)}
 body.parent-colour [data-parent-tone] :is(.eyebrow,.guide-kicker){color:var(--pc-primary)}
 body.parent-colour [data-parent-tone] .section-heading h2:after{width:100px;height:5px;border-radius:8px;background:linear-gradient(90deg,var(--pc-primary) 0 42%,#d94d72 42% 70%,#e7c448 70%);margin:18px auto 0}
