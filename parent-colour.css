@@ -1,0 +1,175 @@
+/* Parent-facing colour system. Decorative treatment only; facts and fees stay in HTML. */
+body.parent-colour{--pc-ink:#17364c;--pc-primary:#075f72;--pc-action:#b13758;--pc-rose:#b13758;--pc-blue:#245eb3;--pc-green:#116e59;--pc-purple:#6942a3;--pc-mint:#e0f5eb;--pc-sky:#e5f2ff;--pc-pink:#ffebf0;--pc-lilac:#eee8ff;--pc-lemon:#fff4c9;--pc-paper:#fffdf6}
+body.parent-colour[data-parent-brand=eiken]{--pc-primary:#1558a5;--pc-action:#08717a;--pc-sky:#dfedff;--pc-pink:#ffe8ef}
+body.parent-colour[data-parent-brand=gyakuten]{--pc-primary:#354aa5;--pc-action:#254eab;--pc-mint:#e8f5d9;--pc-lilac:#e8eaff}
+body.parent-colour[data-parent-brand=bansou]{--pc-primary:#087568;--pc-action:#086d61;--pc-pink:#ffe9f0;--pc-mint:#daf3e8}
+body.parent-colour[data-parent-brand=retry]{--pc-primary:#623e98;--pc-action:#67409d;--pc-lilac:#eee4ff;--pc-sky:#e4f0ff}
+body.parent-colour :is(#main,#main-content) section[data-parent-tone]{background-color:var(--pc-paper)}
+body.parent-colour :is(#main,#main-content) section[data-parent-tone=sky]{background:radial-gradient(ellipse at 100% 0,#ffffffbd,transparent 55%),var(--pc-sky)}
+body.parent-colour :is(#main,#main-content) section[data-parent-tone=mint]{background:radial-gradient(ellipse at 0 0,#ffffffbb,transparent 55%),var(--pc-mint)}
+body.parent-colour :is(#main,#main-content) section[data-parent-tone=rose]{background:radial-gradient(ellipse at 100% 100%,#ffffffc7,transparent 55%),var(--pc-pink)}
+body.parent-colour :is(#main,#main-content) section[data-parent-tone=lilac]{background:radial-gradient(ellipse at 0 100%,#ffffffc7,transparent 55%),var(--pc-lilac)}
+body.parent-colour :is(#main,#main-content) section[data-parent-tone=lemon]{background:radial-gradient(ellipse at 100% 0,#ffffffc7,transparent 55%),var(--pc-lemon)}
+body.parent-colour :is(#main,#main-content) section[data-parent-tone=paper]{background:linear-gradient(125deg,#fffdf5,#fff5da 70%,#f4ecff)}
+body.parent-colour :is(#main,#main-content) section[data-parent-tone]{border-top:1px solid #ffffff;scroll-margin-top:110px}
+body.parent-colour [data-parent-tone] :is(.section-heading h2,.teacher-heading h2,h2.bansou-section-title){color:var(--pc-ink)}
+body.parent-colour [data-parent-tone] :is(.eyebrow,.guide-kicker){color:var(--pc-primary)}
+body.parent-colour [data-parent-tone] .section-heading h2:after{width:100px;height:5px;border-radius:8px;background:linear-gradient(90deg,var(--pc-primary) 0 42%,#d94d72 42% 70%,#e7c448 70%);margin:18px auto 0}
+body.parent-colour :is(.chapter-label,.rev-chapter-label){border-color:#a9c8d6;background:#fff;color:var(--pc-primary);box-shadow:0 4px 0 #17364c08}
+body.parent-colour :is(.chapter-label,.rev-chapter-label)>span{background:var(--pc-primary);color:#fff;border-radius:50%}
+/* Make the next step visible without relying on gold throughout the page. */
+body.parent-colour :is(.primary-button,.header-cta,.nav-cta,.button-primary,.btn.primary,.guide-button){background:var(--pc-action);color:#fff;border-color:var(--pc-action);border-radius:12px;box-shadow:0 6px 0 #102d4514,0 10px 24px #17364c0d;text-decoration:none}
+body.parent-colour :is(.primary-button,.header-cta,.nav-cta,.button-primary,.btn.primary,.guide-button):hover{background:var(--pc-primary);border-color:var(--pc-primary);color:#fff;box-shadow:0 3px 0 #102d4514,0 6px 18px #17364c16}
+body.parent-colour :is(a,button,summary,select,input,textarea):focus-visible{outline:3px solid #245eb3;outline-offset:4px}
+body.parent-colour .pro-badge{color:#164b67;border-color:#9acbce;background:linear-gradient(115deg,#dff6ef,#fff5d6);border-radius:10px}
+body.parent-colour .brand-emblem{color:var(--pc-primary);background:#fff3c8;border:2px solid #d7c576}
+/* The flagship masthead remains the real teacher photograph. */
+body.parent-colour.editorial-home #introduction{background:radial-gradient(ellipse at 0 0,#ffe3ec,transparent 49%),linear-gradient(120deg,#fffdf3,#e2f4fa)}
+body.parent-colour.editorial-home .intro-panel>.eyebrow{display:inline-block;padding:7px 13px;border-radius:999px;background:#d9f2e8;color:#075c4d;border:1px solid #a7d7c6}
+body.parent-colour.editorial-home .hero-future{color:#147965}
+body.parent-colour.editorial-home .hero-subjects li:nth-child(1){background:#dcecff;color:#214d84;border-color:#a5c1e4}
+body.parent-colour.editorial-home .hero-subjects li:nth-child(2){background:#eee4ff;color:#583989;border-color:#c4afe6}
+body.parent-colour.editorial-home .hero-subjects li:nth-child(3){background:#ffe7ed;color:#953449;border-color:#eab6c3}
+body.parent-colour.editorial-home .editorial-hero-photo{border-radius:20px 20px 5px 5px;box-shadow:12px 12px 0 #98d4c755}
+body.parent-colour.editorial-home .hero-evidence{border-top:6px solid transparent;border-image:linear-gradient(90deg,#75d7c0 0 25%,#84bdf0 25% 50%,#f2bdcc 50% 75%,#e9d26d 75%) 1}
+body.parent-colour.editorial-home .hero-evidence>div:nth-child(1) dd{color:#c7f5e7}
+body.parent-colour.editorial-home .hero-evidence>div:nth-child(2) dd{color:#c5e3ff}
+body.parent-colour.editorial-home .hero-evidence>div:nth-child(3) dd{color:#ffe4ee}
+body.parent-colour.editorial-home .hero-evidence>div:nth-child(4) dd{color:#fff0ae}
+/* Proof is readable in distinct colours; the underlying numbers are unchanged. */
+body.parent-colour .proof{background:linear-gradient(180deg,#fff,#f1f5ff);border-bottom:0}
+body.parent-colour .proof-grid .proof-item{border-radius:0;position:relative;background:#fff;border-bottom:5px solid #8acdbb}
+body.parent-colour .proof-grid .proof-item:nth-child(2){border-bottom-color:#9bbfe9}
+body.parent-colour .proof-grid .proof-item:nth-child(3){border-bottom-color:#e9a8bf}
+body.parent-colour .proof-grid .proof-item:nth-child(4){border-bottom-color:#c8b5e8}
+body.parent-colour .proof-item:nth-child(1) .proof-num{color:#12694f}
+body.parent-colour .proof-item:nth-child(2) .proof-num{color:#2459a0}
+body.parent-colour .proof-item:nth-child(3) .proof-num{color:#a33358}
+body.parent-colour .proof-item:nth-child(4) .proof-num{color:#633e99}
+body.parent-colour .top-pro-credit{background:#fff8dd;border-color:#dfcb86;color:#34495b}
+body.parent-colour .top-pro-credit strong{color:#7c5700}
+/* A varied editorial rhythm for benefits, support and learning examples. */
+body.parent-colour :is(.promise-card,.rev-card,.why-item,.need,.pillar,.skill,.types .card){border:1px solid #b8d1df;border-radius:20px 20px 8px 8px;box-shadow:0 7px 0 #17364c09;background:#fff}
+body.parent-colour .promise-card.rose-card{border-top:7px solid #c4496c;background:linear-gradient(180deg,#ffe2ec,#fff 65%)}
+body.parent-colour .promise-card.blue-card{border-top:7px solid #3c72bc;background:linear-gradient(180deg,#dfeeff,#fff 65%)}
+body.parent-colour .promise-card.green-card{border-top:7px solid #2c9275;background:linear-gradient(180deg,#dcf3e7,#fff 65%)}
+body.parent-colour :is(.rev-cards,.need-grid,.pillars,.skills-grid,.why-grid) > :nth-child(3n+1){border-top:6px solid #4388c7}
+body.parent-colour :is(.rev-cards,.need-grid,.pillars,.skills-grid,.why-grid) > :nth-child(3n+2){border-top:6px solid #c95c7a}
+body.parent-colour :is(.rev-cards,.need-grid,.pillars,.skills-grid,.why-grid) > :nth-child(3n+3){border-top:6px solid #4a9b80}
+body.parent-colour :is(.need-icon,.skill-letter){display:inline-grid;place-items:center;min-width:44px;min-height:44px;padding:6px;border-radius:12px;background:#e2eeff;color:#24599b}
+body.parent-colour .concern-row{border-left:5px solid #c65c7a;background:#fff;border-radius:6px 18px 18px 6px;box-shadow:0 4px 0 #9835510a}
+body.parent-colour .concern-row:nth-child(2n){border-left-color:#4b88c7;background:#f5faff}
+body.parent-colour .level:nth-child(3n+1){background:#e9f6ef;border-color:#9bcbbb}
+body.parent-colour .level:nth-child(3n+2){background:#e7f0ff;border-color:#a6bfdf}
+body.parent-colour .level:nth-child(3n+3){background:#fff0db;border-color:#dfc191}
+body.parent-colour .guide-audience-item{padding:20px;background:#fff;border-radius:15px;border-left:5px solid #8d6bbf}
+body.parent-colour .guide-audience-item:nth-child(2n){border-left-color:#c35d7e;background:#fff8fa}
+body.parent-colour .guide-method-item{border-top:4px solid #4887b9;padding-top:18px}
+body.parent-colour .guide-method-item:nth-child(2n){border-color:#4b9c7e}
+/* Teacher portrait, an existing message, and credentials create a human pause. */
+body.parent-colour :is(.teacher-stage,.teacher-layout,.rev-teacher-layout,.guide-split){position:relative}
+body.parent-colour :is(.guide-portrait,.teacher-portrait img,.teacher-photo img){border-color:#fff;box-shadow:10px 10px 0 #75bfc944;border-radius:22px 22px 6px 6px}
+body.parent-colour :is(.guide-speech,.teacher-message){position:relative;background:#fff7d4;color:#634919;border:1px solid #dac578;border-radius:20px 20px 20px 3px;padding:18px 22px;box-shadow:0 5px 0 #a9871c0c}
+body.parent-colour .guide-speech:after{content:'';position:absolute;left:25px;bottom:-9px;width:16px;height:16px;transform:rotate(45deg);background:#fff7d4;border-right:1px solid #dac578;border-bottom:1px solid #dac578}
+body.parent-colour .guide-numbers{border:0;gap:10px;padding:12px 0}
+body.parent-colour .guide-numbers>div{padding:12px 4px;border-radius:12px;background:#fff;border-bottom:4px solid #80b4d5}
+body.parent-colour .guide-numbers>div:nth-child(2){border-color:#d095b9}
+body.parent-colour .guide-numbers>div:nth-child(3){border-color:#8cc5a6}
+body.parent-colour .guide-numbers dd{color:#1c587b}
+body.parent-colour .teacher-highlights>span{background:#fff6d7;border-color:#d8c37f;color:#18415a}
+body.parent-colour :is(.guide-recognition,.teacher-recognition){background:#fff;color:#243f54;border-left:5px solid var(--pc-primary);box-shadow:0 4px 0 #17364c07}
+body.parent-colour .guide-documents figure{background:#fff;padding:16px;border-radius:16px;border:1px solid #bacde2;box-shadow:0 7px 0 #afc8e33b}
+body.parent-colour .guide-documents figure:nth-child(2){border-color:#c8b3df;box-shadow:0 7px 0 #c5b0e33b}
+body.parent-colour .guide-documents figcaption{background:#ecf3ff;border-radius:8px;margin-top:10px;color:#254b6d}
+body.parent-colour .guide-documents figure:nth-child(2) figcaption{background:#f3eaff;color:#5a3e7b}
+/* Each step is distinguishable without changing its reading order. */
+body.parent-colour :is(.guide-process,.process-list,.lesson-steps)>li{background:#fff;border-radius:14px;border-top:5px solid #4b8dc0;box-shadow:0 5px 0 #17364c08}
+body.parent-colour :is(.guide-process,.process-list,.lesson-steps)>li:nth-child(2){border-color:#ca6b88}
+body.parent-colour :is(.guide-process,.process-list,.lesson-steps)>li:nth-child(3){border-color:#6aab88}
+body.parent-colour :is(.guide-process,.process-list,.lesson-steps)>li:nth-child(4){border-color:#9580c5}
+body.parent-colour :is(.guide-process,.process-list,.lesson-steps)>li:nth-child(5){border-color:#c3a144}
+body.parent-colour .guide-process li>span{background:#e5efff;border-radius:50%;width:38px;height:38px;padding:5px;text-align:center;color:#24599b}
+body.parent-colour .guide-process li:nth-child(2)>span{background:#ffe7ef;color:#a43a5b}
+body.parent-colour .guide-process li:nth-child(3)>span{background:#e1f5e7;color:#14654b}
+body.parent-colour .guide-process li:nth-child(4)>span{background:#efe5ff;color:#664298}
+/* Prices remain on paper. Colour separates information, never the amount. */
+body.parent-colour .billing-plan{border:1px solid #b8cfe0;border-top:6px solid var(--pc-primary);background:#fffdf9;box-shadow:0 8px 0 #17364c09}
+body.parent-colour .billing-plan__cases{gap:14px}
+body.parent-colour .billing-plan__cases>li{padding:16px 13px;border-radius:14px;background:#e8f1ff;border-top:4px solid #4e7cb6}
+body.parent-colour .billing-plan__cases>li:nth-child(2){background:#ffebf1;border-color:#c15c7b}
+body.parent-colour .billing-plan__cases>li:nth-child(3){background:#e4f6ed;border-color:#2f8970}
+body.parent-colour .billing-plan__cases>li>b{font-size:18px;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#285f9e;color:#fff}
+body.parent-colour .billing-plan__cases>li:nth-child(2)>b{background:#a33a5d}
+body.parent-colour .billing-plan__cases>li:nth-child(3)>b{background:#176e55}
+body.parent-colour .billing-plan .billing-plan__eyebrow{color:var(--pc-primary)}
+body.parent-colour .billing-plan .billing-plan__total{background:#fff2c5;border-color:#dfca7d}
+body.parent-colour .billing-plan__total>strong{color:#5b4a14}
+body.parent-colour .guide-cost-strip{border:1px solid #b8cfe0;box-shadow:0 6px 0 #17364c08}
+body.parent-colour .guide-cost-strip>div:nth-child(1){background:#e9f3ff}
+body.parent-colour .guide-cost-strip>div:nth-child(2){background:#ffedf1}
+body.parent-colour .guide-cost-strip>div:nth-child(3){background:#e9f6ed}
+body.parent-colour .guide-cost-strip>div:nth-child(1)>strong{color:#24599b}
+body.parent-colour .guide-cost-strip>div:nth-child(2)>strong{color:#a43a5b}
+body.parent-colour .guide-cost-strip>div:nth-child(3)>strong{color:#176e55}
+body.parent-colour .guide-table{border:1px solid #b3c8db;border-radius:10px;overflow:hidden}
+body.parent-colour .guide-table thead{background:var(--pc-primary)}
+body.parent-colour .guide-table tbody tr:nth-child(2n) td{background:#f5f9ff}
+body.parent-colour .guide-table tbody th{background:#e8f1f7;color:#173d58}
+body.parent-colour .guide-table td:nth-child(2){color:#105f4e;font-weight:700}
+body.parent-colour .guide-example{background:linear-gradient(115deg,#e3f0ff,#f3eaff);border:1px solid #adc7e3;border-radius:18px}
+body.parent-colour .monthly-example{border-top:6px solid #f2ca66}
+body.parent-colour :is(.guide-details,.course-price){border-color:#b9ccd9;background:#fff}
+body.parent-colour #estimate .estimate-total{background:#e6f6ed;color:#145b46;border-color:#98cbb2}
+body.parent-colour #estimate .estimate-total :is(span,small){color:#145b46}
+/* Questions feel approachable; full terms remain restrained and readable. */
+body.parent-colour :is(.guide-faq,#faq) details{background:#fff;border:1px solid #b1c9da;border-radius:12px;margin-bottom:12px;box-shadow:0 4px 0 #17364c06}
+body.parent-colour :is(.guide-faq,#faq) details:nth-of-type(2n){border-left:4px solid #bf6a8c}
+body.parent-colour :is(.guide-faq,#faq) details:nth-of-type(2n+1){border-left:4px solid #5793bd}
+body.parent-colour :is(.guide-faq,#faq) summary{color:#173b56;padding:18px 20px;line-height:1.8}
+body.parent-colour :is(.guide-faq,#faq) details[open] summary{background:#eaf3ff;color:#173b56}
+body.parent-colour .termination-formula>div:nth-of-type(1){background:#e7f3ff}
+body.parent-colour .termination-formula>div:nth-of-type(2){background:#fff1cd}
+body.parent-colour .termination-formula>div:nth-of-type(3){background:#e9f4e8}
+body.parent-colour .termination-cutoff article{border-radius:12px;border-left-color:#329878}
+body.parent-colour .termination-cutoff article:last-child{border-left-color:#c25d83;background:#fff8fa}
+body.parent-colour .embedded-payment__banks li:nth-child(3n+1){background:#fff;border-left:4px solid #649ac5}
+body.parent-colour .embedded-payment__banks li:nth-child(3n+2){background:#fff;border-left:4px solid #c1809d}
+body.parent-colour .embedded-payment__banks li:nth-child(3n+3){background:#fff;border-left:4px solid #6ca68a}
+/* A distinct end to the story, with colour glows rather than extra claims. */
+body.parent-colour #contact{background:radial-gradient(ellipse at 0 100%,#3b2f70,transparent 65%),radial-gradient(ellipse at 100% 0,#075f65,transparent 55%),#102c46;border-top:7px solid transparent;border-image:linear-gradient(90deg,#78d7bc,#96b9ec,#efb0c2,#e7d276) 1;color:#fff}
+body.parent-colour #contact :is(h2,.eyebrow,.bansou-title){color:#fff}
+body.parent-colour #contact .eyebrow{color:#c7eee4}
+body.parent-colour #contact :is(.button-outline,.btn.outline,.secondary-button){background:#ffffff10;border:1px solid #a8c8de;color:#fff;border-radius:12px}
+body.parent-colour #contact :is(.button-primary,.btn.primary){background:#d4f4e6;border-color:#a9dcc6;color:#103f35;box-shadow:0 7px 0 #0002}
+body.parent-colour #contact .consultation-desk{border-top:6px solid #9ecdbc;background:#fffaf1;color:#17364c;border-radius:18px}
+body.parent-colour #contact .consultation-sign{background:#ffedbe;color:#584416}
+body.parent-colour #contact .consultation-sign :is(span,strong){color:#584416}
+body.parent-colour #contact .consultation-desk :is(.primary-button,.guide-button){background:var(--pc-action);color:#fff}
+/* Related public pages share the accents without importing brand section layouts. */
+body.parent-colour[data-parent-brand=compare] .calculator-section{background:linear-gradient(120deg,#fff8db,#f0eaff)}
+body.parent-colour[data-parent-brand=compare] :is(.route-card,.intent-card){border-top:5px solid #699dc7}
+body.parent-colour[data-parent-brand=compare] .quote-card{border:2px solid #9bc8b8;box-shadow:0 8px 0 #c3dfd444}
+body.parent-colour[data-parent-brand=payment] main>.card:nth-of-type(2n){background:#e7f1ff}
+body.parent-colour[data-parent-brand=payment] .step:nth-child(2){background:#ffedf2}
+body.parent-colour[data-parent-brand=payment] .step:nth-child(3){background:#e4f5eb}
+body.parent-colour[data-parent-brand=intake] :is(.notice,.trial-policy){border-left:5px solid #5997ba;background:#eef6ff;color:#17364c}
+body.parent-colour[data-parent-brand=intake] .agreement-links{background:#f7f0ff}
+@media(max-width:760px){body.parent-colour .billing-plan__cases>li{padding:17px 14px}body.parent-colour .billing-plan__cases>li>b{width:32px;height:32px}body.parent-colour .guide-documents figure{padding:12px}body.parent-colour :is(.guide-speech,.teacher-message){padding:17px 18px}body.parent-colour .editorial-hero-photo{box-shadow:6px 7px 0 #98d4c755}body.parent-colour .guide-audience-item{padding:17px}body.parent-colour :is(.guide-faq,#faq) summary{padding:16px 14px}}
+@media(prefers-reduced-motion:reduce){body.parent-colour :is(a,button){transition:none}}
+
+body.parent-colour #termination-policy{background:linear-gradient(125deg,#eee8ff,#faf6ff);border-top:3px solid #9783bd}body.parent-colour[data-parent-brand=retry] #termination-policy{background:linear-gradient(125deg,#ffe9f0,#fff9fc)}
+
+body.parent-colour[data-parent-brand=compare] .button.primary{background:#b13758;color:#fff;border-color:#b13758;border-radius:12px}body.parent-colour[data-parent-brand=compare] .button.secondary{background:#e4f3ec;color:#155948;border-color:#a9cbbd}
+
+/* Two-layer keyboard focus stays visible on both light and navy panels. */
+body.parent-colour :is(a,button,summary,select,input,textarea):focus-visible{outline:3px solid #245eb3;outline-offset:3px;box-shadow:0 0 0 3px #fff,0 0 0 6px #245eb3}
+body.parent-colour[data-parent-brand=gyakuten] .teacher-layout .teacher-photo figcaption{background:#45478c;color:#fff}
+/* Nested navy fee panels retain their own light eyebrow labels. */
+body.parent-colour #pricing :is(.monthly-example,.optional-support) .eyebrow{color:#d4eee4}
+/* On dark photographic mastheads, the consultation action is the light anchor. */
+body.parent-colour.editorial-eiken{--pc-hero-action:#deecff;--pc-hero-ink:#174c80}
+body.parent-colour.impact-bansou{--pc-hero-action:#c9f5e5;--pc-hero-ink:#104f40}
+body.parent-colour.impact-retry{--pc-hero-action:#ffe39c;--pc-hero-ink:#31304f}
+body.parent-colour:is(.editorial-eiken,.impact-bansou,.impact-retry) .hero :is(.button-primary,.btn.primary){background:var(--pc-hero-action);border-color:var(--pc-hero-action);color:var(--pc-hero-ink);box-shadow:0 6px 0 #0003,0 12px 24px #0002}
+body.parent-colour .hero .top-pro-credit{background:#ffffff12;border-color:#ffffff66;color:#edf2fa}
+body.parent-colour .hero .top-pro-credit strong{color:#ffe49b}
