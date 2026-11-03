@@ -2,6 +2,7 @@ import {chromium,webkit} from 'playwright';
 import assert from 'node:assert/strict';
 import {mkdir,writeFile} from 'node:fs/promises';
 const base='http://127.0.0.1:4173',results=[];await mkdir('audit-results',{recursive:true});
+try {
 for(const [engine,type] of Object.entries({chromium,webkit})){
  const browser=await type.launch(),page=await browser.newPage({viewport:{width:390,height:844}});
  await page.goto(base+'/');
@@ -29,4 +30,5 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
  await page.getByRole('checkbox').check();await total('30,800円','任意サポートは割増対象外');
  await browser.close();
 }
+} catch(error) { await writeFile('audit-results/calculator-error.txt',error.stack||String(error));process.exitCode=1; }
 await writeFile('audit-results/calculator.json',JSON.stringify(results,null,2));console.log(JSON.stringify(results));

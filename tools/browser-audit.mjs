@@ -9,7 +9,8 @@ try {
 for(const [engine,type] of Object.entries({chromium,webkit})){
  const browser=await type.launch();
  for(const route of paths){
-  const page=await browser.newPage({viewport:{width:1366,height:900},reducedMotion:'reduce'});
+  const context=await browser.newContext({viewport:{width:1366,height:900},reducedMotion:'reduce'});
+  const page=await context.newPage();
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(base+route,{waitUntil:'networkidle'});
   await page.evaluate(()=>document.fonts.ready);
@@ -30,6 +31,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
     schemas:[...document.querySelectorAll('script[type="application/ld+json"]')].map(x=>{try{JSON.parse(x.textContent);return true;}catch{return false;}})
    }));
    results.push({engine,route,width,errors:[...errors],...state});
+   await writeFile(`${out}/matrix.json`,JSON.stringify(results,null,2));
    await page.screenshot({path:`${out}/${engine}-${name}-${width}.png`,fullPage:[390,1366].includes(width)});
    // Native mobile menus must close when a section is selected and on Escape.
    if(width===390){
@@ -50,7 +52,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
   const a11y=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze().catch(error=>({violations:[],error:error.stack}));
   await writeFile(`${out}/${engine}-${name}-axe.json`,JSON.stringify(a11y,null,2));
   results.push({engine,route,a11yError:a11y.error,a11y:a11y.violations.map(v=>({id:v.id,impact:v.impact,help:v.help,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}))});
-  await page.close();
+  await context.close();
  }
  await browser.close();
 }

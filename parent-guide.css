@@ -13,3 +13,17 @@
 @media(max-width:760px){.guide-inner{width:calc(100% - 32px)}.guide-split,.guide-editorial,.guide-example{grid-template-columns:1fr}.guide-split figure{max-width:440px;margin-inline:auto}.guide-documents{grid-template-columns:1fr;gap:18px}.guide-cost-strip{grid-template-columns:1fr;gap:1px}.guide-cost-strip>div{display:grid;grid-template-columns:100px 1fr;gap:10px;align-items:center;text-align:left;padding:14px 18px}.guide-cost-strip strong{text-align:center;font-size:27px}.guide-example{padding:20px}.guide-example img{max-height:180px}.guide-table th:first-child{width:43%}.guide-table th,.guide-table td{font-size:14px;padding:12px 5px}.guide-method-list,.guide-audience-list{grid-template-columns:1fr}.guide-success .case-growth-timeline li{grid-template-columns:1fr;gap:6px}.guide-details{padding:14px}.parent-guide summary{font-size:16px}.parent-guide .guide-numbers dd{font-size:28px}.guide-actions{display:grid;grid-template-columns:1fr}.guide-process{gap:12px}.guide-process li{padding:14px}.guide-process strong{font-size:17px}.parent-refresh .hero .hero-kicker{font-size:12px;letter-spacing:.03em;white-space:normal}.parent-refresh .brand-sub{font-size:10px;letter-spacing:.02em}}
 @media(max-width:360px){.guide-inner{width:calc(100% - 28px)}.guide-process{grid-template-columns:1fr}.guide-table th,.guide-table td{font-size:13px;padding-inline:4px}.guide-numbers{gap:6px}.parent-guide .guide-numbers dd{font-size:24px}.guide-cost-strip>div{grid-template-columns:82px 1fr}.parent-refresh .brand-name{white-space:normal;line-height:1.5}.parent-refresh .nav{gap:6px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.parent-refresh *{transition:none;animation:none}}
+/* Concrete contrast failures found by the mobile accessibility audit. */
+body[data-quality] .brand-grid .brand-companion .path-index{color:#49665c;opacity:1}
+body[data-quality] .promise-grid .promise-number{color:#806022}
+body[data-quality] :is(.monthly-example,.optional-support) .eyebrow{color:#d4eee4}
+body:has(.rev-profile) .proof .top-pro-credit strong,body:has(.rev-profile) .skills-grid .skill-letter,body:has(.rev-profile) .need-grid .need-icon,body:has(.rev-profile) .rev-profile .rev-overline,body:has(.rev-profile) .rev-equation small{color:#785212}
+body:has(.rev-profile) .teacher-layout .teacher-photo figcaption{color:#fff;background:#725414}
+body:has(.rev-profile) .rev-profile .rev-link,body:has(.rev-profile) .rev-profile .rev-link .phrase{color:#155d72}
+body:has(.rev-profile) .rev-steps li>span,body:has(.rev-profile) .rev-steps li>span .phrase{color:#425b70}
+.impact-bansou .section:not(.hero):not(.system):not(.cta) .eyebrow{color:#12675f}
+.impact-bansou #achievement .case-note{color:#425e70}
+.impact-retry :is(#about,#types,#flow) .eyebrow{color:#77520b}
+.impact-retry #about .num{color:#745016}
+.impact-retry #flow .step>b{color:#77520b;font-size:14px}
+.parent-refresh .pillar-label{color:#12675f;font-size:14px}
