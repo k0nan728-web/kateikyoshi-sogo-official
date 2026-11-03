@@ -44,3 +44,4 @@ body[data-parent-brand=retry] .first-visit-guide a.visit-consult{background:#594
 /* Inserting a guide must not change an existing dark band through nth-of-type. */
 body.parent-colour[data-parent-brand=retry] #method{background:linear-gradient(135deg,#08284e,#0e4f94)}
 body.parent-colour[data-parent-brand=retry] #method .eyebrow{color:#f7d77c}
+.visit-start li{text-wrap:balance}
