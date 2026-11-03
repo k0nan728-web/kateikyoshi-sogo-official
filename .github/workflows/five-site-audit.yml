@@ -26,11 +26,43 @@ jobs:
         run: |
           node tools/build-preview.mjs
           python3 -m http.server 4173 --directory dist >/tmp/five-site-server.log 2>&1 &
+      - name: Isolated form success and failure UI
+        run: node tools/form-ui-audit.mjs
+      - name: Verify calculator amounts and surcharge boundaries
+        if: always()
+        run: node tools/calculator-audit.mjs
       - name: Chromium and WebKit at six widths
+        if: always()
         run: node tools/browser-audit.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: five-site-audit-${{ github.sha }}
           path: audit-results/
+          retention-days: 14
+  mobile-performance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '24'}
+      - run: |
+          npm install --no-save playwright@1.56.1 lighthouse@12.8.2
+          npx playwright install --with-deps chromium
+      - name: Serve baseline and proposed static sites
+        run: |
+          git fetch --depth=1 origin 21a43719accc84e8c5fd33dcf234ae523258d2a0
+          mkdir -p /tmp/site-baseline
+          git archive 21a43719accc84e8c5fd33dcf234ae523258d2a0 | tar -x -C /tmp/site-baseline
+          node tools/build-preview.mjs
+          python3 -m http.server 4173 --directory dist >/tmp/after-server.log 2>&1 &
+          python3 -m http.server 4174 --directory /tmp/site-baseline >/tmp/before-server.log 2>&1 &
+      - name: Compare five sites under mobile lab conditions
+        run: node tools/performance-audit.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: five-site-performance-${{ github.sha }}
+          path: performance-results/
           retention-days: 14
