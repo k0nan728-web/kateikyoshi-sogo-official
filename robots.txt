@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /api/
+Disallow: /tuition-portal/
+Disallow: /tuition-admin-prototype/
+Disallow: /new/
+Disallow: /test/
+Disallow: /test-v2/
+Disallow: /manus/
+Sitemap: https://kateikyoshi-sogo.com/sitemap.xml
