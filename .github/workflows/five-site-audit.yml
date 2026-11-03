@@ -1,7 +1,7 @@
 name: Five site responsive and accessibility audit
 on:
   pull_request:
-    paths: ['index.html', 'eiken/**', 'gyakuten/**', 'bansou/**', 'retry/**', 'parent-guide.css', 'tools/**']
+    paths: ['index.html', 'eiken/**', 'gyakuten/**', 'bansou/**', 'retry/**', 'parent-guide.css', 'responsive-copy.js', 'responsive-copy.css', 'media/**', 'tools/**']
   workflow_dispatch:
 permissions:
   contents: read
