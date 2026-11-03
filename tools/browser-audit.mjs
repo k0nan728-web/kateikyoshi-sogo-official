@@ -33,6 +33,9 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    }));
    results.push({engine,route,width,errors:[...errors],...state});
    await writeFile(`${out}/matrix.json`,JSON.stringify(results,null,2));
+   // Materialize off-screen sections only for the full-page visual record.
+   // Overflow, links, images and menu behavior above are measured with production styles.
+   const visualStyle=await page.addStyleTag({content:'main>section{content-visibility:visible;contain-intrinsic-size:none}'});
    const height=await page.evaluate(()=>document.documentElement.scrollHeight);
    await page.screenshot({path:`${out}/${engine}-${name}-${width}.png`,fullPage:[390,1366].includes(width)&&(engine==='chromium'||height<32000)});
    if(engine==='webkit'&&width===390&&height>=32000){
@@ -43,6 +46,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
     }
     await page.evaluate(()=>scrollTo(0,0));
    }
+   await visualStyle.evaluate(el=>el.remove());
    // Native mobile menus must close when a section is selected and on Escape.
    if(width===390){
     const menu=page.locator('header details').first();

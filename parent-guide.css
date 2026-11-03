@@ -30,3 +30,7 @@ body:has(.rev-profile) .rev-steps li>span,body:has(.rev-profile) .rev-steps li>s
 
 .impact-bansou #achievement .eyebrow{color:#12675f}
 #system ol.flow{list-style:none;padding:0;margin:0}
+/* Long pages: defer off-screen layout while retaining DOM, search and accessibility. */
+@supports(content-visibility:auto){
+ main>section:nth-of-type(n+3){content-visibility:auto;contain-intrinsic-size:auto 900px}
+}
