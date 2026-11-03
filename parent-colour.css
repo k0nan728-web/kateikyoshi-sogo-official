@@ -166,3 +166,10 @@ body.parent-colour :is(a,button,summary,select,input,textarea):focus-visible{out
 body.parent-colour[data-parent-brand=gyakuten] .teacher-layout .teacher-photo figcaption{background:#45478c;color:#fff}
 /* Nested navy fee panels retain their own light eyebrow labels. */
 body.parent-colour #pricing :is(.monthly-example,.optional-support) .eyebrow{color:#d4eee4}
+/* On dark photographic mastheads, the consultation action is the light anchor. */
+body.parent-colour.editorial-eiken{--pc-hero-action:#deecff;--pc-hero-ink:#174c80}
+body.parent-colour.impact-bansou{--pc-hero-action:#c9f5e5;--pc-hero-ink:#104f40}
+body.parent-colour.impact-retry{--pc-hero-action:#ffe39c;--pc-hero-ink:#31304f}
+body.parent-colour:is(.editorial-eiken,.impact-bansou,.impact-retry) .hero :is(.button-primary,.btn.primary){background:var(--pc-hero-action);border-color:var(--pc-hero-action);color:var(--pc-hero-ink);box-shadow:0 6px 0 #0003,0 12px 24px #0002}
+body.parent-colour .hero .top-pro-credit{background:#ffffff12;border-color:#ffffff66;color:#edf2fa}
+body.parent-colour .hero .top-pro-credit strong{color:#ffe49b}
