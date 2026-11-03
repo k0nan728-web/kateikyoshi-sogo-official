@@ -5,9 +5,10 @@ const base=process.env.APP_URL||'http://127.0.0.1:4173';
 const out=process.env.AUDIT_OUT||'audit-results';await mkdir(out,{recursive:true});
 const paths=['/','/eiken/','/gyakuten/','/bansou/','/retry/'];
 const widths=[320,390,768,1024,1366,1920],results=[];
+const launched=[];
 try {
 for(const [engine,type] of Object.entries({chromium,webkit})){
- const browser=await type.launch();
+ const browser=await type.launch();launched.push(browser);
  for(const route of paths){
   const context=await browser.newContext({viewport:{width:1366,height:900},reducedMotion:'reduce'});
   const page=await context.newPage();
@@ -57,6 +58,7 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
  await browser.close();
 }
 } catch(error) { await writeFile(`${out}/error.txt`,error.stack||String(error));results.push({failure:String(error)}); }
+for(const browser of launched)await browser.close().catch(()=>{});
 await writeFile(`${out}/matrix.json`,JSON.stringify(results,null,2));
 const fail=results.filter(r=>r.failure||r.a11yError||r.scrollWidth>r.width||r.badAnchors?.length||r.duplicateIds?.length||r.badImages?.length||r.errors?.length||r.h1!==undefined&&r.h1!==1||r.schemas?.includes(false));
 console.log(JSON.stringify({checks:results.length,failures:fail},null,2));

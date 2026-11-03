@@ -2,9 +2,10 @@ import {chromium,webkit} from 'playwright';
 import assert from 'node:assert/strict';
 import {mkdir,writeFile} from 'node:fs/promises';
 const base='http://127.0.0.1:4173',out='audit-results';await mkdir(out,{recursive:true});const results=[];
+const launched=[];
 try {
 for(const [engine,type] of Object.entries({chromium,webkit})){
- const browser=await type.launch();
+ const browser=await type.launch();launched.push(browser);
  for(const kind of ['consult','trial','normal']){
   const page=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
   let responseMode='failure',posts=[];
@@ -65,4 +66,5 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
  await browser.close();
 }
 } catch(error) { await writeFile('audit-results/form-ui-error.txt',error.stack||String(error));process.exitCode=1; }
+for(const browser of launched)await browser.close().catch(()=>{});
 await writeFile(`${out}/form-ui.json`,JSON.stringify(results,null,2));console.log(JSON.stringify(results));

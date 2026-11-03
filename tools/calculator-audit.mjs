@@ -2,9 +2,10 @@ import {chromium,webkit} from 'playwright';
 import assert from 'node:assert/strict';
 import {mkdir,writeFile} from 'node:fs/promises';
 const base='http://127.0.0.1:4173',results=[];await mkdir('audit-results',{recursive:true});
+const launched=[];
 try {
 for(const [engine,type] of Object.entries({chromium,webkit})){
- const browser=await type.launch(),page=await browser.newPage({viewport:{width:390,height:844}});
+ const browser=await type.launch();launched.push(browser);const page=await browser.newPage({viewport:{width:390,height:844}});
  await page.goto(base+'/');
  async function homeTotal(expected,name){assert.equal(await page.locator('#estimate-amount').innerText(),expected);results.push({engine,name,total:expected});}
  await homeTotal('16,000円','home 5級60分月4回');
@@ -31,4 +32,5 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
  await browser.close();
 }
 } catch(error) { await writeFile('audit-results/calculator-error.txt',error.stack||String(error));process.exitCode=1; }
+for(const browser of launched)await browser.close().catch(()=>{});
 await writeFile('audit-results/calculator.json',JSON.stringify(results,null,2));console.log(JSON.stringify(results));
