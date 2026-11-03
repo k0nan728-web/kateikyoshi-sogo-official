@@ -2935,8 +2935,28 @@
   ],
   "unverified": [
     "real iPhone Safari",
-    "live CAPTCHA + email submission",
     "field Core Web Vitals",
-    "formal contract and fee legal review"
-  ]
+    "formal contract and fee legal review",
+    "live application submission (trial/regular)"
+  ],
+  "live_contact_submission": {
+    "checked_at_jst": "2026-11-03T20:54:36+09:00",
+    "user_approved_captcha": true,
+    "turnstile_ui": "success",
+    "completion_ui": "送信を受け付けました",
+    "automatic_reply_ui": true,
+    "data": "explicitly fictitious audit test; no real parent or student data; not an application or reservation",
+    "recipient": "info@kateikyoshi-sogo.com",
+    "instructor_notice": {
+      "id": "01a1a142-dc4b-787a-9b2f-5b8c3e870e9e",
+      "status": "delivered",
+      "audit_marker_verified": true
+    },
+    "receipt": {
+      "id": "01a1a142-dc9a-79df-8083-6fdd245696cc",
+      "status": "delivered",
+      "audit_name_verified": true
+    },
+    "screenshot": "contact-live-success-20261103.jpg"
+  }
 }
