@@ -33,7 +33,16 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
    }));
    results.push({engine,route,width,errors:[...errors],...state});
    await writeFile(`${out}/matrix.json`,JSON.stringify(results,null,2));
-   await page.screenshot({path:`${out}/${engine}-${name}-${width}.png`,fullPage:[390,1366].includes(width)});
+   const height=await page.evaluate(()=>document.documentElement.scrollHeight);
+   await page.screenshot({path:`${out}/${engine}-${name}-${width}.png`,fullPage:[390,1366].includes(width)&&(engine==='chromium'||height<32000)});
+   if(engine==='webkit'&&width===390&&height>=32000){
+    const sections=page.locator('main > section');
+    for(let i=0;i<await sections.count();i++){
+     await sections.nth(i).scrollIntoViewIfNeeded();
+     await page.screenshot({path:`${out}/${engine}-${name}-section-${i}.png`});
+    }
+    await page.evaluate(()=>scrollTo(0,0));
+   }
    // Native mobile menus must close when a section is selected and on Escape.
    if(width===390){
     const menu=page.locator('header details').first();

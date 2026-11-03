@@ -22,7 +22,8 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
  await select('目標の級','2');await select('1回の授業時間','90');await total('234,000円','2級90分月4回6か月');
  await page.getByRole('checkbox').check();await total('294,000円','2級90分月4回6か月＋サポート');await page.getByRole('checkbox').uncheck();
  await select('指導コース','university');
- assert.match(await page.getByRole('combobox',{name:'対策のレベル'}).innerText(),/上位国公立・難関私大/);
+ const tierText=await page.getByRole('combobox',{name:'対策のレベル'}).textContent();
+ for(const label of ['地方国公立・中堅私大（〜55）','上位国公立・難関私大（56〜62）','最難関国公立・超難関私大（63〜68）','最高難度（69以上）'])assert.ok(tierText.includes(label));
  await select('対策のレベル','standard');await select('1回の授業時間','120');await select('月の授業回数','6');await select('試算する期間','9');await total('756,000円','大学受験7000円120分月6回9か月');
  await select('指導コース','eiken');await select('目標の級','5');await select('1回の授業時間','60');await select('月の授業回数','3');await select('試算する期間','3');await total('36,000円','月3回×3か月＝総9回は通常');
  await select('試算する期間','1');await total('15,600円','総3回は1.3倍');

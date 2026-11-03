@@ -27,3 +27,6 @@ body:has(.rev-profile) .rev-steps li>span,body:has(.rev-profile) .rev-steps li>s
 .impact-retry #about .num{color:#745016}
 .impact-retry #flow .step>b{color:#77520b;font-size:14px}
 .parent-refresh .pillar-label{color:#12675f;font-size:14px}
+
+.impact-bansou #achievement .eyebrow{color:#12675f}
+#system ol.flow{list-style:none;padding:0;margin:0}
