@@ -2,9 +2,9 @@ name: Five site responsive and accessibility audit
 on:
   push:
     branches: [main]
-    paths: ['index.html', 'eiken/**', 'gyakuten/**', 'bansou/**', 'retry/**', 'parent-guide.css', 'parent-colour.css', 'responsive-copy.js', 'responsive-copy.css', 'media/**', 'tools/**', '.github/workflows/five-site-audit.yml']
+    paths: ['index.html', 'eiken/**', 'gyakuten/**', 'bansou/**', 'retry/**', 'parent-guide.css', 'parent-colour.css', 'first-visit.css', 'responsive-copy.js', 'responsive-copy.css', 'media/**', 'tools/**', '.github/workflows/five-site-audit.yml']
   pull_request:
-    paths: ['index.html', 'eiken/**', 'gyakuten/**', 'bansou/**', 'retry/**', 'parent-guide.css', 'parent-colour.css', 'responsive-copy.js', 'responsive-copy.css', 'media/**', 'tools/**']
+    paths: ['index.html', 'eiken/**', 'gyakuten/**', 'bansou/**', 'retry/**', 'parent-guide.css', 'parent-colour.css', 'first-visit.css', 'responsive-copy.js', 'responsive-copy.css', 'media/**', 'tools/**']
   workflow_dispatch:
 permissions:
   contents: read
@@ -45,6 +45,15 @@ jobs:
             audit-results/*form*
             audit-results/calculator*
           retention-days: 14
+      - name: Parent questions, keyboard reading order and free consultation handoff
+        if: always()
+        run: node tools/parent-journey-audit.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: parent-journeys-${{ github.sha }}
+          path: parent-journey-results/
+          retention-days: 14
       - name: Chromium and WebKit at seven widths
         if: always()
         run: node tools/browser-audit.mjs
@@ -74,9 +83,9 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Serve baseline and proposed static sites
         run: |
-          git fetch --depth=1 origin 21a43719accc84e8c5fd33dcf234ae523258d2a0
+          git fetch --depth=1 origin 9005420601f86db6ebfea72f0ef0558a620ac20e
           mkdir -p /tmp/site-baseline
-          git archive 21a43719accc84e8c5fd33dcf234ae523258d2a0 | tar -x -C /tmp/site-baseline
+          git archive 9005420601f86db6ebfea72f0ef0558a620ac20e | tar -x -C /tmp/site-baseline
           node tools/build-preview.mjs
           python3 -m http.server 4173 --directory dist >/tmp/after-server.log 2>&1 &
           python3 -m http.server 4174 --directory /tmp/site-baseline >/tmp/before-server.log 2>&1 &
