@@ -13,6 +13,9 @@ for(const [engine,type] of Object.entries({chromium,webkit})){
     const guide=base+route+'#first-visit';
     await page.goto(guide,{waitUntil:'networkidle'});
     await page.evaluate(()=>document.fonts.ready);
+    const phraseLines=await page.locator('#first-visit-title .visit-title-unit').evaluateAll(es=>es.map(e=>{const r=document.createRange();r.selectNodeContents(e);return [...r.getClientRects()].filter(x=>x.width>0).length}));
+    if(phraseLines.length!==2||phraseLines.some(n=>n!==1))throw Error('A guide heading breaks inside a Japanese phrase');
+    row.headingPhraseLines=phraseLines;
     const nav=page.getByRole('navigation',{name:'受講前に確認したいこと'});
     const links=await nav.locator('a').evaluateAll(es=>es.map(e=>({href:e.getAttribute('href'),text:e.innerText})));
     if(links.length!==4)throw Error('Four parent questions are not available');

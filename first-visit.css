@@ -40,7 +40,7 @@ body[data-parent-brand=retry] .first-visit-guide a.visit-consult{background:#594
 
 .visit-nav small>span{display:block;text-wrap:pretty}
 
-.first-visit-guide .visit-title-unit{display:inline-block;max-width:100%}
+body.parent-colour #first-visit-title .visit-title-unit{display:inline-block;max-width:100%}
 /* Inserting a guide must not change an existing dark band through nth-of-type. */
 body.parent-colour[data-parent-brand=retry] #method{background:linear-gradient(135deg,#08284e,#0e4f94)}
 body.parent-colour[data-parent-brand=retry] #method .eyebrow{color:#f7d77c}
