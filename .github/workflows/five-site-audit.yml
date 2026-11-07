@@ -2,9 +2,9 @@ name: Five site responsive and accessibility audit
 on:
   push:
     branches: [main]
-    paths: ['index.html', 'eiken/**', 'gyakuten/**', 'bansou/**', 'retry/**', 'parent-guide.css', 'parent-colour.css', 'first-visit.css', 'responsive-copy.js', 'responsive-copy.css', 'media/**', 'tools/**', '.github/workflows/five-site-audit.yml']
+    paths: ['index.html', 'eiken/**', 'gyakuten/**', 'bansou/**', 'retry/**', 'blog/**', 'growth-sections.js', 'sitemap.xml', 'parent-guide.css', 'parent-colour.css', 'first-visit.css', 'responsive-copy.js', 'responsive-copy.css', 'media/**', 'tools/**', '.github/workflows/five-site-audit.yml']
   pull_request:
-    paths: ['index.html', 'eiken/**', 'gyakuten/**', 'bansou/**', 'retry/**', 'parent-guide.css', 'parent-colour.css', 'first-visit.css', 'responsive-copy.js', 'responsive-copy.css', 'media/**', 'tools/**']
+    paths: ['index.html', 'eiken/**', 'gyakuten/**', 'bansou/**', 'retry/**', 'blog/**', 'growth-sections.js', 'sitemap.xml', 'parent-guide.css', 'parent-colour.css', 'first-visit.css', 'responsive-copy.js', 'responsive-copy.css', 'media/**', 'tools/**', '.github/workflows/five-site-audit.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -31,6 +31,8 @@ jobs:
         run: |
           node tools/build-preview.mjs
           python3 -m http.server 4173 --directory dist >/tmp/five-site-server.log 2>&1 &
+      - name: SEO article pages, metadata, structured data and sitemap
+        run: node tools/seo-content-audit.mjs
       - name: Isolated form success and failure UI
         run: node tools/form-ui-audit.mjs
       - name: Verify calculator amounts and surcharge boundaries
