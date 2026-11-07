@@ -38,21 +38,21 @@
   "category": "塾・家庭教師の選び方",
   "title": "家庭教師と塾はどちらがいい？子どもに合う学び方を選ぶ7つの視点",
   "excerpt": "集団塾・個別指導塾・家庭教師の特徴を公平に比較。学習状況や通塾負担、費用から選び方を整理します。",
-  "url": "/blog/?article=kateikyoshi-or-cram-school",
+  "url": "/blog/kateikyoshi-or-cram-school/",
   "date": "2026.11.07"
 },
 {
   "category": "家庭教師の選び方",
   "title": "オンライン家庭教師とは？対面型との違い・メリット・注意点",
   "excerpt": "授業方法や必要な準備、オンラインならではの利点と注意点を解説します。",
-  "url": "/blog/?article=what-is-online-tutor",
+  "url": "/blog/what-is-online-tutor/",
   "date": "2026.11.07"
 },
 {
   "category": "料金・費用",
   "title": "家庭教師の料金相場を比べるには？月謝以外に確認したい費用",
   "excerpt": "入会金・管理費・交通費・教材費などを含めて、同じ条件で総額を比べる方法を紹介。",
-  "url": "/blog/?article=tutor-costs-compare",
+  "url": "/blog/tutor-costs-compare/",
   "date": "2026.11.07"
 }
   ];
