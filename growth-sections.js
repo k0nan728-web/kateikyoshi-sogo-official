@@ -34,30 +34,27 @@
   ];
 
   const articleCards = [
-    {
-      category: "英検対策",
-      title: "英検の勉強は、何から始める？ 逆算する4つのステップ",
-      excerpt:
-        "目標級・現在地・試験日・4技能の優先順位を整理し、英検学習を遠回りにしないための考え方を解説します。",
-      url: "/blog/?article=eiken-study-roadmap",
-      date: "2026.08.12",
-    },
-    {
-      category: "学習法",
-      title: "文系受験、何から立て直す？ 科目の優先順位を決める考え方",
-      excerpt:
-        "英語・国語・社会を同時に伸ばすために、志望校の配点と現在地から学習の順番を整理します。",
-      url: "/blog/?article=humanities-exam-priority",
-      date: "2026.08.05",
-    },
-    {
-      category: "不登校・通信制",
-      title: "学校に通いづらい時期、学習をどう再開する？",
-      excerpt:
-        "量よりも安心して続けられる形を大切にする、学習再開と保護者の関わり方を紹介します。",
-      url: "/blog/?article=restart-study-at-home",
-      date: "2026.07.28",
-    },
+{
+  "category": "塾・家庭教師の選び方",
+  "title": "家庭教師と塾はどちらがいい？子どもに合う学び方を選ぶ7つの視点",
+  "excerpt": "集団塾・個別指導塾・家庭教師の特徴を公平に比較。学習状況や通塾負担、費用から選び方を整理します。",
+  "url": "/blog/?article=kateikyoshi-or-cram-school",
+  "date": "2026.11.07"
+},
+{
+  "category": "家庭教師の選び方",
+  "title": "オンライン家庭教師とは？対面型との違い・メリット・注意点",
+  "excerpt": "授業方法や必要な準備、オンラインならではの利点と注意点を解説します。",
+  "url": "/blog/?article=what-is-online-tutor",
+  "date": "2026.11.07"
+},
+{
+  "category": "料金・費用",
+  "title": "家庭教師の料金相場を比べるには？月謝以外に確認したい費用",
+  "excerpt": "入会金・管理費・交通費・教材費などを含めて、同じ条件で総額を比べる方法を紹介。",
+  "url": "/blog/?article=tutor-costs-compare",
+  "date": "2026.11.07"
+}
   ];
 
   const section = (id, className, html) => {
