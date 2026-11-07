@@ -1,5 +1,6 @@
 import { chromium } from 'playwright';
-import { readFile } from 'node:fs/promises';
+import { mkdir, readFile } from 'node:fs/promises';
+await mkdir('audit-results', { recursive: true });
 
 const base = process.env.APP_URL || 'http://127.0.0.1:4173';
 const slugs = [
