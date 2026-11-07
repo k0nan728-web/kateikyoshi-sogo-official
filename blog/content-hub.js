@@ -466,7 +466,7 @@
       .replaceAll("'", "&#039;");
 
   const localUrl = (slug) =>
-    `${window.location.origin}/blog/?article=${encodeURIComponent(slug)}`;
+    `${window.location.origin}/blog/${encodeURIComponent(slug)}/`;
 
   const external = (url) =>
     `href="${url}" target="_blank" rel="noopener noreferrer"`;
@@ -539,10 +539,10 @@
   const articleCard = (article, featured = false) => `
     <article class="hub-card${featured ? " hub-card--featured" : ""}">
       <div class="hub-card-meta"><span>${escapeHtml(article.category)}</span><time datetime="${article.date}">${escapeHtml(article.displayDate)}</time><small>${escapeHtml(article.readingTime)}</small></div>
-      <h2><a href="?article=${encodeURIComponent(article.slug)}">${escapeHtml(article.title)}</a></h2>
+      <h2><a href="${localUrl(article.slug)}">${escapeHtml(article.title)}</a></h2>
       <p>${escapeHtml(article.summary)}</p>
       <div class="hub-tags">${article.tags.map((tag) => `<span>#${escapeHtml(tag)}</span>`).join("")}</div>
-      <a class="hub-card-link" href="?article=${encodeURIComponent(article.slug)}">記事を読む <span>→</span></a>
+      <a class="hub-card-link" href="${localUrl(article.slug)}">記事を読む <span>→</span></a>
     </article>`;
 
   const renderIndex = () => {
