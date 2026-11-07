@@ -46,7 +46,7 @@ try {
   const blogResponse = await page.goto(`${base}/blog/`, { waitUntil: 'networkidle' });
   if (!blogResponse || blogResponse.status() !== 200) failures.push('blog index: not reachable');
   for (const slug of slugs) {
-    const count = await page.locator(`a[href="/blog/${slug}/"]`).count();
+    const count = await page.locator(`a[href$="/blog/${slug}/"]`).count();
     if (!count) failures.push(`blog index: missing article link ${slug}`);
   }
 } finally {
