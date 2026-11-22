@@ -22,7 +22,12 @@
   ];
   const BLOG_HOME_URL = "/blog/";
   const COMPARISON_GUIDE_URL = "/hikaku/";
-  const LEGACY_BLOG_URL = "https://eiken-seminar.hatenablog.jp/";
+  const SPECIALIST_BLOGS = [
+    { name: "英検合格ゼミナール", focus: "英検5級〜準1級・S-CBT", url: "/eiken/blog/", tone: "eiken" },
+    { name: "逆転合格ゼミナール", focus: "不登校・通信制から大学受験", url: "/gyakuten/blog/", tone: "gyakuten" },
+    { name: "進路伴走ゼミナール", focus: "不登校・通信制高校・進路", url: "/bansou/blog/", tone: "bansou" },
+    { name: "Re:大学受験", focus: "浪人・社会人・再受験", url: "/retry/blog/", tone: "retry" },
+  ];
 
   // Set an account URL here when each official channel is ready to publish.
   // Empty values intentionally render as "準備中" to avoid misleading visitors.
@@ -312,6 +317,27 @@
           <div class="ks-content-topics" aria-label="今後発信するテーマ">
             <span>英検対策</span><span>受験戦略</span><span>不登校・通信制</span><span>学習法</span><span>参考書レビュー</span><span>保護者向け学習相談</span>
           </div>
+          <section class="ks-specialist-blogs" id="specialist-blogs" aria-labelledby="specialist-blogs-title">
+            <div class="ks-specialist-blogs-heading"><p class="ks-eyebrow">FOUR SPECIALIST JOURNALS</p><h3 id="specialist-blogs-title">専門テーマ別ブログ</h3><p>目的に合った専門ブログで、より詳しい学習情報をご覧いただけます。</p></div>
+            <div class="ks-specialist-blogs-grid">
+              ${SPECIALIST_BLOGS.map((blog) => `<a class="ks-specialist-blog-card ks-specialist-blog-card--${blog.tone}" href="${blog.url}"><span>${blog.focus}</span><strong>${blog.name}</strong><b aria-hidden="true">記事を読む →</b></a>`).join("")}
+            </div>
+          </section>
+          <style>
+            .ks-specialist-blogs{margin:34px 0 0;padding:clamp(20px,3vw,30px);border-radius:20px;background:#f2f6f8}
+            .ks-specialist-blogs-heading{text-align:center;margin:0 auto 20px;max-width:650px}
+            .ks-specialist-blogs-heading h3{margin:4px 0 8px;font-size:clamp(1.35rem,2.5vw,1.8rem);color:#183c56}
+            .ks-specialist-blogs-heading p:last-child{margin:0;color:#526b7d}
+            .ks-specialist-blogs-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+            .ks-specialist-blog-card{display:flex;flex-direction:column;justify-content:space-between;gap:12px;min-width:0;min-height:145px;padding:17px;border:1px solid #d9e4ea;border-top:4px solid var(--blog-accent);border-radius:14px;background:#fff;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease}
+            .ks-specialist-blog-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px #16384b14}
+            .ks-specialist-blog-card span{font-size:.78rem;line-height:1.55;color:#526b7d}
+            .ks-specialist-blog-card strong{font-size:1rem;line-height:1.5;color:#193b54}
+            .ks-specialist-blog-card b{font-size:.82rem;color:var(--blog-accent)}
+            .ks-specialist-blog-card--eiken{--blog-accent:#167c72}.ks-specialist-blog-card--gyakuten{--blog-accent:#315c91}.ks-specialist-blog-card--bansou{--blog-accent:#a56a37}.ks-specialist-blog-card--retry{--blog-accent:#76538f}
+            @media(max-width:800px){.ks-specialist-blogs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+            @media(max-width:480px){.ks-specialist-blogs-grid{grid-template-columns:1fr}.ks-specialist-blog-card{min-height:112px}}
+          </style>
         </div>
       `,
     );
@@ -326,7 +352,8 @@
       { href: COMPARISON_GUIDE_URL, label: "料金・比較", className: "ks-header-comparison-link" },
       { href: "#reasons", label: "選ばれる理由" },
       { href: "#stoaca", label: "講座・SNS" },
-      { href: "/blog/", label: "教育コラム" },
+      { href: "/blog/", label: "総合コラム" },
+      { href: "/#specialist-blogs", label: "専門ブログ" },
     ];
     const faqLinks = document.querySelectorAll('nav a[href="#faq"]');
     faqLinks.forEach((faqLink) => {
