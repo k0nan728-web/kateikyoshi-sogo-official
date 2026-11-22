@@ -352,7 +352,8 @@
       { href: COMPARISON_GUIDE_URL, label: "料金・比較", className: "ks-header-comparison-link" },
       { href: "#reasons", label: "選ばれる理由" },
       { href: "#stoaca", label: "講座・SNS" },
-      { href: "/blog/", label: "教育コラム" },
+      { href: "/blog/", label: "総合コラム" },
+      { href: "/#specialist-blogs", label: "専門ブログ" },
     ];
     const faqLinks = document.querySelectorAll('nav a[href="#faq"]');
     faqLinks.forEach((faqLink) => {
