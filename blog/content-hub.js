@@ -1,5 +1,4 @@
 (() => {
-  const LEGACY_BLOG_URL = "https://eiken-seminar.hatenablog.jp/";
   const CONTACT_URL = "https://kateikyoshi-sogo.com/#contact";
 
   // 公式アカウントを公開する際は、該当する url に公式URLを設定してください。
@@ -561,7 +560,7 @@
       <header class="hub-header">
         <div class="hub-header-inner">
           <a class="hub-brand" href="../" aria-label="プロ家庭教師 鈴木雄太 公式サイト トップへ戻る"><span>プロ家庭教師</span>鈴木雄太のオンライン指導</a>
-          <nav aria-label="教育コラムのナビゲーション"><a href="../">公式サイトへ</a><a href="#articles">記事一覧</a><a href="${LEGACY_BLOG_URL}" target="_blank" rel="noopener noreferrer">旧ブログ ↗</a></nav>
+          <nav aria-label="教育コラムのナビゲーション"><a href="../">公式サイトへ</a><a href="#articles">記事一覧</a><a href="/#specialist-blogs">専門ブログ ↗</a></nav>
         </div>
       </header>
       <main>
@@ -570,7 +569,7 @@
             <p class="hub-kicker">EDUCATION JOURNAL</p>
             <h1>英検・受験・学習法を、<br>次の一歩につながる言葉で。</h1>
             <p>家庭教師と塾の選び方、個別指導の違い、オンライン指導や料金比較から、英検・大学受験・不登校まで。お子様と保護者様の疑問を整理し、納得できる学び方を考える教育コラムです。</p>
-            <div class="hub-hero-actions"><a href="#articles" class="hub-button">新着記事を読む <span>↓</span></a><a ${external(LEGACY_BLOG_URL)} class="hub-button hub-button--outline">旧ブログを見る <span>↗</span></a></div>
+            <div class="hub-hero-actions"><a href="#articles" class="hub-button">新着記事を読む <span>↓</span></a><a href="/#specialist-blogs" class="hub-button hub-button--outline">4つの専門ブログを見る <span>↗</span></a></div>
           </div>
         </section>
         <section class="hub-featured"><div class="hub-shell"><p class="hub-section-label">LATEST ARTICLE</p><div class="hub-featured-grid"><div><h2>最初に読んでほしい記事</h2><p>教材や勉強時間を増やす前に、目標と現在地を整理することから始めましょう。</p></div>${articleCard(ARTICLES[0], true)}</div></div></section>
